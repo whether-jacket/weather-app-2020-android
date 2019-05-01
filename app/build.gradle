@@ -64,11 +64,12 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
     implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp3_version"
-
-    implementation "com.google.code.gson:gson:$gson_version"
 
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
