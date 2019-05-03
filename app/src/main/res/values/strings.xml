@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Template Application</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
 </resources>
