@@ -62,6 +62,7 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "com.google.android.material:material:$material_version"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
