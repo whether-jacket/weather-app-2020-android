@@ -10,5 +10,6 @@ class TemplateApplication: Application() {
     }
 
     private fun setupLibraries() {
+        ObjectBox.init(this)
     }
 }
