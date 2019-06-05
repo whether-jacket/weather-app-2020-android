@@ -1,6 +1,8 @@
 package com.seljabali.templateapplication
 
 import android.app.Application
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 
 class TemplateApplication: Application() {
 
@@ -11,5 +13,6 @@ class TemplateApplication: Application() {
 
     private fun setupLibraries() {
         ObjectBox.init(this)
+        Logger.addLogAdapter(AndroidLogAdapter())
     }
 }

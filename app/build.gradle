@@ -86,6 +86,7 @@ dependencies {
     implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxbinding_version"
 
     implementation "io.objectbox:objectbox-kotlin:$objectbox_version"
+    implementation "com.orhanobut:logger:$logger_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"
