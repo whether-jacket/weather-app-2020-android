@@ -1,34 +1,33 @@
 package com.seljabali.templateapplication.utilities
 
 import android.content.Context
-import android.content.pm.PackageManager
-import androidx.annotation.StringDef
-import kotlin.annotation.Retention
+import android.os.Build
+import androidx.annotation.RequiresApi
 
 object App {
 
-    @StringDef(GOOGLE_MAPS, PLAY_STORE)
-    @Retention(AnnotationRetention.SOURCE)
-    annotation class AppsOnPlayStore
-
-    const val GOOGLE_MAPS = "com.google.android.apps.maps"
-    const val PLAY_STORE = "com.android.vending"
-
     @JvmStatic
-    fun isInstalled(context: Context, packageName: String): Boolean =
+    fun getPakageName(context: Context): String =
         try {
-            context.packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
-            true
-        } catch (e: PackageManager.NameNotFoundException) {
-            false
+            context.packageManager.getPackageInfo(context.packageName, 0).packageName
+        } catch (e: Exception) {
+            ""
         }
 
     @JvmStatic
-    fun isInstalled(context: Context, appOnPlayStore: AppsOnPlayStore): Boolean = isInstalled(context, appOnPlayStore)
+    fun getVersionName(context: Context): String =
+        try {
+            context.packageManager.getPackageInfo(context.packageName, 0).versionName
+        } catch (e: Exception) {
+            ""
+        }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     @JvmStatic
-    fun isNotInstalled(context: Context, packageName: String): Boolean = !isInstalled(context, packageName)
-
-    @JvmStatic
-    fun isNotInstalled(context: Context, appOnPlayStore: AppsOnPlayStore): Boolean = isNotInstalled(context, appOnPlayStore)
+    fun getVersionCode(context: Context): Long =
+        try {
+            context.packageManager.getPackageInfo(context.packageName, 0).longVersionCode
+        } catch (e: Exception) {
+            0L
+        }
 }
