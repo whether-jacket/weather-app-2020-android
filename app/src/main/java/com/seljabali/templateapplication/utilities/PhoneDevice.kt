@@ -41,13 +41,11 @@ object PhoneDevice {
     @JvmStatic
     fun hasCameraFlash(context: Context): Boolean = context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
 
-
     /**
      *  GPS
      */
     @JvmStatic
     fun hasGPSEnabled(context: Context): Boolean = (context.getSystemService(Context.LOCATION_SERVICE) as LocationManager).isProviderEnabled(LocationManager.GPS_PROVIDER)
-
 
     /**
      *  Wifi

@@ -10,7 +10,7 @@ fun Float.round(decimalPlaces: Int): Float = BigDecimal(this.toString()).setScal
 
 fun Float.roundUp(decimalPlaces: Int): Float = BigDecimal(this.toString()).setScale(decimalPlaces, BigDecimal.ROUND_UP).toFloat()
 
-fun Float.Companion.getValueOrZero(float: String): Float {
+fun Float.Companion.valueOfOrZero(float: String): Float {
     if (float.isEmpty()) {
         return 0f
     }
@@ -21,15 +21,15 @@ fun Float.Companion.getValueOrZero(float: String): Float {
     }
 }
 
-fun Float.getAmountInUSDFormat(): String {
+fun Float.asAmountInUSDFormat(): String {
     val formatter = NumberFormat.getCurrencyInstance(Locale.US)
     formatter.maximumFractionDigits = 2
     return formatter.format(this.toDouble()).trim { it <= ' ' }
 }
 
-fun Float.getAmountIntegerInUSDFormat(): String = getAmountIntegerInUSDFormat(2)
+fun Float.asAmountIntegerInUSDFormat(): String = asAmountIntegerInUSDFormat(2)
 
-fun Float.getAmountIntegerInUSDFormat(fractionDigits: Int): String {
+fun Float.asAmountIntegerInUSDFormat(fractionDigits: Int): String {
     val formatter = NumberFormat.getCurrencyInstance(Locale.US)
     formatter.maximumFractionDigits = fractionDigits
     return formatter.format(this.toDouble())

@@ -14,7 +14,7 @@ fun TextView.isBlank(): Boolean = getTextValue().isBlank()
 
 fun TextView.isNotBlank(): Boolean = !isBlank()
 
-fun TextView.getTrimmed(): String = getTextValue().trim()
+fun TextView.trimmed(): String = getTextValue().trim()
 
 fun TextView.getTextLength(): Int = getTextValue().length
 
