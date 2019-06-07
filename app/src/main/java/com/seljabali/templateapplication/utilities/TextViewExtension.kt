@@ -2,7 +2,6 @@ package com.seljabali.templateapplication.utilities
 
 import android.text.Html
 import android.text.method.LinkMovementMethod
-import android.view.View
 import android.widget.TextView
 
 fun TextView.getTextValue(): String = text.toString()
@@ -18,14 +17,6 @@ fun TextView.isNotBlank(): Boolean = !isBlank()
 fun TextView.getTrimmed(): String = getTextValue().trim()
 
 fun TextView.getTextLength(): Int = getTextValue().length
-
-fun TextView.setLinkOrHide(text: String, linkAddress: String) {
-    if (linkAddress.isEmpty()) {
-        visibility = View.GONE
-        return
-    }
-    setLink(text, linkAddress)
-}
 
 fun TextView.setLink(text: String, linkAddress: String) {
     if (linkAddress.isEmpty()) {

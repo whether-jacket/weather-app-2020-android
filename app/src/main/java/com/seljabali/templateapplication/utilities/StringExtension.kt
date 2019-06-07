@@ -21,11 +21,7 @@ fun String.compareInsensitiveOrder(rhs: String): Int = String.CASE_INSENSITIVE_O
 
 fun String.getWithoutHtmlTags(): String = if (isEmpty()) "" else android.text.Html.fromHtml(this).toString().trim { it <= ' ' }
 
-fun String.getInBulletPoints(): String {
-    return if (isEmpty()) {
-        ""
-    } else "\u2022 " + this.replace("\n\n", "\n").replace("\n", "\n \u2022 ")
-}
+fun String.getInBulletPoints(): String = if (isEmpty()) "" else "\u2022 " + this.replace("\n\n", "\n").replace("\n", "\n \u2022 ")
 
 object StringUtil {
 
