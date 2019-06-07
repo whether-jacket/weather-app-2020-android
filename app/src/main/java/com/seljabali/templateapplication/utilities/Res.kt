@@ -8,10 +8,12 @@ import androidx.annotation.*
 import androidx.core.content.ContextCompat
 
 object Res {
+
     private const val POINT = "."
     private const val R = "R"
     private const val JOIN = "$"
     private const val DRAWABLE = "drawable"
+    private const val STRING = "string"
 
     @JvmStatic
     fun getIdentifier(context: Context, @AnyRes id: Int): String? = context.resources.getResourceEntryName(id)
@@ -91,7 +93,7 @@ object Res {
 
     fun getString(context: Context, name: String): String =
         try {
-            context.resources.getString(context.resources.getIdentifier(name, "string", context.packageName))
+            context.resources.getString(context.resources.getIdentifier(name, STRING, context.packageName))
         } catch (e: Exception) {
             ""
         }
