@@ -36,4 +36,10 @@ object App {
 
     @JvmStatic
     fun isInDebugMode(): Boolean = BuildConfig.DEBUG
+
+    @JvmStatic
+    fun getBuildType(): String = BuildConfig.BUILD_TYPE
+
+    @JvmStatic
+    fun getBuildFlavor(): String = BuildConfig.FLAVOR
 }
