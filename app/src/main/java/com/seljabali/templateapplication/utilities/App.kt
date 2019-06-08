@@ -1,8 +1,8 @@
 package com.seljabali.templateapplication.utilities
 
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
+import android.os.Build.VERSION_CODES.P
+import com.seljabali.templateapplication.BuildConfig
 
 object App {
 
@@ -22,12 +22,18 @@ object App {
             ""
         }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     @JvmStatic
     fun getVersionCode(context: Context): Long =
         try {
-            context.packageManager.getPackageInfo(context.packageName, 0).longVersionCode
+            if (OsVersion.isAtLeast(P)) {
+                context.packageManager.getPackageInfo(context.packageName, 0).longVersionCode
+            } else {
+                BuildConfig.VERSION_CODE.toLong()
+            }
         } catch (e: Exception) {
             0L
         }
+
+    @JvmStatic
+    fun isInDebugMode(): Boolean = BuildConfig.DEBUG
 }
