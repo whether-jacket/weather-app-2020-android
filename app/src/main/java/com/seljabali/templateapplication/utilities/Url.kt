@@ -1,37 +1,22 @@
 package com.seljabali.templateapplication.utilities
 
 import android.net.Uri
-import android.text.TextUtils
+import java.net.URLDecoder
 import java.net.URLEncoder
 
 object Url {
 
+    private const val UTF_8 = "UTF-8"
+
     @JvmStatic
-    fun encode(url: String): String {
-        if (TextUtils.isEmpty(url)) {
-            return url
-        }
-        var encodedURL = ""
-        val temp = url.split("/".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        val length = temp.size
-        for (index in 0 until length) {
-            try {
-                temp[index] = URLEncoder.encode(temp[index], "UTF-8")
-                temp[index] = temp[index].replace("+", "%20")
-            } catch (e: Exception) {
-                return url
-            }
-            encodedURL += temp[index]
-            if (index < length - 1) {
-                encodedURL += "/"
-            }
-        }
-        return encodedURL
-    }
+    fun encode(url: String): String = URLEncoder.encode(url, UTF_8)
+
+    @JvmStatic
+    fun decode(url: String): String = URLDecoder.decode(url, UTF_8)
 
     @JvmStatic
     fun parse(url: String): Uri? {
-        if (TextUtils.isEmpty(url)) {
+        if (url.isEmpty()) {
             return null
         }
         var uri: Uri? = null
