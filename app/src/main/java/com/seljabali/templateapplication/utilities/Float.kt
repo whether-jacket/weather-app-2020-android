@@ -21,15 +21,7 @@ fun Float.Companion.valueOfOrZero(float: String): Float {
     }
 }
 
-fun Float.asAmountInUSDFormat(): String {
-    val formatter = NumberFormat.getCurrencyInstance(Locale.US)
-    formatter.maximumFractionDigits = 2
-    return formatter.format(this.toDouble()).trim { it <= ' ' }
-}
-
-fun Float.asAmountIntegerInUSDFormat(): String = asAmountIntegerInUSDFormat(2)
-
-fun Float.asAmountIntegerInUSDFormat(fractionDigits: Int): String {
+fun Float.asUSD(fractionDigits: Int = 2): String {
     val formatter = NumberFormat.getCurrencyInstance(Locale.US)
     formatter.maximumFractionDigits = fractionDigits
     return formatter.format(this.toDouble())

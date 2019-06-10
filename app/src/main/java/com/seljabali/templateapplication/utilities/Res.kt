@@ -19,11 +19,11 @@ object Res {
     fun getIdentifier(context: Context, @AnyRes id: Int): String? = context.resources.getResourceEntryName(id)
 
     @JvmStatic
-    fun getPath(context: Context, resFolder: String, resourceId: Int): String =
+    fun getPath(context: Context, resFolder: String, @AnyRes resourceId: Int): String =
         "android.resource://${context.packageName}/$resFolder/${getIdentifier(context, resourceId)}"
 
     @JvmStatic
-    fun getPathUri(context: Context, resFolder: String, resourceId: Int): Uri =
+    fun getPathUri(context: Context, resFolder: String, @AnyRes resourceId: Int): Uri =
         Uri.parse(getPath(context, resFolder, resourceId))
 
     @JvmStatic
