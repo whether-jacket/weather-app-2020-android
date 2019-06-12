@@ -14,29 +14,37 @@ object Permission {
     /**
      *  Has Permission
      */
+    @JvmStatic
     fun isNeeded(): Boolean = OsVersion.isAtLeast(M)
 
+    @JvmStatic
     fun isNotNeeded(): Boolean = !isNeeded()
 
+    @JvmStatic
     fun isGranted(context: Context, permission: String): Boolean = isNotNeeded() || ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
 
+    @JvmStatic
     fun isNotGranted(context: Context, permission: String): Boolean = !isGranted(context, permission)
 
     /**
      *  Request Permission
      */
+    @JvmStatic
     fun request(activity: Activity, permission: String, @IntRange(from = 0) requestCode: Int) {
         ActivityCompat.requestPermissions(activity, arrayOf(permission), requestCode)
     }
 
+    @JvmStatic
     fun request(activity: Activity, permissions: Array<String>, @IntRange(from = 0) requestCode: Int) {
         ActivityCompat.requestPermissions(activity, permissions, requestCode)
     }
 
+    @JvmStatic
     fun request(fragment: Fragment, permission: String, @IntRange(from = 0) requestCode: Int) {
         fragment.requestPermissions(arrayOf(permission), requestCode)
     }
 
+    @JvmStatic
     fun request(fragment: Fragment, permissions: Array<String>, @IntRange(from = 0) requestCode: Int) {
         fragment.requestPermissions(permissions, requestCode)
     }
@@ -44,7 +52,9 @@ object Permission {
     /**
      *  Granted Permission
      */
+    @JvmStatic
     fun wasGranted(grantResult: Int): Boolean = grantResult == PackageManager.PERMISSION_GRANTED
 
+    @JvmStatic
     fun wasGranted(grantResults: IntArray): Boolean = grantResults[0] == PackageManager.PERMISSION_GRANTED
 }

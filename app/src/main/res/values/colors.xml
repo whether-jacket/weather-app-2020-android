@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <!-- Input Layout/Text -->
+    <color name="error_color">@color/red</color>
+    <color name="hint_color_active">@color/colorPrimary</color>
+    <color name="hint_color_inactive">@color/gray</color>
 </resources>

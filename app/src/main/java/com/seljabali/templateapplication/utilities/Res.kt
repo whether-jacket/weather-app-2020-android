@@ -84,6 +84,7 @@ object Res {
     /**
      *  Get by Name
      */
+    @JvmStatic
     fun getDrawable(context: Context, name: String): Int =
         try {
             Class.forName(context.packageName + POINT + R + JOIN + DRAWABLE).getDeclaredField(name).get(null) as Int
@@ -91,6 +92,7 @@ object Res {
             -1
         }
 
+    @JvmStatic
     fun getString(context: Context, name: String): String =
         try {
             context.resources.getString(context.resources.getIdentifier(name, STRING, context.packageName))

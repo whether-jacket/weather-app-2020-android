@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/toolbar_progress_bar_height"
                 android:layout_marginTop="@dimen/toolbar_progress_bar_top_margin"
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:indeterminate="true"
                 style="?android:attr/progressBarStyleHorizontal"/>
     </FrameLayout>

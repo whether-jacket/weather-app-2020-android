@@ -8,4 +8,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!-- Input Layout/Text -->
+    <style name="MyStyle.InputLayout" parent="Widget.Design.TextInputLayout">
+        <!--<item name="fontPath">@string/app_font</item>-->
+        <item name="errorEnabled">true</item>
+        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+    </style>
+
+    <style name="MyTheme.EditText" parent="Theme.AppCompat.Light">
+        <!-- Inactive underline color-->
+        <item name="colorControlNormal">@color/hint_color_inactive</item>
+
+        <!-- Cursor and Active underline color, uses colorAccent by default if not defined-->
+        <item name="colorControlActivated">@color/hint_color_active</item>
+    </style>
+
+    <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">
+        <!-- Inactive and Active label color, pointing to a selector-->
+        <item name="android:textColor">@color/hint_color</item>
+    </style>
+
+    <style name="ErrorTextAppearance" parent="TextAppearance.Design.Error">
+        <!-- Error text color-->
+        <item name="android:textColor">@color/error_color</item>
+    </style>
+
+
 </resources>
