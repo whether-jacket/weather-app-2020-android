@@ -23,23 +23,27 @@ fun String.getWithoutHtmlTags(): String = if (isEmpty()) "" else android.text.Ht
 
 fun String.getInBulletPoints(): String = if (isEmpty()) "" else "\u2022 " + this.replace("\n\n", "\n").replace("\n", "\n \u2022 ")
 
-object StringUtil {
-
-    @JvmStatic
-    fun getListFlattened(delimiter: String, vararg stringList: String): String {
-        if (stringList.isEmpty()) {
-            return ""
-        }
-        val stringBuilder = StringBuilder()
-        for (i in stringList.indices) {
-            val currentString = stringList[i]
-            if (currentString.isNotEmpty()) {
-                stringBuilder.append(currentString)
-                if (i + 1 != stringList.size && stringList[i + 1].isNotEmpty()) {
-                    stringBuilder.append(delimiter)
-                }
+fun String.Companion.getListFlattened(delimiter: String, vararg stringList: String): String {
+    if (stringList.isEmpty()) {
+        return ""
+    }
+    val stringBuilder = StringBuilder()
+    for (i in stringList.indices) {
+        val currentString = stringList[i]
+        if (currentString.isNotEmpty()) {
+            stringBuilder.append(currentString)
+            if (i + 1 != stringList.size && stringList[i + 1].isNotEmpty()) {
+                stringBuilder.append(delimiter)
             }
         }
-        return stringBuilder.toString()
     }
+    return stringBuilder.toString()
 }
+
+fun String.Companion.areAllEmpty(vararg strings: String): Boolean = strings.all { it.isEmpty() }
+
+fun String.Companion.areAllNotEmpty(vararg strings: String): Boolean = strings.all { it.isNotEmpty() }
+
+fun String.Companion.areAnyEmpty(vararg strings: String): Boolean = strings.any { it.isEmpty() }
+
+fun String.Companion.areAnyNotEmpty(vararg strings: String): Boolean = strings.any { it.isNotEmpty() }

@@ -27,6 +27,10 @@ fun TextView.setLink(text: String, linkAddress: String) {
     movementMethod = LinkMovementMethod.getInstance()
 }
 
+fun TextView.setLink(linkAddress: String) {
+    setLink(getTextValue(), linkAddress)
+}
+
 fun TextView.appendText(text: String) {
     val newTextValue = getTextValue() + text
     this.text = newTextValue

@@ -30,22 +30,22 @@ object Permission {
      *  Request Permission
      */
     @JvmStatic
-    fun request(activity: Activity, permission: String, @IntRange(from = 0) requestCode: Int) {
+    fun request(activity: Activity, permission: String, @IntRange(from = 0, to = 65535) requestCode: Int) {
         ActivityCompat.requestPermissions(activity, arrayOf(permission), requestCode)
     }
 
     @JvmStatic
-    fun request(activity: Activity, permissions: Array<String>, @IntRange(from = 0) requestCode: Int) {
+    fun request(activity: Activity, permissions: Array<String>, @IntRange(from = 0, to = 65535) requestCode: Int) {
         ActivityCompat.requestPermissions(activity, permissions, requestCode)
     }
 
     @JvmStatic
-    fun request(fragment: Fragment, permission: String, @IntRange(from = 0) requestCode: Int) {
+    fun request(fragment: Fragment, permission: String, @IntRange(from = 0, to = 65535) requestCode: Int) {
         fragment.requestPermissions(arrayOf(permission), requestCode)
     }
 
     @JvmStatic
-    fun request(fragment: Fragment, permissions: Array<String>, @IntRange(from = 0) requestCode: Int) {
+    fun request(fragment: Fragment, permissions: Array<String>, @IntRange(from = 0, to = 65535) requestCode: Int) {
         fragment.requestPermissions(permissions, requestCode)
     }
 
