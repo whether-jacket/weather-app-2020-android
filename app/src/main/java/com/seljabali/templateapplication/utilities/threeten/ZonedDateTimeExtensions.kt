@@ -80,6 +80,16 @@ private fun parseZonedDateHelper(dateText: String, format: String?): ZonedDateTi
     return null
 }
 
+/**************
+ * ATTRIBUTES *
+ **************/
+
+fun ZonedDateTime.isInLeapYear(): Boolean = ZonedDateTimeUtil.isLeapYear(this.year)
+
+fun ZonedDateTime.isAtStartOfDay(): Boolean = this.equalsTime(this.atStartOfDay())
+
+fun ZonedDateTime.isAtEndOfDay(): Boolean = this.equalsTime(this.atEndOfDay())
+
 /***************
  * COMPARISONS *
  ***************/
@@ -141,11 +151,11 @@ fun ZonedDateTime.getHourDifference(zonedDateTimeB: ZonedDateTime): Int = Math.r
 
 fun ZonedDateTime.getMonthBaseZero(): Int = this.monthValue - 1
 
-fun ZonedDateTime.toWithoutTimePrecision(): ZonedDateTime = printZonedDateTime(Formats.YearMonthDay.YYYY_MM_DD_DASH).parseZonedDate()!!
+fun ZonedDateTime.getDaysInMonth(zonedDateTimeA: ZonedDateTime): Int = zonedDateTimeA.month.length(isInLeapYear())
 
-fun ZonedDateTime.getDaysInMonth(zonedDateTimeA: ZonedDateTime): Int = zonedDateTimeA.month.length(isLeapYear())
+fun ZonedDateTime.atStartOfDay(): ZonedDateTime = this.toLocalDate().atStartOfDay(this.zone)
 
-fun ZonedDateTime.isLeapYear(): Boolean = ZonedDateTimeUtil.isLeapYear(this.year)
+fun ZonedDateTime.atEndOfDay(): ZonedDateTime = this.toLocalDate().atTime(LocalTime.MAX).atZone(this.zone)
 
 fun ZonedDateTime.getLastIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime = if (this.dayOfWeek == dayOfWeek) this else  getLast(dayOfWeek)
 

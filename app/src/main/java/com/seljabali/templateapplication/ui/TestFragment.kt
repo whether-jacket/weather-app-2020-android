@@ -32,7 +32,7 @@ class TestFragment : BaseFragment() {
     }
 
     private fun getOutput(input: String) : String {
-        val zonedDateTime = NOW
-        return zonedDateTime?.printZonedDateTime(Formats.YearMonthDayTime.USA_WITH_ZONE) ?: ""
+        val zonedDateTime = YESTERDAY.atStartOfDay()
+        return zonedDateTime.printZonedDateTime(Formats.YearMonthDayTime.YYYY_MM_DD_TIME_Z) ?: ""
     }
 }
