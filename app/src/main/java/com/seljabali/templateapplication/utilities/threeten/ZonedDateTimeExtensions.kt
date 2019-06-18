@@ -127,17 +127,13 @@ fun ZonedDateTime.getMonthDifference(zonedDateTimeB: ZonedDateTime): Int {
 
 fun ZonedDateTime.areInSameYear(zonedDateTimeB: ZonedDateTime): Boolean = this.year == zonedDateTimeB.year
 
-fun ZonedDateTime.areInSameMonth(zonedDateTimeB: ZonedDateTime): Boolean =
-    year == zonedDateTimeB.year && month == zonedDateTimeB.month
+fun ZonedDateTime.areInSameMonth(zonedDateTimeB: ZonedDateTime): Boolean = year == zonedDateTimeB.year && month == zonedDateTimeB.month
 
-fun ZonedDateTime.getDayDifference(zonedDateTimeB: ZonedDateTime): Int =
-    Math.round(Duration.between(this, zonedDateTimeB).seconds.toFloat() / 60f / 60f / 24f)
+fun ZonedDateTime.getDayDifference(zonedDateTimeB: ZonedDateTime): Int = Math.round(Duration.between(this, zonedDateTimeB).seconds.toFloat() / 60f / 60f / 24f)
 
-fun ZonedDateTime.getMinuteDifference(zonedDateTimeB: ZonedDateTime): Int =
-    Math.round(Duration.between(this, zonedDateTimeB).seconds / 60f)
+fun ZonedDateTime.getMinuteDifference(zonedDateTimeB: ZonedDateTime): Int = Math.round(Duration.between(this, zonedDateTimeB).seconds / 60f)
 
-fun ZonedDateTime.getHourDifference(zonedDateTimeB: ZonedDateTime): Int =
-    Math.round(Duration.between(this, zonedDateTimeB).seconds / (60f * 60f))
+fun ZonedDateTime.getHourDifference(zonedDateTimeB: ZonedDateTime): Int = Math.round(Duration.between(this, zonedDateTimeB).seconds / (60f * 60f))
 
 /***********
  * GETTERS *
@@ -150,6 +146,32 @@ fun ZonedDateTime.toWithoutTimePrecision(): ZonedDateTime = printZonedDateTime(F
 fun ZonedDateTime.getDaysInMonth(zonedDateTimeA: ZonedDateTime): Int = zonedDateTimeA.month.length(isLeapYear())
 
 fun ZonedDateTime.isLeapYear(): Boolean = ZonedDateTimeUtil.isLeapYear(this.year)
+
+fun ZonedDateTime.getLastIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime = if (this.dayOfWeek == dayOfWeek) this else  getLast(dayOfWeek)
+
+fun ZonedDateTime.getLast(dayOfWeek: DayOfWeek): ZonedDateTime {
+    var mostRecentDay = this
+    if (mostRecentDay.dayOfWeek == dayOfWeek) {
+        mostRecentDay = mostRecentDay.minusDays(1)
+    }
+    while (mostRecentDay.dayOfWeek != dayOfWeek) {
+        mostRecentDay = mostRecentDay.minusDays(1)
+    }
+    return mostRecentDay
+}
+
+fun ZonedDateTime.getNextIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime = if (this.dayOfWeek == dayOfWeek) this else getNext(dayOfWeek)
+
+fun ZonedDateTime.getNext(dayOfWeek: DayOfWeek): ZonedDateTime {
+    var nextZonedDate = this
+    if (nextZonedDate.dayOfWeek == dayOfWeek) {
+        nextZonedDate = nextZonedDate.plusDays(1)
+    }
+    while (nextZonedDate.dayOfWeek != dayOfWeek) {
+        nextZonedDate = nextZonedDate.plusDays(1)
+    }
+    return nextZonedDate
+}
 
 /*********
  * PRINT *
