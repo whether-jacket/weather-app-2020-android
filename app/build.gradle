@@ -88,6 +88,9 @@ dependencies {
     implementation "io.objectbox:objectbox-kotlin:$objectbox_version"
     implementation "com.orhanobut:logger:$logger_version"
 
+
+    implementation "com.jakewharton.threetenabp:threetenabp:$threeten_version"
+
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"

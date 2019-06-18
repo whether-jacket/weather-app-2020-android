@@ -4,31 +4,48 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:7234834397488826184",
-      "lastPropertyId": "2:5885160188269284058",
-      "name": "SomeModel",
+      "id": "2:6341513923184992866",
+      "lastPropertyId": "5:8491167174322049433",
+      "name": "GithubProfile",
       "properties": [
         {
-          "id": "1:869456244457021",
-          "name": "id"
+          "id": "1:172235945127923087",
+          "name": "objectBoxId"
         },
         {
-          "id": "2:5885160188269284058",
+          "id": "2:7831456185814950672",
+          "name": "githubId"
+        },
+        {
+          "id": "3:3567717259174141755",
+          "name": "avatarUrl"
+        },
+        {
+          "id": "4:5111073600139589481",
           "name": "name"
+        },
+        {
+          "id": "5:8491167174322049433",
+          "name": "publicRepos"
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "1:7234834397488826184",
+  "lastEntityId": "2:6341513923184992866",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 4,
   "modelVersionParserMinimum": 4,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    7234834397488826184
+  ],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    869456244457021,
+    5885160188269284058
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

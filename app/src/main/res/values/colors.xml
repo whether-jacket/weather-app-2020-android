@@ -9,4 +9,7 @@
     <color name="error_color">@color/red</color>
     <color name="hint_color_active">@color/colorPrimary</color>
     <color name="hint_color_inactive">@color/gray</color>
+
+    <!-- Pages -->
+    <color name="page_background">@color/white</color>
 </resources>
