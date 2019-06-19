@@ -12,7 +12,7 @@ fun String.parseLocalDate(): LocalDate? {
         if (result != null) {
             return result
         }
-    } catch (e: DateTimeParseException) {
+    } catch (e: Throwable) {
     }
     for (format in Formats.yearMonthDayFormats) {
         try {

@@ -30,7 +30,7 @@ object Formats {
     enum class Month(private val text: String) {
         Jun("MMM"),
         June("MMMM"),
-        SIX(""); // TODO
+        SIX("MM");
 
         override fun toString(): String = text
     }

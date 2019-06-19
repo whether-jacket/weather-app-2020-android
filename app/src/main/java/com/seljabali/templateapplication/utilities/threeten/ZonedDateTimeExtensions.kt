@@ -187,12 +187,12 @@ fun ZonedDateTime.getNext(dayOfWeek: DayOfWeek): ZonedDateTime {
  * PRINT *
  *********/
 
-fun ZonedDateTime.printZonedDateTime(format: String): String =
+fun ZonedDateTime.print(format: String): String =
     this.format(
         DateTimeFormatterBuilder()
             .appendPattern(format)
             .toFormatter(Locale.US)
     )
 
-fun ZonedDateTime.printZonedDateTime(format: Any): String = this.printZonedDateTime(format.toString())
+fun ZonedDateTime.print(format: Any): String = this.print(format.toString())
 

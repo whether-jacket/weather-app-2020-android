@@ -33,6 +33,6 @@ class TestFragment : BaseFragment() {
 
     private fun getOutput(input: String) : String {
         val zonedDateTime = YESTERDAY.atStartOfDay()
-        return zonedDateTime.printZonedDateTime(Formats.YearMonthDayTime.YYYY_MM_DD_TIME_Z) ?: ""
+        return zonedDateTime.print(Formats.YearMonthDayTime.YYYY_MM_DD_TIME_Z) ?: ""
     }
 }
