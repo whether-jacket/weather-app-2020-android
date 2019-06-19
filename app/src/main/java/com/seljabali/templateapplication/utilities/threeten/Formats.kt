@@ -1,7 +1,5 @@
 package com.seljabali.templateapplication.utilities.threeten
 
-import java.util.ArrayList
-
 object Formats {
 
     val yearMonthDayFormats: List<String> = ArrayList<String>().apply {
