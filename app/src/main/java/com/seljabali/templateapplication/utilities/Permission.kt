@@ -56,5 +56,5 @@ object Permission {
     fun wasGranted(grantResult: Int): Boolean = grantResult == PackageManager.PERMISSION_GRANTED
 
     @JvmStatic
-    fun wasGranted(grantResults: IntArray): Boolean = grantResults[0] == PackageManager.PERMISSION_GRANTED
+    fun wasGranted(grantResults: IntArray): Boolean = wasGranted(grantResults[0])
 }

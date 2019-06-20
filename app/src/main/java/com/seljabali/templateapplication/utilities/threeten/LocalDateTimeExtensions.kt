@@ -6,13 +6,13 @@ import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.DateTimeParseException
 
 fun String.parseLocalDate(): LocalDate? {
-    var result: LocalDate?
-    try {
-        result = LocalDate.parse(this)
-        if (result != null) {
-            return result
-        }
+    var result: LocalDate? = try {
+        LocalDate.parse(this)
     } catch (e: Throwable) {
+        null
+    }
+    if (result != null) {
+        return result
     }
     for (format in Formats.yearMonthDayFormats) {
         try {
