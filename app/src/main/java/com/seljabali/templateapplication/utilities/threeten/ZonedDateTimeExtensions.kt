@@ -16,9 +16,9 @@ class ZonedDateTimeUtil {
                 null
             } ?: ZoneId.of("America/Montreal")
 
-        fun new(year: Int, month: Int, day: Int): ZonedDateTime {
+        fun new(year: Int = 0, month: Int = 0, day: Int = 0, hour: Int = 0, minute : Int = 0, second: Int = 0): ZonedDateTime {
             val calendar = Calendar.getInstance()
-            calendar.set(year, month, day)
+            calendar.set(year, month, day, hour, minute, second)
             return new(calendar.timeInMillis)
         }
 
@@ -37,13 +37,8 @@ class ZonedDateTimeUtil {
  * PARSERS *
  ***********/
 
-fun String.parseZonedDate(): ZonedDateTime? = this.parseZonedDate("")
-
-fun String.parseZonedDate(format: String?): ZonedDateTime? {
-    val result = if (format == null || format.isEmpty())
-        parseZonedDateHelper(this)
-    else
-        parseZonedDateHelper(this, format)
+fun String.parseZonedDate(format: String = ""): ZonedDateTime? {
+    val result = parseZonedDateHelper(this, format)
     if (result != null) {
         return result
     }
@@ -51,11 +46,9 @@ fun String.parseZonedDate(format: String?): ZonedDateTime? {
     return ZonedDateTime.of(localDate, LocalTime.now(), ZonedDateTimeUtil.getDefaultZoneId())
 }
 
-private fun parseZonedDateHelper(dateText: String): ZonedDateTime? = parseZonedDateHelper(dateText, "")
-
-private fun parseZonedDateHelper(dateText: String, format: String?): ZonedDateTime? {
+private fun parseZonedDateHelper(dateText: String, format: String): ZonedDateTime? {
     var result: ZonedDateTime? = try {
-        if (format == null || format.isEmpty()) {
+        if (format.isEmpty()) {
             ZonedDateTime.parse(dateText)
         } else {
             ZonedDateTime.parse(dateText, DateTimeFormatter.ofPattern(format))
@@ -124,11 +117,11 @@ fun ZonedDateTime.equalsTime(b: ZonedDateTime): Boolean = isEqual(b)
 
 fun ZonedDateTime.beforeThanTime(b: ZonedDateTime): Boolean = this.isBefore(b)
 
-fun ZonedDateTime.beforeThanEqualsTime(b: ZonedDateTime): Boolean = (this.isBefore(b) || this.isEqual(b))
+fun ZonedDateTime.beforeThanEqualsTime(b: ZonedDateTime): Boolean = compareTime(b) <= 0
 
-fun ZonedDateTime.afterThanTime(b: ZonedDateTime): Boolean = this.isAfter(b)
+fun ZonedDateTime.afterThanTime(b: ZonedDateTime): Boolean = compareTime(b) > 0
 
-fun ZonedDateTime.afterThanEqualsTime(b: ZonedDateTime): Boolean = (this.isAfter(b) || this.isEqual(b))
+fun ZonedDateTime.afterThanEqualsTime(b: ZonedDateTime): Boolean = compareTime(b) >= 0
 
 fun ZonedDateTime.getMonthDifference(zonedDateTimeB: ZonedDateTime): Int {
     val yearDif = (zonedDateTimeB.year - this.year) * 12
@@ -151,13 +144,13 @@ fun ZonedDateTime.getHourDifference(zonedDateTimeB: ZonedDateTime): Int = Math.r
 
 fun ZonedDateTime.getMonthBaseZero(): Int = this.monthValue - 1
 
-fun ZonedDateTime.getDaysInMonth(zonedDateTimeA: ZonedDateTime): Int = zonedDateTimeA.month.length(isInLeapYear())
+fun ZonedDateTime.getDaysInMonth(): Int = this.month.length(isInLeapYear())
 
 fun ZonedDateTime.atStartOfDay(): ZonedDateTime = this.toLocalDate().atStartOfDay(this.zone)
 
 fun ZonedDateTime.atEndOfDay(): ZonedDateTime = this.toLocalDate().atTime(LocalTime.MAX).atZone(this.zone)
 
-fun ZonedDateTime.getLastIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime = if (this.dayOfWeek == dayOfWeek) this else  getLast(dayOfWeek)
+fun ZonedDateTime.getLastIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime = if (this.dayOfWeek == dayOfWeek) this else getLast(dayOfWeek)
 
 fun ZonedDateTime.getLast(dayOfWeek: DayOfWeek): ZonedDateTime {
     var mostRecentDay = this
@@ -187,12 +180,7 @@ fun ZonedDateTime.getNext(dayOfWeek: DayOfWeek): ZonedDateTime {
  * PRINT *
  *********/
 
-fun ZonedDateTime.print(format: String): String =
-    this.format(
-        DateTimeFormatterBuilder()
-            .appendPattern(format)
-            .toFormatter(Locale.US)
-    )
+fun ZonedDateTime.print(format: String = Formats.YearMonthDayTime.YYYY_MM_DD_TIME_Z.toString()): String = this.format(DateTimeFormatterBuilder().appendPattern(format).toFormatter(Locale.US))
 
 fun ZonedDateTime.print(format: Any): String = this.print(format.toString())
 
