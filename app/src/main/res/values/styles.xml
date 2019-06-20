@@ -1,13 +1,46 @@
 <resources>
-
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">?themePrimary</item>
+        <item name="colorPrimaryDark">?themePrimaryDark</item>
+        <item name="colorAccent">?themeAccent</item>
     </style>
 
+    <style name="AppTheme.Droid">
+        <item name="themePrimary">@color/droid_green</item>
+        <item name="themePrimaryDark">@color/droid_dark_green</item>
+        <item name="themeAccent">@color/droid_pink</item>
+        <item name="themeContentBackground">@color/white</item>
+        <item name="themeContentTextColor">@color/black</item>
+        <item name="themeContentTextColoOnPrimary">@color/white</item>
+        <item name="themeContentTextColorInactive">@color/gray</item>
+        <item name="themeTextColorSuccess">@color/green</item>
+        <item name="themeTextColorFailure">@color/red</item>
+    </style>
+
+    <style name="AppTheme.Indigo">
+        <item name="themePrimary">@color/blue</item>
+        <item name="themePrimaryDark">@color/dark_blue</item>
+        <item name="themeAccent">@color/light_blue</item>
+        <item name="themeContentBackground">@color/white</item>
+        <item name="themeContentTextColor">@color/black</item>
+        <item name="themeContentTextColoOnPrimary">@color/white</item>
+        <item name="themeContentTextColorInactive">@color/gray</item>
+        <item name="themeTextColorSuccess">@color/green</item>
+        <item name="themeTextColorFailure">@color/red</item>
+    </style>
+
+    <style name="AppTheme.Pink">
+        <item name="themePrimary">@color/pink</item>
+        <item name="themePrimaryDark">@color/deep_pink</item>
+        <item name="themeAccent">@color/hot_pink</item>
+        <item name="themeContentBackground">@color/white</item>
+        <item name="themeContentTextColor">@color/black</item>
+        <item name="themeContentTextColoOnPrimary">@color/white</item>
+        <item name="themeContentTextColorInactive">@color/gray</item>
+        <item name="themeTextColorSuccess">@color/green</item>
+        <item name="themeTextColorFailure">@color/red</item>
+    </style>
 
     <!-- Input Layout/Text -->
     <style name="MyStyle.InputLayout" parent="Widget.Design.TextInputLayout">

@@ -10,6 +10,7 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        setTheme(R.style.AppTheme_Pink)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
         showBackButton(false)

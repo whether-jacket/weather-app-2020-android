@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-
-
     <!-- Input Layout/Text -->
-    <color name="error_color">@color/red</color>
-    <color name="hint_color_active">@color/colorPrimary</color>
-    <color name="hint_color_inactive">@color/gray</color>
+    <color name="error_color">?themeTextColorFailure</color>
+    <color name="hint_color_active">?themePrimary</color>
+    <color name="hint_color_inactive">?themeContentTextColorInactive</color>
 
-    <!-- Pages -->
-    <color name="page_background">@color/white</color>
+
+    <color name="droid_green">#008577</color>
+    <color name="droid_dark_green">#00574B</color>
+    <color name="droid_pink">#D81B60</color>
 </resources>

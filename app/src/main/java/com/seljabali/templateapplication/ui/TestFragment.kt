@@ -28,7 +28,6 @@ class TestFragment : BaseFragment() {
     private fun onCalculateClick() {
         val input = etInputText.getTextValue()
         tvOutput.text = getOutput(input)
-
     }
 
     private fun getOutput(input: String) : String {
