@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="themePrimary" format="reference" />
-    <attr name="themePrimaryDark" format="reference" />
-    <attr name="themeAccent" format="reference" />
-    <attr name="themeContentBackground" format="reference" />
-    <attr name="themeContentTextColor" format="reference" />
-    <attr name="themeContentTextColoOnPrimary" format="reference" />
-    <attr name="themeContentTextColorInactive" format="reference" />
-    <attr name="themeTextColorSuccess" format="reference" />
-    <attr name="themeTextColorFailure" format="reference" />
+    <declare-styleable name="CustomTheme">
+        <attr name="themeName" format="string"/>
+        <attr name="themeDescription" format="string"/>
+        <attr name="dividerColor" format="color|reference"/>
+        <attr name="tabLayoutStyle" format="reference"/>
+        <attr name="input_layout_error_color" format="color|reference"/>
+        <attr name="input_layout_hint_active_color" format="color|reference"/>
+        <attr name="input_layout_hint_inactive_color" format="color|reference"/>
+    </declare-styleable>
 </resources>

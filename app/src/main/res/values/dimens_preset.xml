@@ -57,4 +57,8 @@
     <dimen name="xxxl_text_size">42sp</dimen>
     <dimen name="xl4_text_size">64sp</dimen>
 
+    <!-- Corner Radius -->
+    <dimen name="xxs_corner_radius">2dp</dimen>
+    <dimen name="xs_corner_radius">4dp</dimen>
+
 </resources>

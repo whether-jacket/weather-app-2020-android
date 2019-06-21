@@ -6,6 +6,8 @@
     <dimen name="toolbar_progress_bar_height">12dp</dimen>
     <dimen name="toolbar_progress_bar_top_margin">2dp</dimen>
 
+    <dimen name="horizontal_divider_height">1dp</dimen>
+
     <!-- Toolbar ProgressBar Minimalist for Indeterminate -->
     <!--<dimen name="toolbar_frame_layout_top_margin">-6dp</dimen>-->
     <!--<dimen name="toolbar_frame_layout_height">8dp</dimen>-->

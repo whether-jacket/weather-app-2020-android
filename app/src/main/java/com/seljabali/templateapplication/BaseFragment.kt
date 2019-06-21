@@ -16,6 +16,14 @@ abstract class BaseFragment : Fragment() {
         Logger.v("${getDisplayTag()} View Created")
     }
 
+    override fun onPause() {
+        super.onPause()
+        Logger.v("${getDisplayTag()} Fragment Paused")
+        if (!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         Logger.v("${getDisplayTag()} View Destroyed")
@@ -25,12 +33,5 @@ abstract class BaseFragment : Fragment() {
 
     protected fun subscribe(disposable: Disposable) {
         compositeDisposable.add(disposable)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        if (!compositeDisposable.isDisposed) {
-            compositeDisposable.dispose()
-        }
     }
 }

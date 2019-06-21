@@ -1,12 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Input Layout/Text -->
-    <color name="error_color">?themeTextColorFailure</color>
-    <color name="hint_color_active">?themePrimary</color>
-    <color name="hint_color_inactive">?themeContentTextColorInactive</color>
-
-
+    <!-- Droid Theme -->
     <color name="droid_green">#008577</color>
     <color name="droid_dark_green">#00574B</color>
     <color name="droid_pink">#D81B60</color>
+
+    <!-- Illini Theme -->
+    <color name="illiniColorPrimary">@color/darkGunmetal</color>
+    <color name="illiniColorPrimaryDark">@color/eerieBlack</color>
+    <color name="illiniColorAccent">@color/carrotOrange</color>
+    <color name="illiniBackground">@color/gunmetal</color>
+    <color name="illiniForeground">@color/putty</color>
+    <color name="illiniDividerColor">@color/eggshell_38</color>
+    <color name="illiniTextColorPrimary">@color/eggshell</color>
+    <color name="illiniTextColorSecondary">@color/eggshell_87</color>
+    <color name="illiniTextColorTertiary">@color/eggshell_54</color>
+    <color name="illiniTextColorLink">@color/winterBlue</color>
+    <color name="illiniTextColorPrimaryInverse">@color/darkGunmetal</color>
+    <color name="illiniTextColorSecondaryInverse">@color/darkGunmetal_54</color>
+    <color name="illiniTextColorTertiaryInverse">@color/darkGunmetal_38</color>
+    <color name="illiniTextColorLinkInverse">@color/lakeBlue</color>
+    <color name="illiniInputError">@color/medium_violet_red</color>
+    <color name="illiniActiveHint">@color/illiniColorAccent</color>
+    <color name="illiniInactiveHint">@color/illiniForeground</color>
+
+    <!-- Sea Foam Theme -->
+    <color name="seaFoamColorPrimary">@color/onyx</color>
+    <color name="seaFoamColorPrimaryDark">@color/raisinBlack</color>
+    <color name="seaFoamColorAccent">@color/seaFoam</color>
+    <color name="seaFoamBackground">@color/lightGray</color>
+    <color name="seaFoamForeground">@color/onyx</color>
+    <color name="seaFoamDividerColor">@color/lightGray_54</color>
+    <!--<color name="seaFoamTextColorPrimary">@color/onyx</color>-->
+    <color name="seaFoamTextColorPrimary">@color/gray_87</color>
+    <color name="seaFoamTextColorSecondary">@color/onyx_87</color>
+    <color name="seaFoamTextColorTertiary">@color/onyx_54</color>
+    <color name="seaFoamTextColorLink">@color/lakeBlue</color>
+    <color name="seaFoamTextColorPrimaryInverse">@color/lightGray</color>
+    <color name="seaFoamTextColorSecondaryInverse">@color/lightGray_87</color>
+    <color name="seaFoamTextColorTertiaryInverse">@color/lightGray_54</color>
+    <color name="seaFoamTextColorLinkInverse">@color/winterBlue</color>
+    <color name="seaFoamInputError">@color/salmon</color>
+    <color name="seaFoamActiveHint">@color/seaFoamColorAccent</color>
+    <color name="seaFoamInactiveHint">@color/seaFoamForeground</color>
+
+    <!-- Tokyo Theme -->
+    <color name="tokyoColorPrimary">@color/white</color>
+    <color name="tokyoColorPrimaryDark">@color/whiteSmoke</color>
+    <color name="tokyoColorAccent">@color/sanguineRed</color>
+    <color name="tokyoColorNormal">@color/onyx_87</color>
+    <color name="tokyoBackground">@color/lightGray</color>
+    <color name="tokyoForeground">@color/agateBlue</color>
+    <color name="tokyoDividerColor">@color/gray_38</color>
+    <color name="tokyoTextColorLink">@color/agateBlue</color>
+    <color name="tokyoTextColorLinkInverse">@color/winterBlue</color>
+    <color name="tokyoInputError">@color/red</color>
+    <color name="tokyoActiveHint">@color/tokyoColorAccent</color>
+    <color name="tokyoInactiveHint">@color/tokyoForeground</color>
 </resources>

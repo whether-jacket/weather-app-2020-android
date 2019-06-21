@@ -10,12 +10,17 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setTheme(R.style.AppTheme_Pink)
+        setTheme(R.style.Theme_Illini)
+//        setTheme(R.style.Theme_Tokyo)
+//        setTheme(R.style.Theme_Droid)
+//        setTheme(R.style.Theme_SeaFoam)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
         showBackButton(false)
         supportFragmentManager.addOnBackStackChangedListener { backStackChangeListener() }
-        showTestPage()
+//        showTestPage()
+//        showLoginPage()
+        showThemePage()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -48,6 +53,18 @@ class HomeActivity : BaseActivity() {
     fun showTestPage() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, TestFragment.newInstance())
+            .commit()
+    }
+
+    fun showLoginPage() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, LoginFragment.newInstance())
+            .commit()
+    }
+
+    fun showThemePage() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, ThemeFragment.newInstance())
             .commit()
     }
 }

@@ -1,71 +1,105 @@
-<resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">?themePrimary</item>
-        <item name="colorPrimaryDark">?themePrimaryDark</item>
-        <item name="colorAccent">?themeAccent</item>
-    </style>
-
-    <style name="AppTheme.Droid">
-        <item name="themePrimary">@color/droid_green</item>
-        <item name="themePrimaryDark">@color/droid_dark_green</item>
-        <item name="themeAccent">@color/droid_pink</item>
-        <item name="themeContentBackground">@color/white</item>
-        <item name="themeContentTextColor">@color/black</item>
-        <item name="themeContentTextColoOnPrimary">@color/white</item>
-        <item name="themeContentTextColorInactive">@color/gray</item>
-        <item name="themeTextColorSuccess">@color/green</item>
-        <item name="themeTextColorFailure">@color/red</item>
-    </style>
-
-    <style name="AppTheme.Indigo">
-        <item name="themePrimary">@color/blue</item>
-        <item name="themePrimaryDark">@color/dark_blue</item>
-        <item name="themeAccent">@color/light_blue</item>
-        <item name="themeContentBackground">@color/white</item>
-        <item name="themeContentTextColor">@color/black</item>
-        <item name="themeContentTextColoOnPrimary">@color/white</item>
-        <item name="themeContentTextColorInactive">@color/gray</item>
-        <item name="themeTextColorSuccess">@color/green</item>
-        <item name="themeTextColorFailure">@color/red</item>
-    </style>
-
-    <style name="AppTheme.Pink">
-        <item name="themePrimary">@color/pink</item>
-        <item name="themePrimaryDark">@color/deep_pink</item>
-        <item name="themeAccent">@color/hot_pink</item>
-        <item name="themeContentBackground">@color/white</item>
-        <item name="themeContentTextColor">@color/black</item>
-        <item name="themeContentTextColoOnPrimary">@color/white</item>
-        <item name="themeContentTextColorInactive">@color/gray</item>
-        <item name="themeTextColorSuccess">@color/green</item>
-        <item name="themeTextColorFailure">@color/red</item>
-    </style>
-
-    <!-- Input Layout/Text -->
-    <style name="MyStyle.InputLayout" parent="Widget.Design.TextInputLayout">
-        <!--<item name="fontPath">@string/app_font</item>-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Input Layout EditText -->
+    <style name="InputLayoutStyle" parent="Widget.Design.TextInputLayout">
         <item name="errorEnabled">true</item>
         <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
         <item name="hintTextAppearance">@style/HintTextAppearance</item>
     </style>
-
-    <style name="MyTheme.EditText" parent="Theme.AppCompat.Light">
+    <style name="InputLayoutStyle.EditText" parent="Theme.AppCompat.Light">
         <!-- Inactive underline color-->
-        <item name="colorControlNormal">@color/hint_color_inactive</item>
-
+        <item name="colorControlNormal">?input_layout_hint_inactive_color</item>
         <!-- Cursor and Active underline color, uses colorAccent by default if not defined-->
-        <item name="colorControlActivated">@color/hint_color_active</item>
+        <item name="colorControlActivated">?input_layout_hint_active_color</item>
     </style>
-
     <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">
         <!-- Inactive and Active label color, pointing to a selector-->
         <item name="android:textColor">@color/hint_color</item>
     </style>
-
     <style name="ErrorTextAppearance" parent="TextAppearance.Design.Error">
-        <!-- Error text color-->
-        <item name="android:textColor">@color/error_color</item>
+        <item name="android:textColor">?input_layout_error_color</item>
+    </style>
+
+    <!-- TextView -->
+    <style name="TextViewStyle.Serif" parent="android:Widget.TextView">
+        <item name="android:fontFamily">serif</item>
+    </style>
+
+    <style name="TextViewStyle.Condensed" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <!-- Tab Style -->
+    <style name="TabStyle.Light" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabTextAppearance.Dark</item>
+        <item name="tabSelectedTextColor">@color/darkGunmetal</item>
+    </style>
+    <style name="TabStyle.Dark" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabTextAppearance.Light</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+    <style name="TabStyle.Dark.Serif">
+        <item name="tabTextAppearance">@style/TabTextAppearance.Light.Serif</item>
+    </style>
+    <style name="TabTextAppearance.Dark" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/darkGunmetal_87</item>
+    </style>
+    <style name="TabTextAppearance.Light" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/white_87</item>
+    </style>
+    <style name="TabTextAppearance.Light.Serif">
+        <item name="android:textColor">@color/white_87</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <!-- Theme Viewing -->
+    <style name="PaletteItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/xxs_padding</item>
+        <item name="android:paddingTop">@dimen/xs_vertical_spacing</item>
+        <item name="android:paddingBottom">@dimen/xs_vertical_spacing</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textSize">@dimen/xs_text_size</item>
+        <!-- can't use text color primary? -->
+        <item name="android:textColor">@color/gray_87</item>
+        <item name="android:breakStrategy" tools:targetApi="m">balanced</item>
+    </style>
+
+    <style name="TextSample">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/m_horizontal_spacing</item>
+        <item name="android:layout_marginEnd">@dimen/m_horizontal_spacing</item>
+    </style>
+
+    <style name="TextSample.Inverse">
+        <item name="android:layout_marginStart">@dimen/s_horizontal_spacing</item>
+        <item name="android:layout_marginEnd">@dimen/s_horizontal_spacing</item>
+    </style>
+
+    <style name="ViewSample">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/xs_vertical_spacing</item>
+        <item name="android:paddingBottom">@dimen/xs_vertical_spacing</item>
+    </style>
+
+    <style name="ViewSample.Name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/m_horizontal_spacing</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ViewSample.Description">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
     </style>
 
 

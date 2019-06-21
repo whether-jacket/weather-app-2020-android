@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/fragment_login_outer_view_group"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:focusable="true"
+              android:clickable="true"
+              android:padding="@dimen/m_padding">
+
+    <!-- Username -->
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameTextInputLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="@string/username"
+            style="@style/InputLayoutStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/InputLayoutStyle.EditText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password -->
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_vertical_spacing"
+            android:hint="@string/password"
+            style="@style/InputLayoutStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:theme="@style/InputLayoutStyle.EditText"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_vertical_spacing">
+
+        <Button
+                android:id="@+id/loginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"/>
+
+        <Button
+                android:id="@+id/forgotPasswordButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/s_horizontal_spacing"
+                android:text="@string/forgot_password"/>
+    </LinearLayout>
+</LinearLayout>

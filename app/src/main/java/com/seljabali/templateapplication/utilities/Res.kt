@@ -33,6 +33,15 @@ object Res {
     }
 
     @JvmStatic
+    @ColorInt
+    fun getColorViaAttr(context: Context, @AttrRes id: Int): Int {
+        val typedValue = TypedValue()
+        val theme = context.theme
+        theme.resolveAttribute(id, typedValue, true)
+        return typedValue.data
+    }
+
+    @JvmStatic
     fun getColorArray(context: Context, @ArrayRes id: Int): IntArray {
         return try {
             val ta = context.resources.obtainTypedArray(id)

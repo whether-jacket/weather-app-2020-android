@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.seljabali.templateapplication.BaseFragment
 import com.seljabali.templateapplication.R
 import com.seljabali.templateapplication.utilities.getTextValue
-import com.seljabali.templateapplication.utilities.threeten.*
 import kotlinx.android.synthetic.main.fragment_test.*
 
 class TestFragment : BaseFragment() {
@@ -31,7 +30,6 @@ class TestFragment : BaseFragment() {
     }
 
     private fun getOutput(input: String) : String {
-        val zonedDateTime = YESTERDAY.atStartOfDay()
-        return zonedDateTime.print(Formats.YearMonthDayTime.YYYY_MM_DD_TIME_Z) ?: ""
+        return input
     }
 }

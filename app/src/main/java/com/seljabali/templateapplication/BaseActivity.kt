@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.orhanobut.logger.Logger
+import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -15,6 +18,9 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         Logger.v("${getTag()} Paused")
+        if (!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
     }
 
     override fun onStop() {
