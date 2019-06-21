@@ -63,8 +63,7 @@
         <item name="android:paddingBottom">@dimen/xs_vertical_spacing</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:textSize">@dimen/xs_text_size</item>
-        <!-- can't use text color primary? -->
-        <item name="android:textColor">@color/gray_87</item>
+        <item name="android:textColor">?android:attr/colorPrimary</item>
         <item name="android:breakStrategy" tools:targetApi="m">balanced</item>
     </style>
 

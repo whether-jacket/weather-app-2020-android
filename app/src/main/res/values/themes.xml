@@ -18,6 +18,7 @@
         <item name="colorPrimary">@color/illiniColorPrimary</item>
         <item name="colorPrimaryDark">@color/illiniColorPrimaryDark</item>
         <item name="colorAccent">@color/illiniColorAccent</item>
+        <item name="android:background">@color/illiniBackground</item>
         <item name="android:colorBackground">@color/illiniBackground</item>
         <item name="android:colorForeground">@color/illiniForeground</item>
         <!-- Text Appearance styles -->
@@ -47,6 +48,7 @@
         <item name="colorPrimary">@color/seaFoamColorPrimary</item>
         <item name="colorPrimaryDark">@color/seaFoamColorPrimaryDark</item>
         <item name="colorAccent">@color/seaFoamColorAccent</item>
+        <item name="android:background">@color/seaFoamBackground</item>
         <item name="android:colorBackground">@color/seaFoamBackground</item>
         <item name="android:colorForeground">@color/seaFoamForeground</item>
         <!-- Text Appearance styles -->
@@ -77,9 +79,10 @@
         <item name="colorPrimaryDark">@color/tokyoColorPrimaryDark</item>
         <item name="colorAccent">@color/tokyoColorAccent</item>
         <item name="colorControlNormal">@color/tokyoColorNormal</item>
-        <!-- Text Appearance styles -->
+        <item name="android:background">@color/tokyoBackground</item>
         <item name="android:colorBackground">@color/tokyoBackground</item>
         <item name="android:colorForeground">@color/tokyoForeground</item>
+        <!-- Text Appearance styles -->
         <item name="android:textColorLink">@color/tokyoTextColorLink</item>
         <item name="android:textColorLinkInverse">@color/tokyoTextColorLinkInverse</item>
         <!-- Custom attributes defined in attrs.xml -->
