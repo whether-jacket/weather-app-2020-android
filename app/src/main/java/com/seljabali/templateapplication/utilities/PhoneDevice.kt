@@ -29,6 +29,7 @@ object PhoneDevice {
     /**
      *  Camera
      */
+    @JvmStatic
     fun hasCamera(context: Context): Boolean {
         try {
             val count = (context.getSystemService(Context.CAMERA_SERVICE) as CameraManager).cameraIdList.size

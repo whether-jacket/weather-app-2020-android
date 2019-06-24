@@ -6,6 +6,9 @@ import android.net.Uri
 import android.util.TypedValue
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
 
 object Res {
 
@@ -83,12 +86,30 @@ object Res {
     fun getPx(context: Context, @DimenRes dpDimenId: Int): Float = context.resources.getDimension(dpDimenId)
 
     @JvmStatic
-    fun getRoundedPx(context: Context, @DimenRes dpDimenId: Int): Int =
-        context.resources.getDimensionPixelSize(dpDimenId)
+    fun getRoundedPx(context: Context, @DimenRes dpDimenId: Int): Int = context.resources.getDimensionPixelSize(dpDimenId)
 
     @JvmStatic
-    fun getDp(context: Context, @DimenRes dpDimenId: Int): Float =
-        getPx(context, dpDimenId) / context.resources.displayMetrics.density
+    fun getDp(context: Context, @DimenRes dpDimenId: Int): Float = getPx(context, dpDimenId) / context.resources.displayMetrics.density
+
+    @JvmStatic
+    fun getRawTextFile(context: Context, @RawRes resId: Int): String? {
+        val inputStream = context.resources.openRawResource(resId)
+        val inputReader = InputStreamReader(inputStream)
+        val bufferReader = BufferedReader(inputReader)
+        var line: String?
+        val text = StringBuilder()
+        try {
+            line = bufferReader.readLine()
+            while (line != null) {
+                text.append(line)
+                    .append('\n')
+                line = bufferReader.readLine()
+            }
+        } catch (e: IOException) {
+            return null
+        }
+        return text.toString()
+    }
 
     /**
      *  Get by Name
