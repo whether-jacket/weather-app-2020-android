@@ -101,5 +101,12 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
     </style>
 
+    <!-- Dialogs -->
+    <style name="MyDialogTheme" parent="android:Theme.Material.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
 
+    <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+        <!--<item name="android:datePickerMode">spinner</item>-->
+    </style>
 </resources>
