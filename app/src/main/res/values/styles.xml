@@ -107,6 +107,7 @@
     </style>
 
     <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:dialogCornerRadius" tools:targetApi="p">@dimen/s_corner_radius</item>
         <!--<item name="android:datePickerMode">spinner</item>-->
     </style>
 </resources>

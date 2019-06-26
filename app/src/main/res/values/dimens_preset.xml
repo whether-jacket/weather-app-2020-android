@@ -60,5 +60,5 @@
     <!-- Corner Radius -->
     <dimen name="xxs_corner_radius">2dp</dimen>
     <dimen name="xs_corner_radius">4dp</dimen>
-
+    <dimen name="s_corner_radius">6dp</dimen>
 </resources>

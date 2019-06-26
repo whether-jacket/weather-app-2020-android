@@ -16,6 +16,7 @@ object Res {
     private const val R = "R"
     private const val JOIN = "$"
     private const val DRAWABLE = "drawable"
+    private const val MIPMAP = "mipmap"
     private const val STRING = "string"
 
     @JvmStatic
@@ -115,9 +116,19 @@ object Res {
      *  Get by Name
      */
     @JvmStatic
+    @DrawableRes
     fun getDrawable(context: Context, name: String): Int =
         try {
             Class.forName(context.packageName + POINT + R + JOIN + DRAWABLE).getDeclaredField(name).get(null) as Int
+        } catch (e: Exception) {
+            -1
+        }
+
+    @JvmStatic
+    @DrawableRes
+    fun getMipmap(context: Context, name: String): Int =
+        try {
+            Class.forName(context.packageName + POINT + R + JOIN + MIPMAP).getDeclaredField(name).get(null) as Int
         } catch (e: Exception) {
             -1
         }

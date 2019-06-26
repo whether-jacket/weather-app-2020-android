@@ -43,7 +43,7 @@ object GsonUtil {
     }
 
     @JvmStatic
-    fun <T : Any> getModelFromJsonString(jsonString: String, clazz: Class<T>): T {
+    fun <T : Any> getModelFromString(jsonString: String, clazz: Class<T>): T {
         val gsonJson = JsonParser().parse(jsonString).asJsonObject
         return GsonBuilder().create().fromJson(gsonJson, clazz)
     }
