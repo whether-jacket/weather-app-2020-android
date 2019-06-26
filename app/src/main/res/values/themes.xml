@@ -26,6 +26,7 @@
         <item name="android:background">@color/illiniBackground</item>
         <item name="android:colorBackground">@color/illiniBackground</item>
         <item name="android:colorForeground">@color/illiniForeground</item>
+        <item name="colorSurface">@color/illiniBackground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Condensed</item>
         <item name="android:textColorPrimary">@color/illiniTextColorPrimary</item>
@@ -59,6 +60,7 @@
         <item name="android:background">@color/seaFoamBackground</item>
         <item name="android:colorBackground">@color/seaFoamBackground</item>
         <item name="android:colorForeground">@color/seaFoamForeground</item>
+        <item name="colorSurface">@color/seaFoamBackground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Serif</item>
         <item name="android:textColorPrimary">@color/seaFoamTextColorPrimary</item>
@@ -92,6 +94,7 @@
         <item name="colorPrimary">@color/tokyoColorPrimary</item>
         <item name="colorPrimaryDark">@color/tokyoColorPrimaryDark</item>
         <item name="colorAccent">@color/tokyoColorAccent</item>
+        <item name="colorSurface">@color/tokyoBackground</item>
         <item name="colorControlNormal">@color/tokyoColorNormal</item>
         <item name="android:background">@color/tokyoBackground</item>
         <item name="android:colorBackground">@color/tokyoBackground</item>
