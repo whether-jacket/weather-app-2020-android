@@ -10,17 +10,14 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.Theme_Illini)
-//        setTheme(R.style.Theme_Tokyo)
-//        setTheme(R.style.Theme_Droid)
-//        setTheme(R.style.Theme_SeaFoam)
+        setTheme(R.style.Theme_Tokyo)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
         showBackButton(false)
         supportFragmentManager.addOnBackStackChangedListener { backStackChangeListener() }
-//        showTestPage()
+        showTestPage()
 //        showLoginPage()
-        showThemePage()
+//        showThemePage()
     }
 
     override fun onSupportNavigateUp(): Boolean {

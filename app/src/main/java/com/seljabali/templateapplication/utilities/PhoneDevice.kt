@@ -17,6 +17,9 @@ object PhoneDevice {
      *  Bluetooth
      */
     @JvmStatic
+    fun hasBlueTooth(context: Context): Boolean = context.packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)
+
+    @JvmStatic
     fun hasBlueToothLowEnergy(context: Context): Boolean = context.packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)
 
     @JvmStatic
@@ -45,6 +48,9 @@ object PhoneDevice {
     /**
      *  GPS
      */
+    @JvmStatic
+    fun hasGPS(context: Context) = context.packageManager.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)
+
     @JvmStatic
     fun hasGPSEnabled(context: Context): Boolean = (context.getSystemService(Context.LOCATION_SERVICE) as LocationManager).isProviderEnabled(LocationManager.GPS_PROVIDER)
 

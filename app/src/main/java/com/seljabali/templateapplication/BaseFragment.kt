@@ -1,5 +1,6 @@
 package com.seljabali.templateapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -28,6 +29,8 @@ abstract class BaseFragment : Fragment() {
         super.onDestroyView()
         Logger.v("${getDisplayTag()} View Destroyed")
     }
+
+    override fun getContext(): Context = activity as Context
 
     private fun getDisplayTag(): String = javaClass.simpleName
 
