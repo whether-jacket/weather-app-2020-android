@@ -3,22 +3,22 @@ package com.seljabali.templateapplication.utilities.threeten
 import org.threeten.bp.DayOfWeek
 import org.threeten.bp.ZonedDateTime
 
-val NOW: ZonedDateTime by lazy { ZonedDateTime.now(ZonedDateTimeUtil.getDefaultZoneId()) }
-val YESTERDAY: ZonedDateTime  by lazy { NOW.minusDays(1) }
-val TOMORROW by lazy { NOW.plusDays(1) }
+fun NOW(): ZonedDateTime = ZonedDateTime.now(ZonedDateTimeUtil.getDefaultZoneId())
+fun YESTERDAY(): ZonedDateTime = NOW().minusDays(1)
+fun TOMORROW(): ZonedDateTime = NOW().plusDays(1) 
 
-val LAST_MONDAY by lazy { NOW.getLast(DayOfWeek.MONDAY) }
-val LAST_TUESDAY by lazy { NOW.getLast(DayOfWeek.TUESDAY) }
-val LAST_WEDNESDAY by lazy { NOW.getLast(DayOfWeek.WEDNESDAY) }
-val LAST_THURSDAY by lazy { NOW.getLast(DayOfWeek.THURSDAY) }
-val LAST_FRIDAY by lazy { NOW.getLast(DayOfWeek.FRIDAY) }
-val LAST_SATURDAY by lazy { NOW.getLast(DayOfWeek.SATURDAY) }
-val LAST_SUNDAY by lazy { NOW.getLast(DayOfWeek.SUNDAY) }
+fun LAST_MONDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.MONDAY) 
+fun LAST_TUESDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.TUESDAY) 
+fun LAST_WEDNESDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.WEDNESDAY) 
+fun LAST_THURSDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.THURSDAY) 
+fun LAST_FRIDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.FRIDAY) 
+fun LAST_SATURDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.SATURDAY) 
+fun LAST_SUNDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.SUNDAY) 
 
-val NEXT_MONDAY by lazy { NOW.getNext(DayOfWeek.MONDAY) }
-val NEXT_TUESDAY by lazy { NOW.getNext(DayOfWeek.TUESDAY) }
-val NEXT_WEDNESDAY by lazy { NOW.getNext(DayOfWeek.WEDNESDAY) }
-val NEXT_THURSDAY by lazy { NOW.getNext(DayOfWeek.THURSDAY) }
-val NEXT_FRIDAY by lazy { NOW.getNext(DayOfWeek.FRIDAY) }
-val NEXT_SATURDAY by lazy { NOW.getNext(DayOfWeek.SATURDAY) }
-val NEXT_SUNDAY by lazy { NOW.getNext(DayOfWeek.SUNDAY) }
+fun NEXT_MONDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.MONDAY) 
+fun NEXT_TUESDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.TUESDAY) 
+fun NEXT_WEDNESDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.WEDNESDAY) 
+fun NEXT_THURSDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.THURSDAY) 
+fun NEXT_FRIDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.FRIDAY) 
+fun NEXT_SATURDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.SATURDAY) 
+fun NEXT_SUNDAY(): ZonedDateTime = NOW().getNext(DayOfWeek.SUNDAY) 
