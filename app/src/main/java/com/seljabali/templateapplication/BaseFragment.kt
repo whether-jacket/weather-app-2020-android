@@ -20,9 +20,7 @@ abstract class BaseFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         Logger.v("${getDisplayTag()} Fragment Paused")
-        if (!compositeDisposable.isDisposed) {
-            compositeDisposable.dispose()
-        }
+        compositeDisposable.clear()
     }
 
     override fun onDestroyView() {

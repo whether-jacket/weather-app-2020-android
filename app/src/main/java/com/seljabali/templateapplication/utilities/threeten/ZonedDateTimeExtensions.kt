@@ -37,6 +37,12 @@ class ZonedDateTimeUtil {
  * PARSERS *
  ***********/
 
+fun String.parseMsftDate(): ZonedDateTime {
+//    "\/Date(1325134800000)\/"
+    val longString = this.substring(this.indexOf("(") + 1, this.indexOf(")"))
+    return ZonedDateTimeUtil.new(longString.toLong())
+}
+
 fun String.parseZonedDate(format: String = ""): ZonedDateTime? {
     val result = parseZonedDateHelper(this, format)
     if (result != null) {
