@@ -28,7 +28,7 @@ class TemplateApplication: Application() {
         ObjectBox.init(this)
         Logger.addLogAdapter(AndroidLogAdapter())
         AndroidThreeTen.init(this)
-        serviceGenerator = ServiceGenerator("www.github.com", GithubService::class.java)
+        serviceGenerator = ServiceGenerator("https://www.github.com", GithubService::class.java)
         Hawk.init(this)
             .setParser(GsonParser(ServiceGenerator.gson))
             .build()
