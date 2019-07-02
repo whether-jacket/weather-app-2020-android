@@ -15,9 +15,9 @@ class HomeActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         showBackButton(false)
         supportFragmentManager.addOnBackStackChangedListener { backStackChangeListener() }
-        showTestPage()
+//        showTestPage()
 //        showLoginPage()
-//        showThemePage()
+        showThemePage()
     }
 
     override fun onSupportNavigateUp(): Boolean {

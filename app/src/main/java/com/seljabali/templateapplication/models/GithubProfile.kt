@@ -1,26 +1,30 @@
 package com.seljabali.templateapplication.models
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import com.seljabali.templateapplication.utilities.threeten.ZonedDateTimeTypeAdapterFactory
 import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
 import kotlinx.android.parcel.Parcelize
+import org.threeten.bp.ZonedDateTime
 
 @Entity
 @Parcelize
-class GithubProfile : BaseModel() {
-
-    @Id(assignable = false)
-    var objectBoxId: Long = 0
-
+data class GithubProfile(
     @SerializedName("id")
-    var githubId: Long = 0
+    @Id(assignable = true)
+    var githubId: Long = 0,
 
     @SerializedName("avatar_url")
-    var avatarUrl: String = ""
+    var avatarUrl: String = "",
 
     @SerializedName("name")
-    var name: String = ""
+    var name: String = "",
 
     @SerializedName("public_repos")
     var publicRepos: Int = 0
-}
+
+//    @SerializedName("ReportTime")
+//    @JsonAdapter(ZonedDateTimeTypeAdapterFactory::class)
+//    var reportTime: ZonedDateTime? = null
+) : BaseModel()
