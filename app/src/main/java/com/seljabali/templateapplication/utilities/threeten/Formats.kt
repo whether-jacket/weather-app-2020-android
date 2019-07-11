@@ -70,14 +70,19 @@ object Formats {
     }
 
     enum class Time(private val text: String) {
-        HH("h"),
+        // kk = Hours in 1-24 format
+        // hh = hours in 1-12 format
+        // KK = hours in 0-11 format
+        // HH = hours in 0-23 format
+        H("h"),
+        HH("hh"),
+        H_24("H"),
+        HH_24("HH"),
+        M("m"),
         MM("mm"),
-        HH_MM("h:mm"),
-        HH_MM_AM("h:mm a"),
-        HH_MM_AM_ALT("h:mma"),
-        HH_MM_AM_ALT2("ha"),
-        HH_MM_AM_ALT3("hha"),
-        H_24("k");
+        HH_MM_24("HH:mm"),
+        H_MM("h:mm"),
+        H_MM_AM("h:mm a");
 
         override fun toString(): String = text
     }

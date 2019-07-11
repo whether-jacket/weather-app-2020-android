@@ -184,6 +184,12 @@ fun ZonedDateTime.atStartOfDay(): ZonedDateTime = this.toLocalDate().atStartOfDa
 
 fun ZonedDateTime.atEndOfDay(): ZonedDateTime = this.toLocalDate().atTime(LocalTime.MAX).atZone(this.zone)
 
+fun ZonedDateTime.withLocalTime(localTime: LocalTime): ZonedDateTime {
+    val withHour = this.withHour(localTime.hour)
+    val withMinute = withHour.withMinute(localTime.minute)
+    return withMinute.withSecond(localTime.second)
+}
+
 fun ZonedDateTime.getLastIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime =
     if (this.dayOfWeek == dayOfWeek) this else getLast(dayOfWeek)
 
