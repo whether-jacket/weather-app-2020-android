@@ -28,8 +28,8 @@ class LoginFragment : BaseFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        context?.let { Keyboard.hide(it, usernameTextInputEditText) }
-        context?.let { Keyboard.hide(it, passwordTextInputEditText) }
+        Keyboard.hide(context, usernameTextInputEditText)
+        Keyboard.hide(context, passwordTextInputEditText)
     }
 
     private fun onLoginButtonClick() {

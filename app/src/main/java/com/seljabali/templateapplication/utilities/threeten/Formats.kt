@@ -63,6 +63,7 @@ object Formats {
 
     enum class YearMonthDayTime(private val text: String) {
         YYYY_MM_DD_TIME_Z("yyyy-MM-dd'T'HH:mm:ss.SSSZ"),
+        USA_MILITARY_WITH_ZONE("M/dd/yyyy HH:mm z"),
         USA_WITH_ZONE("M/dd/yyyy h:mm a z"),
         USA("M/dd/yyyy h:mm a");
 

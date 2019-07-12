@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.orhanobut.hawk.Hawk
-import com.orhanobut.logger.Logger
 import com.seljabali.templateapplication.BaseFragment
 import com.seljabali.templateapplication.R
 import com.seljabali.templateapplication.utilities.getTextValue
@@ -28,22 +26,14 @@ class TestFragment : BaseFragment() {
     }
 
     private fun onCalculateClick() {
-        encryptStuff()
-//        val input = etInputText.getTextValue()
         val input = etInputText.getTextValue()
-        tvOutput.setText(decryptStuff())
+        val output = getOutput(input)
+        tvOutput.text = output
     }
 
     private fun getOutput(input: String) : String {
-        return input
-    }
-
-    private fun encryptStuff() {
-        Hawk.put(TAG, getPlainText())
-    }
-
-    private fun decryptStuff(): String {
-        return Hawk.get<String>(TAG)
+        var output = ""
+        return output
     }
 
     fun fib(nth: Long): BigInteger {
