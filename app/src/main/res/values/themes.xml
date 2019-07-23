@@ -121,7 +121,7 @@
         <item name="dividerColor">@color/tokyoDividerColor</item>
         <item name="tabLayoutStyle">@style/TabStyle.Light</item>
         <!-- Input Layout -->
-        <item name="input_layout_text_edit_color">@color/tokyoColorPrimary</item>
+        <item name="input_layout_text_edit_color">@color/tokyoForeground</item>
         <item name="input_layout_error_color">@color/tokyoInputError</item>
         <item name="input_layout_hint_active_color">@color/tokyoActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/tokyoInactiveHint</item>
