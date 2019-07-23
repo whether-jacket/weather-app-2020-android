@@ -10,6 +10,8 @@ import com.orhanobut.logger.Logger
 import com.seljabali.templateapplication.models.GithubProfile
 import com.seljabali.templateapplication.network.GithubService
 import com.seljabali.templateapplication.network.ServiceGenerator
+import com.seljabali.templateapplication.utilities.App
+import io.objectbox.android.AndroidObjectBrowser
 
 class TemplateApplication: Application() {
 
@@ -26,6 +28,9 @@ class TemplateApplication: Application() {
 
     private fun setupLibraries() {
         ObjectBox.init(this)
+        if (App.isInDebugMode()) {
+            AndroidObjectBrowser(ObjectBox.get()).start(this)
+        }
         Logger.addLogAdapter(AndroidLogAdapter())
         AndroidThreeTen.init(this)
         serviceGenerator = ServiceGenerator("https://www.github.com", GithubService::class.java)

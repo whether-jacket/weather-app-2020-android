@@ -6,8 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'io.objectbox'
-
 android {
 
     androidExtensions {
@@ -85,7 +83,10 @@ dependencies {
     implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxbinding_version"
     implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxbinding_version"
 
-    implementation "io.objectbox:objectbox-kotlin:$objectbox_version"
+    debugImplementation "io.objectbox:objectbox-android-objectbrowser:$objectbox_version"
+    debugImplementation "io.objectbox:objectbox-kotlin:$objectbox_version"
+    releaseImplementation "io.objectbox:objectbox-android:$objectbox_version"
+
     implementation "com.orhanobut:logger:$logger_version"
 
 
@@ -96,8 +97,9 @@ dependencies {
 
     implementation "com.orhanobut:hawk:$hawk_version"
 
-
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
 }
+
+apply plugin: 'io.objectbox'
