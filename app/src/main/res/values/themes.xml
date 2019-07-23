@@ -44,6 +44,8 @@
         <item name="themeDescription">@string/theme_desc_illini</item>
         <item name="dividerColor">@color/illiniDividerColor</item>
         <item name="tabLayoutStyle">@style/TabStyle.Dark</item>
+        <!-- Input Layout -->
+        <item name="input_layout_text_edit_color">@color/illiniTextColorPrimary</item>
         <item name="input_layout_error_color">@color/illiniInputError</item>
         <item name="input_layout_hint_active_color">@color/illiniActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/illiniInactiveHint</item>
@@ -78,6 +80,8 @@
         <item name="themeDescription">@string/theme_desc_sea_foam</item>
         <item name="dividerColor">@color/seaFoamDividerColor</item>
         <item name="tabLayoutStyle">@style/TabStyle.Dark.Serif</item>
+        <!-- Input Layout -->
+        <item name="input_layout_text_edit_color">@color/seaFoamTextColorPrimary</item>
         <item name="input_layout_error_color">@color/seaFoamInputError</item>
         <item name="input_layout_hint_active_color">@color/seaFoamActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/seaFoamInactiveHint</item>
@@ -116,6 +120,8 @@
         <item name="themeDescription">@string/theme_desc_tokyo</item>
         <item name="dividerColor">@color/tokyoDividerColor</item>
         <item name="tabLayoutStyle">@style/TabStyle.Light</item>
+        <!-- Input Layout -->
+        <item name="input_layout_text_edit_color">@color/tokyoColorPrimary</item>
         <item name="input_layout_error_color">@color/tokyoInputError</item>
         <item name="input_layout_hint_active_color">@color/tokyoActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/tokyoInactiveHint</item>
