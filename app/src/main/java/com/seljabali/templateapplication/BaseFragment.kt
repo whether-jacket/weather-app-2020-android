@@ -13,6 +13,7 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        Logger.v("${getDisplayTag()} Fragment Attached")
         (activity as? BaseActivity)?.addBackClickListener(this)
     }
 
@@ -45,6 +46,7 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
     override fun getContext(): Context = activity as Context
 
     open fun onVisible() {
+        Logger.v("${getDisplayTag()} Fragment Visible")
         val toolbarTitle = getToolbarTitle()
         if (toolbarTitle.isNotEmpty()) setToolBarTitle(toolbarTitle)
     }
