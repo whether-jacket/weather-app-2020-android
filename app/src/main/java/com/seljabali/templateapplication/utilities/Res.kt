@@ -112,6 +112,39 @@ object Res {
         return text.toString()
     }
 
+    @JvmStatic
+    fun getString(context: Context, @StringRes id: Int): String =
+        try {
+            context.resources.getString(id)
+        } catch (e: Exception) {
+            ""
+        }
+
+    @JvmStatic
+    fun getStringFormatted(context: Context, @StringRes id: Int, vararg formatArgs: Any): String =
+        try {
+            context.resources.getString(id, *formatArgs)
+        } catch (e: Exception) {
+            ""
+        }
+
+    @JvmStatic
+    fun getQuantityStringFormatted(context: Context, @PluralsRes id: Int, quantity: Int, vararg formatArgs: Any): String =
+        try {
+            context.resources.getQuantityString(id, quantity, *formatArgs)
+        } catch (e: Exception) {
+            ""
+        }
+
+    @JvmStatic
+    fun getStringArray(context: Context, @ArrayRes id: Int): Array<String> {
+        try {
+            return context.resources.getStringArray(id)
+        } catch (e: Exception) {
+        }
+        return emptyArray()
+    }
+
     /**
      *  Get by Name
      */
