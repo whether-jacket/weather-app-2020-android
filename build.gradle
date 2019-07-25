@@ -15,7 +15,7 @@ buildscript {
         okhttp3_version = "3.14.1"
         rxjava_version = "2.2.2"
         rxandroid_version = "2.1.1"
-        rxbinding_version = "3.0.0-alpha2"
+        rxbinding_version = "3.0.0"
         objectbox_version = '2.3.4'
         logger_version = "2.2.0"
         threeten_version = "1.2.1"
