@@ -12,7 +12,8 @@
         <item name="themeName">@string/theme_name_droid</item>
         <item name="themeDescription">@string/theme_desc_droid</item>
         <!-- Dialogs -->
-        <item name="android:dialogTheme">@style/MyDialogTheme</item>
+        <item name="alertDialogTheme">@style/DialogThemeLight</item>
+        <item name="android:dialogTheme">@style/DialogThemeLight</item>
         <item name="android:datePickerStyle">@style/MyDatePicker</item>
     </style>
 
@@ -50,7 +51,8 @@
         <item name="input_layout_hint_active_color">@color/illiniActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/illiniInactiveHint</item>
         <!-- Dialogs -->
-        <item name="android:dialogTheme">@style/MyDialogTheme</item>
+        <item name="alertDialogTheme">@style/DialogThemeDark</item>
+        <item name="android:dialogTheme">@style/DialogThemeDark</item>
         <item name="android:datePickerStyle">@style/MyDatePicker</item>
     </style>
 
@@ -86,7 +88,8 @@
         <item name="input_layout_hint_active_color">@color/seaFoamActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/seaFoamInactiveHint</item>
         <!-- Dialogs -->
-        <item name="android:dialogTheme">@style/MyDialogTheme</item>
+        <item name="alertDialogTheme">@style/DialogThemeLight</item>
+        <item name="android:dialogTheme">@style/DialogThemeLight</item>
         <item name="android:datePickerStyle">@style/MyDatePicker</item>
     </style>
 
@@ -126,7 +129,8 @@
         <item name="input_layout_hint_active_color">@color/tokyoActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/tokyoInactiveHint</item>
         <!-- Dialogs -->
-        <item name="android:dialogTheme">@style/MyDialogTheme</item>
+        <item name="alertDialogTheme">@style/DialogThemeLight</item>
+        <item name="android:dialogTheme">@style/DialogThemeLight</item>
         <item name="android:datePickerStyle">@style/MyDatePicker</item>
     </style>
 </resources>

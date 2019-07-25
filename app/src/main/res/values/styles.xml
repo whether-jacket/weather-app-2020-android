@@ -104,7 +104,11 @@
     </style>
 
     <!-- Dialogs -->
-    <style name="MyDialogTheme" parent="android:Theme.Material.Dialog">
+    <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+
+    <style name="DialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:datePickerStyle">@style/MyDatePicker</item>
     </style>
 
