@@ -3,6 +3,7 @@ package com.seljabali.templateapplication
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.orhanobut.logger.Logger
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -12,6 +13,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private val compositeDisposable = CompositeDisposable()
     private val backClickListenersList = ArrayList<WeakReference<OnBackClickListener>>()
+    private val onBackStackChangeListener = FragmentManager.OnBackStackChangedListener { onBackStackChanged() }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -38,7 +40,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Logger.v("${getTag()} Resumed")
-        supportFragmentManager.addOnBackStackChangedListener { onBackStackChanged() }
+        supportFragmentManager.addOnBackStackChangedListener(onBackStackChangeListener)
     }
 
     override fun onDestroy() {
