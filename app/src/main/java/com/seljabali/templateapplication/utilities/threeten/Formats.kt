@@ -81,9 +81,16 @@ object Formats {
         HH_24("HH"),
         M("m"),
         MM("mm"),
+        S("s"),
+        SS("ss"),
+        H_MM_24("H:mm"),
         HH_MM_24("HH:mm"),
         H_MM("h:mm"),
-        H_MM_AM("h:mm a");
+        HH_MM("hh:mm"),
+        H_MM_AM("h:mm a"),
+        HH_MM_AM("hh:mm a"),
+        HH_MM_SS_AM("hh:mm:ss a"),
+        HH_MM_SS_24("HH:mm:ss");
 
         override fun toString(): String = text
     }
