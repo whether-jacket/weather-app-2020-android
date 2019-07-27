@@ -9,11 +9,10 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener {
 
     private val compositeDisposable = CompositeDisposable()
     private val backClickListenersList = ArrayList<WeakReference<OnBackClickListener>>()
-    private val onBackStackChangeListener = FragmentManager.OnBackStackChangedListener { onBackStackChanged() }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -40,7 +39,15 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Logger.v("${getTag()} Resumed")
-        supportFragmentManager.addOnBackStackChangedListener(onBackStackChangeListener)
+        // since onCreate doesn't register listener in subclasses we do it onResume
+        // since onResume can occur more than once, we remove it in case it already exists
+        supportFragmentManager.removeOnBackStackChangedListener(this)
+        supportFragmentManager.addOnBackStackChangedListener(this)
+    }
+
+    override fun onBackStackChanged() {
+        val topFragment = supportFragmentManager.fragments.last() as? BaseFragment
+        topFragment?.onVisible()
     }
 
     override fun onDestroy() {
@@ -60,11 +67,6 @@ abstract class BaseActivity : AppCompatActivity() {
                 iterator.remove()
             }
         }
-    }
-
-    protected open fun onBackStackChanged() {
-        val topFragment = supportFragmentManager.fragments.last() as? BaseFragment
-        topFragment?.onVisible()
     }
 
     protected fun subscribe(disposable: Disposable) {
