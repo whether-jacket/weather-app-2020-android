@@ -12,17 +12,18 @@ import com.seljabali.templateapplication.network.GithubService
 import com.seljabali.templateapplication.network.ServiceGenerator
 import com.seljabali.templateapplication.utilities.App
 import io.objectbox.android.AndroidObjectBrowser
+import java.lang.ref.WeakReference
 
 class TemplateApplication: Application() {
 
     companion object {
-        lateinit var appContext: Context
+        lateinit var instance: WeakReference<Context>
         lateinit var serviceGenerator: ServiceGenerator<GithubService>
     }
 
     override fun onCreate() {
         super.onCreate()
-        appContext = applicationContext
+        instance = WeakReference(applicationContext)
         setupLibraries()
     }
 
