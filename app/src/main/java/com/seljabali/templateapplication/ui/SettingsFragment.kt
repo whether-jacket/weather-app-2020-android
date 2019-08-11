@@ -2,10 +2,9 @@ package com.seljabali.templateapplication.ui
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.SwitchPreferenceCompat
 import com.seljabali.templateapplication.R
 import android.view.View
-import com.seljabali.templateapplication.utilities.Res
+import com.seljabali.core.utilities.Res
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

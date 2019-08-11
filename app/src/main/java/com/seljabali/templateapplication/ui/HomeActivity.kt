@@ -2,7 +2,7 @@ package com.seljabali.templateapplication.ui
 
 import android.os.Bundle
 import android.view.View
-import com.seljabali.templateapplication.BaseActivity
+import com.seljabali.core.BaseActivity
 import com.seljabali.templateapplication.R
 import kotlinx.android.synthetic.main.toolbar.*
 

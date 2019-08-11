@@ -5,8 +5,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.seljabali.templateapplication.network.interceptors.RequestHeaderInterceptor
 import com.seljabali.templateapplication.network.interceptors.ResponseCookiesInterceptor
-import com.seljabali.templateapplication.utilities.App
-import com.seljabali.templateapplication.utilities.threeten.ZonedDateTimeTypeAdapterFactory
+import com.seljabali.core.utilities.App
+import com.seljabali.core.utilities.threeten.ZonedDateTimeTypeAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.*

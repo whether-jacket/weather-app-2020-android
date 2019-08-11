@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seljabali.templateapplication.BaseFragment
+import com.seljabali.core.BaseFragment
 import com.seljabali.templateapplication.R
-import com.seljabali.templateapplication.utilities.getTextValue
+import com.seljabali.core.utilities.getTextValue
 import kotlinx.android.synthetic.main.fragment_test.*
 import java.math.BigInteger
 
