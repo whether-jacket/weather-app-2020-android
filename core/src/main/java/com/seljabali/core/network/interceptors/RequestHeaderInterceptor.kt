@@ -1,7 +1,7 @@
-package com.seljabali.templateapplication.network.interceptors
+package com.seljabali.core.network.interceptors
 
-import com.seljabali.templateapplication.network.ContentType
-import com.seljabali.templateapplication.network.RequestHeader
+import com.seljabali.core.network.ContentTypes
+import com.seljabali.core.network.RequestHeaders
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -11,14 +11,13 @@ class RequestHeaderInterceptor(private val authToken: String, private val cookie
             request()
                 .newBuilder().apply {
                     if (authToken.isNotEmpty()) {
-                        header(RequestHeader.AUTH.id, authToken)
+                        header(RequestHeaders.AUTH.id, authToken)
                     }
                     if (cookie.isNotEmpty()) {
-                        header(RequestHeader.COOKIE.id, cookie)
+                        header(RequestHeaders.COOKIE.id, cookie)
                     }
                 }
-                .header(RequestHeader.CONTENT_TYPE.id, ContentType.JSON.id)
-                .header("xctg-type", "mobile")
+                .header(RequestHeaders.CONTENT_TYPE.id, ContentTypes.JSON.id)
                 .build()
         )
     }

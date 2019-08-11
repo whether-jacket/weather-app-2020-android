@@ -36,16 +36,6 @@
     <!-- Test Page -->
     <string name="calculate">Calculate</string>
 
-    <!-- Themes -->
-    <string name="theme_name_droid">Droid</string>
-    <string name="theme_desc_droid">Android Default</string>
-    <string name="theme_name_tokyo">Tokyo</string>
-    <string name="theme_desc_tokyo">Light</string>
-    <string name="theme_name_illini">Illini</string>
-    <string name="theme_desc_illini">Dark</string>
-    <string name="theme_name_sea_foam">Sea Foam</string>
-    <string name="theme_desc_sea_foam">Light, dark action bar</string>
-
     <!-- Theme Viewing -->
     <string name="title_text_appearances">Text Appearances</string>
     <string name="title_palette">Palette</string>

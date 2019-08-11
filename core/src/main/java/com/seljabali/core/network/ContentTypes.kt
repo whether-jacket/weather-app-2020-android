@@ -1,7 +1,7 @@
-package com.seljabali.templateapplication.network
+package com.seljabali.core.network
 
 // https://stackoverflow.com/questions/23714383/what-are-all-the-possible-values-for-http-content-type-header
-enum class ContentType(val id: String) {
+enum class ContentTypes(val id: String) {
     // Application types
     EDI("application/EDI-X12"),
     EDIFACT("application/EDIFACT"),

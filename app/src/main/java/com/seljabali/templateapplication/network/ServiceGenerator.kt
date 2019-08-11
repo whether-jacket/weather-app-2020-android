@@ -3,8 +3,8 @@ package com.seljabali.templateapplication.network
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.seljabali.templateapplication.network.interceptors.RequestHeaderInterceptor
-import com.seljabali.templateapplication.network.interceptors.ResponseCookiesInterceptor
+import com.seljabali.core.network.interceptors.RequestHeaderInterceptor
+import com.seljabali.core.network.interceptors.ResponseCookiesInterceptor
 import com.seljabali.core.utilities.App
 import com.seljabali.core.utilities.threeten.ZonedDateTimeTypeAdapterFactory
 import okhttp3.OkHttpClient
