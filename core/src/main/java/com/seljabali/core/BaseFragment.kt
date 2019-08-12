@@ -9,6 +9,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
+
+    protected val baseActivity get() = activity as BaseActivity
     private val compositeDisposable = CompositeDisposable()
 
     override fun onAttach(context: Context) {
@@ -59,7 +61,7 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
     fun getDisplayTag(): String = javaClass.simpleName
 
     protected fun setToolBarTitle(title: String) {
-        (activity as? BaseActivity)?.supportActionBar?.title = title
+        baseActivity.supportActionBar?.title = title
     }
 
     protected fun subscribe(disposable: Disposable) {

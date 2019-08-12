@@ -64,4 +64,15 @@
 
     <!-- Elevation -->
     <dimen name="xxs_elevation">2dp</dimen>
+    <dimen name="s_elevation">4dp</dimen>
+    <dimen name="m_elevation">6dp</dimen>
+    <dimen name="l_elevation">12dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="s_radius">4dp</dimen>
+    <dimen name="m_radius">6dp</dimen>
+    <dimen name="l_radius">8dp</dimen>
+
+    <!-- Letter Spacings -->
+    <dimen format="float" name="m_letter_spacing">0.15</dimen>
 </resources>
