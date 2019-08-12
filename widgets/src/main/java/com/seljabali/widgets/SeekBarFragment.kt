@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.seljabali.core.BaseFragment
 
-class AbsSeekBarFragment : BaseFragment() {
+class SeekBarFragment : BaseFragment() {
 
     companion object {
         @JvmStatic
-        val TAG: String = AbsSeekBarFragment::class.java.simpleName
+        val TAG: String = SeekBarFragment::class.java.simpleName
 
         @JvmStatic
-        fun newInstance(): AbsSeekBarFragment = AbsSeekBarFragment()
+        fun newInstance(): SeekBarFragment = SeekBarFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =

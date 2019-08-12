@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -62,7 +61,6 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
 
     override fun onWidgetClick(widgetClicked: Widgets) {
         when (widgetClicked) {
-            Widgets.AbsSeekBar -> startFragment(AbsSeekBarFragment.newInstance(), AbsSeekBarFragment.TAG)
             Widgets.AnalogClock -> startFragment(AnalogClock.newInstance(), AnalogClock.TAG)
             Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.TAG)
             Widgets.Button -> startFragment(ButtonFragment.newInstance(), ButtonFragment.TAG)
@@ -86,6 +84,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.ProgressBar -> startFragment(ProgressBarFragment.newInstance(), ProgressBarFragment.TAG)
             Widgets.RadioButton -> startFragment(RadioButtonFragment.newInstance(), RadioButtonFragment.TAG)
             Widgets.RatingBar -> TODO()
+            Widgets.SeekBar -> startFragment(SeekBarFragment.newInstance(), SeekBarFragment.TAG)
             Widgets.StatusBar -> startFragment(StatusFragment.newInstance(), StatusFragment.TAG)
             Widgets.TextClock -> startFragment(TextClock.newInstance(), TextClock.TAG)
             Widgets.TimePicker -> startFragment(TimePickerFragment.newInstance(), TimePickerFragment.TAG)
