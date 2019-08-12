@@ -16,7 +16,7 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Logger.v("${getDisplayTag()} Fragment Attached")
-        (activity as? BaseActivity)?.addBackClickListener(this)
+        baseActivity.addBackClickListener(this)
     }
 
     override fun onBackClick(): Boolean {
@@ -42,7 +42,7 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         Logger.v("${getDisplayTag()} View Destroyed")
-        (activity as? BaseActivity)?.removeBackClickListener(this)
+        baseActivity.removeBackClickListener(this)
     }
 
     override fun getContext(): Context = activity as Context
