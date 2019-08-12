@@ -8,16 +8,16 @@
               android:focusable="true">
 
     <Button
-            android:id="@+id/shortToastButton"
+            android:id="@+id/showTime24PickerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/short_toast"/>
+            android:text="@string/show_time_in_24"/>
 
     <Button
-            android:id="@+id/longToastButton"
+            android:id="@+id/showTimeAmPmPickerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m_vertical_spacing"
-            android:text="@string/long_toast"/>
+            android:text="@string/show_time_in_am_pm"/>
 
 </LinearLayout>

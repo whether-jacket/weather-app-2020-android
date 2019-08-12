@@ -30,6 +30,7 @@ enum class Widgets (val title:String, val drawable: Int) {
     RatingBar("RatingBar", R.color.transparent),
     StatusBar("Status Bar", R.drawable.status_bar),
     TextClock("Text Clock", R.drawable.text_clock),
+    TimePicker("Time Picker", R.drawable.time_picker),
     Toast("Toast", R.drawable.toast),
     ToolBar("Tool Bar", R.drawable.tool_bar),
 }

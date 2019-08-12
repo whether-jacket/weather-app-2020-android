@@ -5,7 +5,7 @@
                                                    android:layout_height="match_parent"
                                                    android:focusable="true"
                                                    android:clickable="true"
-                                                   android:padding="@dimen/s_padding">
+                                                   android:padding="@dimen/m_padding">
 
     <Button
             android:id="@+id/btnHide"

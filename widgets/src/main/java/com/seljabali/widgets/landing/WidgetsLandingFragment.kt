@@ -89,6 +89,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.RatingBar -> TODO()
             Widgets.StatusBar -> startFragment(StatusFragment.newInstance(), StatusFragment.TAG)
             Widgets.TextClock -> startFragment(TextClock.newInstance(), TextClock.TAG)
+            Widgets.TimePicker -> startFragment(TimePickerFragment.newInstance(), TimePickerFragment.TAG)
             Widgets.Toast -> startFragment(ToastFragment.newInstance(), ToastFragment.TAG)
             Widgets.ToolBar -> startFragment(ToolbarFragment.newInstance(), ToolbarFragment.TAG)
         }

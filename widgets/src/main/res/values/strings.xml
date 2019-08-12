@@ -22,4 +22,8 @@
     <string name="short_toast">Short Toast</string>
     <string name="long_toast">Long Toast</string>
     <string name="foo">Foo</string>
+    <string name="time_picker">Time Picker</string>
+    <string name="show_time_picker">Time Picker</string>
+    <string name="show_time_in_24">Show time in 24 format</string>
+    <string name="show_time_in_am_pm">Show time in AM/PM format</string>
 </resources>
