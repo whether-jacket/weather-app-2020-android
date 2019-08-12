@@ -12,13 +12,10 @@ class AutoCompleteTextViewFragment : BaseFragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(): AutoCompleteTextViewFragment {
-            return AutoCompleteTextViewFragment()
-        }
+        val TAG: String = AutoCompleteTextViewFragment::class.java.simpleName
 
-        fun getTag(): String {
-            return AutoCompleteTextViewFragment::class.java.simpleName
-        }
+        @JvmStatic
+        fun newInstance(): AutoCompleteTextViewFragment = AutoCompleteTextViewFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

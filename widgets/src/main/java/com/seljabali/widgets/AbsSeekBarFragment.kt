@@ -10,8 +10,9 @@ class AbsSeekBarFragment : BaseFragment() {
 
     companion object {
         @JvmStatic
+        val TAG: String = AbsSeekBarFragment::class.java.simpleName
+        @JvmStatic
         fun newInstance(): AbsSeekBarFragment = AbsSeekBarFragment()
-        fun getTag(): String = AbsSeekBarFragment::class.java.simpleName
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.*
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,13 +20,13 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
     companion object {
         @JvmStatic
         fun newInstance(): WidgetsLandingFragment = WidgetsLandingFragment()
+        @JvmStatic
         val TAG: String = WidgetsLandingFragment::class.java.simpleName
-        const val TYPE_TIME_SECONDS = 1L
+        private const val TYPE_TIME_SECONDS = 1L
     }
 
     private lateinit var searchMenuItem: MenuItem
     private lateinit var adapter: WidgetRecyclerViewAdapter
-    private var searchDisposable: Disposable? = null
     private var widgetsLandingFragmentViewer: WeakReference<WidgetsLandingFragmentViewer>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -45,39 +44,27 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
         menu.clear()
         val searchView = SearchView(context)
         with(menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.search)) {
+            searchMenuItem = this
             setIcon(android.R.drawable.ic_menu_search)
             setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW or MenuItem.SHOW_AS_ACTION_IF_ROOM)
             actionView = searchView
-            this.setOnActionExpandListener(this@WidgetsLandingFragment)
-            searchMenuItem = this
+            setOnActionExpandListener(this@WidgetsLandingFragment)
         }
-        searchDisposable = searchView.queryTextChanges()
+        subscribe(searchView.queryTextChanges()
                 .debounce(TYPE_TIME_SECONDS, TimeUnit.SECONDS)
                 .mergeWith(Observable.empty())
                 .map { enteredSearch -> widgetSearch(enteredSearch) }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ filteredWidgets -> onSearch(filteredWidgets) },
-                        { error: Throwable? -> Log.e(tag, error.toString()) })
-    }
-
-    override fun onStop() {
-        super.onStop()
-        if (searchDisposable?.isDisposed == true) {
-            searchDisposable!!.dispose()
-            searchDisposable = null
-        }
+                        { error: Throwable? -> Log.e(tag, error.toString()) }))
     }
 
     override fun onWidgetClick(widgetClicked: Widgets) {
         when (widgetClicked) {
-            Widgets.Button -> startFragment(ButtonFragment.newInstance(), ButtonFragment.getTag())
-            Widgets.StatusBar -> startFragment(StatusFragment.newInstance(), StatusFragment.getTag())
-            Widgets.ToolBar -> startFragment(ToolbarFragment.newInstance(), ToolbarFragment.getTag())
-            Widgets.ProgressBar -> startFragment(ProgressBarFragment.newInstance(), ProgressBarFragment.getTag())
-            Widgets.AbsSeekBar -> startFragment(AbsSeekBarFragment.newInstance(), AbsSeekBarFragment.getTag())
-            Widgets.AnalogClock -> startFragment(AnalogClock.newInstance(), AnalogClock.getTag())
-            Widgets.TextClock -> startFragment(TextClock.newInstance(), TextClock.getTag())
-            Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.getTag())
+            Widgets.AbsSeekBar -> startFragment(AbsSeekBarFragment.newInstance(), AbsSeekBarFragment.TAG)
+            Widgets.AnalogClock -> startFragment(AnalogClock.newInstance(), AnalogClock.TAG)
+            Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.TAG)
+            Widgets.Button -> startFragment(ButtonFragment.newInstance(), ButtonFragment.TAG)
             Widgets.CalendarView -> TODO()
             Widgets.CheckBox -> TODO()
             Widgets.CheckedTextView -> TODO()
@@ -95,9 +82,13 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.MediaController -> TODO()
             Widgets.MultiAutoCompleteTextView -> TODO()
             Widgets.NumberPicker -> TODO()
+            Widgets.ProgressBar -> startFragment(ProgressBarFragment.newInstance(), ProgressBarFragment.TAG)
             Widgets.RadioButton -> TODO()
             Widgets.RadioGroup -> TODO()
             Widgets.RatingBar -> TODO()
+            Widgets.StatusBar -> startFragment(StatusFragment.newInstance(), StatusFragment.TAG)
+            Widgets.TextClock -> startFragment(TextClock.newInstance(), TextClock.TAG)
+            Widgets.ToolBar -> startFragment(ToolbarFragment.newInstance(), ToolbarFragment.TAG)
         }
     }
 

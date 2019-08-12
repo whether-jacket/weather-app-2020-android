@@ -10,8 +10,9 @@ class AnalogClock : BaseFragment() {
 
     companion object {
         @JvmStatic
+        val TAG: String = AnalogClock::class.java.simpleName
+        @JvmStatic
         fun newInstance(): AnalogClock = AnalogClock()
-        fun getTag(): String = AnalogClock::class.java.simpleName
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -11,13 +11,10 @@ class TextClock  : BaseFragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(): TextClock {
-            return TextClock()
-        }
+        val TAG: String = TextClock::class.java.simpleName
 
-        fun getTag(): String {
-            return TextClock::class.java.simpleName
-        }
+        @JvmStatic
+        fun newInstance(): TextClock = TextClock()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

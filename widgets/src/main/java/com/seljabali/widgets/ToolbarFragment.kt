@@ -13,8 +13,9 @@ class ToolbarFragment: BaseFragment() {
 
     companion object {
         @JvmStatic
+        val TAG: String = ToolbarFragment::class.java.simpleName
+        @JvmStatic
         fun newInstance(): ToolbarFragment = ToolbarFragment()
-        fun getTag(): String = ToolbarFragment::class.java.simpleName
     }
 
     private var colorSelected :Int? = null

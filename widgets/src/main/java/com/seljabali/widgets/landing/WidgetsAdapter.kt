@@ -26,19 +26,7 @@ class WidgetRecyclerViewAdapter(private val widgetClickListener: WidgetClickList
         holder.itemView.setOnClickListener { widgetClickListener.onWidgetClick(widgetAtPosition) }
     }
 
-    override fun getItemCount(): Int {
-        return if (widgetFilteredList.size == 0)
-            widgetList.size
-        else
-            widgetFilteredList.size
-    }
-
-    private fun getItemAtPosition(position: Int): Widgets {
-        return if (widgetFilteredList.size == 0)
-            widgetList[position]
-        else
-            widgetFilteredList[position]
-    }
+    override fun getItemCount(): Int = if (widgetFilteredList.size == 0) widgetList.size else widgetFilteredList.size
 
     fun setFilteredWidgets(widgetFilteredList: ArrayList<Widgets>) {
         this.widgetFilteredList = widgetFilteredList
@@ -49,6 +37,8 @@ class WidgetRecyclerViewAdapter(private val widgetClickListener: WidgetClickList
         this.widgetFilteredList = ArrayList()
         notifyDataSetChanged()
     }
+
+    private fun getItemAtPosition(position: Int): Widgets = if (widgetFilteredList.size == 0) widgetList[position] else widgetFilteredList[position]
 
     interface WidgetClickListener {
         fun onWidgetClick(widgetClicked: Widgets)

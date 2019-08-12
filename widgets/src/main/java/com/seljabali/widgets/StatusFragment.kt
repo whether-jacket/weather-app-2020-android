@@ -14,8 +14,9 @@ class StatusFragment : BaseFragment() {
 
     companion object {
         @JvmStatic
+        val TAG: String = StatusFragment::class.java.simpleName
+        @JvmStatic
         fun newInstance(): StatusFragment = StatusFragment()
-        fun getTag(): String = StatusFragment::class.java.simpleName
     }
 
     var color: Int? = null

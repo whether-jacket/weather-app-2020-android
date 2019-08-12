@@ -2,7 +2,6 @@ package com.seljabali.core
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.orhanobut.logger.Logger
@@ -69,9 +68,6 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
             }
         }
     }
-
-//    @IdRes
-//    protected abstract fun getFrameContainerViewId(): Int
 
     protected fun subscribe(disposable: Disposable) {
         compositeDisposable.add(disposable)

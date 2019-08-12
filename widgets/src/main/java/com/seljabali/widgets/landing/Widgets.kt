@@ -3,12 +3,8 @@ package com.seljabali.widgets.landing
 import com.seljabali.widgets.R
 
 enum class Widgets (val title:String, val drawable: Int) {
-    StatusBar("Status Bar", R.drawable.status_bar),
-    ToolBar("Tool Bar", R.drawable.tool_bar),
-    ProgressBar("Progress Bar", R.drawable.progress_bar),
     AbsSeekBar("Seek Bar", R.drawable.seek_bar),
     AnalogClock("Analog Clock", R.drawable.analog_clock),
-    TextClock("Text Clock", R.drawable.text_clock),
     AutoCompleteTextView("AutoComplete TextView", R.drawable.autocomplete_textview),
     Button("Button", R.color.transparent),
     CalendarView("Calendar", R.color.transparent),
@@ -28,7 +24,11 @@ enum class Widgets (val title:String, val drawable: Int) {
     MediaController("MediaController", R.color.transparent),
     MultiAutoCompleteTextView("MultiAutoCompleteTextView", R.color.transparent),
     NumberPicker("NumberPicker", R.color.transparent),
+    ProgressBar("Progress Bar", R.drawable.progress_bar),
     RadioButton("RadioButton", R.color.transparent),
     RadioGroup("RadioGroup", R.color.transparent),
-    RatingBar("RatingBar", R.color.transparent)
+    RatingBar("RatingBar", R.color.transparent),
+    StatusBar("Status Bar", R.drawable.status_bar),
+    TextClock("Text Clock", R.drawable.text_clock),
+    ToolBar("Tool Bar", R.drawable.tool_bar),
 }

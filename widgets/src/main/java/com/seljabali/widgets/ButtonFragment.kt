@@ -10,8 +10,9 @@ class ButtonFragment : BaseFragment() {
 
     companion object {
         @JvmStatic
+        val TAG: String = ButtonFragment::class.java.simpleName
+        @JvmStatic
         fun newInstance(): ButtonFragment = ButtonFragment()
-        fun getTag(): String = ButtonFragment::class.java.simpleName
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

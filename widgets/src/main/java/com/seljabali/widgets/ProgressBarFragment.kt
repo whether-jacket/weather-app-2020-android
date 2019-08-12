@@ -11,13 +11,9 @@ class ProgressBarFragment: BaseFragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(): ProgressBarFragment {
-            return ProgressBarFragment()
-        }
-
-        fun getTag(): String {
-            return ProgressBarFragment::class.java.simpleName
-        }
+        val TAG: String = ProgressBarFragment::class.java.simpleName
+        @JvmStatic
+        fun newInstance(): ProgressBarFragment = ProgressBarFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
