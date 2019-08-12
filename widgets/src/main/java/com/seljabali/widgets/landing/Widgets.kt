@@ -8,7 +8,7 @@ enum class Widgets (val title:String, val drawable: Int) {
     AutoCompleteTextView("AutoComplete TextView", R.drawable.autocomplete_textview),
     Button("Button", R.color.transparent),
     CalendarView("Calendar", R.color.transparent),
-    CheckBox("CheckBox", R.color.transparent),
+    CheckBox("CheckBox", R.drawable.checkbox),
     CheckedTextView("CheckedTextView", R.color.transparent),
     Chronometer("Chronometer", R.color.transparent),
     CompoundButton("CompoundButton", R.color.transparent),
