@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Widgets</string>
+    <string name="button">Button</string>
+    <string name="search">Search</string>
+    <string name="hide">Hide</string>
+    <string name="show">Show</string>
+    <string name="status_bar">Status Bar</string>
+    <string name="change_color">Change Color</string>
+    <string name="toolbar">Toolbar</string>
+    <string name="progress_bar">Progress Bar</string>
+    <string name="change_elevation">Change Elevation</string>
+    <string name="seek_bar">Seek Bar</string>
+    <string name="analog_clock">Analog Clock</string>
+    <string name="text_clock">Text Clock</string>
+    <string name="twentyFourHrs">24Hrs</string>
+    <string name="amPm">Am / Pm</string>
+    <string name="autocomplete_text_view">AutoComplete TextView</string>
+</resources>

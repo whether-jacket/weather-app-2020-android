@@ -2,11 +2,13 @@ package com.seljabali.templateapplication.ui
 
 import android.os.Bundle
 import android.view.View
-import com.seljabali.templateapplication.BaseActivity
+import com.seljabali.core.BaseActivity
+import com.seljabali.core.BaseFragment
 import com.seljabali.templateapplication.R
+import com.seljabali.widgets.landing.WidgetsLandingFragment
 import kotlinx.android.synthetic.main.toolbar.*
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragmentViewer {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,15 +17,31 @@ class HomeActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         showBackButton(false)
         supportFragmentManager.addOnBackStackChangedListener { backStackChangeListener() }
-        showTestPage()
+//        showTestPage()
 //        showLoginPage()
 //        showThemePage()
+        showWidgetCatalogue()
+    }
+
+    private fun showWidgetCatalogue() {
+        val widgetsLandingFragment = WidgetsLandingFragment.newInstance()
+        widgetsLandingFragment.setWidgetsLandingFragmentViewer(this)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, widgetsLandingFragment)
+            .commit()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         super.onSupportNavigateUp()
         onBackPressed()
         return true
+    }
+
+    override fun showFragment(baseFragment: BaseFragment, tag: String) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, baseFragment)
+            .addToBackStack(tag)
+            .commit()
     }
 
     private fun backStackChangeListener() {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:focusable="true"
+                                                   android:clickable="true"
+                                                   android:padding="@dimen/s_padding">
+
+    <Button
+            android:id="@+id/btnHide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+            android:id="@+id/btnShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show"
+            android:layout_marginStart="@dimen/s_horizontal_spacing"
+            app:layout_constraintStart_toEndOf="@id/btnHide"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+            android:id="@+id/btnChangeElevation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_elevation"
+            android:layout_marginTop="@dimen/s_horizontal_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHide"/>
+
+
+    <Button
+            android:id="@+id/btnChangeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_color"
+            android:layout_marginTop="@dimen/s_horizontal_spacing"
+            app:layout_constraintStart_toEndOf="@id/btnChangeElevation"
+            app:layout_constraintTop_toBottomOf="@id/btnHide"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,9 @@ import com.orhanobut.hawk.GsonParser
 import com.orhanobut.hawk.Hawk
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
-import com.seljabali.templateapplication.models.GithubProfile
 import com.seljabali.templateapplication.network.GithubService
 import com.seljabali.templateapplication.network.ServiceGenerator
-import com.seljabali.templateapplication.utilities.App
+import com.seljabali.core.utilities.App
 import io.objectbox.android.AndroidObjectBrowser
 import java.lang.ref.WeakReference
 

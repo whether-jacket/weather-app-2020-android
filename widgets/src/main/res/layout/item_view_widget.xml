@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/s_vertical_spacing"
+    android:layout_marginBottom="@dimen/s_vertical_spacing"
+    android:layout_marginStart="@dimen/xs_horizontal_spacing"
+    android:layout_marginEnd="@dimen/xs_horizontal_spacing"
+    app:cardCornerRadius="@dimen/m_radius"
+    app:cardElevation="@dimen/s_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_widget_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/s_vertical_spacing"
+            android:paddingBottom="@dimen/s_vertical_spacing"
+            android:gravity="center"
+            android:textSize="@dimen/m_text_size"
+            tools:text="Button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_widget_pic"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_view_max_height"
+            android:scaleType="fitCenter"
+            tools:background="@drawable/tool_bar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_widget_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

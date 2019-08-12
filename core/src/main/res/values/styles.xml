@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Input Layout EditText -->
+    <style name="InputLayoutStyle" parent="Widget.Design.TextInputLayout">
+        <item name="errorEnabled">true</item>
+        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+    </style>
+    <style name="InputLayoutStyle.EditText" parent="Theme.AppCompat.Light">
+        <!-- Active Text Color -->
+        <item name="android:editTextColor">?input_layout_text_edit_color</item>
+        <!-- Inactive underline color-->
+        <item name="colorControlNormal">?input_layout_hint_inactive_color</item>
+        <!-- Cursor and Active underline color, uses colorAccent by default if not defined-->
+        <item name="colorControlActivated">?input_layout_hint_active_color</item>
+    </style>
+    <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">
+        <!-- Inactive and Active label color, pointing to a selector-->
+        <item name="android:textColor">@color/hint_color</item>
+    </style>
+    <style name="ErrorTextAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:textColor">?input_layout_error_color</item>
+    </style>
+
+    <!-- TextView -->
+    <style name="TextViewStyle.Serif" parent="android:Widget.TextView">
+        <item name="android:fontFamily">serif</item>
+    </style>
+
+    <style name="TextViewStyle.Condensed" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+
+    <!-- Dialogs -->
+    <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+
+    <style name="DialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+    </style>
+
+    <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+        <item name="android:dialogCornerRadius" tools:targetApi="p">@dimen/s_corner_radius</item>
+        <!--<item name="android:datePickerMode">spinner</item>-->
+    </style>
+</resources>
