@@ -18,4 +18,8 @@
     <string name="checkbox">Checkbox</string>
     <string name="date_picker">Date Picker</string>
     <string name="show_date_picker">Show Date Picker</string>
+    <string name="toast">Toast</string>
+    <string name="short_toast">Short Toast</string>
+    <string name="long_toast">Long Toast</string>
+    <string name="foo">Foo</string>
 </resources>

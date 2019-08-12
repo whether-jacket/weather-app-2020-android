@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="@dimen/s_padding"
+              android:clickable="true"
+              android:focusable="true">
+
+    <Button
+            android:id="@+id/shortToastButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/short_toast"/>
+
+    <Button
+            android:id="@+id/longToastButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_vertical_spacing"
+            android:text="@string/long_toast"/>
+
+</LinearLayout>
