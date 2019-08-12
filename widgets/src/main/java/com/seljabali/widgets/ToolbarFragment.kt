@@ -35,12 +35,7 @@ class ToolbarFragment: BaseFragment() {
         btnChangeColor.setOnClickListener { onChangeColorClicked() }
     }
 
-    override fun onStart() {
-        super.onStart()
-        activity?.let {
-            it.title = getString(R.string.toolbar)
-        }
-    }
+    override fun getToolbarTitle(): String = getString(R.string.toolbar)
 
     private fun onChangeColorClicked() {
         colorSelected = if (colorSelected == null || colorSelected == secondColor) firstColor else secondColor

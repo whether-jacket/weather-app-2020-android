@@ -11,14 +11,13 @@ class AbsSeekBarFragment : BaseFragment() {
     companion object {
         @JvmStatic
         val TAG: String = AbsSeekBarFragment::class.java.simpleName
+
         @JvmStatic
         fun newInstance(): AbsSeekBarFragment = AbsSeekBarFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_abs_seek_bar, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.fragment_abs_seek_bar, container, false)
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.seek_bar)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.seek_bar)
 }

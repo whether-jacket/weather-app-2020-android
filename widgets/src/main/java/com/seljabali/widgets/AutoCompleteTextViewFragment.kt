@@ -26,8 +26,5 @@ class AutoCompleteTextViewFragment : BaseFragment() {
         autoCompleteTextView.threshold = 1 // will start working from first character
     }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.autocomplete_text_view)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.autocomplete_text_view)
 }

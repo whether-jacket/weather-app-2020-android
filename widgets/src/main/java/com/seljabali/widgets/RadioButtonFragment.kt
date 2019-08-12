@@ -13,7 +13,6 @@ class RadioButtonFragment : BaseFragment() {
     companion object {
         @JvmStatic
         fun newInstance() = RadioButtonFragment()
-
         @JvmStatic
         val TAG: String = RadioButtonFragment::class.java.simpleName
     }
@@ -21,14 +20,11 @@ class RadioButtonFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_radio_button, container, false)
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.radio_button)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.radio_button)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        someRadioGroup.setOnCheckedChangeListener { _, radioButtonId ->
+        someRadioGroup.setOnCheckedChangeListener { radioGroup, radioButtonId ->
             onRadioGroupChange(radioButtonId)
         }
     }

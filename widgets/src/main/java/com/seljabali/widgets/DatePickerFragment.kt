@@ -27,10 +27,7 @@ class DatePickerFragment : BaseFragment() {
         showDatePickerButton.setOnClickListener { onShowDatePickerButtonClicked() }
     }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.date_picker)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.date_picker)
 
     private fun onShowDatePickerButtonClicked() {
         val now = NOW()

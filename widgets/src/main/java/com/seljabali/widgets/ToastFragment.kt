@@ -24,16 +24,13 @@ class ToastFragment : BaseFragment() {
         longToastButton.setOnClickListener { onLongToastButtonClicked() }
     }
 
+    override fun getToolbarTitle(): String = getString(R.string.toast)
+
     private fun onShortToastButtonClicked() {
         Toast.makeText(context, R.string.foo, Toast.LENGTH_SHORT).show()
     }
 
     private fun onLongToastButtonClicked() {
-        Toast.makeText(context, R.string.foo, Toast.LENGTH_LONG).show()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.toast)
+        Toast.makeText(context, R.string.bar, Toast.LENGTH_LONG).show()
     }
 }

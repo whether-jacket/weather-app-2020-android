@@ -33,10 +33,7 @@ class StatusFragment : BaseFragment() {
         btnChangeColor.setOnClickListener { onChangeColorClicked() }
     }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.status_bar)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.status_bar)
 
     private fun onHideClicked() {
         activity?.window?.setFlags(FLAG_FULLSCREEN, FLAG_FULLSCREEN)

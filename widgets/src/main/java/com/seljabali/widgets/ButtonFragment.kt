@@ -17,8 +17,5 @@ class ButtonFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_button, container, false)
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.button)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.button)
 }

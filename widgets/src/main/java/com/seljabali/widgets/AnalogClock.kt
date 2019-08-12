@@ -17,8 +17,5 @@ class AnalogClock : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_analog_clock, container, false)
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.analog_clock)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.analog_clock)
 }

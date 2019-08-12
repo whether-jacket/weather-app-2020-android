@@ -28,6 +28,8 @@ class TextClock  : BaseFragment() {
         onAmPmClicked()
     }
 
+    override fun getToolbarTitle(): String = getString(R.string.text_clock)
+
     private fun onAmPmClicked() {
         textClockAmPm.visibility = View.VISIBLE
         textClock24.visibility = View.GONE
@@ -36,10 +38,5 @@ class TextClock  : BaseFragment() {
     private fun on24HrsClicked() {
         textClock24.visibility = View.VISIBLE
         textClockAmPm.visibility = View.GONE
-    }
-
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.text_clock)
     }
 }

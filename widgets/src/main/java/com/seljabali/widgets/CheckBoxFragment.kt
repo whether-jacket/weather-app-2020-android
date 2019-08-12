@@ -17,8 +17,5 @@ class CheckBoxFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_checkbox, container, false)
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.checkbox)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.checkbox)
 }

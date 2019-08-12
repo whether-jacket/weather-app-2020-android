@@ -24,10 +24,7 @@ class ProgressBarFragment: BaseFragment() {
         btnHide.setOnClickListener { onHideClicked() }
     }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.progress_bar)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.progress_bar)
 
     private fun onHideClicked() {
         pb_cyclic.visibility = View.INVISIBLE

@@ -34,14 +34,11 @@ class TimePickerFragment : BaseFragment() {
         showTimeAmPmPickerButton.setOnClickListener { onShowTimeInAmPmButtonClicked() }
     }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.time_picker)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.time_picker)
 
     private fun onShowTimeInAmPmButtonClicked() {
         val currentTime = NOW_TIME()
-        val timePicker = TimePickerDialog(
+        TimePickerDialog(
             context,
             TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                 val timePicked = LocalTime.of(hourOfDay, minute).print(TIME_AM_PM_FORMAT)
@@ -50,14 +47,15 @@ class TimePickerFragment : BaseFragment() {
             currentTime.hour,
             currentTime.minute,
             false
-        )
-        timePicker.setCancelable(true)
-        timePicker.show()
+        ).apply {
+            setCancelable(true)
+            show()
+        }
     }
 
     private fun onShowTimeIn24HButtonClicked() {
         val currentTime = NOW_TIME()
-        val timePicker = TimePickerDialog(
+        TimePickerDialog(
             context,
             TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                 val timePicked = LocalTime.of(hourOfDay, minute).print(TIME_24_FORMAT)
@@ -66,8 +64,9 @@ class TimePickerFragment : BaseFragment() {
             currentTime.hour,
             currentTime.minute,
             true
-        )
-        timePicker.setCancelable(true)
-        timePicker.show()
+        ).apply {
+            setCancelable(true)
+            show()
+        }
     }
 }
