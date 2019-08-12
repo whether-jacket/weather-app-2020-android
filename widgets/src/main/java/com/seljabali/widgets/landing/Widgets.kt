@@ -12,7 +12,7 @@ enum class Widgets (val title:String, val drawable: Int) {
     CheckedTextView("CheckedTextView", R.color.transparent),
     Chronometer("Chronometer", R.color.transparent),
     CompoundButton("CompoundButton", R.color.transparent),
-    DatePicker("DatePicker", R.color.transparent),
+    DatePicker("DatePicker", R.drawable.date_picker),
     EdgeEffect("EdgeEffect", R.color.transparent),
     EditText("EditText", R.color.transparent),
     GridLayout("GridLayout", R.color.transparent),

@@ -10,7 +10,7 @@ import com.seljabali.core.BaseFragment
 //
 //    companion object {
 //        @JvmStatic
-//        fun newInstance(): = ()
+//        fun newInstance() = ()
 //        @JvmStatic
 //        val TAG: String = ::class.java.simpleName
 //    }

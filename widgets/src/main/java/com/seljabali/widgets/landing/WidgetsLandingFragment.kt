@@ -71,7 +71,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.CheckedTextView -> TODO()
             Widgets.Chronometer -> TODO()
             Widgets.CompoundButton -> TODO()
-            Widgets.DatePicker -> TODO()
+            Widgets.DatePicker -> startFragment(DatePickerFragment.newInstance(), DatePickerFragment.TAG)
             Widgets.EdgeEffect -> TODO()
             Widgets.EditText -> TODO()
             Widgets.GridLayout -> TODO()

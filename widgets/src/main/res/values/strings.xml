@@ -16,4 +16,6 @@
     <string name="amPm">Am / Pm</string>
     <string name="autocomplete_text_view">AutoComplete TextView</string>
     <string name="checkbox">Checkbox</string>
+    <string name="date_picker">Date Picker</string>
+    <string name="show_date_picker">Show Date Picker</string>
 </resources>
