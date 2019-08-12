@@ -15,4 +15,5 @@
     <string name="twentyFourHrs">24Hrs</string>
     <string name="amPm">Am / Pm</string>
     <string name="autocomplete_text_view">AutoComplete TextView</string>
+    <string name="checkbox">Checkbox</string>
 </resources>

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jakewharton.rxbinding3.appcompat.queryTextChanges
 import com.seljabali.core.BaseFragment
 import com.seljabali.core.utilities.Keyboard
+import com.seljabali.core.utilities.observeOnMain
 import com.seljabali.widgets.*
 import kotlinx.android.synthetic.main.fragment_widgets_landing.*
 import java.lang.ref.WeakReference
@@ -54,7 +55,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
                 .debounce(TYPE_TIME_SECONDS, TimeUnit.SECONDS)
                 .mergeWith(Observable.empty())
                 .map { enteredSearch -> widgetSearch(enteredSearch) }
-                .observeOn(AndroidSchedulers.mainThread())
+                .observeOnMain()
                 .subscribe({ filteredWidgets -> onSearch(filteredWidgets) },
                         { error: Throwable? -> Log.e(tag, error.toString()) }))
     }
@@ -66,7 +67,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.TAG)
             Widgets.Button -> startFragment(ButtonFragment.newInstance(), ButtonFragment.TAG)
             Widgets.CalendarView -> TODO()
-            Widgets.CheckBox -> TODO()
+            Widgets.CheckBox -> startFragment(CheckBoxFragment.newInstance(), CheckBoxFragment.TAG)
             Widgets.CheckedTextView -> TODO()
             Widgets.Chronometer -> TODO()
             Widgets.CompoundButton -> TODO()
