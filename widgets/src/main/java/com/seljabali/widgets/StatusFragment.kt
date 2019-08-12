@@ -17,13 +17,14 @@ class StatusFragment : BaseFragment() {
         val TAG: String = StatusFragment::class.java.simpleName
         @JvmStatic
         fun newInstance(): StatusFragment = StatusFragment()
+        private val firstColor: Int = R.color.brown
+        private val secondColor: Int = R.color.whiteSmoke
+
     }
 
     var color: Int? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_status, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_status, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,9 +35,7 @@ class StatusFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        activity?.let {
-            it.title = getString(R.string.status_bar)
-        }
+        baseActivity.title = getString(R.string.status_bar)
     }
 
     private fun onHideClicked() {
@@ -49,11 +48,7 @@ class StatusFragment : BaseFragment() {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun onChangeColorClicked() {
-        color = if (color == null || color == android.R.attr.colorPrimaryDark) {
-            R.color.black
-        } else {
-            android.R.attr.colorPrimaryDark
-        }
+        color = if (color == null || color == secondColor) firstColor else secondColor
         activity?.window?.statusBarColor = resources.getColor(color!!)
     }
 }

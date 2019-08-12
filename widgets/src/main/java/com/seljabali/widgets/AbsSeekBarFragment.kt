@@ -15,14 +15,10 @@ class AbsSeekBarFragment : BaseFragment() {
         fun newInstance(): AbsSeekBarFragment = AbsSeekBarFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_abs_seek_bar, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_abs_seek_bar, container, false)
 
     override fun onStart() {
         super.onStart()
-        activity?.let {
-            it.title = getString(R.string.seek_bar)
-        }
+        baseActivity.title = getString(R.string.seek_bar)
     }
 }

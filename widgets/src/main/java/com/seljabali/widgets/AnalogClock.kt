@@ -15,14 +15,10 @@ class AnalogClock : BaseFragment() {
         fun newInstance(): AnalogClock = AnalogClock()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_analog_clock, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_analog_clock, container, false)
 
     override fun onStart() {
         super.onStart()
-        activity?.let {
-            it.title = getString(R.string.analog_clock)
-        }
+        baseActivity.title = getString(R.string.analog_clock)
     }
 }

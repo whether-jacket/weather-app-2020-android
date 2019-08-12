@@ -40,8 +40,6 @@ class TextClock  : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        activity?.let {
-            it.title = getString(R.string.text_clock)
-        }
+        baseActivity.title = getString(R.string.text_clock)
     }
 }

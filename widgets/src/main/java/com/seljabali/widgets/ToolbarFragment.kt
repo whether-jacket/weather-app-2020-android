@@ -16,6 +16,8 @@ class ToolbarFragment: BaseFragment() {
         val TAG: String = ToolbarFragment::class.java.simpleName
         @JvmStatic
         fun newInstance(): ToolbarFragment = ToolbarFragment()
+        private val firstColor: Int = R.color.brown
+        private val secondColor: Int = R.color.whiteSmoke
     }
 
     private var colorSelected :Int? = null
@@ -41,21 +43,13 @@ class ToolbarFragment: BaseFragment() {
     }
 
     private fun onChangeColorClicked() {
-        colorSelected = if (colorSelected == null || colorSelected == android.R.attr.colorPrimary) {
-            android.R.attr.colorPrimaryDark
-        } else {
-            android.R.attr.colorPrimary
-        }
+        colorSelected = if (colorSelected == null || colorSelected == secondColor) firstColor else secondColor
         setToolbarColor(colorSelected!!)
     }
 
     @SuppressLint("RestrictedApi")
     private fun onChangeElevationClicked() {
-        elevationSelected = if (elevationSelected == null || elevationSelected == 0f) {
-            resources.getDimension(R.dimen.m_elevation)
-        } else {
-            0f
-        }
+        elevationSelected = if (elevationSelected == null || elevationSelected == 0f) resources.getDimension(R.dimen.m_elevation) else 0f
         val actionBar = baseActivity.supportActionBar ?: return
         actionBar.elevation = elevationSelected!!
         actionBar.invalidateOptionsMenu()

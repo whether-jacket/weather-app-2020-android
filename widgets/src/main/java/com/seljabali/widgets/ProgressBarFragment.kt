@@ -16,10 +16,7 @@ class ProgressBarFragment: BaseFragment() {
         fun newInstance(): ProgressBarFragment = ProgressBarFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_progress_bar, container, false)
-    }
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_progress_bar, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,9 +26,7 @@ class ProgressBarFragment: BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        activity?.let {
-            it.title = getString(R.string.progress_bar)
-        }
+        baseActivity.title = getString(R.string.progress_bar)
     }
 
     private fun onHideClicked() {
