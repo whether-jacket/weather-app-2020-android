@@ -26,4 +26,6 @@
     <string name="show_time_picker">Time Picker</string>
     <string name="show_time_in_24">Show time in 24 format</string>
     <string name="show_time_in_am_pm">Show time in AM/PM format</string>
+    <string name="radio_button">Radio Button</string>
+    <string name="bar">Bar</string>
 </resources>
