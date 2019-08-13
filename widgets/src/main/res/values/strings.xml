@@ -28,4 +28,9 @@
     <string name="show_time_in_am_pm">Show time in AM/PM format</string>
     <string name="radio_button">Radio Button</string>
     <string name="bar">Bar</string>
+    <string name="chronometer">Chronometer</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="restart">Restart</string>
+    <string name="format">Format</string>
 </resources>
