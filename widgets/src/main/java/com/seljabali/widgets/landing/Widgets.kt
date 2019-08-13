@@ -16,7 +16,7 @@ enum class Widgets (val title:String, val drawable: Int) {
     CheckBox("CheckBox", R.drawable.checkbox),
     CheckedTextView("Checked Text View", R.color.transparent),
     Chips("Chips", R.color.transparent),
-    Chronometer("Chronometer", R.color.transparent),
+    Chronometer("Chronometer", R.drawable.chronometer),
     CompoundButton("Compound Button", R.color.transparent),
     DatePicker("Date Picker", R.drawable.date_picker),
     Dialog("Dialog", R.color.transparent),
