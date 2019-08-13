@@ -46,8 +46,10 @@ class ToolbarFragment: BaseFragment() {
     private fun onChangeElevationClicked() {
         elevationSelected = if (elevationSelected == null || elevationSelected == 0f) resources.getDimension(R.dimen.m_elevation) else 0f
         val actionBar = baseActivity.supportActionBar ?: return
-        actionBar.elevation = elevationSelected!!
-        actionBar.invalidateOptionsMenu()
+        actionBar.apply {
+            elevation = elevationSelected!!
+            invalidateOptionsMenu()
+        }
     }
 
     private fun onHideToolbarClicked() {
