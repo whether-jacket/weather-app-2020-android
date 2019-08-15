@@ -38,6 +38,7 @@
 
     <!-- Theme Viewing -->
     <string name="title_text_appearances">Text Appearances</string>
+    <string name="title_text_inverse_appearance">Text Appearance Inverse</string>
     <string name="title_palette">Palette</string>
     <string name="title_widgets">Widgets</string>
     <string name="tab_title_current_theme">Overview</string>

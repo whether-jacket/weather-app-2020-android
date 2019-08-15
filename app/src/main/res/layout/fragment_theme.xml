@@ -18,5 +18,7 @@
         <include layout="@layout/view_horizontal_divider"/>
 
         <include layout="@layout/layout_text_sample"/>
+
+        <include layout="@layout/layout_text_inverse_sample"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
