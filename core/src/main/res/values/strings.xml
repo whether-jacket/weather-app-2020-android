@@ -8,4 +8,6 @@
     <string name="theme_desc_illini">Dark</string>
     <string name="theme_name_sea_foam">Sea Foam</string>
     <string name="theme_desc_sea_foam">Light, dark action bar</string>
+    <string name="theme_name_light_blue">Light Blue</string>
+    <string name="theme_desc_light_blue">Light Blue coloring like CT</string>
 </resources>

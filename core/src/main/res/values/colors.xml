@@ -57,4 +57,20 @@
     <color name="tokyoInputError">@color/red</color>
     <color name="tokyoActiveHint">@color/tokyoColorAccent</color>
     <color name="tokyoInactiveHint">@color/tokyoForeground</color>
+    
+    <!-- Light Blue Theme -->
+    <color name="lightBlueColorPrimary">#03A9F4</color>
+    <color name="lightBlueColorPrimaryDark">#0288D1</color>
+    <color name="lightBlueColorAccent">#448AFF</color>
+    <color name="lightBlueColorNormal">@color/tokyoColorNormal</color>
+    <color name="lightBlueBackground">#B3E5FC</color>
+    <color name="lightBlueForeground">@color/tokyoForeground</color>
+    <color name="lightBlueDividerColor">#BDBDBD</color>
+    <color name="lightBlueTextColorPrimary">#212121</color>
+    <color name="lightBlueTextColorSecondary">#757575</color>
+    <color name="lightBlueTextColorLink">@color/tokyoTextColorLink</color>
+    <color name="lightBlueTextColorLinkInverse">@color/tokyoTextColorLinkInverse</color>
+    <color name="lightBlueInputError">@color/red</color>
+    <color name="lightBlueActiveHint">@color/lightBlueColorAccent</color>
+    <color name="lightBlueInactiveHint">@color/lightBlueForeground</color>
 </resources>
