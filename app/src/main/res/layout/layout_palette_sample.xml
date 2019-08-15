@@ -38,6 +38,7 @@
                 style="@style/PaletteItem"
                 android:layout_weight="1"
                 android:background="?attr/colorPrimary"
+                android:textColor="?android:textColorSecondaryInverse"
                 android:text="@string/primary"/>
 
             <TextView
