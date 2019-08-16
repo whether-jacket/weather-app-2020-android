@@ -19,4 +19,10 @@
     <!--<dimen name="toolbar_frame_layout_height">9dp</dimen>-->
     <!--<dimen name="toolbar_progress_bar_height">8dp</dimen>-->
     <!--<dimen name="toolbar_progress_bar_top_margin">2dp</dimen>-->
+
+    <!-- Landing Page -->
+    <dimen name="landingPageGridColumnWidth">80dp</dimen>
+    <dimen name="landingPageIconSize">35dp</dimen>
+    <dimen name="landing_page_item_width">120dp</dimen>
+    <dimen name="landing_page_item_height">120dp</dimen>
 </resources>

@@ -73,4 +73,9 @@
     <string name="dialog_action">@string/ok</string>
     <string name="try_theme">Try Theme</string>
 
+    <!-- Landing Page -->
+    <string name="widgets">Widgets</string>
+    <string name="test">Test</string>
+    <string name="theme">Theme</string>
+
 </resources>

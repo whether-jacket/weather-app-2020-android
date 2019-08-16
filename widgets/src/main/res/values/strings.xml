@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Widgets</string>
+    <string name="app_name">@string/widgets</string>
     <string name="button">Button</string>
     <string name="search">Search</string>
     <string name="hide">Hide</string>
@@ -33,4 +33,5 @@
     <string name="stop">Stop</string>
     <string name="restart">Restart</string>
     <string name="format">Format</string>
+    <string name="widgets">Widgets</string>
 </resources>

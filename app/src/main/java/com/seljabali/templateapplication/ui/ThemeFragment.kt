@@ -17,4 +17,5 @@ class ThemeFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(
         R.layout.fragment_theme, container, false)
 
+    override fun getToolbarTitle(): String = getString(R.string.theme)
 }

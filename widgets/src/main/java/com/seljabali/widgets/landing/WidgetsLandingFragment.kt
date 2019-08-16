@@ -39,6 +39,8 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
         setupWidgetList()
     }
 
+    override fun getToolbarTitle(): String = getString(R.string.widgets)
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         menu.clear()

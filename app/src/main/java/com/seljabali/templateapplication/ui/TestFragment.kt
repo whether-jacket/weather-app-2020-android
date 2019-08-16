@@ -25,6 +25,8 @@ class TestFragment : BaseFragment() {
         btnCalculate.setOnClickListener { onCalculateClick() }
     }
 
+    override fun getToolbarTitle(): String = getString(R.string.test)
+
     private fun onCalculateClick() {
         val input = etInputText.getTextValue()
         val output = getOutput(input)
