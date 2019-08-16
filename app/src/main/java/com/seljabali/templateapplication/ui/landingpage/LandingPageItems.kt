@@ -7,8 +7,8 @@ import com.seljabali.templateapplication.R
 
 enum class LandingPageItems(@StringRes override val titleStringId: Int,
                             @DrawableRes override val iconId: Int = R.drawable.ic_launcher_background) : LandingItem {
-    WIDGETS(R.string.widgets, R.color.transparent),
+    WIDGETS(R.string.widgets, R.drawable.ic_widgets),
     TEST(R.string.test, R.color.transparent),
-    DESIGN(R.string.design, R.color.transparent),
+    DESIGN(R.string.design, R.drawable.ic_paint),
 }
 

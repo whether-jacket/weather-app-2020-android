@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Droid Theme -->
-    <color name="droid_green">#008577</color>
-    <color name="droid_dark_green">#00574B</color>
-    <color name="droid_pink">#D81B60</color>
+    <color name="droidPrimary">#008577</color>
+    <color name="droidPrimaryDark">#00574B</color>
+    <color name="droidAccent">#D81B60</color>
+    <color name="droidBackground">@color/white</color>
 
     <!-- Illini Theme -->
     <color name="illiniColorPrimary">@color/darkGunmetal</color>
@@ -57,31 +59,22 @@
     <color name="tokyoInputError">@color/red</color>
     <color name="tokyoActiveHint">@color/tokyoColorAccent</color>
     <color name="tokyoInactiveHint">@color/tokyoForeground</color>
-    
-    <!-- Light Blue Theme -->
-    <!--<color name="lightBlueColorPrimary">#03A9F4</color>-->
-    <!--<color name="lightBlueColorPrimaryDark">#0288D1</color>-->
-    <!--<color name="lightBlueColorAccent">#448AFF</color>-->
-    <!--<color name="lightBlueColorNormal">@color/tokyoColorNormal</color>-->
-    <!--<color name="lightBlueBackground">#03A9F4</color>-->
-    <!--<color name="lightBlueForeground">@color/lightBlueColorPrimaryDark</color>-->
-    <!--<color name="lightBlueDividerColor">#BDBDBD</color>-->
-    <!--<color name="lightBlueTextColorPrimary">#212121</color>-->
-    <!--<color name="lightBlueTextColorPrimaryInverse">@color/white</color>-->
-    <!--<color name="lightBlueTextColorSecondary">#757575</color>-->
-    <!--<color name="lightBlueTextColorLink">@color/tokyoTextColorLink</color>-->
-    <!--<color name="lightBlueTextColorLinkInverse">@color/tokyoTextColorLinkInverse</color>-->
-    <!--<color name="lightBlueInputError">@color/red</color>-->
-    <!--<color name="lightBlueActiveHint">@color/lightBlueColorAccent</color>-->
-    <!--<color name="lightBlueInactiveHint">@color/lightBlueColorAccent</color>-->
 
-    <!-- lighter blue theme -->
-    <color name="lightBlueColorPrimary">#03A9F4</color>
-    <color name="lightBlueColorPrimaryDark">#0288D1</color>
-    <color name="lightBlueColorAccent">#448AFF</color>
-    <color name="lightBlueColorNormal">@color/tokyoColorNormal</color>
-    <color name="lightBlueBackground">#B3E5FC</color>
-    <color name="lightBlueForeground">@color/white</color>
+    <!-- Lighter Blue Theme -->
+    <!-- Complementary -->
+    <color name="lightBlueComp1">#1A75B2</color>
+    <color name="lightBlueComp2">#1B76B3</color>
+    <color name="lightBlueComp3">#BDE4FF</color>
+    <color name="lightBlueComp4">#B39160</color>
+    <color name="lightBlueComp5">#FFE4BD</color>
+
+    <color name="lightBlueColorPrimary">@color/lightBlueComp1</color>
+    <color name="lightBlueColorPrimaryDark">@color/lightBlueComp2</color>
+    <color name="lightBlueColorAccent">@color/lightBlueComp4</color>
+    <color name="lightBlueColorNormal">@color/lightBlueComp2</color>
+    <color name="lightBlueBackground">@color/lightBlueComp3</color>
+    <color name="lightBlueForeground">@color/lightBlueColorAccent</color>
+    <color name="lightBlueIconForeground">#212121</color>
     <color name="lightBlueDividerColor">#BDBDBD</color>
     <color name="lightBlueTextColorPrimary">#212121</color>
     <color name="lightBlueTextColorPrimaryInverse">#757575</color>

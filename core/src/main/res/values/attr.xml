@@ -5,6 +5,7 @@
         <attr name="themeDescription" format="string"/>
         <attr name="dividerColor" format="color|reference"/>
         <attr name="tabLayoutStyle" format="reference"/>
+        <attr name="icon_foreground_color" format="color|reference"/>
         <attr name="input_layout_text_edit_color" format="color|reference"/>
         <attr name="input_layout_error_color" format="color|reference"/>
         <attr name="input_layout_hint_active_color" format="color|reference"/>

@@ -5,29 +5,28 @@
         https://chromium.googlesource.com/android_tools/+/25d57ead05d3dfef26e9c19b13ed10b0a69829cf/sdk/platforms/android-23/data/res/values/themes.xml
     -->
     <style name="Theme.Droid" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/droid_green</item>
-        <item name="colorPrimaryDark">@color/droid_dark_green</item>
-        <item name="colorAccent">@color/droid_pink</item>
+        <item name="colorPrimary">@color/droidPrimary</item>
+        <item name="colorPrimaryDark">@color/droidPrimaryDark</item>
+        <item name="colorAccent">@color/droidAccent</item>
         <!-- Custom attributes defined in attrs.xml -->
         <item name="themeName">@string/theme_name_droid</item>
         <item name="themeDescription">@string/theme_desc_droid</item>
         <!-- Dialogs -->
         <item name="alertDialogTheme">@style/DialogThemeLight</item>
         <item name="android:dialogTheme">@style/DialogThemeLight</item>
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
     <style name="Theme.Illini" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <!-- General theme colors -->
         <item name="colorPrimary">@color/illiniColorPrimary</item>
         <item name="colorPrimaryDark">@color/illiniColorPrimaryDark</item>
         <item name="colorAccent">@color/illiniColorAccent</item>
         <item name="android:background">@color/illiniBackground</item>
         <item name="android:colorBackground">@color/illiniBackground</item>
-        <item name="android:colorForeground">@color/illiniForeground</item>
         <item name="colorSurface">@color/illiniBackground</item>
+        <item name="android:colorForeground">@color/illiniForeground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Condensed</item>
         <item name="android:textColorPrimary">@color/illiniTextColorPrimary</item>
@@ -43,8 +42,9 @@
         <!-- Custom attributes defined in attrs.xml -->
         <item name="themeName">@string/theme_name_illini</item>
         <item name="themeDescription">@string/theme_desc_illini</item>
+        <item name="icon_foreground_color">@color/illiniForeground</item>
         <item name="dividerColor">@color/illiniDividerColor</item>
-        <!--<item name="tabLayoutStyle">@style/TabStyle.Dark</item>-->
+        <item name="tabLayoutStyle">@style/TabStyle.Dark</item>
         <!-- Input Layout -->
         <item name="input_layout_text_edit_color">@color/illiniTextColorPrimary</item>
         <item name="input_layout_error_color">@color/illiniInputError</item>
@@ -53,7 +53,7 @@
         <!-- Dialogs -->
         <item name="alertDialogTheme">@style/DialogThemeDark</item>
         <item name="android:dialogTheme">@style/DialogThemeDark</item>
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
     <style name="Theme.SeaFoam" parent="Theme.AppCompat.Light.NoActionBar">
@@ -80,8 +80,9 @@
         <!-- Custom attributes defined in attrs.xml -->
         <item name="themeName">@string/theme_name_sea_foam</item>
         <item name="themeDescription">@string/theme_desc_sea_foam</item>
+        <item name="icon_foreground_color">@color/seaFoamForeground</item>
         <item name="dividerColor">@color/seaFoamDividerColor</item>
-        <!--<item name="tabLayoutStyle">@style/TabStyle.Dark.Serif</item>-->
+        <item name="tabLayoutStyle">@style/TabStyle.Dark.Serif</item>
         <!-- Input Layout -->
         <item name="input_layout_text_edit_color">@color/seaFoamTextColorPrimary</item>
         <item name="input_layout_error_color">@color/seaFoamInputError</item>
@@ -90,7 +91,7 @@
         <!-- Dialogs -->
         <item name="alertDialogTheme">@style/DialogThemeLight</item>
         <item name="android:dialogTheme">@style/DialogThemeLight</item>
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
     <style name="Theme.Tokyo" parent="Theme.AppCompat.Light.NoActionBar">
@@ -101,11 +102,11 @@
         <item name="colorPrimary">@color/tokyoColorPrimary</item>
         <item name="colorPrimaryDark">@color/tokyoColorPrimaryDark</item>
         <item name="colorAccent">@color/tokyoColorAccent</item>
-        <item name="colorSurface">@color/tokyoBackground</item>
         <item name="colorControlNormal">@color/tokyoColorNormal</item>
         <item name="android:background">@color/tokyoBackground</item>
         <item name="android:colorBackground">@color/tokyoBackground</item>
         <item name="android:colorForeground">@color/tokyoForeground</item>
+        <item name="colorSurface">@color/tokyoBackground</item>
         <!-- Text Appearance styles -->
         <!--<item name="android:textViewStyle">@style/TextViewStyle.Serif</item>-->
         <!--<item name="android:textColorPrimary">@color/</item>-->
@@ -121,8 +122,9 @@
         <!-- Custom attributes defined in attrs.xml -->
         <item name="themeName">@string/theme_name_tokyo</item>
         <item name="themeDescription">@string/theme_desc_tokyo</item>
+        <item name="icon_foreground_color">@color/tokyoForeground</item>
         <item name="dividerColor">@color/tokyoDividerColor</item>
-        <!--<item name="tabLayoutStyle">@style/TabStyle.Light</item>-->
+        <item name="tabLayoutStyle">@style/TabStyle.Light</item>
         <!-- Input Layout -->
         <item name="input_layout_text_edit_color">@color/tokyoForeground</item>
         <item name="input_layout_error_color">@color/tokyoInputError</item>
@@ -131,7 +133,7 @@
         <!-- Dialogs -->
         <item name="alertDialogTheme">@style/DialogThemeLight</item>
         <item name="android:dialogTheme">@style/DialogThemeLight</item>
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
     <style name="Theme.LightBlue" parent="Theme.AppCompat.Light.NoActionBar">
@@ -149,14 +151,15 @@
         <item name="android:colorForeground">@color/lightBlueForeground</item>
         <!-- Text Appearance styles -->
         <item name="android:textColorPrimary">@color/lightBlueTextColorPrimary</item>
-        <item name="android:textColorSecondary">@color/lightBlueTextColorSecondary</item>
         <item name="android:textColorPrimaryInverse">@color/lightBlueTextColorPrimaryInverse</item>
+        <item name="android:textColorSecondary">@color/lightBlueTextColorSecondary</item>
         <item name="android:textColorLink">@color/lightBlueTextColorLink</item>
         <item name="android:textColorLinkInverse">@color/lightBlueTextColorLinkInverse</item>
         <!-- Custom attributes defined in attrs.xml -->
         <item name="themeName">@string/theme_name_light_blue</item>
         <item name="themeDescription">@string/theme_desc_light_blue</item>
         <item name="dividerColor">@color/lightBlueDividerColor</item>
+        <item name="icon_foreground_color">@color/lightBlueIconForeground</item>
         <!--<item name="tabLayoutStyle">@style/TabStyle.Light</item>-->
         <!-- Input Layout -->
         <item name="input_layout_text_edit_color">@color/lightBlueForeground</item>
@@ -166,6 +169,6 @@
         <!-- Dialogs -->
         <item name="alertDialogTheme">@style/DialogThemeLight</item>
         <item name="android:dialogTheme">@style/DialogThemeLight</item>
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 </resources>

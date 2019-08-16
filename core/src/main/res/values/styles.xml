@@ -31,17 +31,43 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
+    <!-- TODO: Make Theme Independent -->
+    <!-- Tab Style -->
+    <style name="TabStyle.Light" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabTextAppearance.Dark</item>
+        <item name="tabSelectedTextColor">@color/darkGunmetal</item>
+    </style>
+    <style name="TabStyle.Dark" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabTextAppearance.Light</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+    <style name="TabStyle.Dark.Serif">
+        <item name="tabTextAppearance">@style/TabTextAppearance.Light.Serif</item>
+    </style>
+    <style name="TabTextAppearance.Dark" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/darkGunmetal_87</item>
+    </style>
+    <style name="TabTextAppearance.Light" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/white_87</item>
+    </style>
+    <style name="TabTextAppearance.Light.Serif">
+        <item name="android:textColor">@color/white_87</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+
 
     <!-- Dialogs -->
     <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
     <style name="DialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:datePickerStyle">@style/MyDatePicker</item>
+        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
-    <style name="MyDatePicker" parent="android:Widget.Material.DatePicker">
+    <style name="DatePickerStyle" parent="android:Widget.Material.DatePicker">
         <item name="android:dialogCornerRadius" tools:targetApi="p">@dimen/s_corner_radius</item>
         <!--<item name="android:datePickerMode">spinner</item>-->
     </style>
