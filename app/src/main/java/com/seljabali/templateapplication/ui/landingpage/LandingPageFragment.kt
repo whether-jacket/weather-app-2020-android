@@ -8,8 +8,6 @@ import com.seljabali.core.BaseFragment
 import com.seljabali.templateapplication.R
 import com.seljabali.templateapplication.ui.HomeActivity
 import com.seljabali.templateapplication.ui.TestFragment
-import com.seljabali.templateapplication.ui.ThemeFragment
-import com.seljabali.widgets.landing.WidgetsLandingFragment
 import kotlinx.android.synthetic.main.fragment_landing_page.*
 
 class LandingPageFragment : BaseFragment() {
@@ -49,7 +47,7 @@ class LandingPageFragment : BaseFragment() {
         val homeActivity = baseActivity as HomeActivity
         when (landingPageItem) {
             LandingPageItems.TEST -> homeActivity.showFragment(TestFragment.newInstance(), TestFragment.TAG)
-            LandingPageItems.THEME -> homeActivity.showFragment(ThemeFragment.newInstance(), ThemeFragment.TAG)
+            LandingPageItems.DESIGN -> homeActivity.showDesignFragment()
             LandingPageItems.WIDGETS -> homeActivity.showWidgetCatalogue()
         }
         return

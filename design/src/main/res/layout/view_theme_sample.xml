@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   xmlns:tools="http://schemas.android.com/tools"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:layout_margin="@dimen/m_padding"
-                                   app:cardBackgroundColor="?android:attr/colorBackground"
-                                   app:cardCornerRadius="@dimen/xxs_corner_radius"
-                                   app:cardPreventCornerOverlap="false">
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m_padding"
+        app:cardBackgroundColor="?android:attr/colorBackground"
+        app:cardCornerRadius="@dimen/xxs_corner_radius"
+        app:cardPreventCornerOverlap="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -59,13 +60,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Theme Name"/>
 
+
         <Button
                 android:id="@+id/useThemeButton"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_marginBottom="@dimen/s_vertical_spacing"
-                android:layout_marginEnd="@dimen/s_horizontal_spacing"
+                android:layout_marginEnd="@dimen/s_vertical_spacing"
                 android:clickable="false"
                 android:text="@string/try_theme"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -85,8 +87,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/s_vertical_spacing"
-                android:layout_marginEnd="@dimen/m_horizontal_spacing"
                 android:layout_marginTop="@dimen/s_vertical_spacing"
+                android:layout_marginEnd="@dimen/m_horizontal_spacing"
                 android:text="@string/dummy_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintBottom_toTopOf="@+id/useThemeButton"

@@ -9,10 +9,6 @@
       "name": "GithubProfile",
       "properties": [
         {
-          "id": "1:172235945127923087",
-          "name": "objectBoxId"
-        },
-        {
           "id": "2:7831456185814950672",
           "name": "githubId"
         },
@@ -44,7 +40,8 @@
   "retiredIndexUids": [],
   "retiredPropertyUids": [
     869456244457021,
-    5885160188269284058
+    5885160188269284058,
+    172235945127923087
   ],
   "retiredRelationUids": [],
   "version": 1

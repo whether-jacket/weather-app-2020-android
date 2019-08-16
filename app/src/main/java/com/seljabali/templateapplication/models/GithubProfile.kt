@@ -1,27 +1,15 @@
 package com.seljabali.templateapplication.models
 
-import com.google.gson.annotations.SerializedName
+import androidx.annotation.StyleRes
+import com.seljabali.design.R
 import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
 import kotlinx.android.parcel.Parcelize
 
 @Entity
 @Parcelize
-data class GithubProfile(
-    @SerializedName("id")
-    @Id(assignable = true)
-    var githubId: Long = 0,
+data class UserPreferences(
+    @Id(assignable = true) var id: Long = 1L,
 
-    @SerializedName("avatar_url")
-    var avatarUrl: String = "",
-
-    @SerializedName("name")
-    var name: String = "",
-
-    @SerializedName("public_repos")
-    var publicRepos: Int = 0
-
-//    @SerializedName("ReportTime")
-//    @JsonAdapter(ZonedDateTimeTypeAdapterFactory::class)
-//    var reportTime: ZonedDateTime? = null
+    @StyleRes var themeId: Int = R.style.Theme_Tokyo
 ) : BaseModel()

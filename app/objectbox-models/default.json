@@ -4,44 +4,41 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "2:6341513923184992866",
-      "lastPropertyId": "5:8491167174322049433",
-      "name": "GithubProfile",
+      "id": "3:7924726532874605654",
+      "lastPropertyId": "2:4013581430096916082",
+      "name": "UserPreferences",
       "properties": [
         {
-          "id": "2:7831456185814950672",
-          "name": "githubId"
+          "id": "1:9008206060222824781",
+          "name": "id"
         },
         {
-          "id": "3:3567717259174141755",
-          "name": "avatarUrl"
-        },
-        {
-          "id": "4:5111073600139589481",
-          "name": "name"
-        },
-        {
-          "id": "5:8491167174322049433",
-          "name": "publicRepos"
+          "id": "2:4013581430096916082",
+          "name": "themeId"
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "2:6341513923184992866",
+  "lastEntityId": "3:7924726532874605654",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 4,
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [
-    7234834397488826184
+    7234834397488826184,
+    6341513923184992866
   ],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
     869456244457021,
     5885160188269284058,
-    172235945127923087
+    172235945127923087,
+    7831456185814950672,
+    3567717259174141755,
+    5111073600139589481,
+    8491167174322049433
   ],
   "retiredRelationUids": [],
   "version": 1

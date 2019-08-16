@@ -9,6 +9,6 @@ enum class LandingPageItems(@StringRes override val titleStringId: Int,
                             @DrawableRes override val iconId: Int = R.drawable.ic_launcher_background) : LandingItem {
     WIDGETS(R.string.widgets, R.color.transparent),
     TEST(R.string.test, R.color.transparent),
-    THEME(R.string.theme, R.color.transparent),
+    DESIGN(R.string.design, R.color.transparent),
 }
 
