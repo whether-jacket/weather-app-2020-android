@@ -150,6 +150,7 @@
         <!-- Text Appearance styles -->
         <item name="android:textColorPrimary">@color/lightBlueTextColorPrimary</item>
         <item name="android:textColorSecondary">@color/lightBlueTextColorSecondary</item>
+        <item name="android:textColorPrimaryInverse">@color/lightBlueTextColorPrimaryInverse</item>
         <item name="android:textColorLink">@color/lightBlueTextColorLink</item>
         <item name="android:textColorLinkInverse">@color/lightBlueTextColorLinkInverse</item>
         <!-- Custom attributes defined in attrs.xml -->
