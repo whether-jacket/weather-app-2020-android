@@ -9,9 +9,8 @@
         <item name="android:padding">@dimen/xxs_padding</item>
         <item name="android:paddingTop">@dimen/xs_vertical_spacing</item>
         <item name="android:paddingBottom">@dimen/xs_vertical_spacing</item>
-        <item name="android:minHeight">48dp</item>
+        <item name="android:minHeight">60dp</item>
         <item name="android:textSize">@dimen/xs_text_size</item>
-        <item name="android:textColor">?android:attr/colorPrimary</item>
         <item name="android:breakStrategy" tools:targetApi="m">balanced</item>
     </style>
 
