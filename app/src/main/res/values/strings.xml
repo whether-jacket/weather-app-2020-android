@@ -4,22 +4,6 @@
     <!-- General Errors -->
     <string name="networking_error">Networking error has occurred.</string>
 
-    <!-- Login -->
-    <string name="login">Login</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="username_cannot_be_blank">Username cannot be blank</string>
-    <string name="invalid_email_address">Invalid e-mail address</string>
-    <string name="password_cannot_be_blank">Password cannot be blank</string>
-    <string name="invalid_login">Invalid username and password</string>
-
-    <!-- Forgot Password -->
-    <string name="forgot_password">Forgot Password</string>
-    <string name="reset_password">Reset Password</string>
-    <string name="email_address">Email Address</string>
-    <string name="email_cannot_be_blank">Email cannot be blank</string>
-    <string name="password_was_reset">Password was reset.</string>
-
     <!-- Test Page -->
     <string name="calculate">Calculate</string>
 
@@ -29,5 +13,6 @@
     <string name="test">Test</string>
     <string name="theme">Theme</string>
     <string name="design">Design</string>
+    <string name="pages">Pages</string>
 
 </resources>

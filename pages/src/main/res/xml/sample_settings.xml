@@ -3,7 +3,7 @@
                   xmlns:app="http://schemas.android.com/apk/res-auto"
                   xmlns:tools="http://schemas.android.com/tools">
 
-    <SwitchPreferenceCompat
+    <SwitchPreference
             app:key="someKey"
             app:title="someTitle"
             app:iconSpaceReserved="false"/>

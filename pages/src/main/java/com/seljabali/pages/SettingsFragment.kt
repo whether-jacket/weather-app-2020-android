@@ -1,9 +1,11 @@
-package com.seljabali.templateapplication.ui
+package com.seljabali.pages
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
-import com.seljabali.templateapplication.R
 import android.view.View
+import android.widget.Toast
+import androidx.preference.SwitchPreference
+import com.seljabali.core.BaseActivity
 import com.seljabali.core.utilities.Res
 
 class SettingsFragment : PreferenceFragmentCompat() {
@@ -13,6 +15,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         fun newInstance(): SettingsFragment = SettingsFragment()
     }
 
+    private lateinit var someSwitch: SwitchPreference
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val context = context ?: return
@@ -20,20 +24,18 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        (activity as HomeActivity).setToolBarTitle(getString(R.string.settings))
+        (activity as BaseActivity).supportActionBar?.title = getString(R.string.settings)
         setPreferencesFromResource(R.xml.sample_settings, rootKey)
         setupViews()
-        loadSavedPreferences()
     }
 
     private fun setupViews() {
-
+        someSwitch = preferenceScreen.findPreference("someKey") ?: return
+        someSwitch.setOnPreferenceChangeListener { _, newValue -> onSomeSwitchSwitched(newValue as Boolean) }
     }
 
-    private fun onNightModeSwitched(enabled: Boolean): Boolean {
+    private fun onSomeSwitchSwitched(enabled: Boolean): Boolean {
+        Toast.makeText(context, "Switched: $enabled", Toast.LENGTH_SHORT).show()
         return true
-    }
-
-    private fun loadSavedPreferences() {
     }
 }

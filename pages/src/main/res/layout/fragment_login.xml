@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m_vertical_spacing"
+            app:passwordToggleEnabled="true"
             android:hint="@string/password"
             style="@style/InputLayoutStyle">
 

@@ -1,11 +1,10 @@
-package com.seljabali.templateapplication.ui
+package com.seljabali.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.seljabali.core.BaseFragment
-import com.seljabali.templateapplication.R
 import com.seljabali.core.utilities.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -25,6 +24,8 @@ class LoginFragment : BaseFragment() {
         passwordTextInputEditText.setText("12345")
         loginButton.setOnClickListener { onLoginButtonClick() }
     }
+
+    override fun getToolbarTitle(): String = getString(R.string.login)
 
     override fun onDestroyView() {
         super.onDestroyView()

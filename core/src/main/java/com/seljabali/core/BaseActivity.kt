@@ -92,7 +92,7 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
     private fun getTag(): String = javaClass.simpleName
 
     private fun anyFragmentBackPressIntercept(): Boolean {
-        val topFragment = supportFragmentManager.fragments.last() as BaseFragment ?: return false
+        val topFragment = supportFragmentManager.fragments.last() as? BaseFragment ?: return false
         var intercepted = false
         for (weakRef in backClickListenersList) {
             val onBackClickListener = weakRef.get() ?: continue

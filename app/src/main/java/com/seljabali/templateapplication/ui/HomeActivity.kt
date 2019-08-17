@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import com.seljabali.core.BaseActivity
 import com.seljabali.core.BaseFragment
 import com.seljabali.design.landingpage.DesignLandingPageFragment
+import com.seljabali.pages.landingpage.PagesLandingPageFragment
 import com.seljabali.templateapplication.ObjectBox
 import com.seljabali.templateapplication.R
 import com.seljabali.templateapplication.models.UserPreferences
@@ -15,7 +16,7 @@ import com.seljabali.widgets.landing.WidgetsLandingFragment
 import kotlinx.android.synthetic.main.toolbar.*
 
 class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragmentViewer,
-    DesignLandingPageFragment.DesignLandingFragmentViewer {
+    DesignLandingPageFragment.DesignLandingFragmentViewer, PagesLandingPageFragment.PagesLandingFragmentViewer {
 
     private val userBox = ObjectBox.get().boxFor(UserPreferences::class.java)
 
@@ -48,6 +49,19 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
             .commit()
     }
 
+    override fun showFragment(baseFragment: androidx.fragment.app.Fragment, tag: String) {
+        supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.enter_from_right,
+                R.anim.exit_to_left,
+                R.anim.enter_from_left,
+                R.anim.exit_to_right
+            )
+            .add(R.id.frameLayout, baseFragment)
+            .addToBackStack(tag)
+            .commit()
+    }
+
     override fun setAppTheme(@StyleRes themeId: Int) {
         userBox.put(getUserPreferences().apply {
             this.themeId = themeId
@@ -67,6 +81,12 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
         val designLandingPageFragment = DesignLandingPageFragment.newInstance()
         designLandingPageFragment.setDesignLandingFragmentViewer(this)
         showFragment(designLandingPageFragment, DesignLandingPageFragment.TAG)
+    }
+
+    fun showPagesFragment() {
+        val pagesLandingPageFragment = PagesLandingPageFragment.newInstance()
+        pagesLandingPageFragment.setPagesLandingFragmentViewer(this)
+        showFragment(pagesLandingPageFragment, PagesLandingPageFragment.TAG)
     }
 
     fun showToolbarProgressBar(show: Boolean) {

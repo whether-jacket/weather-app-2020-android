@@ -49,6 +49,7 @@ class LandingPageFragment : BaseFragment() {
             LandingPageItems.TEST -> homeActivity.showFragment(TestFragment.newInstance(), TestFragment.TAG)
             LandingPageItems.DESIGN -> homeActivity.showDesignFragment()
             LandingPageItems.WIDGETS -> homeActivity.showWidgetCatalogue()
+            LandingPageItems.PAGES -> homeActivity.showPagesFragment()
         }
         return
     }
