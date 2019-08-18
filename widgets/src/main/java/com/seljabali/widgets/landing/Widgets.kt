@@ -6,7 +6,7 @@ enum class Widgets (val title:String, val drawable: Int) {
     AnalogClock("Analog Clock", R.drawable.analog_clock),
     AutoCompleteTextView("AutoComplete Text View", R.drawable.autocomplete_textview),
     Badge("Badge", R.color.transparent),
-    BiometricPrompt("Biometric Prompt", R.color.transparent),
+    BiometricPrompt("Biometric Prompt", R.mipmap.fingerprint),
     BottomAppBar("Bottom App Bar", R.color.transparent),
     BottomNavigation("Bottom Navigation", R.color.transparent),
     BottomSheet("Bottom Sheet", R.color.transparent),

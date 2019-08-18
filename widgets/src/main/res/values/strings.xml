@@ -34,4 +34,11 @@
     <string name="restart">Restart</string>
     <string name="format">Format</string>
     <string name="widgets">Widgets</string>
+
+    <!-- Biometric Prompt -->
+    <string name="biometric_prompt">Biometric Prompt</string>
+    <string name="fingerprint_authentication">Fingerprint authentication</string>
+    <string name="fingerprint_authentication_description">Login via system fingerprint authentication.</string>
+    <string name="successful_login">Successful login</string>
+    <string name="fingerprint_hardware_na">Fingerprint detection hardware not detected.</string>
 </resources>

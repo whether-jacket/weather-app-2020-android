@@ -1,5 +1,6 @@
 package com.seljabali.widgets.landing
 
+import android.hardware.biometrics.BiometricPrompt
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -66,7 +67,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.AnalogClock -> startFragment(AnalogClock.newInstance(), AnalogClock.TAG)
             Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.TAG)
             Widgets.Badge -> TODO()
-            Widgets.BiometricPrompt -> TODO()
+            Widgets.BiometricPrompt -> startFragment(BiometricPromptFragment.newInstance(), BiometricPromptFragment.TAG)
             Widgets.BottomAppBar -> TODO()
             Widgets.BottomNavigation -> TODO()
             Widgets.BottomSheet -> TODO()
