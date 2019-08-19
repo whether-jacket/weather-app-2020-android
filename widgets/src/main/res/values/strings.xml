@@ -41,4 +41,5 @@
     <string name="fingerprint_authentication_description">Login via system fingerprint authentication.</string>
     <string name="successful_login">Successful login</string>
     <string name="fingerprint_hardware_na">Fingerprint detection hardware not detected.</string>
+    <string name="bottom_app_bar">Bottom App Bar</string>
 </resources>

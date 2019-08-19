@@ -8,6 +8,7 @@ import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.jakewharton.rxbinding3.appcompat.queryTextChanges
 import com.seljabali.core.BaseFragment
 import com.seljabali.core.utilities.Keyboard
@@ -68,7 +69,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
             Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.TAG)
             Widgets.Badge -> TODO()
             Widgets.BiometricPrompt -> startFragment(BiometricPromptFragment.newInstance(), BiometricPromptFragment.TAG)
-            Widgets.BottomAppBar -> TODO()
+            Widgets.BottomAppBar -> startFragment(BottomAppBarFragment.newInstance(), BottomAppBarFragment.TAG)
             Widgets.BottomNavigation -> TODO()
             Widgets.BottomSheet -> TODO()
             Widgets.Button -> startFragment(ButtonFragment.newInstance(), ButtonFragment.TAG)

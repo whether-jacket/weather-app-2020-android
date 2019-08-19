@@ -7,7 +7,7 @@ enum class Widgets (val title:String, val drawable: Int) {
     AutoCompleteTextView("AutoComplete Text View", R.drawable.autocomplete_textview),
     Badge("Badge", R.color.transparent),
     BiometricPrompt("Biometric Prompt", R.mipmap.fingerprint),
-    BottomAppBar("Bottom App Bar", R.color.transparent),
+    BottomAppBar("Bottom App Bar", R.mipmap.bottom_bar),
     BottomNavigation("Bottom Navigation", R.color.transparent),
     BottomSheet("Bottom Sheet", R.color.transparent),
     Button("Button", R.color.transparent),
