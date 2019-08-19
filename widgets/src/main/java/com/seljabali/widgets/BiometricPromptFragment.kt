@@ -29,10 +29,7 @@ class BiometricPromptFragment : BaseFragment() {
         showBiometricPrompt.setOnClickListener { onBiometricPromptButtonClicked() }
     }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity.title = getString(R.string.biometric_prompt)
-    }
+    override fun getToolbarTitle(): String = getString(R.string.biometric_prompt)
 
     private fun onBiometricPromptButtonClicked() {
         if (!PhoneDevice.hasFingerPrint(context)) {
