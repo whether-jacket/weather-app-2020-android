@@ -8,6 +8,7 @@
         tools:context=".ui.HomeActivity">
 
     <include
+            android:id="@+id/appToolbar"
             layout="@layout/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -18,8 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_outer_layout"
-            app:layout_constraintBottom_toBottomOf="parent">
-    </FrameLayout>
-
+            app:layout_constraintTop_toBottomOf="@id/appToolbar"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

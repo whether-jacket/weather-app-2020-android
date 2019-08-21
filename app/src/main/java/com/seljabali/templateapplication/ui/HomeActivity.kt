@@ -2,8 +2,10 @@ package com.seljabali.templateapplication.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import androidx.annotation.StyleRes
 import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
+import com.google.android.material.appbar.AppBarLayout
 import com.seljabali.core.BaseActivity
 import com.seljabali.core.BaseFragment
 import com.seljabali.design.landingpage.DesignLandingPageFragment
@@ -13,21 +15,30 @@ import com.seljabali.templateapplication.R
 import com.seljabali.templateapplication.models.UserPreferences
 import com.seljabali.templateapplication.ui.landingpage.LandingPageFragment
 import com.seljabali.widgets.landing.WidgetsLandingFragment
-import kotlinx.android.synthetic.main.toolbar.*
 
 class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragmentViewer,
     DesignLandingPageFragment.DesignLandingFragmentViewer, PagesLandingPageFragment.PagesLandingFragmentViewer {
 
     private val userBox = ObjectBox.get().boxFor(UserPreferences::class.java)
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    private lateinit var toolbarProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(getUserPreferences().themeId)
         setContentView(R.layout.activity_home)
-        setSupportActionBar(toolbar)
-        showBackButton(false)
-        supportFragmentManager.addOnBackStackChangedListener { backStackChangeListener() }
+        setupToolbar()
         showLandingPage()
+    }
+
+    override fun onBackStackChanged() {
+        super.onBackStackChanged()
+        val supportActionBar = supportActionBar ?: return
+        val isAtHomePage: Boolean = supportFragmentManager.backStackEntryCount < 1
+        supportActionBar.setDisplayHomeAsUpEnabled(!isAtHomePage)
+        if (isAtHomePage) {
+            setToolBarTitle(getString(R.string.app_name))
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -101,20 +112,20 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
         supportActionBar?.title = title
     }
 
+    private fun setupToolbar() {
+        val appBar = findViewById<AppBarLayout>(R.id.appToolbar)
+        toolbar = appBar.findViewById(R.id.toolbar)
+        toolbarProgressBar = appBar.findViewById(R.id.toolbarProgressBar)
+        setSupportActionBar(toolbar)
+        showBackButton(false)
+    }
+
     private fun showLandingPage() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, LandingPageFragment.newInstance())
             .commit()
     }
 
-    private fun backStackChangeListener() {
-        val supportActionBar = supportActionBar ?: return
-        val isAtHomePage: Boolean = supportFragmentManager.backStackEntryCount < 1
-        supportActionBar.setDisplayHomeAsUpEnabled(!isAtHomePage)
-        if (isAtHomePage) {
-            setToolBarTitle(getString(R.string.app_name))
-        }
-    }
 
     private fun getUserPreferences(): UserPreferences {
         if (userBox.all.isEmpty()) {
