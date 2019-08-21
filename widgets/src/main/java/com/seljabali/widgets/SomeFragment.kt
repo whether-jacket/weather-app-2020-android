@@ -17,8 +17,5 @@ import com.seljabali.core.BaseFragment
 //
 //    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_, container, false)
 //
-//    override fun onStart() {
-//        super.onStart()
-//        baseActivity.title = getString(R.string.)
-//    }
+//    override fun getToolbarTitle(): String = getString(R.string.)
 //}

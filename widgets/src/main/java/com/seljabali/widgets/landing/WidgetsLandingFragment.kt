@@ -65,53 +65,53 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
         when (widgetClicked) {
             Widgets.AnalogClock -> startFragment(AnalogClock.newInstance(), AnalogClock.TAG)
             Widgets.AutoCompleteTextView -> startFragment(AutoCompleteTextViewFragment.newInstance(), AutoCompleteTextViewFragment.TAG)
-            Widgets.Badge -> TODO()
-            Widgets.BiometricPrompt -> TODO()
-            Widgets.BottomAppBar -> TODO()
-            Widgets.BottomNavigation -> TODO()
-            Widgets.BottomSheet -> TODO()
+            Widgets.Badge -> { }
+            Widgets.BiometricPrompt -> startFragment(BiometricPromptFragment.newInstance(), BiometricPromptFragment.TAG)
+            Widgets.BottomAppBar -> { }
+            Widgets.BottomNavigation -> { }
+            Widgets.BottomSheet -> { }
             Widgets.Button -> startFragment(ButtonFragment.newInstance(), ButtonFragment.TAG)
-            Widgets.CalendarView -> TODO()
-            Widgets.CardView -> TODO()
+            Widgets.CalendarView -> { }
+            Widgets.CardView -> { }
             Widgets.CheckBox -> startFragment(CheckBoxFragment.newInstance(), CheckBoxFragment.TAG)
-            Widgets.CheckedTextView -> TODO()
-            Widgets.Chips -> TODO()
+            Widgets.CheckedTextView -> { }
+            Widgets.Chips -> { }
             Widgets.Chronometer -> startFragment(ChronometerFragment.newInstance(), ChronometerFragment.TAG)
-            Widgets.CompoundButton -> TODO()
+            Widgets.CompoundButton -> { }
             Widgets.DatePicker -> startFragment(DatePickerFragment.newInstance(), DatePickerFragment.TAG)
-            Widgets.Dialog -> TODO()
-            Widgets.DialogFragment -> TODO()
-            Widgets.DrawerLayout -> TODO()
-            Widgets.EdgeEffect -> TODO()
-            Widgets.EditText -> TODO()
-            Widgets.ExtendedFloatingActionButton -> TODO()
-            Widgets.FloatingActionButton -> TODO()
-            Widgets.GridLayout -> TODO()
-            Widgets.GridView -> TODO()
-            Widgets.ImageButton -> TODO()
-            Widgets.ImageSwitcher -> TODO()
-            Widgets.ImageView -> TODO()
-            Widgets.Magnifier -> TODO()
-            Widgets.MaterialButton -> TODO()
-            Widgets.MaterialButtonToggleGroup -> TODO()
-            Widgets.MaterialCardView -> TODO()
-            Widgets.MaterialTextView -> TODO()
-            Widgets.MediaController -> TODO()
-            Widgets.Menu -> TODO()
-            Widgets.MultiAutoCompleteTextView -> TODO()
-            Widgets.NumberPicker -> TODO()
+            Widgets.Dialog -> { }
+            Widgets.DialogFragment -> { }
+            Widgets.DrawerLayout -> { }
+            Widgets.EdgeEffect -> { }
+            Widgets.EditText -> { }
+            Widgets.ExtendedFloatingActionButton -> { }
+            Widgets.FloatingActionButton -> { }
+            Widgets.GridLayout -> { }
+            Widgets.GridView -> { }
+            Widgets.ImageButton -> { }
+            Widgets.ImageSwitcher -> { }
+            Widgets.ImageView -> { }
+            Widgets.Magnifier -> { }
+            Widgets.MaterialButton -> { }
+            Widgets.MaterialButtonToggleGroup -> { }
+            Widgets.MaterialCardView -> { }
+            Widgets.MaterialTextView -> { }
+            Widgets.MediaController -> { }
+            Widgets.Menu -> { }
+            Widgets.MultiAutoCompleteTextView -> { }
+            Widgets.NumberPicker -> { }
             Widgets.ProgressBar -> startFragment(ProgressBarFragment.newInstance(), ProgressBarFragment.TAG)
             Widgets.RadioButton -> startFragment(RadioButtonFragment.newInstance(), RadioButtonFragment.TAG)
-            Widgets.RatingBar -> TODO()
-            Widgets.RecyclerView -> TODO()
-            Widgets.SnackBar -> TODO()
+            Widgets.RatingBar -> { }
+            Widgets.RecyclerView -> { }
+            Widgets.SnackBar -> { }
             Widgets.SeekBar -> startFragment(SeekBarFragment.newInstance(), SeekBarFragment.TAG)
-            Widgets.Spinner -> TODO()
+            Widgets.Spinner -> { }
             Widgets.StatusBar -> startFragment(StatusFragment.newInstance(), StatusFragment.TAG)
-            Widgets.Switch -> TODO()
-            Widgets.TabLayout -> TODO()
+            Widgets.Switch -> { }
+            Widgets.TabLayout -> { }
             Widgets.TextClock -> startFragment(TextClock.newInstance(), TextClock.TAG)
-            Widgets.TextView -> TODO()
+            Widgets.TextView -> { }
             Widgets.TimePicker -> startFragment(TimePickerFragment.newInstance(), TimePickerFragment.TAG)
             Widgets.Toast -> startFragment(ToastFragment.newInstance(), ToastFragment.TAG)
             Widgets.ToolBar -> startFragment(ToolbarFragment.newInstance(), ToolbarFragment.TAG)

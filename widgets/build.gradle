@@ -67,6 +67,7 @@ dependencies {
     implementation "androidx.preference:preference:$preference_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.biometric:biometric:$biometric_version"
 
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 

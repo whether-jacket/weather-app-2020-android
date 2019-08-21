@@ -10,6 +10,7 @@ import android.hardware.camera2.CameraManager
 import android.location.LocationManager
 import android.net.wifi.WifiManager
 import android.provider.Settings
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat
 
 object PhoneDevice {
 
@@ -44,6 +45,16 @@ object PhoneDevice {
 
     @JvmStatic
     fun hasCameraFlash(context: Context): Boolean = context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
+
+    /**
+     *  Finger Print
+     */
+    @SuppressLint("MissingPermission")
+    @JvmStatic
+    fun hasFingerPrint(context: Context): Boolean {
+        val fingerprintManagerCompat = FingerprintManagerCompat.from(context)
+        return fingerprintManagerCompat.hasEnrolledFingerprints() && fingerprintManagerCompat.isHardwareDetected
+    }
 
     /**
      *  GPS
