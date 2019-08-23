@@ -50,7 +50,7 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
     open fun onVisible() {
         Logger.v("${getDisplayTag()} Fragment Visible")
         val toolbarTitle = getToolbarTitle()
-        if (toolbarTitle.isNotEmpty()) setToolBarTitle(toolbarTitle)
+        if (toolbarTitle.isNotEmpty()) setToolbarTitle(toolbarTitle)
     }
 
     open fun getToolbarTitle(): String {
@@ -60,8 +60,12 @@ abstract class BaseFragment : Fragment(), BaseActivity.OnBackClickListener {
 
     fun getDisplayTag(): String = javaClass.simpleName
 
-    protected fun setToolBarTitle(title: String) {
-        baseActivity.supportActionBar?.title = title
+    protected fun setToolbarTitle(title: String) {
+        baseActivity.setToolbarTitle(title)
+    }
+
+    protected fun setToolbarSubtitle(subtitle: String) {
+        baseActivity.setToolbarSubtitle(subtitle)
     }
 
     protected fun subscribe(disposable: Disposable) {

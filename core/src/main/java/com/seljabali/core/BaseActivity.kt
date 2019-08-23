@@ -69,6 +69,18 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
         }
     }
 
+    fun setToolbarTitle(title: String) {
+        supportActionBar?.title = title
+    }
+
+    fun setToolbarSubtitle(subtitle: String) {
+        supportActionBar?.subtitle = subtitle
+    }
+
+    fun showBackButton(show: Boolean) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(show)
+    }
+
     protected fun subscribe(disposable: Disposable) {
         compositeDisposable.add(disposable)
     }
