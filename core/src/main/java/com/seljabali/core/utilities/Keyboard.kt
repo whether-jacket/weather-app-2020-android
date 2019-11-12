@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
 object Keyboard {
@@ -18,6 +19,14 @@ object Keyboard {
     fun hide(activity: FragmentActivity) {
         val view = activity.currentFocus ?: return
         hide(activity, view)
+    }
+
+
+    @JvmStatic
+    fun hide(fragment: Fragment) {
+        val context = fragment.context ?: return
+        val view = fragment.view ?: return
+        hide(context, view)
     }
 
     @JvmStatic

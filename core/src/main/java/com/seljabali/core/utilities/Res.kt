@@ -2,6 +2,7 @@ package com.seljabali.core.utilities
 
 import android.content.Context
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.TypedValue
 import androidx.annotation.*
@@ -32,9 +33,12 @@ object Res {
 
     @JvmStatic
     fun getColorHex(context: Context, @ColorRes id: Int): String {
-        val colorHex = Integer.toHexString(ContextCompat.getColor(context, id) and 0x00ffffff)
+        val colorHex = Integer.toHexString(getColor(context, id) and 0x00ffffff)
         return "#${colorHex.toUpperCase()}"
     }
+
+    @JvmStatic
+    fun getColor(context: Context, @ColorRes id: Int): Int = ContextCompat.getColor(context, id)
 
     @JvmStatic
     @ColorInt
@@ -87,6 +91,9 @@ object Res {
     fun getPx(context: Context, @DimenRes dpDimenId: Int): Float = context.resources.getDimension(dpDimenId)
 
     @JvmStatic
+    fun getPx(context: Context, dp: Float): Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
+
+    @JvmStatic
     fun getRoundedPx(context: Context, @DimenRes dpDimenId: Int): Int = context.resources.getDimensionPixelSize(dpDimenId)
 
     @JvmStatic
@@ -111,6 +118,9 @@ object Res {
         }
         return text.toString()
     }
+
+    @JvmStatic
+    fun getDrawable(context: Context, @DrawableRes drawableId: Int): Drawable? = context.getDrawable(drawableId)
 
     @JvmStatic
     fun getString(context: Context, @StringRes id: Int): String =
