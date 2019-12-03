@@ -104,10 +104,6 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
         toolbarProgressBar.visibility = if (show) View.VISIBLE else View.INVISIBLE
     }
 
-    fun showBackButton(show: Boolean) {
-        supportActionBar?.setDisplayHomeAsUpEnabled(show)
-    }
-
     fun setToolBarTitle(title: String) {
         supportActionBar?.title = title
     }
