@@ -14,13 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <RadioButton
+        <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/fooRadioButton"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="@string/foo"/>
 
-        <RadioButton
+        <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/barRadioButton"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"

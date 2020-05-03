@@ -7,13 +7,13 @@
               android:clickable="true"
               android:focusable="true">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/shortToastButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/short_toast"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/longToastButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

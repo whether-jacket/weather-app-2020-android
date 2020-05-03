@@ -25,11 +25,5 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/Theme.Tokyo"/>
-
-        <com.seljabali.design.themeselector.ThemeSampleView
-                android:id="@+id/lightBlueSampleCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/Theme.LightBlue"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

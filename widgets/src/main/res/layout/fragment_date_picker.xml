@@ -7,7 +7,7 @@
               android:clickable="true"
               android:focusable="true">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/showDatePickerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

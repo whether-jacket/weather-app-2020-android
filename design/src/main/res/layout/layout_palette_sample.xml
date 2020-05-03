@@ -6,7 +6,7 @@
               android:layout_marginBottom="@dimen/m_vertical_spacing"
               android:orientation="vertical">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/m_horizontal_spacing"
@@ -14,7 +14,7 @@
             android:text="@string/title_palette"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/m_padding"
@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/palettePrimaryDark"
                     style="@style/PaletteItem"
                     android:layout_weight="1"
@@ -34,7 +34,7 @@
                     android:background="?attr/colorPrimary"
                     android:text="@string/primary_dark"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/palettePrimary"
                     style="@style/PaletteItem"
                     android:layout_weight="1"
@@ -42,7 +42,7 @@
                     android:background="?attr/colorPrimary"
                     android:text="@string/primary"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/paletteBackground"
                     style="@style/PaletteItem"
                     android:layout_weight="1"
@@ -50,7 +50,7 @@
                     android:background="?android:attr/colorBackground"
                     android:text="@string/background"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/paletteAccent"
                     style="@style/PaletteItem"
                     android:layout_weight="1"
@@ -58,7 +58,7 @@
                     android:background="?attr/colorAccent"
                     android:text="@string/accent"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/paletteNormal"
                     style="@style/PaletteItem"
                     android:layout_weight="1"
@@ -66,7 +66,7 @@
                     android:background="?attr/colorControlNormal"
                     android:text="@string/normal"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/paletteForeground"
                     style="@style/PaletteItem"
                     android:layout_weight="1"
@@ -74,5 +74,5 @@
                     android:background="?android:attr/colorForeground"
                     android:text="@string/foreground"/>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

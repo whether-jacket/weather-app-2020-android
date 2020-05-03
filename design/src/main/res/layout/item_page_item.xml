@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +22,7 @@
                 android:layout_width="@dimen/landingPageIconSize"
                 android:layout_height="@dimen/landingPageIconSize"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/pageItemNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,4 +31,4 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 tools:text="Maps"/>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

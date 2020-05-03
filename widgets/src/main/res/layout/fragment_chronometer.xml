@@ -20,20 +20,20 @@
             android:gravity="center_horizontal"
             android:layout_marginTop="@dimen/m_vertical_spacing">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/startButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/start"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/stopButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/m_horizontal_spacing"
                 android:text="@string/stop"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/restartButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 android:text="@string/restart"/>
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/formatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

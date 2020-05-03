@@ -30,7 +30,6 @@ class ThemeSelectorFragment : BaseFragment() {
         seamFoamSampleCard.setOnClickListener { setTheme(R.style.Theme_SeaFoam) }
         illiniSampleCard.setOnClickListener { setTheme(R.style.Theme_Illini) }
         tokyoSampleCard.setOnClickListener { setTheme(R.style.Theme_Tokyo) }
-        lightBlueSampleCard.setOnClickListener { setTheme(R.style.Theme_LightBlue) }
     }
 
     fun setDesignLandingFragmentViewer(viewer: DesignLandingPageFragment.DesignLandingFragmentViewer) {

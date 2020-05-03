@@ -2,13 +2,13 @@ package com.seljabali.templateapplication.ui.landingpage
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textview.MaterialTextView
 import com.seljabali.templateapplication.R
 
 class LandingPageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val pageItemNameTextView: TextView = itemView.findViewById(R.id.pageItemNameTextView)
+    private val pageItemNameTextView: MaterialTextView = itemView.findViewById(R.id.pageItemNameTextView)
     private val pageItemIconImageView: ImageView = itemView.findViewById(R.id.pageItemIconImageView)
 
     fun bind(currentPageItem: LandingItem) {

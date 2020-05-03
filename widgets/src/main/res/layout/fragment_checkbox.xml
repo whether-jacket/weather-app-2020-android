@@ -7,7 +7,7 @@
               android:clickable="true"
               android:focusable="true">
 
-    <CheckBox
+    <com.google.android.material.checkbox.MaterialCheckBox
             android:text="@string/foo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
