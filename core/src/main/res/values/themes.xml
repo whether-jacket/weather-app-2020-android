@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--
-        All theme attrs:
-        https://chromium.googlesource.com/android_tools/+/25d57ead05d3dfef26e9c19b13ed10b0a69829cf/sdk/platforms/android-23/data/res/values/themes.xml
+        Theme attrs: https://material.io/design/color/the-color-system.html#color-theme-creation
     -->
     <style name="Theme.Droid" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/droidPrimary</item>
@@ -18,14 +17,29 @@
     </style>
 
     <style name="Theme.Illini" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="android:windowIsTranslucent">false</item>
-        <!-- General theme colors -->
+        <!-- Primary -->
         <item name="colorPrimary">@color/illiniColorPrimary</item>
-        <item name="colorPrimaryDark">@color/illiniColorPrimaryDark</item>
-        <item name="colorAccent">@color/illiniColorAccent</item>
+        <item name="colorPrimaryVariant">@color/illiniColorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/illiniTextColorPrimary</item>
+
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/illiniColorAccent</item>
+        <item name="colorOnSecondary">@color/illiniTextColorPrimaryInverse</item>
+
+        <!--  Surface  -->
+        <item name="colorSurface">@color/illiniBackground</item>
+
+        <!--  Background  -->
+        <item name="backgroundColor">@color/illiniBackground</item>
         <item name="android:background">@color/illiniBackground</item>
         <item name="android:colorBackground">@color/illiniBackground</item>
-        <item name="colorSurface">@color/illiniBackground</item>
+
+        <!-- Error  -->
+        <item name="errorTextColor">@color/illiniInputError</item>
+
+        <!-- StatusBar -->
+        <item name="android:windowIsTranslucent">false</item>
+
         <item name="android:colorForeground">@color/illiniForeground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Condensed</item>
@@ -56,15 +70,34 @@
         <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
-    <style name="Theme.SeaFoam" parent="Theme.MaterialComponents.NoActionBar">
-        <!-- General theme colors -->
+    <style name="Theme.SeaFoam" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary -->
         <item name="colorPrimary">@color/seaFoamColorPrimary</item>
-        <item name="colorPrimaryDark">@color/seaFoamColorPrimaryDark</item>
-        <item name="colorAccent">@color/seaFoamColorAccent</item>
+        <item name="colorOnPrimary">@color/seaFoamTextColorPrimary</item>
+
+        <!-- Primary Variant -->
+        <item name="colorPrimaryVariant">@color/seaFoamColorPrimaryDark</item>
+
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/seaFoamColorAccent</item>
+        <item name="colorOnSecondary">@color/seaFoamTextColorPrimaryInverse</item>
+
+        <!-- Surface -->
+        <item name="colorSurface">@color/seaFoamBackground</item>
+
+        <!-- Background -->
+        <item name="backgroundColor">@color/seaFoamBackground</item>
         <item name="android:background">@color/seaFoamBackground</item>
         <item name="android:colorBackground">@color/seaFoamBackground</item>
+
+        <!-- Error -->
+        <item name="errorTextColor">@color/seaFoamInputError</item>
+
+        <!-- StatusBar -->
+        <item name="android:statusBarColor">@color/seaFoamColorPrimaryDark</item>
+
+        <!-- General theme colors -->
         <item name="android:colorForeground">@color/seaFoamForeground</item>
-        <item name="colorSurface">@color/seaFoamBackground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Serif</item>
         <item name="android:textColorPrimary">@color/seaFoamTextColorPrimary</item>
@@ -94,20 +127,41 @@
         <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
-    <style name="Theme.Tokyo" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="Theme.Tokyo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary -->
+        <item name="colorPrimary">@color/tokyoColorPrimary</item>
+        <item name="colorOnPrimary">@color/tokyoColorNormal</item>
+
+        <!-- Primary Variant -->
+        <item name="colorPrimaryVariant">@color/tokyoColorPrimaryDark</item>
+
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/tokyoColorAccent</item>
+        <item name="colorOnSecondary">@color/tokyoColorNormal</item>
+
+        <!--  Surface  -->
+        <item name="colorSurface">@color/tokyoBackground</item>
+        <item name="colorOnSurface">@color/tokyoColorNormal</item>
+
+        <!--  Background  -->
+        <item name="backgroundColor">@color/tokyoBackground</item>
+        <item name="android:background">@color/tokyoBackground</item>
+        <item name="android:colorBackground">@color/tokyoBackground</item>
+        <item name="colorOnBackground">@color/tokyoColorNormal</item>
+
+        <!-- Error  -->
+        <item name="errorTextColor">@color/tokyoInputError</item>
+
+        <!-- StatusBar -->
         <item name="android:statusBarColor">@color/tokyoColorNormal</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
         <!-- General theme colors -->
-        <item name="colorPrimary">@color/tokyoColorPrimary</item>
-        <item name="colorPrimaryDark">@color/tokyoColorPrimaryDark</item>
-        <item name="colorAccent">@color/tokyoColorAccent</item>
         <item name="colorControlNormal">@color/tokyoColorNormal</item>
-        <item name="android:background">@color/tokyoBackground</item>
-        <item name="android:colorBackground">@color/tokyoBackground</item>
         <item name="android:colorForeground">@color/tokyoForeground</item>
-        <item name="colorSurface">@color/tokyoBackground</item>
         <!-- Text Appearance styles -->
+        <item name="android:textColorPrimary">@color/tokyoColorNormal</item>
         <!--<item name="android:textViewStyle">@style/TextViewStyle.Serif</item>-->
         <!--<item name="android:textColorPrimary">@color/</item>-->
         <!--<item name="android:textColorSecondary">@color/</item>-->
