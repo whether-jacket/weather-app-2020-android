@@ -1,4 +1,4 @@
-package com.seljabali.core.network
+package com.seljabali.network
 
 // https://stackoverflow.com/questions/23714383/what-are-all-the-possible-values-for-http-content-type-header
 enum class ContentTypes(val id: String) {

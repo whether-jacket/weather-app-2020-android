@@ -1,11 +1,10 @@
-package com.seljabali.core.network
+package com.seljabali.network
 
 import android.annotation.SuppressLint
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.seljabali.core.network.interceptors.RequestHeaderInterceptor
-import com.seljabali.core.network.interceptors.ResponseCookiesInterceptor
 import com.seljabali.core.utilities.areAnyNotEmpty
+import com.seljabali.network.interceptors.RequestHeaderInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -31,11 +30,12 @@ class ApiServiceBuilder<S>(
 
     private var loggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply { level = NONE }
     private var networkInterceptor: Interceptor? = null
-    private var cookieResponseListener: ResponseCookiesInterceptor.CookieListener? = null
+    private var cookieResponseListener: com.seljabali.network.interceptors.ResponseCookiesInterceptor.CookieListener? = null
     private lateinit var apiBaseUrl: String
     private var authToken: String = ""
     private var cookie: String = ""
-    private var timeOutDurationSeconds: Long = DEFAULT_TIME_OUT_SECONDS
+    private var timeOutDurationSeconds: Long =
+        DEFAULT_TIME_OUT_SECONDS
     private var acceptAllCerts: Boolean = false
 
     fun withApiBaseUrl(baseUrl: String): ApiServiceBuilder<S> {
@@ -53,7 +53,7 @@ class ApiServiceBuilder<S>(
         return this
     }
 
-    fun withResponseCookieListener(listener: ResponseCookiesInterceptor.CookieListener): ApiServiceBuilder<S> {
+    fun withResponseCookieListener(listener: com.seljabali.network.interceptors.ResponseCookiesInterceptor.CookieListener): ApiServiceBuilder<S> {
         this.cookieResponseListener = listener
         return this
     }
@@ -87,7 +87,11 @@ class ApiServiceBuilder<S>(
                 addInterceptor(RequestHeaderInterceptor(authToken, cookie))
             }
             cookieResponseListener?.let {
-                addInterceptor(ResponseCookiesInterceptor(it))
+                addInterceptor(
+                    com.seljabali.network.interceptors.ResponseCookiesInterceptor(
+                        it
+                    )
+                )
             }
             networkInterceptor?.let {
                 networkInterceptors().add(networkInterceptor)

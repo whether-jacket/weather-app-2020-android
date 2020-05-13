@@ -1,4 +1,4 @@
-package com.seljabali.core.network
+package com.seljabali.network
 
 // Taken from: https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 enum class RequestHeaders(val id: String) {
