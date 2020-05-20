@@ -1,10 +1,6 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-kapt'
 
 android {
 
@@ -13,7 +9,6 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.seljabali.templateapplication"
         minSdkVersion project.minSdkVersion
         targetSdkVersion project.targetSdkVersion
         compileSdkVersion project.compileSdkVersion
@@ -23,6 +18,7 @@ android {
     }
 
     buildTypes {
+        debug {}
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -60,17 +56,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":core")
-    implementation project(":network")
-    debugImplementation project(":widgets")
-    debugImplementation project(":pages")
-    debugImplementation project(":design")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:$ktx_version"
-
-    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
-    implementation "androidx.preference:preference:$preference_version"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "com.google.android.material:material:$material_version"
 
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
@@ -85,28 +72,13 @@ dependencies {
 
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
-    implementation "com.jakewharton.rxbinding3:rxbinding:$rxbinding_version"
-    implementation "com.jakewharton.rxbinding3:rxbinding-core:$rxbinding_version"
-    implementation "com.jakewharton.rxbinding3:rxbinding-material:$rxbinding_version"
-    implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxbinding_version"
-    implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxbinding_version"
-
-    debugImplementation "io.objectbox:objectbox-android-objectbrowser:$objectbox_version"
-    debugImplementation "io.objectbox:objectbox-kotlin:$objectbox_version"
-    releaseImplementation "io.objectbox:objectbox-android:$objectbox_version"
 
     implementation "com.orhanobut:logger:$logger_version"
 
-    implementation "com.jakewharton.threetenabp:threetenabp:$threeten_version"
-
     implementation "com.facebook.stetho:stetho:$stetho_version"
     implementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
-
-    implementation "com.orhanobut:hawk:$hawk_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
 }
-
-apply plugin: 'io.objectbox'
