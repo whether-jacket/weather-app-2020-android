@@ -7,7 +7,7 @@
         android:layout_marginTop="@dimen/m_vertical_spacing"
         android:layout_marginBottom="@dimen/m_vertical_spacing">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/widgetTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toBottomOf="@+id/widgetTitle"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/checkBoxName"
             style="@style/ViewSample.Name"
             android:layout_marginStart="@dimen/m_horizontal_spacing"
@@ -37,7 +37,7 @@
             app:layout_constraintLeft_toRightOf="@id/checkBox"
             app:layout_constraintRight_toRightOf="parent"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/checkBoxDescription"
             style="@style/ViewSample.Description"
             android:layout_marginStart="0dp"
@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/checkBoxDescription"
             app:layout_constraintLeft_toLeftOf="@+id/checkBox"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/radioButtonName"
             style="@style/ViewSample.Name"
             android:layout_marginStart="@dimen/m_horizontal_spacing"
@@ -68,7 +68,7 @@
             app:layout_constraintLeft_toRightOf="@+id/radioButton"
             app:layout_constraintRight_toRightOf="parent"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/radioButtonDescription"
             style="@style/ViewSample.Description"
             android:layout_width="0dp"
@@ -81,7 +81,7 @@
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/radioButtonName"/>
 
-    <androidx.appcompat.widget.SwitchCompat
+    <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchWidget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             app:layout_constraintLeft_toLeftOf="@id/radioButton"
             app:layout_constraintTop_toBottomOf="@id/radioButtonDescription"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/switchName"
             style="@style/ViewSample.Name"
             android:text="@string/switch_title"
@@ -99,7 +99,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/radioButtonDescription"
             app:layout_constraintHorizontal_bias="0.0"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/switchDescription"
             style="@style/ViewSample.Description"
             android:layout_width="0dp"
@@ -111,7 +111,7 @@
             app:layout_constraintStart_toStartOf="@+id/switchName"
             app:layout_constraintTop_toBottomOf="@+id/switchName"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonDefault"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchDescription"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonColored"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
@@ -138,7 +138,7 @@
             app:layout_constraintTop_toTopOf="@+id/buttonDefault"
             android:layout_marginTop="0dp"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonBorderless"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"

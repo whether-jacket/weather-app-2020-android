@@ -5,47 +5,47 @@
               android:layout_height="wrap_content"
               android:orientation="vertical">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/m_padding"
             android:text="@string/title_text_appearances"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             style="@style/TextSample"
             android:layout_marginBottom="@dimen/s_vertical_spacing"
             android:text="@string/sample_text_summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <!-- android:attr/textColorPrimary -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             style="@style/TextSample"
             android:text="@string/sample_text_primary"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <!-- android:attr/textColorSecondary -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             style="@style/TextSample"
             android:text="@string/sample_text_secondary"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
     <!-- android:attr/textColorTertiary -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             style="@style/TextSample"
             android:text="@string/sample_text_tertiary"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textSize="@dimen/xxs_text_size"/>
 
     <!-- android:attr/textColorLink -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             style="@style/TextSample"
             android:text="@string/sample_text_link"
             android:linksClickable="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:autoLink="web"/>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/s_padding"
@@ -61,30 +61,30 @@
                 android:paddingTop="@dimen/s_vertical_spacing">
 
             <!-- android:attr/textColorPrimaryInverse -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     style="@style/TextSample.Inverse"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
                     android:text="@string/sample_text_primary_inverse"/>
 
             <!-- android:attr/textColorSecondaryInverse -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     style="@style/TextSample.Inverse"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
                     android:text="@string/sample_text_secondary_inverse"/>
 
             <!-- android:attr/textColorTertiaryInverse -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     style="@style/TextSample.Inverse"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
                     android:text="@string/sample_text_tertiary_inverse"/>
 
             <!-- android:attr/textColorLinkInverse -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                     style="@style/TextSample.Inverse"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
                     android:text="@string/sample_text_link_inverse"
                     android:textStyle="bold"
                     android:textColor="?android:attr/textColorLinkInverse"/>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

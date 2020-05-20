@@ -67,7 +67,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:$ktx_version"
 
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.preference:preference:$preference_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -88,6 +87,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     implementation "com.jakewharton.rxbinding3:rxbinding:$rxbinding_version"
     implementation "com.jakewharton.rxbinding3:rxbinding-core:$rxbinding_version"
+    implementation "com.jakewharton.rxbinding3:rxbinding-material:$rxbinding_version"
     implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxbinding_version"
     implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxbinding_version"
 
@@ -96,7 +96,6 @@ dependencies {
     releaseImplementation "io.objectbox:objectbox-android:$objectbox_version"
 
     implementation "com.orhanobut:logger:$logger_version"
-
 
     implementation "com.jakewharton.threetenabp:threetenabp:$threeten_version"
 

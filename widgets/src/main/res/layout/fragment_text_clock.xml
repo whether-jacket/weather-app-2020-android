@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAmPm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn24Hrs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

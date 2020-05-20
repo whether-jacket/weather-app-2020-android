@@ -48,13 +48,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/m_vertical_spacing">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/loginButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/forgotPasswordButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

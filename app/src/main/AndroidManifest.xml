@@ -25,7 +25,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Illini">
 
-        <activity android:name=".ui.HomeActivity"
+        <activity android:name="com.seljabali.templateapplication.ui.HomeActivity"
                   android:theme="@style/Theme.Illini">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -59,29 +59,4 @@
     <color name="tokyoInputError">@color/red</color>
     <color name="tokyoActiveHint">@color/tokyoColorAccent</color>
     <color name="tokyoInactiveHint">@color/tokyoForeground</color>
-
-    <!-- Lighter Blue Theme -->
-    <!-- Complementary -->
-    <color name="lightBlueComp1">#1A75B2</color>
-    <color name="lightBlueComp2">#1B76B3</color>
-    <color name="lightBlueComp3">#BDE4FF</color>
-    <color name="lightBlueComp4">#B39160</color>
-    <color name="lightBlueComp5">#FFE4BD</color>
-
-    <color name="lightBlueColorPrimary">@color/lightBlueComp1</color>
-    <color name="lightBlueColorPrimaryDark">@color/lightBlueComp2</color>
-    <color name="lightBlueColorAccent">@color/lightBlueComp4</color>
-    <color name="lightBlueColorNormal">@color/lightBlueComp2</color>
-    <color name="lightBlueBackground">@color/lightBlueComp3</color>
-    <color name="lightBlueForeground">@color/lightBlueColorAccent</color>
-    <color name="lightBlueIconForeground">#212121</color>
-    <color name="lightBlueDividerColor">#BDBDBD</color>
-    <color name="lightBlueTextColorPrimary">#212121</color>
-    <color name="lightBlueTextColorPrimaryInverse">#757575</color>
-    <color name="lightBlueTextColorSecondary">#212121</color>
-    <color name="lightBlueTextColorLink">@color/tokyoTextColorLink</color>
-    <color name="lightBlueTextColorLinkInverse">@color/lightBlueTextColorPrimaryInverse</color>
-    <color name="lightBlueInputError">@color/red</color>
-    <color name="lightBlueActiveHint">@color/lightBlueColorAccent</color>
-    <color name="lightBlueInactiveHint">@color/lightBlueColorAccent</color>
 </resources>

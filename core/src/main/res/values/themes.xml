@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--
-        All theme attrs:
-        https://chromium.googlesource.com/android_tools/+/25d57ead05d3dfef26e9c19b13ed10b0a69829cf/sdk/platforms/android-23/data/res/values/themes.xml
+        Theme attrs: https://material.io/design/color/the-color-system.html#color-theme-creation
     -->
     <style name="Theme.Droid" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary -->
         <item name="colorPrimary">@color/droidPrimary</item>
-        <item name="colorPrimaryDark">@color/droidPrimaryDark</item>
-        <item name="colorAccent">@color/droidAccent</item>
+        <item name="colorPrimaryVariant">@color/droidPrimaryDark</item>
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/droidAccent</item>
         <!-- Custom attributes defined in attrs.xml -->
         <item name="themeName">@string/theme_name_droid</item>
         <item name="themeDescription">@string/theme_desc_droid</item>
@@ -17,15 +18,24 @@
         <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
-    <style name="Theme.Illini" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowIsTranslucent">false</item>
-        <!-- General theme colors -->
+    <style name="Theme.Illini" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary -->
         <item name="colorPrimary">@color/illiniColorPrimary</item>
-        <item name="colorPrimaryDark">@color/illiniColorPrimaryDark</item>
-        <item name="colorAccent">@color/illiniColorAccent</item>
+        <item name="colorPrimaryVariant">@color/illiniColorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/illiniTextColorPrimary</item>
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/illiniColorAccent</item>
+        <item name="colorOnSecondary">@color/illiniTextColorPrimaryInverse</item>
+        <!--  Surface  -->
+        <item name="colorSurface">@color/illiniBackground</item>
+        <!--  Background  -->
+        <item name="backgroundColor">@color/illiniBackground</item>
         <item name="android:background">@color/illiniBackground</item>
         <item name="android:colorBackground">@color/illiniBackground</item>
-        <item name="colorSurface">@color/illiniBackground</item>
+        <!-- Error  -->
+        <item name="errorTextColor">@color/illiniInputError</item>
+        <!-- StatusBar -->
+        <item name="android:windowIsTranslucent">false</item>
         <item name="android:colorForeground">@color/illiniForeground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Condensed</item>
@@ -56,15 +66,27 @@
         <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
-    <style name="Theme.SeaFoam" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- General theme colors -->
+    <style name="Theme.SeaFoam" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary -->
         <item name="colorPrimary">@color/seaFoamColorPrimary</item>
-        <item name="colorPrimaryDark">@color/seaFoamColorPrimaryDark</item>
-        <item name="colorAccent">@color/seaFoamColorAccent</item>
+        <item name="colorOnPrimary">@color/seaFoamTextColorPrimary</item>
+        <!-- Primary Variant -->
+        <item name="colorPrimaryVariant">@color/seaFoamColorPrimaryDark</item>
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/seaFoamColorAccent</item>
+        <item name="colorOnSecondary">@color/seaFoamTextColorPrimaryInverse</item>
+        <!-- Surface -->
+        <item name="colorSurface">@color/seaFoamBackground</item>
+        <!-- Background -->
+        <item name="backgroundColor">@color/seaFoamBackground</item>
         <item name="android:background">@color/seaFoamBackground</item>
         <item name="android:colorBackground">@color/seaFoamBackground</item>
+        <!-- Error -->
+        <item name="errorTextColor">@color/seaFoamInputError</item>
+        <!-- StatusBar -->
+        <item name="android:statusBarColor">@color/seaFoamColorPrimaryDark</item>
+        <!-- General theme colors -->
         <item name="android:colorForeground">@color/seaFoamForeground</item>
-        <item name="colorSurface">@color/seaFoamBackground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Serif</item>
         <item name="android:textColorPrimary">@color/seaFoamTextColorPrimary</item>
@@ -94,20 +116,34 @@
         <item name="android:datePickerStyle">@style/DatePickerStyle</item>
     </style>
 
-    <style name="Theme.Tokyo" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Tokyo" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary -->
+        <item name="colorPrimary">@color/tokyoColorPrimary</item>
+        <item name="colorOnPrimary">@color/tokyoColorNormal</item>
+        <!-- Primary Variant -->
+        <item name="colorPrimaryVariant">@color/tokyoColorPrimaryDark</item>
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/tokyoColorAccent</item>
+        <item name="colorOnSecondary">@color/tokyoColorNormal</item>
+        <!--  Surface  -->
+        <item name="colorSurface">@color/tokyoBackground</item>
+        <item name="colorOnSurface">@color/tokyoColorNormal</item>
+        <!--  Background  -->
+        <item name="backgroundColor">@color/tokyoBackground</item>
+        <item name="android:background">@color/tokyoBackground</item>
+        <item name="android:colorBackground">@color/tokyoBackground</item>
+        <item name="colorOnBackground">@color/tokyoColorNormal</item>
+        <!-- Error  -->
+        <item name="errorTextColor">@color/tokyoInputError</item>
+        <!-- StatusBar -->
         <item name="android:statusBarColor">@color/tokyoColorNormal</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <!-- General theme colors -->
-        <item name="colorPrimary">@color/tokyoColorPrimary</item>
-        <item name="colorPrimaryDark">@color/tokyoColorPrimaryDark</item>
-        <item name="colorAccent">@color/tokyoColorAccent</item>
         <item name="colorControlNormal">@color/tokyoColorNormal</item>
-        <item name="android:background">@color/tokyoBackground</item>
-        <item name="android:colorBackground">@color/tokyoBackground</item>
         <item name="android:colorForeground">@color/tokyoForeground</item>
-        <item name="colorSurface">@color/tokyoBackground</item>
         <!-- Text Appearance styles -->
+        <item name="android:textColorPrimary">@color/tokyoColorNormal</item>
         <!--<item name="android:textViewStyle">@style/TextViewStyle.Serif</item>-->
         <!--<item name="android:textColorPrimary">@color/</item>-->
         <!--<item name="android:textColorSecondary">@color/</item>-->
@@ -130,42 +166,6 @@
         <item name="input_layout_error_color">@color/tokyoInputError</item>
         <item name="input_layout_hint_active_color">@color/tokyoActiveHint</item>
         <item name="input_layout_hint_inactive_color">@color/tokyoInactiveHint</item>
-        <!-- Dialogs -->
-        <item name="alertDialogTheme">@style/DialogThemeLight</item>
-        <item name="android:dialogTheme">@style/DialogThemeLight</item>
-        <item name="android:datePickerStyle">@style/DatePickerStyle</item>
-    </style>
-
-    <style name="Theme.LightBlue" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/lightBlueColorNormal</item>
-        <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
-        <!-- General theme colors -->
-        <item name="colorPrimary">@color/lightBlueColorPrimary</item>
-        <item name="colorPrimaryDark">@color/lightBlueColorPrimaryDark</item>
-        <item name="colorAccent">@color/lightBlueColorAccent</item>
-        <item name="colorSurface">@color/lightBlueBackground</item>
-        <item name="colorControlNormal">@color/lightBlueColorNormal</item>
-        <item name="android:background">@color/lightBlueBackground</item>
-        <item name="android:colorBackground">@color/lightBlueBackground</item>
-        <item name="android:colorForeground">@color/lightBlueForeground</item>
-        <!-- Text Appearance styles -->
-        <item name="android:textColorPrimary">@color/lightBlueTextColorPrimary</item>
-        <item name="android:textColorPrimaryInverse">@color/lightBlueTextColorPrimaryInverse</item>
-        <item name="android:textColorSecondary">@color/lightBlueTextColorSecondary</item>
-        <item name="android:textColorLink">@color/lightBlueTextColorLink</item>
-        <item name="android:textColorLinkInverse">@color/lightBlueTextColorLinkInverse</item>
-        <!-- Custom attributes defined in attrs.xml -->
-        <item name="themeName">@string/theme_name_light_blue</item>
-        <item name="themeDescription">@string/theme_desc_light_blue</item>
-        <item name="dividerColor">@color/lightBlueDividerColor</item>
-        <item name="icon_foreground_color">@color/lightBlueIconForeground</item>
-        <!--<item name="tabLayoutStyle">@style/TabStyle.Light</item>-->
-        <!-- Input Layout -->
-        <item name="input_layout_text_edit_color">@color/lightBlueForeground</item>
-        <item name="input_layout_error_color">@color/lightBlueInputError</item>
-        <item name="input_layout_hint_active_color">@color/lightBlueActiveHint</item>
-        <item name="input_layout_hint_inactive_color">@color/lightBlueInactiveHint</item>
         <!-- Dialogs -->
         <item name="alertDialogTheme">@style/DialogThemeLight</item>
         <item name="android:dialogTheme">@style/DialogThemeLight</item>
