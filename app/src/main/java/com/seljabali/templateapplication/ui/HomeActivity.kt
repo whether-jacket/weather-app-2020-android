@@ -8,18 +8,21 @@ import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import com.google.android.material.appbar.AppBarLayout
 import com.seljabali.core.BaseActivity
 import com.seljabali.core.BaseFragment
+import com.seljabali.database.DB_USER_PREFERENCES_BOX
 import com.seljabali.design.landingpage.DesignLandingPageFragment
 import com.seljabali.pages.landingpage.PagesLandingPageFragment
-import com.seljabali.templateapplication.ObjectBox
 import com.seljabali.templateapplication.R
-import com.seljabali.templateapplication.models.UserPreferences
+import com.seljabali.database.models.UserPreferences
 import com.seljabali.templateapplication.ui.landingpage.LandingPageFragment
 import com.seljabali.widgets.landing.WidgetsLandingFragment
+import io.objectbox.Box
+import org.koin.android.ext.android.inject
+import org.koin.core.qualifier.named
 
 class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragmentViewer,
     DesignLandingPageFragment.DesignLandingFragmentViewer, PagesLandingPageFragment.PagesLandingFragmentViewer {
 
-    private val userBox = ObjectBox.get().boxFor(UserPreferences::class.java)
+    private val userBox: Box<UserPreferences> by inject(named(DB_USER_PREFERENCES_BOX))
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var toolbarProgressBar: ProgressBar
 
@@ -121,7 +124,6 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
             .replace(R.id.frameLayout, LandingPageFragment.newInstance())
             .commit()
     }
-
 
     private fun getUserPreferences(): UserPreferences {
         if (userBox.all.isEmpty()) {

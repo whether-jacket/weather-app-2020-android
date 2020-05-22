@@ -9,9 +9,8 @@ import com.orhanobut.hawk.Hawk
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.seljabali.core.modules.utilsModule
-import com.seljabali.core.utilities.App
+import com.seljabali.database.databaseModule
 import com.seljabali.network.networkModule
-import io.objectbox.android.AndroidObjectBrowser
 import org.koin.android.ext.android.inject
 import java.lang.ref.WeakReference
 import org.koin.android.ext.koin.androidContext
@@ -25,6 +24,7 @@ class TemplateApplication: Application() {
     }
 
     private val modules = listOf(
+        databaseModule,
         networkModule,
         utilsModule
     )
@@ -37,10 +37,6 @@ class TemplateApplication: Application() {
     }
 
     private fun setupLibraries() {
-        ObjectBox.init(this)
-        if (App.isInDebugMode()) {
-            AndroidObjectBrowser(ObjectBox.get()).start(this)
-        }
         Logger.addLogAdapter(AndroidLogAdapter())
         AndroidThreeTen.init(this)
         startKoin {
