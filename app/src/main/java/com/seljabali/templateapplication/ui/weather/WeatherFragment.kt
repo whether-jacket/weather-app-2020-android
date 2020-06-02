@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WeatherFragment : BaseMvvmFragment<WeatherViewEvent, WeatherViewState, WeatherSideEffect>(
     module = weatherModule
-) {
+), WeatherViewApi {
     companion object {
         val TAG: String = WeatherFragment::class.java.simpleName
         fun newInstance() = WeatherFragment()
@@ -22,6 +22,7 @@ class WeatherFragment : BaseMvvmFragment<WeatherViewEvent, WeatherViewState, Wea
 
     private val loadSfWeatherEventPublisher =
         BehaviorSubject.create<WeatherViewEvent.LoadSfWeatherEvent>()
+    private val viewStateBinder = WeatherViewStateBinder()
 
     override val viewModel: WeatherViewModel by viewModel()
 
@@ -43,19 +44,22 @@ class WeatherFragment : BaseMvvmFragment<WeatherViewEvent, WeatherViewState, Wea
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewStateBinder.setViewApi(this)
         loadWeatherButton.setOnClickListener {
             loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadSfWeatherEvent)
         }
     }
 
-    // TODO: Have ViewBinder handle ViewState
-    override fun onViewStateEvent(viewState: WeatherViewState) {
-        with (viewState) {
-            val weatherSummary = "Weather in SF: ${currentTemperature} C"
-            helloWorldTextView.text = weatherSummary
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewStateBinder.unbindView()
+    }
 
-            progressBar.visibility = if (isLoadingTemperature) View.VISIBLE else View.INVISIBLE
-        }
+    /**
+     * MVVM Events
+     */
+    override fun onViewStateEvent(viewState: WeatherViewState) {
+        viewStateBinder.setViewState(viewState)
     }
 
     override fun onSideEffectEvent(sideEffect: WeatherSideEffect) {
@@ -66,5 +70,16 @@ class WeatherFragment : BaseMvvmFragment<WeatherViewEvent, WeatherViewState, Wea
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    /**
+     *  WeatherView Api
+     */
+    override fun setText(text: String) {
+        helloWorldTextView.text = text
+    }
+
+    override fun setProgressBarVisibility(isVisible: Boolean) {
+        progressBar.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
     }
 }
