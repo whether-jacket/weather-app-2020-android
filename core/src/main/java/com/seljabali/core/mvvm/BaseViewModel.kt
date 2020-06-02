@@ -20,16 +20,6 @@ abstract class BaseViewModel<ViewEvent : BaseViewEvent, ViewState : BaseViewStat
 
     private val generalPurposeDisposables = CompositeDisposable()
 
-    /**
-     * Called when the corresponding Activity or Fragment's onCreate is called
-     */
-    abstract fun onCreate()
-
-    /**
-     * Called when the corresponding Activity or Fragment's onResume is called
-     */
-    abstract fun onResume()
-
     @CallSuper
     override fun onCleared() {
         super.onCleared()

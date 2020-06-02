@@ -22,18 +22,14 @@ class WeatherFragment : BaseMvvmFragment<WeatherViewEvent, WeatherViewState, Wea
 
     private val loadSfWeatherEventPublisher =
         BehaviorSubject.create<WeatherViewEvent.LoadSfWeatherEvent>()
-    private val loadSfWeatherEventSecondaryPublisher =
-        BehaviorSubject.create<WeatherViewEvent.LoadSfWeatherEvent>()
 
     override val viewModel: WeatherViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // TODO: Figure out how to not need to use merge operator for single observables
         viewModel.processViewEvents(
             Observable.merge(
-                loadSfWeatherEventPublisher,
-                loadSfWeatherEventSecondaryPublisher
+                Observable.just(loadSfWeatherEventPublisher)
             )
         )
     }

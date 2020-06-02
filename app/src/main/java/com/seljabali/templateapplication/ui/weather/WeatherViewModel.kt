@@ -15,28 +15,23 @@ class WeatherViewModel(
     private val initialViewState = WeatherViewState(currentTemperature = "TBD")
 
     init {
-        actionProcessor = getActionResultTransformer()
+        actionProcessor = getResultFromAction()
 
         viewEventSubject
-            .map { dispatchViewEvents(it) }
+            .map { getActionFromViewEvent(it) }
             .compose(actionProcessor)
-            .map { dispatchResult(it) }
+            .map {
+                val newViewState = getViewStateFromResult(it)
+                sendViewState(newViewState)
+            }
             .replay(1)
             .autoConnect(0)
-    }
-
-    override fun onCreate() {
-        // do nothing
-    }
-
-    override fun onResume() {
-        // do nothing
     }
 
     /**
      *  View Event -> Action
      */
-    private fun dispatchViewEvents(viewEvent: WeatherViewEvent): WeatherAction {
+    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): WeatherAction {
         val action: WeatherAction = when (viewEvent) {
             is WeatherViewEvent.LoadSfWeatherEvent -> WeatherRepoAction.FetchForLocationAction(2487956)
             else -> WeatherAction.NoOperationAction
@@ -47,7 +42,7 @@ class WeatherViewModel(
     /**
      *  Action -> Result
      */
-    private fun getActionResultTransformer(): ObservableTransformer<WeatherAction, WeatherResult> =
+    private fun getResultFromAction(): ObservableTransformer<WeatherAction, WeatherResult> =
         ObservableTransformer { actions ->
             actions.publish {
                 Observable.merge(
@@ -62,7 +57,7 @@ class WeatherViewModel(
     /**
      *  Result -> View State
      */
-    private fun dispatchResult(result: WeatherResult): WeatherViewState {
+    private fun getViewStateFromResult(result: WeatherResult): WeatherViewState {
         val currentState: WeatherViewState = viewStateSubject.value ?: initialViewState
         val newState = currentState.copy()
         when (result) {
@@ -85,8 +80,6 @@ class WeatherViewModel(
                 sendSideEffect(WeatherSideEffect.ShowToast(result.message))
             }
         }
-        // TODO: Figure out how to avoid making this call to pass ViewStates to View
-        sendViewState(newState)
         return newState
     }
 }
