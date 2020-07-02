@@ -20,7 +20,7 @@ An app meant to show case Android's best practices as of 2020.
 - MVI: As presented by Jake Wharton in [Managing State with RxJava](https://jakewharton.com/the-state-of-managing-state-with-rxjava/).
 - Modularization of application: core, database, network, app, etc.
 
-## Libraries used
+## Libraries
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [Jetpack Navigation](https://developer.android.com/jetpack)
 - [Koin](https://github.com/InsertKoinIO/koin)
@@ -37,3 +37,5 @@ An app meant to show case Android's best practices as of 2020.
 - [RxKotlin](https://github.com/ReactiveX/RxKotlin)
 - [ThreeTen ABP](https://github.com/JakeWharton/ThreeTenABP)
 - [Timber](https://github.com/JakeWharton/timber)
+
+## License
