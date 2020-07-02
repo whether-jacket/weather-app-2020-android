@@ -39,3 +39,4 @@ An app meant to show case Android's best practices as of 2020.
 - [Timber](https://github.com/JakeWharton/timber)
 
 ## License
+[Creative Commons Zero v1.0 Universal.](https://github.com/seljabali/weather-app-2020-android/blob/master/LICENSE)
