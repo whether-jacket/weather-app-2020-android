@@ -1,5 +1,5 @@
 # Weather App 2020 Android
-An app meant to show case Android's best practices as of 2020.
+An app show casing Android's best practices as of 2020.
 
 ## User features
 - Search cities you'd like to view temperatures of.
