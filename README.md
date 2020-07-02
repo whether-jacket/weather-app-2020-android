@@ -5,15 +5,15 @@ An app meant to show case Android's best practices as of 2020.
 - Search cities you'd like to view temperatures of.
 - Save favorite city. 
 - View favorite city's weather forecast.
-- Offline viewing of previously saved weather.
+- Offline viewing of last saved weather forecast.
 - Night Mode.
 
 ## Developer features
-- In-App design token catalog: Catalog design values used across app. Taken from [here](https://github.com/seljabali/android-design-tokens).
-- In-App widget catalog: Catalogs Android views, meant to be used as a reference. Taken from [here](https://github.com/seljabali/android-appcompat-theming).
-- In-App theme previewer: Catalogs themes and enables quick previewing of them. Taken from [here](https://github.com/seljabali/android-appcompat-theming).
+- [In-App design token catalog](https://github.com/seljabali/android-design-tokens): Catalog of design values used across app.
+- [In-App widget catalog](https://github.com/seljabali/android-appcompat-theming): Catalog of Android views, meant to be used as a reference.
+- [In-App theme previewer](https://github.com/seljabali/android-appcompat-theming): Catalog of themes along with quick previewing of them.
 - In-App sample pages: Catalogs various sample pages meant to be used as reference.
-- Assorted Android utility classes & extensions.
+- Assortment of Android utility classes & extensions.
 - Extensive support for Dates & Times.
 
 ## Architecture
@@ -34,6 +34,6 @@ An app meant to show case Android's best practices as of 2020.
 - [RxJava](https://github.com/ReactiveX/RxJava)
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [RxBinding](https://github.com/JakeWharton/RxBinding)
-- [RxJava2Extensions](https://github.com/akarnokd/RxJava2Extensions)
 - [RxKotlin](https://github.com/ReactiveX/RxKotlin)
 - [ThreeTen ABP](https://github.com/JakeWharton/ThreeTenABP)
+- [Timber](https://github.com/JakeWharton/timber)
