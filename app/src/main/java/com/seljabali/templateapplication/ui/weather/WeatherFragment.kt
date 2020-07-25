@@ -76,7 +76,7 @@ class WeatherFragment : BaseMvvmFragment<WeatherViewEvent, WeatherViewState, Wea
      *  WeatherView Api
      */
     override fun setText(text: String) {
-        helloWorldTextView.text = text
+        cityname_textview_weatherfragment.text = text
     }
 
     override fun setProgressBarVisibility(isVisible: Boolean) {

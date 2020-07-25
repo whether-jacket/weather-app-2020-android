@@ -14,6 +14,7 @@ import com.seljabali.pages.landingpage.PagesLandingPageFragment
 import com.seljabali.templateapplication.R
 import com.seljabali.database.models.UserPreferences
 import com.seljabali.templateapplication.ui.landingpage.LandingPageFragment
+import com.seljabali.templateapplication.ui.weather.WeatherFragment
 import com.seljabali.widgets.landing.WidgetsLandingFragment
 import io.objectbox.Box
 import org.koin.android.ext.android.inject
@@ -31,7 +32,14 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
         setTheme(getUserPreferences().themeId)
         setContentView(R.layout.activity_home)
         setupToolbar()
-        showLandingPage()
+//        showLandingPage()
+        showMainScreen()
+    }
+
+    private fun showMainScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, WeatherFragment.newInstance())
+            .commit()
     }
 
     override fun onBackStackChanged() {

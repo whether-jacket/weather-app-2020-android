@@ -9,17 +9,56 @@
     android:padding="@dimen/m_padding">
 
     <TextView
-        android:id="@+id/helloWorldTextView"
+        android:id="@+id/cityname_textview_weatherfragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="San Francesco"
+        style="@style/TextAppearance.AppCompat.Display2"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/state_textview_weatherfragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USA"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_gravity="center"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="37°C"
+            android:layout_gravity="center|start"
+            style="@style/TextAppearance.AppCompat.Display1"
+
+            />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="end|center"
+            android:src="@drawable/clouds"
+            />
+
+    </FrameLayout>
+
 
     <Button
         android:id="@+id/loadWeatherButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/m_vertical_spacing"
-        android:text="Load Weather"/>
+        android:text="Load Weather"
+        android:visibility="gone"
+        />
 
 
     <ProgressBar
@@ -28,6 +67,6 @@
         android:layout_height="wrap_content"
         android:minHeight="50dp"
         android:minWidth="50dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:indeterminate="true" />
 </LinearLayout>

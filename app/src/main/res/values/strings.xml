@@ -14,5 +14,7 @@
     <string name="theme">Theme</string>
     <string name="design">Design</string>
     <string name="pages">Pages</string>
+    <string name="home">Home</string>
+    <string name="cities">Cities</string>
 
 </resources>
