@@ -24,14 +24,14 @@
         <item name="colorPrimaryVariant">@color/illiniColorPrimaryDark</item>
         <item name="colorOnPrimary">@color/illiniTextColorPrimary</item>
         <!-- Secondary -->
-        <item name="colorSecondary">@color/illiniColorAccent</item>
-        <item name="colorOnSecondary">@color/illiniTextColorPrimaryInverse</item>
+        <item name="colorSecondary">@color/deep_sky_blue_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!--  Surface  -->
         <item name="colorSurface">@color/illiniBackground</item>
         <!--  Background  -->
-        <item name="backgroundColor">@color/illiniBackground</item>
-        <item name="android:background">@color/illiniBackground</item>
-        <item name="android:colorBackground">@color/illiniBackground</item>
+        <item name="backgroundColor">@color/deep_sky_blue</item>
+        <item name="android:background">@color/deep_sky_blue</item>
+        <item name="android:colorBackground">@color/deep_sky_blue</item>
         <!-- Error  -->
         <item name="errorTextColor">@color/illiniInputError</item>
         <!-- StatusBar -->

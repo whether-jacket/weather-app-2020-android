@@ -8,8 +8,8 @@
     <color name="droidBackground">@color/white</color>
 
     <!-- Illini Theme -->
-    <color name="illiniColorPrimary">@color/darkGunmetal</color>
-    <color name="illiniColorPrimaryDark">@color/eerieBlack</color>
+    <color name="illiniColorPrimary">@color/light_sky_blue</color>
+    <color name="illiniColorPrimaryDark">@color/deep_sky_blue</color>
     <color name="illiniColorAccent">@color/carrotOrange</color>
     <color name="illiniBackground">@color/gunmetal</color>
     <color name="illiniForeground">@color/putty</color>

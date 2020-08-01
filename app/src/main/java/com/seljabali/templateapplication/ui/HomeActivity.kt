@@ -31,7 +31,7 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
         super.onCreate(savedInstanceState)
         setTheme(getUserPreferences().themeId)
         setContentView(R.layout.activity_home)
-        setupToolbar()
+//        setupToolbar()
 //        showLandingPage()
         showMainScreen()
     }
@@ -111,21 +111,21 @@ class HomeActivity : BaseActivity(), WidgetsLandingFragment.WidgetsLandingFragme
         showFragment(pagesLandingPageFragment, PagesLandingPageFragment.TAG)
     }
 
-    fun showToolbarProgressBar(show: Boolean) {
-        toolbarProgressBar.visibility = if (show) View.VISIBLE else View.INVISIBLE
-    }
+//    fun showToolbarProgressBar(show: Boolean) {
+//        toolbarProgressBar.visibility = if (show) View.VISIBLE else View.INVISIBLE
+//    }
 
     fun setToolBarTitle(title: String) {
         supportActionBar?.title = title
     }
 
-    private fun setupToolbar() {
-        val appBar = findViewById<AppBarLayout>(R.id.appToolbar)
-        toolbar = appBar.findViewById(R.id.toolbar)
-        toolbarProgressBar = appBar.findViewById(R.id.toolbarProgressBar)
-        setSupportActionBar(toolbar)
-        showBackButton(false)
-    }
+//    private fun setupToolbar() {
+//        val appBar = findViewById<AppBarLayout>(R.id.appToolbar)
+//        toolbar = appBar.findViewById(R.id.toolbar)
+//        toolbarProgressBar = appBar.findViewById(R.id.toolbarProgressBar)
+//        setSupportActionBar(toolbar)
+//        showBackButton(false)
+//    }
 
     private fun showLandingPage() {
         supportFragmentManager.beginTransaction()

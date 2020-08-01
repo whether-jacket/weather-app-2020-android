@@ -139,6 +139,7 @@
     <color name="royal_blue">#4169E1</color>
     <color name="dark_turquoise">#00CED1</color>
     <color name="deep_sky_blue">#00BFFF</color>
+    <color name="deep_sky_blue_dark">#006B8F</color>
     <color name="dark_cyan">#008B8B</color>
     <color name="teal">#008080</color>
     <color name="dodger_blue">#1E90FF</color>

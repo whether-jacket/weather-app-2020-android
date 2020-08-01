@@ -7,19 +7,15 @@
         android:layout_height="match_parent"
         tools:context=".ui.HomeActivity">
 
-    <include
-            android:id="@+id/appToolbar"
-            layout="@layout/toolbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/appToolbar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/navigation_homeactivity"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -31,5 +27,16 @@
         app:labelVisibilityMode="labeled"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
+        android:background="@color/deep_sky_blue"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_homeactivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        app:fabSize="mini"
+        android:src="@drawable/ic_baseline_settings_24"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
