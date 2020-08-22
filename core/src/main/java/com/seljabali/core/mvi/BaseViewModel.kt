@@ -1,4 +1,4 @@
-package com.seljabali.core.mvvm
+package com.seljabali.core.mvi
 
 import androidx.annotation.CallSuper
 import androidx.lifecycle.ViewModel

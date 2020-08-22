@@ -1,33 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
     android:clickable="true"
-    android:padding="@dimen/m_padding">
+    android:focusable="true"
+    android:paddingTop="@dimen/m_vertical_spacing"
+    android:paddingStart="@dimen/m_horizontal_spacing"
+    android:paddingEnd="@dimen/m_horizontal_spacing">
 
     <TextView
-        android:id="@+id/helloWorldTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/city_name_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:gravity="center"
+        android:text="San Francisco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/loadWeatherButton"
+    <TextView
+        android:id="@+id/state_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="CA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_name_text_view" />
+
+    <TextView
+        android:id="@+id/temperature_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/m_vertical_spacing"
-        android:text="Load Weather"/>
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/weather_image_view"
+        app:layout_constraintBottom_toBottomOf="@id/weather_image_view"/>
 
+    <ImageView
+        android:id="@+id/weather_image_view"
+        android:layout_width="@dimen/weather_image_view_width"
+        android:layout_height="@dimen/weather_image_view_height"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        android:layout_marginEnd="@dimen/m_horizontal_spacing"
+        android:src="@mipmap/clouds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/state_text_view" />
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="50dp"
-        android:minWidth="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_progress_bar_height"
         android:visibility="invisible"
-        android:indeterminate="true" />
-</LinearLayout>
+        android:indeterminate="true"
+        style="?android:attr/progressBarStyleHorizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

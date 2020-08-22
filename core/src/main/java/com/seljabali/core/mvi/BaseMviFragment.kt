@@ -1,4 +1,4 @@
-package com.seljabali.core.mvvm
+package com.seljabali.core.mvi
 
 import android.os.Bundle
 import androidx.annotation.CallSuper
@@ -11,7 +11,7 @@ import org.koin.core.context.unloadKoinModules
 import org.koin.core.error.DefinitionOverrideException
 import org.koin.core.module.Module
 
-abstract class BaseMvvmFragment<ViewEvent: BaseViewEvent, ViewState : BaseViewState, SideEffect: BaseSideEffect>(
+abstract class BaseMviFragment<ViewEvent: BaseViewEvent, ViewState : BaseViewState, SideEffect: BaseSideEffect>(
     private val module: Module? = null
 ) : BaseFragment() {
 

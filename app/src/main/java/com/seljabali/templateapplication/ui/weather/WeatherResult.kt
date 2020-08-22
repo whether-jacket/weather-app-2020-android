@@ -1,6 +1,6 @@
 package com.seljabali.templateapplication.ui.weather
 
-import com.seljabali.core.mvvm.BaseResult
+import com.seljabali.core.mvi.BaseResult
 import com.seljabali.network.responses.WeatherForLocation
 
 sealed class WeatherResult : BaseResult {

@@ -1,6 +1,6 @@
 package com.seljabali.templateapplication.ui.weather
 
-import com.seljabali.core.mvvm.BaseViewState
+import com.seljabali.core.mvi.BaseViewState
 
 data class WeatherViewState(
     var currentTemperature: String,

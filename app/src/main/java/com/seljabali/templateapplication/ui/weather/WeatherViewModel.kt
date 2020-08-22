@@ -1,7 +1,7 @@
 package com.seljabali.templateapplication.ui.weather
 
 import com.seljabali.core.modules.RxProvider
-import com.seljabali.core.mvvm.BaseViewModel
+import com.seljabali.core.mvi.BaseViewModel
 import com.seljabali.core.utilities.round
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
@@ -69,15 +69,11 @@ class WeatherViewModel(
                 currentTemperature =
                     result.response.consolidatedWeather[0].maxTemp.round(2).toString()
                 isLoadingTemperature = false
-                sendSideEffect(WeatherSideEffect.ShowToast("Loaded Weather"))
             }
             is WeatherResult.ErrorLoadingWeatherForLocationResult -> newState.apply {
                 isLoadingTemperature = false
                 currentTemperature = "Unknown"
                 sendSideEffect(WeatherSideEffect.ShowToast("Error Loading Weather"))
-            }
-            is WeatherResult.ShowToastResult -> {
-                sendSideEffect(WeatherSideEffect.ShowToast(result.message))
             }
         }
         return newState

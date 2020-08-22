@@ -4,15 +4,13 @@
     <!-- General Errors -->
     <string name="networking_error">Networking error has occurred.</string>
 
-    <!-- Test Page -->
-    <string name="calculate">Calculate</string>
-
-
     <!-- Landing Page -->
     <string name="widgets">Widgets</string>
     <string name="test">Test</string>
     <string name="theme">Theme</string>
     <string name="design">Design</string>
     <string name="pages">Pages</string>
+    <string name="home">Home</string>
+    <string name="cities">Cities</string>
 
 </resources>
