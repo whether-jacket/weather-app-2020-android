@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/home_bottom_navigation_view"
+        app:layout_constraintBottom_toTopOf="@id/landing_bottom_navigation_view"
         android:visibility="gone"/>
 
     <androidx.viewpager.widget.ViewPager
@@ -23,13 +23,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/home_bottom_navigation_view"/>
+        app:layout_constraintBottom_toTopOf="@id/landing_bottom_navigation_view"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/home_bottom_navigation_view"
-        android:layout_width="match_parent"
+        android:id="@+id/landing_bottom_navigation_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/deep_sky_blue"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"

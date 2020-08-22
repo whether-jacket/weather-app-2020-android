@@ -1,6 +1,6 @@
 package com.seljabali.templateapplication.ui.weather
 
-import com.seljabali.core.mvvm.BaseAction
+import com.seljabali.core.mvi.BaseAction
 
 abstract class WeatherAction : BaseAction {
     object NoOperationAction : WeatherAction()
