@@ -36,6 +36,7 @@
         <item name="errorTextColor">@color/illiniInputError</item>
         <!-- StatusBar -->
         <item name="android:windowIsTranslucent">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:colorForeground">@color/illiniForeground</item>
         <!-- Text Appearance styles -->
         <item name="android:textViewStyle">@style/TextViewStyle.Condensed</item>

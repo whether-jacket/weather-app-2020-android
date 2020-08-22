@@ -1,4 +1,5 @@
 <resources>
+
     <!-- Pages -->
     <string name="pages">Pages</string>
     <string name="login">Login</string>
