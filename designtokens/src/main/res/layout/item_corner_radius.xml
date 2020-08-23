@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/itemHorizontalSpacingViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/m_padding">
+
+    <TextView
+            android:id="@+id/cornerRadiusNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="xs" />
+
+    <TextView
+            android:id="@+id/cornerRadiusDpValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4dp" />
+
+    <TextView
+            android:id="@+id/cornerRadiusPxValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="6px" />
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/cornerRadiusView"
+            android:layout_width="@dimen/horizontal_block_width"
+            android:layout_height="@dimen/horizontal_block_height"
+            android:layout_marginTop="@dimen/s_vertical_spacing"
+            android:layout_marginBottom="@dimen/s_vertical_spacing"
+            android:background="@color/spacings_block_color"
+            android:foreground="@color/spacings_block_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cornerRadiusPxValueTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

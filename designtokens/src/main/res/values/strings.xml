@@ -1,0 +1,112 @@
+<resources>
+    <string name="design_tokens">Design Tokens</string>
+
+    <!-- Landing Page -->
+    <string name="spacings">Spacings</string>
+    <string name="text_appearances">Text Appearances</string>
+    <string name="corner_radiuses">Corner Radiuses</string>
+    <string name="elevations">Elevations</string>
+    <string name="letter_spacings">Letter Spacings</string>
+    <string name="colors">Colors</string>
+    <string name="transparencies">Transparencies</string>
+
+    <!-- Spacing -->
+    <string name="horizontal_spacings">Horizontal Spacings</string>
+    <string name="vertical_spacings">Vertical Spacings</string>
+    <string name="surrounding">Surrounding</string>
+    <string name="surrounding_spacings">Surrounding Spacings</string>
+    <string name="vertical">Vertical</string>
+    <string name="horizontal">Horizontal</string>
+    <string name="linear">Linear</string>
+    <string name="non_linear">Non-Linear</string>
+
+    <!-- Text Sizes -->
+    <string name="app_compat">App Compat</string>
+    <string name="material">Material</string>
+    <string name="app_compat_text_appearances">App Compat Text Appearances</string>
+    <string name="material_text_appearances">Material Text Appearances</string>
+    <string name="text_sample">The quick brown fox jumps over the lazy dog</string>
+    <string name="custom_sizes">Custom Sizes</string>
+    <string name="text_size">Text Size</string>
+
+    <!-- AppCompat Text Appearances -->
+    <string name="body1">Body1</string>
+    <string name="body2">Body2</string>
+    <string name="button">Button</string>
+    <string name="caption">Caption</string>
+    <string name="display1">Display1</string>
+    <string name="display2">Display2</string>
+    <string name="display3">Display3</string>
+    <string name="display4">Display4</string>
+    <string name="headline">Headline</string>
+    <string name="inverse">Inverse</string>
+    <string name="large">Large</string>
+    <string name="large_inverse">Large.Inverse</string>
+    <string name="light_searchresult_subtitle">Light SearchResult Subtitle</string>
+    <string name="light_searchresult_title">Light SearchResult Title</string>
+    <string name="light_widget_popupMenu_large">Light Widget PopupMenu Large</string>
+    <string name="light_widget_popupMenu_small">Light Widget PopupMenu Small</string>
+    <string name="medium">Medium</string>
+    <string name="medium_inverse">Medium Inverse</string>
+    <string name="menu">Menu</string>
+    <string name="searchresult_subtitle">SearchResult Subtitle</string>
+    <string name="searchresult_title">SearchResult Title</string>
+    <string name="small">Small</string>
+    <string name="small_inverse">Small Inverse</string>
+    <string name="subhead">Subhead</string>
+    <string name="subhead_inverse">Subhead Inverse</string>
+    <string name="title">Title</string>
+    <string name="title_inverse">Title Inverse</string>
+
+    <!-- Material Text Appearances -->
+    <string name="dialog_window_title">Dialog Window Title</string>
+    <string name="notification">Notification</string>
+    <string name="notification_emphasis">Notification Emphasis</string>
+    <string name="notification_info">Notification Info</string>
+    <string name="notification_line2">Notification Line2</string>
+    <string name="notification_time">Notification Time</string>
+    <string name="notification_title">Notification Title</string>
+    <string name="search_result_subtitle">Search Result Subtitle</string>
+    <string name="search_result_title">Search Result Title</string>
+    <string name="widget">Widget</string>
+    <string name="widget_actionbar_menu">Widget ActionBar Menu</string>
+    <string name="widget_actionbar_subtitle">Widget ActionBar Subtitle</string>
+    <string name="widget_actionbar_subtitle_inverse">Widget ActionBar Subtitle Inverse</string>
+    <string name="widget_actionbar_title">Widget ActionBar Title</string>
+    <string name="widget_actionbar_title_inverse">Widget ActionBar Title Inverse</string>
+    <string name="widget_button">Widget Button</string>
+    <string name="widget_borderless_colored">Widget Borderless Colored</string>
+    <string name="widget_button_colored">Widget Button Colored</string>
+    <string name="widget_button_inverse">Widget Button Inverse</string>
+    <string name="widget_dropdown_hint">Widget DropDown Hint</string>
+    <string name="widget_dropdown_item">Widget DropDown Item</string>
+    <string name="widget_edittext">Widget EditText</string>
+    <string name="widget_iconmenu_item">Widget IconMenu Item</string>
+    <string name="widget_popupmenu">Widget PopupMenu</string>
+    <string name="widget_popupmenu_large">Widget PopupMenu Large</string>
+    <string name="widget_popupmenu_small">Widget PopupMenu Small</string>
+    <string name="widget_tabwidget">Widget TabWidget</string>
+    <string name="widget_textview">Widget TextView</string>
+    <string name="widget_textView_popupmenu">Widget TextView PopupMenu</string>
+    <string name="widget_textView_spinnerItem">Widget TextView SpinnerItem</string>
+    <string name="widget_toolbar_subtitle">Widget Toolbar Subtitle</string>
+    <string name="widget_toolbar_title">Widget Toolbar Title</string>
+    <string name="windowtitle">Window Title</string>
+
+    <!-- T-Shirt Sizes -->
+    <string name="xxs">XXS</string>
+    <string name="xs">XS</string>
+    <string name="s">S</string>
+    <string name="m">M</string>
+    <string name="l">L</string>
+    <string name="xl">XL</string>
+    <string name="xxl">XXL</string>
+    <string name="xxxl">XXXL</string>
+    <string name="xl3">XL3</string>
+    <string name="xl4">XL4</string>
+
+    <string name="dp">DP</string>
+    <string name="px">PX</string>
+
+    <string name="colon_formatted" formatted="true">%s: %s</string>
+</resources>

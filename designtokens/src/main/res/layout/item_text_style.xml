@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/itemTextStyleViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/m_padding">
+
+    <TextView
+            android:id="@+id/textStyleNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+    <TextView
+            android:id="@+id/textStyleSizePxTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_marginTop="@dimen/s_vertical_spacing"
+            app:layout_constraintTop_toBottomOf="@id/textStyleNameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="SP: 16" />
+
+    <TextView
+            android:id="@+id/textStyleSizeSpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/s_horizontal_spacing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintTop_toTopOf="@id/textStyleSizePxTextView"
+            app:layout_constraintStart_toEndOf="@id/textStyleSizePxTextView"
+            tools:text="PX: 23" />
+
+    <TextView
+            android:id="@+id/textStyleDisplayTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_vertical_spacing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:lines="3"
+            android:text="@string/text_sample"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textStyleSizePxTextView"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

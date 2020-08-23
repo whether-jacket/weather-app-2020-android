@@ -39,6 +39,8 @@
 
         <activity android:name="com.seljabali.pages.PagesActivity"/>
 
+        <activity android:name="com.seljabali.designtokens.DesignTokensActivity"/>
+
     </application>
 
 </manifest>
