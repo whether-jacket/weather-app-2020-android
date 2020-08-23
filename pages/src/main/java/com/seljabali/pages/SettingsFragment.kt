@@ -5,7 +5,7 @@ import androidx.preference.PreferenceFragmentCompat
 import android.view.View
 import android.widget.Toast
 import androidx.preference.SwitchPreference
-import com.seljabali.core.BaseActivity
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarActivity
 import com.seljabali.core.utilities.Res
 
 class SettingsFragment : PreferenceFragmentCompat() {
@@ -24,7 +24,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        (activity as BaseActivity).supportActionBar?.title = getString(R.string.settings)
+        (activity as BaseToolbarActivity).supportActionBar?.title = getString(R.string.settings)
         setPreferencesFromResource(R.xml.sample_settings, rootKey)
         setupViews()
     }

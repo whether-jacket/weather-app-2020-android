@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.pages.LoginFragment
 import com.seljabali.pages.R
 import com.seljabali.pages.SettingsFragment
 import kotlinx.android.synthetic.main.fragment_pages_landing_page.*
 import java.lang.ref.WeakReference
 
-class PagesLandingPageFragment : BaseFragment() {
+class PagesLandingPageFragment : BaseToolbarFragment() {
 
     companion object {
         val TAG: String = PagesLandingPageFragment::class.java.simpleName

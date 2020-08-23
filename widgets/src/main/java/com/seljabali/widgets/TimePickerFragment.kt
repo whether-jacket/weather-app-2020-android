@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.threeten.Formats
 import com.seljabali.core.utilities.threeten.NOW_TIME
 import com.seljabali.core.utilities.threeten.print
 import kotlinx.android.synthetic.main.fragment_time_picker.*
 import org.threeten.bp.LocalTime
 
-class TimePickerFragment : BaseFragment() {
+class TimePickerFragment : BaseToolbarFragment() {
 
     companion object {
         @JvmStatic

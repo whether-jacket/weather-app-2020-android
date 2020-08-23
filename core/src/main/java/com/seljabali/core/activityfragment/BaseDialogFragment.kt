@@ -1,4 +1,4 @@
-package com.seljabali.core
+package com.seljabali.core.activityfragment
 
 import android.content.Context
 import android.graphics.Point

@@ -1,7 +1,7 @@
 package com.seljabali.templateapplication.ui
 
 import android.os.Bundle
-import com.seljabali.core.BaseActivity
+import com.seljabali.core.activityfragment.nontoolbar.BaseActivity
 import com.seljabali.database.DB_USER_PREFERENCES_BOX
 import com.seljabali.templateapplication.R
 import com.seljabali.database.models.UserPreferences

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 
-class SeekBarFragment : BaseFragment() {
+class SeekBarFragment : BaseToolbarFragment() {
 
     companion object {
         @JvmStatic

@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_autocomplete_text_view.*
 import android.widget.ArrayAdapter
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 
-class AutoCompleteTextViewFragment : BaseFragment() {
+class AutoCompleteTextViewFragment : BaseToolbarFragment() {
 
     companion object {
         @JvmStatic

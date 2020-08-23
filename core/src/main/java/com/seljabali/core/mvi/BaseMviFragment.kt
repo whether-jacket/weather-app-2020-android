@@ -3,7 +3,7 @@ package com.seljabali.core.mvi
 import android.os.Bundle
 import androidx.annotation.CallSuper
 import com.orhanobut.logger.Logger
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
 import com.seljabali.core.modules.RxProvider
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules

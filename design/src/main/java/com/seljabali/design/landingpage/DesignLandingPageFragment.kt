@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.design.R
 import com.seljabali.design.ThemePreviewFragment
 import com.seljabali.design.themeselector.ThemeSelectorFragment
 import kotlinx.android.synthetic.main.fragment_design_landing_page.*
 import java.lang.ref.WeakReference
 
-class DesignLandingPageFragment : BaseFragment() {
+class DesignLandingPageFragment : BaseToolbarFragment() {
 
     companion object {
         val TAG: String = DesignLandingPageFragment::class.java.simpleName
@@ -66,7 +66,7 @@ class DesignLandingPageFragment : BaseFragment() {
     }
 
     interface DesignLandingFragmentViewer {
-        fun showFragment(baseFragment: BaseFragment, tag: String)
+        fun showFragment(baseFragment: BaseToolbarFragment, tag: String)
         fun setAppTheme(@StyleRes themeId: Int)
     }
 

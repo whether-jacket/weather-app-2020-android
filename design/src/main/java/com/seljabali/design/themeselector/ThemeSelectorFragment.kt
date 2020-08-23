@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.design.R
 import com.seljabali.design.landingpage.DesignLandingPageFragment
 import kotlinx.android.synthetic.main.fragment_theme_selector.*
 import java.lang.ref.WeakReference
 
-class ThemeSelectorFragment : BaseFragment() {
+class ThemeSelectorFragment : BaseToolbarFragment() {
 
     private lateinit var designLandingFragmentViewer: WeakReference<DesignLandingPageFragment.DesignLandingFragmentViewer>
 

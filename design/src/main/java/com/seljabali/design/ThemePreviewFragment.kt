@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 
-class ThemePreviewFragment : BaseFragment() {
+class ThemePreviewFragment : BaseToolbarFragment() {
 
     companion object {
         val TAG: String = ThemePreviewFragment::class.java.simpleName

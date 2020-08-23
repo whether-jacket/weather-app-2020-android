@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : BaseToolbarFragment() {
 
     companion object {
         val TAG: String = LoginFragment::class.java.simpleName
@@ -29,8 +29,8 @@ class LoginFragment : BaseFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Keyboard.hide(context, usernameTextInputEditText)
-        Keyboard.hide(context, passwordTextInputEditText)
+        Keyboard.hide(requireContext(), usernameTextInputEditText)
+        Keyboard.hide(requireContext(), passwordTextInputEditText)
     }
 
     private fun onLoginButtonClick() {
