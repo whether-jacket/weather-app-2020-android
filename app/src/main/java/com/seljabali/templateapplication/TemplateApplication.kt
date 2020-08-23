@@ -3,7 +3,6 @@ package com.seljabali.templateapplication
 import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
-import com.jakewharton.threetenabp.AndroidThreeTen
 import com.orhanobut.hawk.GsonParser
 import com.orhanobut.hawk.Hawk
 import com.orhanobut.logger.AndroidLogAdapter
@@ -38,7 +37,6 @@ class TemplateApplication: Application() {
 
     private fun setupLibraries() {
         Logger.addLogAdapter(AndroidLogAdapter())
-        AndroidThreeTen.init(this)
         startKoin {
             androidLogger()
             androidContext(this@TemplateApplication)

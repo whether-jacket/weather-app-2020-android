@@ -1,6 +1,6 @@
-package com.seljabali.core.utilities.threeten
+package com.seljabali.core.utilities.time
 
-import org.threeten.bp.LocalTime
+import java.time.LocalTime
 
 fun NOW_TIME() = NOW().toLocalTime()
 

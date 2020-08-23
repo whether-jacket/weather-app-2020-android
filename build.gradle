@@ -23,7 +23,6 @@ buildscript {
         rxbinding_version = "3.0.0"
         objectbox_version = '2.3.4'
         logger_version = "2.2.0"
-        threeten_version = "1.2.1"
         leakcanary_version = "2.2"
         stetho_version = "1.5.1"
         hawk_version = "2.0.1"
