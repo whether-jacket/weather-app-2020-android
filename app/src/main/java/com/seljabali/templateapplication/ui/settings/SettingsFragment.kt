@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
+import com.seljabali.designtokens.DesignTokensActivity
 import com.seljabali.pages.PagesActivity
 import com.seljabali.theming.ThemingActivity
 import com.seljabali.templateapplication.R
@@ -48,6 +49,10 @@ class SettingsFragment : BaseFragment() {
         }
         sample_pages_button.setOnClickListener {
             val startIntent = Intent(requireContext(), PagesActivity::class.java)
+            startActivity(startIntent)
+        }
+        design_tokens_button.setOnClickListener {
+            val startIntent = Intent(requireContext(), DesignTokensActivity::class.java)
             startActivity(startIntent)
         }
     }

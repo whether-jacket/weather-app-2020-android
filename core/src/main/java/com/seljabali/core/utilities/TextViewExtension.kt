@@ -1,8 +1,12 @@
 package com.seljabali.core.utilities
 
+import android.content.Context
+import android.graphics.Paint
+import android.os.Build
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.widget.TextView
+import androidx.annotation.StyleRes
 
 fun TextView.getTextValue(): String = text.toString()
 
@@ -34,4 +38,18 @@ fun TextView.setLink(linkAddress: String) {
 fun TextView.appendText(text: String) {
     val newTextValue = getTextValue() + text
     this.text = newTextValue
+}
+
+fun TextView.setUnderlined() {
+    paintFlags = paintFlags or Paint.UNDERLINE_TEXT_FLAG
+}
+
+fun TextView.getSp(): Int = (textSize / resources.displayMetrics.scaledDensity).toInt()
+
+fun TextView.setTextAppearanceStyle(context: Context, @StyleRes resId: Int) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        setTextAppearance(context, resId)
+    } else {
+        setTextAppearance(resId)
+    }
 }

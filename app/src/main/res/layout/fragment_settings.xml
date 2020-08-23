@@ -93,6 +93,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/unit_for_speed_label_text_view"/>
 
+    <!-- Divider Line -->
+    <View
+        android:id="@+id/developer_tools_divider_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginTop="@dimen/l_vertical_spacing"
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        android:layout_marginEnd="@dimen/m_horizontal_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/unit_for_speed_label_text_view"/>
+
     <!-- Theming System -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/theming_button"
@@ -102,7 +115,7 @@
         android:layout_marginStart="@dimen/m_horizontal_spacing"
         android:layout_marginTop="@dimen/l_vertical_spacing"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/unit_for_speed_label_text_view"/>
+        app:layout_constraintTop_toBottomOf="@id/developer_tools_divider_line"/>
 
     <!-- Widgets -->
     <com.google.android.material.button.MaterialButton
@@ -125,5 +138,16 @@
         android:layout_marginTop="@dimen/m_vertical_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/widgets_button"/>
+
+    <!-- Design Tokens -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/design_tokens_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/design_tokens"
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sample_pages_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,1 +1,2 @@
+include ':designtokens'
 include ':app', ':core', ':widgets', ':theming', ':pages', ':network', ':database'

@@ -29,7 +29,6 @@
         android:id="@+id/landing_bottom_navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

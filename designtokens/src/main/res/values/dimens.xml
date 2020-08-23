@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Landing Page -->
+    <dimen name="landing_page_grid_column_width">80dp</dimen>
+    <dimen name="landing_page_icon_size">55dp</dimen>
+    <dimen name="landing_page_item_width">120dp</dimen>
+    <dimen name="landing_page_item_height">120dp</dimen>
+    <dimen name="color_item_height">120dp</dimen>
+
+    <!-- Horizontal Spacings -->
+    <dimen name="horizontal_block_width">60dp</dimen>
+    <dimen name="horizontal_block_height">20dp</dimen>
+
+    <!-- Vertical Spacings -->
+    <dimen name="vertical_block_width">30dp</dimen>
+    <dimen name="vertical_block_height">40dp</dimen>
+</resources>
