@@ -43,7 +43,7 @@ class WidgetsLandingFragment : BaseToolbarFragment(), WidgetRecyclerViewAdapter.
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         menu.clear()
-        val searchView = SearchView(context)
+        val searchView = SearchView(requireContext())
         with(menu.add(Menu.NONE, Menu.NONE, Menu.NONE, R.string.search)) {
             searchMenuItem = this
             setIcon(android.R.drawable.ic_menu_search)

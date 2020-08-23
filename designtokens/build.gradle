@@ -66,7 +66,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktx_version"
 
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
-    implementation "androidx.preference:preference:$preference_version"
+    implementation "androidx.preference:preference-ktx:$preference_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "com.google.android.material:material:$material_version"
 
