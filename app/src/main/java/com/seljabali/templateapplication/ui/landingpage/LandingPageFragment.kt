@@ -33,8 +33,7 @@ class LandingPageFragment : BaseFragment() {
     }
 
     private fun setupView() {
-        val homeActivity = activity ?: return
-        viewPagerAdapter = LandingViewPagerAdapter(homeActivity.supportFragmentManager)
+        viewPagerAdapter = LandingViewPagerAdapter(this)
         landing_page_view_pager.adapter = viewPagerAdapter
         landing_bottom_navigation_view.setOnNavigationItemSelectedListener { item: MenuItem ->
             val landingPageTabs: LandingPageTabs = LandingPageTabs.getMenuIdOf(item.itemId)
