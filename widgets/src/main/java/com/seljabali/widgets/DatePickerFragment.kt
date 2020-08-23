@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.threeten.*
 import kotlinx.android.synthetic.main.fragment_date_picker.*
 
-class DatePickerFragment : BaseFragment() {
+class DatePickerFragment : BaseToolbarFragment() {
 
     companion object {
         @JvmStatic

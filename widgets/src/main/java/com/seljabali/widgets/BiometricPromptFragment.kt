@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.PhoneDevice
 import kotlinx.android.synthetic.main.fragment_biometric_prompt.*
 import java.util.concurrent.Executors
 
-class BiometricPromptFragment : BaseFragment() {
+class BiometricPromptFragment : BaseToolbarFragment() {
 
     companion object {
         @JvmStatic
@@ -32,7 +32,7 @@ class BiometricPromptFragment : BaseFragment() {
     override fun getToolbarTitle(): String = getString(R.string.biometric_prompt)
 
     private fun onBiometricPromptButtonClicked() {
-        if (!PhoneDevice.hasFingerPrint(context)) {
+        if (!PhoneDevice.hasFingerPrint(requireContext())) {
             Toast.makeText(context, R.string.fingerprint_hardware_na, Toast.LENGTH_SHORT).show()
             return
         }

@@ -1,18 +1,24 @@
-package com.seljabali.core
+package com.seljabali.core.activityfragment.toolbar
 
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.orhanobut.logger.Logger
+import com.seljabali.core.activityfragment.backpresslistener.BackPressButtonHolder
+import com.seljabali.core.activityfragment.backpresslistener.OnBackPressListener
+import com.seljabali.core.activityfragment.onVisibleFragment.OnVisibleFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 
-abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedListener {
+abstract class BaseToolbarActivity : AppCompatActivity(),
+    FragmentManager.OnBackStackChangedListener,
+    BackPressButtonHolder,
+    ToolbarApi {
 
     private val compositeDisposable = CompositeDisposable()
-    private val backClickListenersList = ArrayList<WeakReference<OnBackClickListener>>()
+    private val backClickListenersList = ArrayList<WeakReference<OnBackPressListener>>()
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -20,7 +26,7 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
     }
 
     override fun onBackPressed() {
-        if (!anyFragmentBackPressIntercept()) {
+        if (!anyFragmentStopBackPress()) {
             super.onBackPressed()
         }
     }
@@ -46,7 +52,7 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
     }
 
     override fun onBackStackChanged() {
-        val topFragment = supportFragmentManager.fragments.last() as? BaseFragment
+        val topFragment = supportFragmentManager.fragments.last() as? OnVisibleFragment
         topFragment?.onVisible()
     }
 
@@ -55,29 +61,29 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
         Logger.v("${getTag()} Destroyed")
     }
 
-    fun addBackClickListener(onBackClickListener: OnBackClickListener) {
-        backClickListenersList.add(WeakReference(onBackClickListener))
+    override fun addBackPressListener(onBackPressListener: OnBackPressListener) {
+        backClickListenersList.add(WeakReference(onBackPressListener))
     }
 
-    fun removeBackClickListener(onBackClickListener: OnBackClickListener) {
+    override fun removeBackPressListener(onBackPressListener: OnBackPressListener) {
         val iterator = backClickListenersList.iterator()
         while (iterator.hasNext()) {
             val weakRef = iterator.next()
-            if (weakRef.get() === onBackClickListener) {
+            if (weakRef.get() === onBackPressListener) {
                 iterator.remove()
             }
         }
     }
 
-    fun setToolbarTitle(title: String) {
+    override fun setToolbarTitle(title: String) {
         supportActionBar?.title = title
     }
 
-    fun setToolbarSubtitle(subtitle: String) {
+    override fun setToolbarSubtitle(subtitle: String) {
         supportActionBar?.subtitle = subtitle
     }
 
-    fun showBackButton(show: Boolean) {
+    override fun showBackButton(show: Boolean) {
         supportActionBar?.setDisplayHomeAsUpEnabled(show)
     }
 
@@ -89,11 +95,12 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
         compositeDisposable.clear()
     }
 
-    protected fun findFragmentByTag(tag: String): BaseFragment? {
-        var fragmentCandidate = supportFragmentManager.findFragmentByTag(tag) as? BaseFragment
+    protected fun findFragmentByTag(tag: String): BaseToolbarFragment? {
+        var fragmentCandidate =
+            supportFragmentManager.findFragmentByTag(tag) as? BaseToolbarFragment
         if (fragmentCandidate != null) return fragmentCandidate
         for (fragmentStack in supportFragmentManager.fragments) {
-            fragmentCandidate = fragmentStack as BaseFragment
+            fragmentCandidate = fragmentStack as BaseToolbarFragment
             if (fragmentCandidate.getDisplayTag() == tag) {
                 return fragmentCandidate
             }
@@ -103,20 +110,17 @@ abstract class BaseActivity : AppCompatActivity(), FragmentManager.OnBackStackCh
 
     private fun getTag(): String = javaClass.simpleName
 
-    private fun anyFragmentBackPressIntercept(): Boolean {
-    	if (supportFragmentManager.fragments.isEmpty()) return false
-        val topFragment = supportFragmentManager.fragments.last() as? BaseFragment ?: return false
-        var intercepted = false
+    private fun anyFragmentStopBackPress(): Boolean {
+        if (supportFragmentManager.fragments.isEmpty()) return false
+        val topFragment =
+            supportFragmentManager.fragments.last() as? OnBackPressListener ?: return false
+        var stopped = false
         for (weakRef in backClickListenersList) {
             val onBackClickListener = weakRef.get() ?: continue
             if (topFragment != onBackClickListener) continue
-            val didFragmentIntercept = onBackClickListener.onBackClick()
-            intercepted = intercepted or didFragmentIntercept
+            val doesFragmentStopBackPress = onBackClickListener.shouldStopBackPress()
+            stopped = stopped or doesFragmentStopBackPress
         }
-        return intercepted
-    }
-
-    interface OnBackClickListener {
-        fun onBackClick(): Boolean
+        return stopped
     }
 }

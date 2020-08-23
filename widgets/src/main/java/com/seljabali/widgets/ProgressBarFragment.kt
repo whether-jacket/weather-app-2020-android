@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import kotlinx.android.synthetic.main.fragment_progress_bar.*
 
-class ProgressBarFragment: BaseFragment() {
+class ProgressBarFragment: BaseToolbarFragment() {
 
     companion object {
         @JvmStatic

@@ -8,14 +8,14 @@ import java.util.concurrent.TimeUnit
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jakewharton.rxbinding3.appcompat.queryTextChanges
-import com.seljabali.core.BaseFragment
+import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.Keyboard
 import com.seljabali.core.utilities.observeOnMain
 import com.seljabali.widgets.*
 import kotlinx.android.synthetic.main.fragment_widgets_landing.*
 import java.lang.ref.WeakReference
 
-class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetClickListener, MenuItem.OnActionExpandListener {
+class WidgetsLandingFragment : BaseToolbarFragment(), WidgetRecyclerViewAdapter.WidgetClickListener, MenuItem.OnActionExpandListener {
 
     companion object {
         @JvmStatic
@@ -124,7 +124,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
 
     override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
         adapter.clearFilters()
-        Keyboard.hide(context, view!!)
+        Keyboard.hide(requireContext(), view!!)
         return true
     }
 
@@ -156,7 +156,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
         rv_widgets.adapter = adapter
     }
 
-    private fun startFragment(fragment: BaseFragment, tag: String) {
+    private fun startFragment(fragment: BaseToolbarFragment, tag: String) {
         searchMenuItem.collapseActionView()
         searchMenuItem.isVisible = false
         widgetsLandingFragmentViewer?.get()?.showFragment(fragment, tag)
@@ -173,7 +173,7 @@ class WidgetsLandingFragment : BaseFragment(), WidgetRecyclerViewAdapter.WidgetC
     }
 
     interface WidgetsLandingFragmentViewer {
-        fun showFragment(baseFragment: BaseFragment, tag: String)
+        fun showFragment(baseFragment: BaseToolbarFragment, tag: String)
     }
 
 }
