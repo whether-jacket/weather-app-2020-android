@@ -64,7 +64,7 @@ dependencies {
     implementation project(":database")
     debugImplementation project(":widgets")
     debugImplementation project(":pages")
-    debugImplementation project(":design")
+    debugImplementation project(':theming')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:$ktx_version"
 

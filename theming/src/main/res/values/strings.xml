@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Design</string>
+
+    <!-- Landing Design Page -->
+    <string name="theme">Theme</string>
+    <string name="theme_selector">Theme Selector</string>
+    <string name="theme_preview">Theme Preview</string>
+    <string name="theming">Theming</string>
+
+    <!-- Theme Viewing -->
+    <string name="title_text_appearances">Text Appearances</string>
+    <string name="title_text_inverse_appearance">Text Appearance Inverse</string>
+    <string name="title_palette">Palette</string>
+    <string name="title_widgets">Widgets</string>
+    <string name="tab_title_current_theme">Overview</string>
+    <string name="tab_title_other_themes">Other Themes</string>
+    <string name="primary">Primary</string>
+    <string name="primary_dark">Primary Dark</string>
+    <string name="accent">Accent</string>
+    <string name="normal">Normal</string>
+    <string name="background">Background</string>
+    <string name="foreground">Foreground</string>
+    <string name="sample_text_summary">TextAppearances are styles applied specific to text. Android provides different text colors attributes that can be set in your custom theme and will be used with different text appearances. The value of a textColor can either be a simple color or a selector.</string>
+    <string name="sample_text_primary">android:textColorPrimary</string>
+    <string name="sample_text_secondary">android:textColorSecondary</string>
+    <string name="sample_text_tertiary">android:textColorTertiary</string>
+    <string name="sample_text_link"><a href="https://www.example.com">android:textColorLink</a></string>
+    <string name="sample_text_summary_inverse">For each text color attribute, there is a corresponding inverse color.</string>
+    <string name="sample_text_primary_inverse">android:textColorPrimaryInverse</string>
+    <string name="sample_text_secondary_inverse">android:textColorSecondaryInverse</string>
+    <string name="sample_text_tertiary_inverse">android:textColorTertiaryInverse</string>
+    <string name="sample_text_link_inverse">android:textColorLinkInverse</string>
+    <string name="checkbox_title">Checkbox</string>
+    <string name="checkbox_description">colorControlNormal, colorAccent</string>
+    <string name="radio_title">Radio Button</string>
+    <string name="radio_description">colorControlNormal, colorAccent, colorControlHighlight</string>
+    <string name="switch_title">Switch (SwitchCompat)</string>
+    <string name="switch_description">colorSwitchThumbNormal, colorAccent, colorForeground, colorControlHighlight</string>
+    <string name="buttonDefault">Default</string>
+    <string name="buttonColored">Colored</string>
+    <string name="buttonBorderless">Borderless</string>
+    <string name="dialog_title">Cake?</string>
+    <string name="dialog_text">This is some dialog text about cake.</string>
+    <string name="dialog_action">@string/ok</string>
+    <string name="try_theme">Try Theme</string>
+
+</resources>

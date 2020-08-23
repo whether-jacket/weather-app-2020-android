@@ -25,14 +25,20 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Illini">
 
-        <activity android:name="com.seljabali.templateapplication.ui.HomeActivity"
-                  android:theme="@style/Theme.Illini">
+        <activity android:name="com.seljabali.templateapplication.ui.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name="com.seljabali.theming.ThemingActivity"/>
+
+        <activity android:name="com.seljabali.widgets.WidgetsActivity"/>
+
+        <activity android:name="com.seljabali.pages.PagesActivity"/>
+
     </application>
 
 </manifest>

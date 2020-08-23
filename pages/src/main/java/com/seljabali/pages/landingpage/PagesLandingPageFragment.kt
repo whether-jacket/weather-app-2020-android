@@ -6,20 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.pages.LoginFragment
+import com.seljabali.pages.PagesActivity
 import com.seljabali.pages.R
 import com.seljabali.pages.SettingsFragment
 import kotlinx.android.synthetic.main.fragment_pages_landing_page.*
-import java.lang.ref.WeakReference
 
 class PagesLandingPageFragment : BaseToolbarFragment() {
 
     companion object {
         val TAG: String = PagesLandingPageFragment::class.java.simpleName
-        fun newInstance(): PagesLandingPageFragment = PagesLandingPageFragment()
+        fun newInstance() = PagesLandingPageFragment()
     }
 
-    lateinit var adapter: LandingPageAdapter
-    private var pagesLandingFragmentViewer: WeakReference<PagesLandingFragmentViewer>? = null
+    private lateinit var adapter: PagesLandingPageAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(
@@ -28,7 +27,7 @@ class PagesLandingPageFragment : BaseToolbarFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = LandingPageAdapter {
+        adapter = PagesLandingPageAdapter {
             onPageItemClicked(it)
         }
         adapter.setLandingPageItems(PagesLandingPageItems.values() as Array<LandingItem>)
@@ -47,12 +46,8 @@ class PagesLandingPageFragment : BaseToolbarFragment() {
         adapter.renewSubscriptions()
     }
 
-    fun setPagesLandingFragmentViewer(viewer: PagesLandingFragmentViewer) {
-        pagesLandingFragmentViewer = WeakReference(viewer)
-    }
-
     private fun onPageItemClicked(landingPageItem: LandingItem) {
-        val designLandingFragmentViewer = pagesLandingFragmentViewer?.get() ?: return
+        val designLandingFragmentViewer = baseActivity as PagesActivity
         when (landingPageItem) {
             PagesLandingPageItems.LOGIN -> designLandingFragmentViewer.showFragment(LoginFragment.newInstance(), LoginFragment.TAG)
             PagesLandingPageItems.MAPS -> {}
@@ -60,9 +55,4 @@ class PagesLandingPageFragment : BaseToolbarFragment() {
         }
         return
     }
-
-    interface PagesLandingFragmentViewer {
-        fun showFragment(baseFragment: androidx.fragment.app.Fragment, tag: String)
-    }
-
 }

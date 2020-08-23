@@ -27,7 +27,6 @@ class WidgetsLandingFragment : BaseToolbarFragment(), WidgetRecyclerViewAdapter.
 
     private lateinit var searchMenuItem: MenuItem
     private lateinit var adapter: WidgetRecyclerViewAdapter
-    private var widgetsLandingFragmentViewer: WeakReference<WidgetsLandingFragmentViewer>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
@@ -124,12 +123,8 @@ class WidgetsLandingFragment : BaseToolbarFragment(), WidgetRecyclerViewAdapter.
 
     override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
         adapter.clearFilters()
-        Keyboard.hide(requireContext(), view!!)
+        view?.let { Keyboard.hide(requireContext(), it) }
         return true
-    }
-
-    fun setWidgetsLandingFragmentViewer(viewer: WidgetsLandingFragmentViewer) {
-        widgetsLandingFragmentViewer = WeakReference(viewer)
     }
 
     private fun widgetSearch(searchTerm: CharSequence): ArrayList<Widgets> {
@@ -159,7 +154,7 @@ class WidgetsLandingFragment : BaseToolbarFragment(), WidgetRecyclerViewAdapter.
     private fun startFragment(fragment: BaseToolbarFragment, tag: String) {
         searchMenuItem.collapseActionView()
         searchMenuItem.isVisible = false
-        widgetsLandingFragmentViewer?.get()?.showFragment(fragment, tag)
+        (baseActivity as WidgetsActivity).showFragment(fragment, tag)
     }
 
     private fun isKeywordInText(keyWord: String, text: String) : Boolean {
@@ -170,10 +165,6 @@ class WidgetsLandingFragment : BaseToolbarFragment(), WidgetRecyclerViewAdapter.
             if (word.toLowerCase().startsWith(key)) return true
         }
         return false
-    }
-
-    interface WidgetsLandingFragmentViewer {
-        fun showFragment(baseFragment: BaseToolbarFragment, tag: String)
     }
 
 }

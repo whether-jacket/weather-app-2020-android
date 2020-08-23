@@ -54,6 +54,10 @@ abstract class BaseToolbarActivity : AppCompatActivity(),
     override fun onBackStackChanged() {
         val topFragment = supportFragmentManager.fragments.last() as? OnVisibleFragment
         topFragment?.onVisible()
+
+        val supportActionBar = supportActionBar ?: return
+        val isAtHomePage = supportFragmentManager.backStackEntryCount < 1
+        supportActionBar.setDisplayHomeAsUpEnabled(!isAtHomePage)
     }
 
     override fun onDestroy() {
