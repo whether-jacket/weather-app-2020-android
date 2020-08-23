@@ -1,9 +1,9 @@
-package com.seljabali.core.utilities.threeten
+package com.seljabali.core.utilities.time
 
-import org.threeten.bp.LocalTime
-import org.threeten.bp.format.DateTimeFormatter
-import org.threeten.bp.format.DateTimeFormatterBuilder
-import java.util.*
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeFormatterBuilder
+import java.util.Locale
 
 fun String.parseLocalTime(): LocalTime? = LocalTime.parse(this)
 

@@ -91,8 +91,6 @@ dependencies {
 
     implementation "com.orhanobut:logger:$logger_version"
 
-    implementation "com.jakewharton.threetenabp:threetenabp:$threeten_version"
-
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"

@@ -1,4 +1,4 @@
-package com.seljabali.core.utilities.threeten
+package com.seljabali.core.utilities.time
 
 object Formats {
 

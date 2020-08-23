@@ -1,13 +1,13 @@
-package com.seljabali.core.utilities.threeten
+package com.seljabali.core.utilities.time
 
-import org.threeten.bp.DayOfWeek
-import org.threeten.bp.ZonedDateTime
+import java.time.DayOfWeek
+import java.time.ZonedDateTime
 
 fun NOW(): ZonedDateTime = ZonedDateTime.now(ZonedDateTimeUtil.getDefaultZoneId())
 fun YESTERDAY(): ZonedDateTime = NOW().minusDays(1)
 fun TOMORROW(): ZonedDateTime = NOW().plusDays(1) 
 
-fun LAST_MONDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.MONDAY) 
+fun LAST_MONDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.MONDAY)
 fun LAST_TUESDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.TUESDAY) 
 fun LAST_WEDNESDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.WEDNESDAY) 
 fun LAST_THURSDAY(): ZonedDateTime = NOW().getLast(DayOfWeek.THURSDAY) 

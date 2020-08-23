@@ -1,9 +1,9 @@
-package com.seljabali.core.utilities.threeten
+package com.seljabali.core.utilities.time
 
-import org.threeten.bp.LocalDate
-import org.threeten.bp.LocalDateTime
-import org.threeten.bp.format.DateTimeFormatter
-import org.threeten.bp.format.DateTimeParseException
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 
 fun String.parseLocalDate(): LocalDate? {
     var result: LocalDate? = try {

@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
-import com.seljabali.core.utilities.threeten.Formats
-import com.seljabali.core.utilities.threeten.NOW_TIME
-import com.seljabali.core.utilities.threeten.print
+import com.seljabali.core.utilities.time.Formats
+import com.seljabali.core.utilities.time.NOW_TIME
+import com.seljabali.core.utilities.time.print
 import kotlinx.android.synthetic.main.fragment_time_picker.*
-import org.threeten.bp.LocalTime
+import java.time.LocalTime
 
 class TimePickerFragment : BaseToolbarFragment() {
 

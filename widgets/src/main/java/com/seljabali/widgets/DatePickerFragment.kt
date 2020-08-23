@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
-import com.seljabali.core.utilities.threeten.*
+import com.seljabali.core.utilities.time.Formats
+import com.seljabali.core.utilities.time.NOW
+import com.seljabali.core.utilities.time.ZonedDateTimeUtil
+import com.seljabali.core.utilities.time.print
+import com.seljabali.core.utilities.time.getMonthBaseZero
 import kotlinx.android.synthetic.main.fragment_date_picker.*
 
 class DatePickerFragment : BaseToolbarFragment() {
@@ -15,12 +19,17 @@ class DatePickerFragment : BaseToolbarFragment() {
     companion object {
         @JvmStatic
         fun newInstance() = DatePickerFragment()
+
         @JvmStatic
         val TAG: String = DatePickerFragment::class.java.simpleName
         private val DATE_FORMAT: String = Formats.YearMonthDay.MM_DD_YYYY_SLASH.toString()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_date_picker, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_date_picker, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

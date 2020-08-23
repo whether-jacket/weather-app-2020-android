@@ -35,7 +35,6 @@ An app show casing Android's best practices as of 2020.
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [RxBinding](https://github.com/JakeWharton/RxBinding)
 - [RxKotlin](https://github.com/ReactiveX/RxKotlin)
-- [ThreeTen ABP](https://github.com/JakeWharton/ThreeTenABP)
 - [Timber](https://github.com/JakeWharton/timber)
 
 ## License
