@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <com.seljabali.theming.themeselector.ThemeSampleView
+                android:id="@+id/seamFoamSampleCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.SeaFoam"/>
+
+        <com.seljabali.theming.themeselector.ThemeSampleView
+                android:id="@+id/illiniSampleCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.Illini"/>
+
+        <com.seljabali.theming.themeselector.ThemeSampleView
+                android:id="@+id/tokyoSampleCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.Tokyo"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
