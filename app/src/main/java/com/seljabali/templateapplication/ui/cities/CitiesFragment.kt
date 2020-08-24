@@ -11,7 +11,7 @@ import com.seljabali.templateapplication.R
 import kotlinx.android.synthetic.main.fragment_cities.*
 import setTheme
 
-class CitiesFragment : BaseFragment(), AddCityListener {
+class CitiesFragment : BaseFragment(), AddCityDialogListener {
 
     companion object {
         val TAG: String = CitiesFragment::class.java.simpleName
@@ -38,7 +38,7 @@ class CitiesFragment : BaseFragment(), AddCityListener {
         fragmentTransaction.addToBackStack(null)
 
         val addCityDialog = AddCityDialog.newInstance()
-        addCityDialog.addCityListener = this
+        addCityDialog.addCityDialogListener = this
         addCityDialog.show(fragmentTransaction, AddCityDialog.TAG)
     }
 

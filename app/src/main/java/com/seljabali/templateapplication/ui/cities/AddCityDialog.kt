@@ -18,7 +18,7 @@ class AddCityDialog : BaseDialogFragment() {
 
     private lateinit var cityNameTextInputEditText: TextInputEditText
     private lateinit var addCityButton: Button
-    lateinit var addCityListener: AddCityListener
+    lateinit var addCityDialogListener: AddCityDialogListener
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -46,11 +46,11 @@ class AddCityDialog : BaseDialogFragment() {
             return
         }
         cityNameTextInputEditText.error = ""
-        addCityListener.onCityAdded(enteredCityName)
+        addCityDialogListener.onCityAdded(enteredCityName)
         dismiss()
     }
 }
 
-interface AddCityListener {
+interface AddCityDialogListener {
     fun onCityAdded(cityName: String)
 }
