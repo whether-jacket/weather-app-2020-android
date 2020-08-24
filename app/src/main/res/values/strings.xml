@@ -17,5 +17,8 @@
     <string name="theming">Theming</string>
     <string name="pages">Pages</string>
     <string name="sample_pages">Sample Pages</string>
+    <string name="add_city">Add City</string>
+    <string name="enter_city_name">Enter City Name</string>
+    <string name="city_name_cannot_be_blank">City name cannot be blank</string>
 
 </resources>
