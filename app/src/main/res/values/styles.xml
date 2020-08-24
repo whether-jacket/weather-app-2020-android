@@ -23,4 +23,10 @@
         <item name="android:fontFamily">serif</item>
         <item name="textAllCaps">false</item>
     </style>
+    <style name="DialogFragmentStyleWithTitle" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">false</item>
+    </style>
 </resources>
