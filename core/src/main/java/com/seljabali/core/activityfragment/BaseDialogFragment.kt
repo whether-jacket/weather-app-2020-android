@@ -36,6 +36,7 @@ abstract class BaseDialogFragment : DialogFragment() {
         isCancelable = isCancelableDialog()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog: Dialog = super.onCreateDialog(savedInstanceState)
         dialog.setTitle(getTitle())
@@ -79,7 +80,8 @@ abstract class BaseDialogFragment : DialogFragment() {
         return true
     }
 
-    @StyleRes protected open fun getStyle(): Int {
+    @StyleRes
+    protected open fun getStyle(): Int {
         return android.R.style.Theme_Dialog
     }
 }
