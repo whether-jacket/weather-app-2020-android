@@ -9,6 +9,19 @@
     android:focusable="true"
     android:padding="@dimen/m_padding">
 
+    <com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
+        android:id="@+id/cities_drag_drop_swipe_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:item_layout="@layout/item_city_layout"
+        app:divider="@drawable/list_divider"
+        app:behind_swiped_item_icon="@android:drawable/ic_menu_delete"
+        app:behind_swiped_item_bg_color="@color/dark_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/add_city_button"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_city_button"
         android:layout_width="wrap_content"

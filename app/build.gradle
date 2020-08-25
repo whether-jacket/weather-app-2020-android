@@ -101,6 +101,8 @@ dependencies {
     debugImplementation "io.objectbox:objectbox-kotlin:$objectbox_version"
     releaseImplementation "io.objectbox:objectbox-android:$objectbox_version"
 
+    implementation "com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:$drag_drop_swipe_recycler_view"
+
     implementation "com.orhanobut:logger:$logger_version"
 
     implementation "com.facebook.stetho:stetho:$stetho_version"
