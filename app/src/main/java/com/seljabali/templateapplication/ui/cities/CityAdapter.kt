@@ -15,7 +15,5 @@ class CityAdapter(dataSet: List<String>) : DragDropSwipeAdapter<String, CityView
         item: String,
         viewHolder: CityViewHolder,
         position: Int
-    ): View? {
-        return viewHolder.dragIconImageView
-    }
+    ): View? = viewHolder.dragIconImageView
 }

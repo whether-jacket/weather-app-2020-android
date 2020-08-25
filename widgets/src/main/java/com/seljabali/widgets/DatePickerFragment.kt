@@ -22,7 +22,7 @@ class DatePickerFragment : BaseToolbarFragment() {
 
         @JvmStatic
         val TAG: String = DatePickerFragment::class.java.simpleName
-        private val DATE_FORMAT: String = Formats.YearMonthDay.MM_DD_YYYY_SLASH.toString()
+        private val DATE_FORMAT: String = Formats.MonthDayYear.MM_DD_YYYY_SLASH.toString()
     }
 
     override fun onCreateView(

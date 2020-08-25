@@ -4,52 +4,35 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherForLocation(
     @SerializedName("consolidated_weather")
-    val consolidatedWeather: Array<ConsolidatedWeather>
-)
+    val consolidatedWeather: Array<ConsolidatedWeather>,
 
-data class ConsolidatedWeather(
-    @SerializedName("id")
-    val id: Long,
+    @SerializedName("parent")
+    val parentRegion: Region,
 
-    @SerializedName("weather_state_name")
-    val weatherStateName: String,
+    @SerializedName("woeid")
+    val whereOnEarthId: Int,
 
-    @SerializedName("weather_state_abbr")
-    val weather_state_abbr: String,
+    @SerializedName("latt_long")
+    val lat_long: String,
 
-    @SerializedName("wind_direction_compass")
-    val wind_direction_compass: String,
+    @SerializedName("title")
+    val cityTitle: String,
 
-    @SerializedName("created")
-    val created: String,
+    @SerializedName("location_type")
+    val location_type: String,
 
-    @SerializedName("applicable_date")
-    val applicableDate: String,
+    @SerializedName("time")
+    val dateTime: String,
 
-    @SerializedName("min_temp")
-    val minTemp: Float,
+    @SerializedName("timezone")
+    val timezone: String,
 
-    @SerializedName("max_temp")
-    val maxTemp: Float,
+    @SerializedName("sun_rise")
+    val sunriseDateTime: String,
 
-    @SerializedName("the_temp")
-    val theTemp: Float,
+    @SerializedName("sun_set")
+    val sunsetDateTime: String,
 
-    @SerializedName("wind_speed")
-    val windSpeed: Float,
-
-    @SerializedName("wind_direction")
-    val windDirection: Float,
-
-    @SerializedName("air_pressure")
-    val airPressure: Float,
-
-    @SerializedName("humidity")
-    val humidity: Float,
-
-    @SerializedName("visibility")
-    val visibility: Float,
-
-    @SerializedName("predictability")
-    val predictability: Float
+    @SerializedName("timezone_name")
+    val timezoneName: String
 )

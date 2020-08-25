@@ -18,11 +18,28 @@ class WeatherViewStateBinder : BaseViewStateBinder<WeatherViewState> {
     private fun setTemperature(viewState: WeatherViewState) {
         with(viewState) {
             if (isLoadingTemperature) {
-                weatherViewApi?.setTemperature(currentTemperature)
-            } else {
-                val weatherSummary = "$currentTemperature C"
-                weatherViewApi?.setTemperature(weatherSummary)
+                weatherViewApi?.setCity("")
+                weatherViewApi?.setParentRegion("")
+                weatherViewApi?.setTemperature("")
+                weatherViewApi?.setDateTime("")
+                weatherViewApi?.setHumidity("")
+                weatherViewApi?.setPressure("")
+                weatherViewApi?.setWindSpeed("")
+                weatherViewApi?.setHumidityTitleVisibility(false)
+                weatherViewApi?.setPressureTitleVisibility(false)
+                weatherViewApi?.setWindSpeedTitleVisibility(false)
+                return
             }
+            weatherViewApi?.setCity(city)
+            weatherViewApi?.setParentRegion(greaterRegion)
+            weatherViewApi?.setTemperature(currentTemperature)
+            weatherViewApi?.setDateTime(dateTime)
+            weatherViewApi?.setHumidity(humidity)
+            weatherViewApi?.setPressure(pressure)
+            weatherViewApi?.setWindSpeed(windSpeed)
+            weatherViewApi?.setHumidityTitleVisibility(true)
+            weatherViewApi?.setPressureTitleVisibility(true)
+            weatherViewApi?.setWindSpeedTitleVisibility(true)
         }
     }
 

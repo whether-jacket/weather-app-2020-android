@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusable="true"
     android:paddingTop="@dimen/m_vertical_spacing">
 
+    <!-- City -->
     <TextView
         android:id="@+id/city_name_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="San Francisco"
         android:paddingStart="@dimen/m_horizontal_spacing"
         android:paddingEnd="@dimen/m_horizontal_spacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="San Francisco"/>
 
+    <!-- Parent -->
     <TextView
-        android:id="@+id/state_text_view"
+        android:id="@+id/parent_region_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/m_horizontal_spacing"
         android:paddingEnd="@dimen/m_horizontal_spacing"
         android:gravity="center"
-        android:text="CA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/city_name_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/city_name_text_view"
+        tools:text="CA"/>
 
+    <!-- Temperature -->
     <TextView
         android:id="@+id/temperature_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline4"
@@ -52,7 +56,93 @@
         android:layout_marginEnd="@dimen/m_horizontal_spacing"
         android:src="@mipmap/clouds"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/state_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/parent_region_text_view" />
+
+    <!-- Pressure Label -->
+    <TextView
+        android:id="@+id/pressure_label_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pressure"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_image_view"/>
+
+    <!-- Humidity Label -->
+    <TextView
+        android:id="@+id/humidity_label_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pressure_label_text_view"/>
+
+    <!-- Wind Speed Label -->
+    <TextView
+        android:id="@+id/wind_speed_label_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wind_speed"
+        android:layout_marginEnd="@dimen/m_horizontal_spacing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pressure_label_text_view"/>
+
+    <!-- Pressure -->
+    <TextView
+        android:id="@+id/pressure_text_view"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        app:layout_constraintStart_toStartOf="@id/pressure_label_text_view"
+        app:layout_constraintEnd_toEndOf="@id/pressure_label_text_view"
+        app:layout_constraintTop_toBottomOf="@id/pressure_label_text_view"
+        tools:text="1,1090 hPa"/>
+
+    <!-- Humidity -->
+    <TextView
+        android:id="@+id/humidity_text_view"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        app:layout_constraintStart_toStartOf="@id/humidity_label_text_view"
+        app:layout_constraintEnd_toEndOf="@id/humidity_label_text_view"
+        app:layout_constraintTop_toBottomOf="@id/humidity_label_text_view"
+        tools:text="26%"/>
+
+    <!-- Pressure -->
+    <TextView
+        android:id="@+id/wind_speed_text_view"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        app:layout_constraintStart_toStartOf="@id/wind_speed_label_text_view"
+        app:layout_constraintEnd_toEndOf="@id/wind_speed_label_text_view"
+        app:layout_constraintTop_toBottomOf="@id/wind_speed_label_text_view"
+        tools:text="1.5 m/s"/>
+
+
+    <!-- DateTime -->
+    <TextView
+        android:id="@+id/date_time_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        android:layout_marginEnd="@dimen/m_horizontal_spacing"
+        android:layout_marginBottom="@dimen/m_vertical_spacing"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
+        tools:text="July 21, 2020"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -63,5 +153,6 @@
         style="?android:attr/progressBarStyleHorizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,9 @@ package com.seljabali.templateapplication.ui.weather
 import com.seljabali.core.modules.RxProvider
 import com.seljabali.core.mvi.BaseViewModel
 import com.seljabali.core.utilities.round
+import com.seljabali.core.utilities.time.Formats
+import com.seljabali.core.utilities.time.parseZonedDate
+import com.seljabali.core.utilities.time.print
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 
@@ -66,8 +69,14 @@ class WeatherViewModel(
                 isLoadingTemperature = true
             }
             is WeatherResult.WeatherForLocationResult -> newState.apply {
-                currentTemperature =
-                    result.response.consolidatedWeather[0].maxTemp.round(2).toString()
+                val weather = result.response.consolidatedWeather[0]
+                city = result.response.cityTitle
+                greaterRegion = result.response.parentRegion.title
+                currentTemperature = weather.maxTemp.round(2).toString() + " F"
+                humidity = weather.humidity.round(2).toString()
+                windSpeed = weather.windSpeed.round(2).toString()
+                pressure = weather.airPressure.round(2).toString()
+                dateTime = result.response.dateTime.parseZonedDate()?.print(Formats.MonthDayYear.MMM_D_YYYY_SPACE) ?: ""
                 isLoadingTemperature = false
             }
             is WeatherResult.ErrorLoadingWeatherForLocationResult -> newState.apply {

@@ -51,10 +51,20 @@ object Formats {
         YYYY_M_DD_SLASH("yyyy/M/dd"),
         YYYY_MM_DD_SLASH("yyyy/MM/dd"),
         YYYY_M_DD_SPACE("yyyy M dd"),
-        YYYY_MM_DD_SPACE("yyyy MM dd"),
+        YYYY_MM_DD_SPACE("yyyy MM dd");
+
+        override fun toString(): String = text
+    }
+
+    enum class MonthDayYear(private val text: String) {
         MMM_D_YYYY_SPACE("MMM d, yyyy"),
         MM_DD_YYYY_SLASH("MM/dd/yyyy"),
-        M_D_YYYY_SLASH("M/d/yyyy"),
+        M_D_YYYY_SLASH("M/d/yyyy");
+
+        override fun toString(): String = text
+    }
+
+    enum class WeekdayMonthDayYear(private val text: String) {
         DAY_MMM_D_YY("EEE, MMM d, ''yy"),
         DAY_MMM_D_YYYY("EEEE, MMM d, yyyy");
 

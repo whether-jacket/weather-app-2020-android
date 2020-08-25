@@ -25,9 +25,9 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     private lateinit var cityAdapter: CityAdapter
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_cities, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,19 +56,29 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     }
 
     override fun onCityAdded(cityName: String) {
-        Toast.makeText(requireContext(), "$cityName was added", Toast.LENGTH_SHORT).setTheme().show()
+        Toast.makeText(requireContext(), "$cityName was added", Toast.LENGTH_SHORT).setTheme()
+            .show()
     }
 
     private val onItemSwipeListener = object : OnItemSwipeListener<String> {
-        override fun onItemSwiped(position: Int, direction: OnItemSwipeListener.SwipeDirection, item: String): Boolean {
-            Toast.makeText(requireContext(), "Item: $item, position: $position", Toast.LENGTH_SHORT).setTheme().show()
+        override fun onItemSwiped(
+            position: Int,
+            direction: OnItemSwipeListener.SwipeDirection,
+            item: String
+        ): Boolean {
+            Toast.makeText(requireContext(), "Item: $item, position: $position", Toast.LENGTH_SHORT)
+                .setTheme().show()
             return false
         }
     }
 
     private val onItemDragListener = object : OnItemDragListener<String> {
         override fun onItemDragged(previousPosition: Int, newPosition: Int, item: String) {
-            Toast.makeText(requireContext(), "From: $previousPosition -> $newPosition", Toast.LENGTH_SHORT).setTheme().show()
+            Toast.makeText(
+                requireContext(),
+                "From: $previousPosition -> $newPosition",
+                Toast.LENGTH_SHORT
+            ).setTheme().show()
         }
 
         override fun onItemDropped(initialPosition: Int, finalPosition: Int, item: String) {

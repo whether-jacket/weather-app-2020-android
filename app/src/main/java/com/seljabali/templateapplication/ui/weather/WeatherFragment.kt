@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.mvi.BaseMviFragment
+import com.seljabali.core.utilities.setUnderlined
 import com.seljabali.templateapplication.R
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
@@ -15,6 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, WeatherSideEffect>(
     module = weatherModule
 ), WeatherViewApi {
+
     companion object {
         val TAG: String = WeatherFragment::class.java.simpleName
         fun newInstance() = WeatherFragment()
@@ -46,6 +48,9 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
         super.onViewCreated(view, savedInstanceState)
         viewStateBinder.setViewApi(this)
         loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadSfWeatherEvent)
+        pressure_label_text_view.setUnderlined()
+        wind_speed_label_text_view.setUnderlined()
+        humidity_label_text_view.setUnderlined()
     }
 
     override fun onDestroyView() {
@@ -73,11 +78,47 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     /**
      *  WeatherView Api
      */
+    override fun setCity(text: String) {
+        city_name_text_view.text = text
+    }
+
+    override fun setParentRegion(text: String) {
+        parent_region_text_view.text = text
+    }
+
     override fun setTemperature(text: String) {
         temperature_text_view.text = text
     }
 
     override fun setProgressBarVisibility(isVisible: Boolean) {
         progressBar.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
+    }
+
+    override fun setPressureTitleVisibility(toShow: Boolean) {
+        pressure_label_text_view.visibility = if (toShow) View.VISIBLE else View.INVISIBLE
+    }
+
+    override fun setPressure(text: String) {
+        pressure_text_view.text = text
+    }
+
+    override fun setHumidityTitleVisibility(toShow: Boolean) {
+        humidity_label_text_view.visibility = if (toShow) View.VISIBLE else View.INVISIBLE
+    }
+
+    override fun setHumidity(text: String) {
+        humidity_text_view.text = text
+    }
+
+    override fun setWindSpeedTitleVisibility(toShow: Boolean) {
+        wind_speed_label_text_view.visibility = if (toShow) View.VISIBLE else View.INVISIBLE
+    }
+
+    override fun setWindSpeed(text: String) {
+        wind_speed_text_view.text = text
+    }
+
+    override fun setDateTime(text: String) {
+        date_time_text_view.text = text
     }
 }
