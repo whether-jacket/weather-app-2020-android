@@ -90,8 +90,12 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
         temperature_text_view.text = text
     }
 
-    override fun setProgressBarVisibility(isVisible: Boolean) {
-        progressBar.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
+    override fun setWeatherImageVisibility(toShow: Boolean) {
+        weather_image_view.visibility = if (toShow) View.VISIBLE else View.INVISIBLE
+    }
+
+    override fun setProgressBarVisibility(toShow: Boolean) {
+        progressBar.visibility = if (toShow) View.VISIBLE else View.INVISIBLE
     }
 
     override fun setPressureTitleVisibility(toShow: Boolean) {
