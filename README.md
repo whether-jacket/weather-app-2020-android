@@ -22,6 +22,7 @@ An app show casing Android's best practices as of 2020.
 
 ## Libraries
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [Drag Drop Swipe Recyclerview](https://github.com/ernestoyaquello/DragDropSwipeRecyclerview)
 - [Jetpack Navigation](https://developer.android.com/jetpack)
 - [Koin](https://github.com/InsertKoinIO/koin)
 - [Leak Canary](https://github.com/square/leakcanary)
