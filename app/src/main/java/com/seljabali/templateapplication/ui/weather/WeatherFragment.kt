@@ -47,7 +47,7 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewStateBinder.setViewApi(this)
-//        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadSfWeatherEvent)
+        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadSfWeatherEvent)
         pressure_label_text_view.setUnderlined()
         wind_speed_label_text_view.setUnderlined()
         humidity_label_text_view.setUnderlined()

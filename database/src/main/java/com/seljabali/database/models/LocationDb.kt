@@ -11,5 +11,6 @@ data class LocationDb(
     @Id(assignable = true) var id: Long,
     val cityName: String,
     val regionName: String = "",
-    val woeId: Int = 0
+    val woeId: Int = 0,
+    var position: Int = 0
 ) : Parcelable

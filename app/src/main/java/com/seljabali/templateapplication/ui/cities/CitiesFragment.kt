@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
@@ -18,7 +17,6 @@ import io.objectbox.Box
 import kotlinx.android.synthetic.main.fragment_cities.*
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
-import setTheme
 
 class CitiesFragment : BaseFragment(), AddCityDialogListener {
 
@@ -40,13 +38,12 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
         super.onViewCreated(view, savedInstanceState)
         add_city_button.setOnClickListener { showAddCityDialog() }
         setupLocationDb()
-//        val dataSet = listOf("Tempe", "San Francisco", "New York")
-        val dataSet = getAllLocationsFromDb()
-        cityAdapter = CityAdapter(dataSet)
+        cityAdapter = CityAdapter(getAllLocationsFromDb())
         with(cities_drag_drop_swipe_recycler_view) {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = cityAdapter
-            orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
+            orientation =
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
             swipeListener = onItemSwipeListener
             dragListener = onItemDragListener
         }
@@ -55,12 +52,12 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     private fun setupLocationDb() {
         val locationsSaved = locationBox.all
         if (locationsSaved.isNotEmpty()) return
-        locationBox.put(LocationDb(1, "San Francisco", "CA"))
-        locationBox.put(LocationDb(2, "Tempe", "AZ"))
-        locationBox.put(LocationDb(3, "New York", "NY"))
+        locationBox.put(LocationDb(1, "San Francisco", "CA", position = 0))
+        locationBox.put(LocationDb(2, "Tempe", "AZ", position = 1))
+        locationBox.put(LocationDb(3, "New York", "NY", position = 2))
     }
 
-    private fun getAllLocationsFromDb(): List<String> = locationBox.all.map { it.cityName }
+    private fun getAllLocationsFromDb(): List<LocationDb> = locationBox.all.sortedBy { it.position }
 
     private fun showAddCityDialog() {
         val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
@@ -74,34 +71,51 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     }
 
     override fun onCityAdded(cityName: String) {
-        Toast.makeText(requireContext(), "$cityName was added", Toast.LENGTH_SHORT).setTheme()
-            .show()
+        val locationCount = getAllLocationsFromDb().count()
+        locationBox.put(
+            LocationDb(
+                id = (locationCount + 1).toLong(),
+                cityName = cityName,
+                regionName = "",
+                woeId = 0,
+                position = locationCount - 1
+            )
+        )
+        updateAdapterFromDb()
     }
 
-    private val onItemSwipeListener = object : OnItemSwipeListener<String> {
+    private fun updateAdapterFromDb() {
+        cityAdapter.dataSet = getAllLocationsFromDb()
+    }
+
+    private fun getLocationByPosition(position: Int): LocationDb? =
+        locationBox.all.firstOrNull { it.position == position }
+
+    private val onItemSwipeListener = object : OnItemSwipeListener<LocationDb> {
         override fun onItemSwiped(
             position: Int,
             direction: OnItemSwipeListener.SwipeDirection,
-            item: String
+            item: LocationDb
         ): Boolean {
-            Toast.makeText(requireContext(), "Item: $item, position: $position deleted", Toast.LENGTH_SHORT)
-                .setTheme().show()
-            locationBox.remove((position + 1).toLong())
+            locationBox.remove(item.id)
+            updateAdapterFromDb()
             return false
         }
     }
 
-    private val onItemDragListener = object : OnItemDragListener<String> {
-        override fun onItemDragged(previousPosition: Int, newPosition: Int, item: String) {
-            Toast.makeText(
-                requireContext(),
-                "From: $previousPosition -> $newPosition",
-                Toast.LENGTH_SHORT
-            ).setTheme().show()
+    private val onItemDragListener = object : OnItemDragListener<LocationDb> {
+        override fun onItemDragged(previousPosition: Int, newPosition: Int, item: LocationDb) {
+            val fromA =
+                getLocationByPosition(previousPosition)?.apply { position = newPosition } ?: return
+            val toB =
+                getLocationByPosition(newPosition)?.apply { position = previousPosition } ?: return
+            locationBox.put(fromA)
+            locationBox.put(toB)
+            updateAdapterFromDb()
         }
 
-        override fun onItemDropped(initialPosition: Int, finalPosition: Int, item: String) {
-            // Handle action of item dropped
+        override fun onItemDropped(initialPosition: Int, finalPosition: Int, item: LocationDb) {
+            // Do nothing
         }
     }
 }
