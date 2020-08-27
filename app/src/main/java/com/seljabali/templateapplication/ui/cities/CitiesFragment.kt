@@ -11,8 +11,13 @@ import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
 import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
+import com.seljabali.database.DB_LOCATION_BOX
+import com.seljabali.database.models.LocationDb
 import com.seljabali.templateapplication.R
+import io.objectbox.Box
 import kotlinx.android.synthetic.main.fragment_cities.*
+import org.koin.android.ext.android.inject
+import org.koin.core.qualifier.named
 import setTheme
 
 class CitiesFragment : BaseFragment(), AddCityDialogListener {
@@ -22,6 +27,7 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
         fun newInstance() = CitiesFragment()
     }
 
+    private val locationBox: Box<LocationDb> by inject(named(DB_LOCATION_BOX))
     private lateinit var cityAdapter: CityAdapter
 
     override fun onCreateView(
@@ -33,7 +39,9 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         add_city_button.setOnClickListener { showAddCityDialog() }
-        val dataSet = listOf("Tempe", "San Francisco", "New York")
+        setupLocationDb()
+//        val dataSet = listOf("Tempe", "San Francisco", "New York")
+        val dataSet = getAllLocationsFromDb()
         cityAdapter = CityAdapter(dataSet)
         with(cities_drag_drop_swipe_recycler_view) {
             layoutManager = LinearLayoutManager(requireContext())
@@ -43,6 +51,16 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
             dragListener = onItemDragListener
         }
     }
+
+    private fun setupLocationDb() {
+        val locationsSaved = locationBox.all
+        if (locationsSaved.isNotEmpty()) return
+        locationBox.put(LocationDb(1, "San Francisco", "CA"))
+        locationBox.put(LocationDb(2, "Tempe", "AZ"))
+        locationBox.put(LocationDb(3, "New York", "NY"))
+    }
+
+    private fun getAllLocationsFromDb(): List<String> = locationBox.all.map { it.cityName }
 
     private fun showAddCityDialog() {
         val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
@@ -66,8 +84,9 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
             direction: OnItemSwipeListener.SwipeDirection,
             item: String
         ): Boolean {
-            Toast.makeText(requireContext(), "Item: $item, position: $position", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), "Item: $item, position: $position deleted", Toast.LENGTH_SHORT)
                 .setTheme().show()
+            locationBox.remove((position + 1).toLong())
             return false
         }
     }

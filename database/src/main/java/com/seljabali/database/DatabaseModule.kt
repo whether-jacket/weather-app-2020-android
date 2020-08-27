@@ -1,8 +1,9 @@
 package com.seljabali.database
 
 import com.seljabali.core.utilities.App
+import com.seljabali.database.models.LocationDb
 import com.seljabali.database.models.MyObjectBox
-import com.seljabali.database.models.UserPreferences
+import com.seljabali.database.models.UserPreferencesDb
 import com.seljabali.database.models.WeatherForLocationDb
 import io.objectbox.Box
 import io.objectbox.BoxStore
@@ -13,15 +14,20 @@ import org.koin.dsl.module
 
 val DB_USER_PREFERENCES_BOX = "UserPreferences"
 val DB_WEATHER_FOR_LOCATION_BOX = "WeatherForLocation"
+val DB_LOCATION_BOX = "Location"
 
 val databaseModule = module {
 
-    single<Box<WeatherForLocationDb>>(named("WeatherForLocation")) {
+    single<Box<LocationDb>>(named(DB_LOCATION_BOX)) {
+        get<BoxStore>().boxFor(LocationDb::class.java)
+    }
+
+    single<Box<WeatherForLocationDb>>(named(DB_WEATHER_FOR_LOCATION_BOX)) {
         get<BoxStore>().boxFor(WeatherForLocationDb::class.java)
     }
 
-    single<Box<UserPreferences>>(named("UserPreferences")) {
-        get<BoxStore>().boxFor(UserPreferences::class.java)
+    single<Box<UserPreferencesDb>>(named(DB_USER_PREFERENCES_BOX)) {
+        get<BoxStore>().boxFor(UserPreferencesDb::class.java)
     }
 
     single<BoxStore> {
