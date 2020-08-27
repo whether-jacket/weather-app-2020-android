@@ -9,8 +9,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Entity
 @Parcelize
-data class UserPreferences(
+data class UserPreferencesDb(
     @Id(assignable = true) var id: Long = 1L,
-
-    @StyleRes var themeId: Int = R.style.Theme_Tokyo
+    @StyleRes var themeId: Int = R.style.Theme_Tokyo,
+    var tempInC: Boolean = true,
+    var unitInMetric: Boolean = true,
 ) : Parcelable

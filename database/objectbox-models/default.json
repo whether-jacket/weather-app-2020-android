@@ -5,55 +5,140 @@
   "entities": [
     {
       "id": "1:5875128048084290279",
-      "lastPropertyId": "5:2142203226738058391",
+      "lastPropertyId": "10:486259092060864788",
       "name": "WeatherForLocationDb",
       "properties": [
         {
           "id": "2:142094730164757532",
-          "name": "theTemp"
-        },
-        {
-          "id": "3:6167794098483741902",
-          "name": "state"
-        },
-        {
-          "id": "4:6952016386694345145",
-          "name": "cityName"
+          "name": "theTemp",
+          "type": 7,
+          "flags": 4
         },
         {
           "id": "5:2142203226738058391",
-          "name": "id"
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "6:6007010421993472557",
+          "name": "pressure",
+          "type": 7,
+          "flags": 4
+        },
+        {
+          "id": "7:317052231503178032",
+          "name": "humidity",
+          "type": 7,
+          "flags": 4
+        },
+        {
+          "id": "8:6125856867368486681",
+          "name": "windSpeed",
+          "type": 7,
+          "flags": 4
+        },
+        {
+          "id": "9:311635670511957188",
+          "name": "dateTimeOfFetch",
+          "type": 9
+        },
+        {
+          "id": "10:486259092060864788",
+          "name": "locationId",
+          "indexId": "1:4592583694450801318",
+          "type": 11,
+          "flags": 1548,
+          "relationTarget": "LocationDb"
         }
       ],
       "relations": []
     },
     {
-      "id": "2:2273817901745646254",
-      "lastPropertyId": "2:3893163983168279994",
-      "name": "UserPreferences",
+      "id": "3:5789720029933204574",
+      "lastPropertyId": "5:8907240654358995665",
+      "name": "LocationDb",
       "properties": [
         {
-          "id": "1:3816873110366818842",
-          "name": "id"
+          "id": "1:7471658172635366703",
+          "name": "id",
+          "type": 6,
+          "flags": 129
         },
         {
-          "id": "2:3893163983168279994",
-          "name": "themeId"
+          "id": "2:1913766261558958561",
+          "name": "cityName",
+          "type": 9
+        },
+        {
+          "id": "3:2352742773555229581",
+          "name": "regionName",
+          "type": 9
+        },
+        {
+          "id": "4:3516929861815913009",
+          "name": "woeId",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "5:8907240654358995665",
+          "name": "position",
+          "type": 5,
+          "flags": 4
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:5043428215740894742",
+      "lastPropertyId": "4:8714087362650320695",
+      "name": "UserPreferencesDb",
+      "properties": [
+        {
+          "id": "1:7673289998946686705",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:4541422488337049687",
+          "name": "themeId",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "3:6140640557834327824",
+          "name": "tempInC",
+          "type": 1,
+          "flags": 4
+        },
+        {
+          "id": "4:8714087362650320695",
+          "name": "unitInMetric",
+          "type": 1,
+          "flags": 4
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "2:2273817901745646254",
-  "lastIndexId": "0:0",
+  "lastEntityId": "4:5043428215740894742",
+  "lastIndexId": "1:4592583694450801318",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
-  "modelVersion": 4,
-  "modelVersionParserMinimum": 4,
-  "retiredEntityUids": [],
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    2273817901745646254
+  ],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
-    54572933317504958
+    54572933317504958,
+    6167794098483741902,
+    6952016386694345145,
+    3816873110366818842,
+    3893163983168279994
   ],
   "retiredRelationUids": [],
   "version": 1

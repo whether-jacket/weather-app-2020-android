@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.seljabali.core.activityfragment.nontoolbar.BaseActivity
 import com.seljabali.database.DB_USER_PREFERENCES_BOX
 import com.seljabali.templateapplication.R
-import com.seljabali.database.models.UserPreferences
+import com.seljabali.database.models.UserPreferencesDb
 import com.seljabali.templateapplication.ui.landingpage.LandingPageFragment
 import io.objectbox.Box
 import org.koin.android.ext.android.inject
@@ -12,7 +12,7 @@ import org.koin.core.qualifier.named
 
 class HomeActivity : BaseActivity() {
 
-    private val userBox: Box<UserPreferences> by inject(named(DB_USER_PREFERENCES_BOX))
+    private val userBox: Box<UserPreferencesDb> by inject(named(DB_USER_PREFERENCES_BOX))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +33,9 @@ class HomeActivity : BaseActivity() {
             .commit()
     }
 
-    private fun getUserPreferences(): UserPreferences {
+    private fun getUserPreferences(): UserPreferencesDb {
         if (userBox.all.isEmpty()) {
-            userBox.put(UserPreferences())
+            userBox.put(UserPreferencesDb())
         }
         return userBox.all[0]
     }
