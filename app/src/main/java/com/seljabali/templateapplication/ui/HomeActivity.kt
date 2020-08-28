@@ -16,7 +16,7 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setTheme(getUserPreferences().themeId)
+        setTheme(getUserPreferences().themeId)
         setContentView(R.layout.activity_home)
         showLandingPage()
     }
