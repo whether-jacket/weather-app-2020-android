@@ -7,7 +7,7 @@ import com.seljabali.core.BuildConfig
 object App {
 
     @JvmStatic
-    fun getPakageName(context: Context): String =
+    fun getPackageName(context: Context): String =
         try {
             context.packageManager.getPackageInfo(context.packageName, 0).packageName
         } catch (e: Exception) {
