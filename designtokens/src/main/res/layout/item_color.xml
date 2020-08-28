@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/color_item_height">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/colorNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="aqua" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/colorHexValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

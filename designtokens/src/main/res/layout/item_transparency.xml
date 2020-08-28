@@ -8,7 +8,7 @@
         android:padding="@dimen/m_padding">
 
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/transparencyNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="xs" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/transparencyValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text=".50" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <View
             android:id="@+id/transparencyView"
             android:layout_width="@dimen/horizontal_block_width"
             android:layout_height="@dimen/horizontal_block_height"

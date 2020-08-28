@@ -1,7 +1,7 @@
 package com.seljabali.designtokens.cornerradiuses
 
 import android.view.View
-import android.widget.TextView
+import com.google.android.material.textview.MaterialTextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.seljabali.core.utilities.Res
@@ -10,9 +10,9 @@ import com.seljabali.designtokens.R
 
 class CornerRadiusViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val cornerRadiusNameTextView: TextView = itemView.findViewById(R.id.cornerRadiusNameTextView)
-    private val cornerRadiusDpValueTextView: TextView = itemView.findViewById(R.id.cornerRadiusDpValueTextView)
-    private val cornerRadiusPxValueTextView: TextView = itemView.findViewById(R.id.cornerRadiusPxValueTextView)
+    private val cornerRadiusNameTextView: MaterialTextView = itemView.findViewById(R.id.cornerRadiusNameTextView)
+    private val cornerRadiusDpValueTextView: MaterialTextView = itemView.findViewById(R.id.cornerRadiusDpValueTextView)
+    private val cornerRadiusPxValueTextView: MaterialTextView = itemView.findViewById(R.id.cornerRadiusPxValueTextView)
     private val cornerRadiusView: CardView = itemView.findViewById(R.id.cornerRadiusView)
 
     fun bind(cornerRadius: CornerRadiuses) {

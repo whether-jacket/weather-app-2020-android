@@ -1,7 +1,7 @@
 package com.seljabali.designtokens.spacings.verticalspacings
 
 import android.view.View
-import android.widget.TextView
+import com.google.android.material.textview.MaterialTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.seljabali.core.utilities.Res
@@ -10,9 +10,9 @@ import com.seljabali.designtokens.R
 
 class VerticalSpacingsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val verticalSpacingNameTextView: TextView = itemView.findViewById(R.id.verticalSpacingNameTextView)
-    private val verticalSpacingDpValueTextView: TextView = itemView.findViewById(R.id.verticalSpacingDpValueTextView)
-    private val verticalSpacingPxValueTextView: TextView = itemView.findViewById(R.id.verticalSpacingPxValueTextView)
+    private val verticalSpacingNameTextView: MaterialTextView = itemView.findViewById(R.id.verticalSpacingNameTextView)
+    private val verticalSpacingDpValueTextView: MaterialTextView = itemView.findViewById(R.id.verticalSpacingDpValueTextView)
+    private val verticalSpacingPxValueTextView: MaterialTextView = itemView.findViewById(R.id.verticalSpacingPxValueTextView)
     private val verticalSpacingTopPadding: View = itemView.findViewById(R.id.verticalSpacingTopPadding)
     private val verticalSpacingValue: View = itemView.findViewById(R.id.verticalSpacingValue)
     private val verticalSpacingBottomPadding: View = itemView.findViewById(R.id.verticalSpacingBottomPadding)

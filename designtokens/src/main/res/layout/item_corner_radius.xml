@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/m_padding">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cornerRadiusNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="xs" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cornerRadiusDpValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="4dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/cornerRadiusPxValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="6px" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
             android:id="@+id/cornerRadiusView"
             android:layout_width="@dimen/horizontal_block_width"
             android:layout_height="@dimen/horizontal_block_height"
