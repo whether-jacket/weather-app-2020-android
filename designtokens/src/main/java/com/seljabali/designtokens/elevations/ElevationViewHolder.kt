@@ -1,7 +1,7 @@
 package com.seljabali.designtokens.elevations
 
 import android.view.View
-import android.widget.TextView
+import com.google.android.material.textview.MaterialTextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.seljabali.core.utilities.Res
@@ -11,9 +11,9 @@ import com.seljabali.designtokens.elevations.Elevations
 
 class ElevationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val elevationNameTextView: TextView = itemView.findViewById(R.id.elevationNameTextView)
-    private val elevationDpValueTextView: TextView = itemView.findViewById(R.id.elevationDpValueTextView)
-    private val elevationPxValueTextView: TextView = itemView.findViewById(R.id.elevationPxValueTextView)
+    private val elevationNameTextView: MaterialTextView = itemView.findViewById(R.id.elevationNameTextView)
+    private val elevationDpValueTextView: MaterialTextView = itemView.findViewById(R.id.elevationDpValueTextView)
+    private val elevationPxValueTextView: MaterialTextView = itemView.findViewById(R.id.elevationPxValueTextView)
     private val elevationView: AppCompatButton = itemView.findViewById(R.id.elevationView)
 
     fun bind(elevation: Elevations) {

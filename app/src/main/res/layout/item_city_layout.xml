@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/m_padding">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/city_text_view"
         android:layout_height="0dp"
         android:layout_width="0dp"

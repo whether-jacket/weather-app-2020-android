@@ -9,19 +9,19 @@
     android:focusable="true"
     android:paddingTop="@dimen/m_vertical_spacing">
 
-    <!-- Unit for temperature -->
-    <TextView
+    <!-- Temperature in Metric -->
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/unit_for_temperature_label_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="@dimen/m_horizontal_spacing"
-        android:text="@string/unit_for_temperature"
+        android:text="@string/temperature_in_metric"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/unit_for_temperature_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="wrap_content"
@@ -32,37 +32,16 @@
         app:layout_constraintTop_toTopOf="@id/unit_for_temperature_label_text_view"
         tools:text="(F)"/>
 
-    <Switch
-        android:id="@+id/unit_for_temperature_switch"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/temperature_in_metric_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/m_horizontal_spacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/unit_for_temperature_label_text_view"/>
 
-    <!-- Dark Theme -->
-    <TextView
-        android:id="@+id/dark_theme_label_text_view"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginStart="@dimen/m_horizontal_spacing"
-        android:layout_marginTop="@dimen/m_vertical_spacing"
-        android:text="@string/dark_mode"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/unit_for_temperature_label_text_view" />
-
-    <Switch
-        android:id="@+id/dark_theme_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/m_horizontal_spacing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/dark_theme_label_text_view"/>
-
-    <!-- Unit for speed -->
-    <TextView
+    <!-- Speed in Metric -->
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/unit_for_speed_label_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="wrap_content"
@@ -70,11 +49,11 @@
         android:gravity="center"
         android:layout_marginStart="@dimen/m_horizontal_spacing"
         android:layout_marginTop="@dimen/m_vertical_spacing"
-        android:text="@string/unit_for_speed"
+        android:text="@string/speed_in_metric"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dark_theme_label_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/unit_for_temperature_label_text_view" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/unit_for_speed_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="wrap_content"
@@ -85,13 +64,34 @@
         app:layout_constraintTop_toTopOf="@id/unit_for_speed_label_text_view"
         tools:text="(ft/s)"/>
 
-    <Switch
-        android:id="@+id/unit_for_speed_switch"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/speed_in_metric_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/m_horizontal_spacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/unit_for_speed_label_text_view"/>
+
+    <!-- Dark Theme -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dark_theme_label_text_view"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        android:layout_marginTop="@dimen/m_vertical_spacing"
+        android:text="@string/dark_mode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/unit_for_speed_label_text_view" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/dark_theme_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/m_horizontal_spacing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dark_theme_label_text_view"/>
 
     <!-- Divider Line -->
     <View
@@ -104,7 +104,7 @@
         android:layout_marginEnd="@dimen/m_horizontal_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/unit_for_speed_label_text_view"/>
+        app:layout_constraintTop_toBottomOf="@id/dark_theme_label_text_view"/>
 
     <!-- Theming System -->
     <com.google.android.material.button.MaterialButton

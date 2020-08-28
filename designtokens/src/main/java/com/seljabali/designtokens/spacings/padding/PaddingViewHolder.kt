@@ -1,7 +1,7 @@
 package com.seljabali.designtokens.spacings.padding
 
 import android.view.View
-import android.widget.TextView
+import com.google.android.material.textview.MaterialTextView
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
 import com.seljabali.core.utilities.Res
@@ -10,10 +10,10 @@ import com.seljabali.designtokens.R
 
 class PaddingViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val paddingNameTextView: TextView = itemView.findViewById(R.id.paddingNameTextView)
-    private val paddingDpValueTextView: TextView = itemView.findViewById(R.id.paddingDpValueTextView)
-    private val paddingPxValueTextView: TextView = itemView.findViewById(R.id.paddingPxValueTextView)
-    private val paddingValueTextView: TextView = itemView.findViewById(R.id.paddingValueTextView)
+    private val paddingNameTextView: MaterialTextView = itemView.findViewById(R.id.paddingNameTextView)
+    private val paddingDpValueTextView: MaterialTextView = itemView.findViewById(R.id.paddingDpValueTextView)
+    private val paddingPxValueTextView: MaterialTextView = itemView.findViewById(R.id.paddingPxValueTextView)
+    private val paddingValueTextView: MaterialTextView = itemView.findViewById(R.id.paddingValueTextView)
 
     fun bind(padding: Paddings) {
         val context = itemView.context

@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/m_padding">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/horizontalSpacingNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="xs" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/horizontalSpacingDpValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="4dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/horizontalSpacingPxValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

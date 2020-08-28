@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:padding="@dimen/m_padding">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/verticalSpacingNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="xs" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/verticalSpacingDpValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toBottomOf="@id/verticalSpacingNameTextView"
             tools:text="4dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
             android:id="@+id/verticalSpacingPxValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
