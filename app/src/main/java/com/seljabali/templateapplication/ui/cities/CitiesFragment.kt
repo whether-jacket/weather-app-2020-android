@@ -52,9 +52,9 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     private fun setupLocationDb() {
         val locationsSaved = locationBox.all
         if (locationsSaved.isNotEmpty()) return
-        locationBox.put(LocationDb(1, "San Francisco", "CA", position = 0))
-        locationBox.put(LocationDb(2, "Tempe", "AZ", position = 1))
-        locationBox.put(LocationDb(3, "New York", "NY", position = 2))
+        locationBox.put(LocationDb(cityName = "San Francisco", regionName = "CA", position = 0))
+        locationBox.put(LocationDb(cityName = "Tempe", regionName = "AZ", position = 1))
+        locationBox.put(LocationDb(cityName = "New York", regionName = "NY", position = 2))
     }
 
     private fun getAllLocationsFromDb(): List<LocationDb> = locationBox.all.sortedBy { it.position }

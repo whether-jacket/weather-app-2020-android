@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusable="true"
-    android:paddingTop="@dimen/m_vertical_spacing">
+    android:paddingTop="@dimen/l_vertical_spacing">
 
     <!-- Temperature in Metric -->
     <com.google.android.material.textview.MaterialTextView
