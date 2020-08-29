@@ -74,7 +74,6 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
         val locationCount = getAllLocationsFromDb().count()
         locationBox.put(
             LocationDb(
-                id = (locationCount + 1).toLong(),
                 cityName = cityName,
                 regionName = "",
                 woeId = 0,
@@ -98,7 +97,6 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
             item: LocationDb
         ): Boolean {
             locationBox.remove(item.id)
-            updateAdapterFromDb()
             return false
         }
     }

@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 @Entity
 @Parcelize
 data class LocationDb(
-    @Id(assignable = true) var id: Long,
+    @Id var id: Long = 0,
     val cityName: String,
     val regionName: String = "",
     val woeId: Int = 0,
