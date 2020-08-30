@@ -8,6 +8,15 @@
     android:focusable="true"
     android:paddingTop="@dimen/m_vertical_spacing">
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/cities_view_pager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <!-- City -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/city_name_text_view"
@@ -19,8 +28,11 @@
         android:paddingEnd="@dimen/m_horizontal_spacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="San Francisco"/>
+        app:layout_constraintTop_toBottomOf="@id/cities_view_pager"
+        android:visibility="gone"
+        android:text="San Francisco"/>
+<!--        tools:text="San Francisco"/>-->
+<!--    app:layout_constraintTop_toTopOf="parent"-->
 
     <!-- Parent -->
     <com.google.android.material.textview.MaterialTextView
