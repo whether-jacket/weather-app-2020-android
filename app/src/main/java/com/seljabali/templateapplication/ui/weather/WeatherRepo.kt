@@ -7,30 +7,30 @@ import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 
 class WeatherRepo(
-    private val rxProvider: RxProvider,
-    private val api: MetaWeatherService
+        private val rxProvider: RxProvider,
+        private val api: MetaWeatherService
 ) {
-    var fetForLocationProcessor: ObservableTransformer<WeatherRepoAction.FetchForLocationAction, WeatherResult>
-    var handleShowToastProcessor: ObservableTransformer<WeatherSideEffectsAction.ShowToast, WeatherResult>
+    var fetchForLocationProcessor: ObservableTransformer<WeatherRepoAction.FetchForLocationAction, WeatherResult>
+    var fetchForSearchLocationProcessor: ObservableTransformer<WeatherRepoAction.FetchForSearchLocationAction, WeatherResult>
 
     init {
-        fetForLocationProcessor = ObservableTransformer {
+        fetchForLocationProcessor = ObservableTransformer {
             it.switchMap { weatherAction: WeatherAction ->
                 when (weatherAction) {
                     is WeatherRepoAction.FetchForLocationAction -> {
-                        api.getWeatherForLocation(weatherAction.locationId)
-                            .subscribeOn(rxProvider.ioScheduler())
-                            .doOnError { error ->
-                                Logger.e(error, error.message ?: "Failed to do api call")
-                            }
-                            .map<WeatherResult> { response ->
-                                WeatherResult.WeatherForLocationResult(response)
-                            }
-                            .onErrorReturn {
-                                WeatherResult.ErrorLoadingWeatherForLocationResult
-                            }
-                            .observeOn(rxProvider.uiScheduler())
-                            .startWith(WeatherResult.LoadingWeatherResult)
+                        api.getWeatherForWhereOnEarthId(weatherAction.whereOnEarthId)
+                                .subscribeOn(rxProvider.ioScheduler())
+                                .doOnError { error ->
+                                    Logger.e(error, error.message ?: "Failed to do api call")
+                                }
+                                .map<WeatherResult> { response ->
+                                    WeatherResult.WeatherForLocationResult(response)
+                                }
+                                .onErrorReturn {
+                                    WeatherResult.ErrorLoadingWeatherForLocationResult
+                                }
+                                .observeOn(rxProvider.uiScheduler())
+                                .startWith(WeatherResult.LoadingWeatherResult)
                     }
                     else -> {
                         Observable.just(WeatherResult.ErrorLoadingWeatherForLocationResult)
@@ -39,9 +39,28 @@ class WeatherRepo(
             }
         }
 
-        handleShowToastProcessor = ObservableTransformer {
-            it.switchMap { weatherAction: WeatherSideEffectsAction.ShowToast ->
-                Observable.just(WeatherResult.ShowToastResult(weatherAction.message))
+        fetchForSearchLocationProcessor = ObservableTransformer {
+            it.switchMap { weatherAction: WeatherAction ->
+                when (weatherAction) {
+                    is WeatherRepoAction.FetchForSearchLocationAction -> {
+                        api.getWeatherForCitySearch(weatherAction.cityName)
+                                .subscribeOn(rxProvider.ioScheduler())
+                                .doOnError { error ->
+                                    Logger.e(error, error.message ?: "Failed to do api call")
+                                }
+                                .map<WeatherResult> { response ->
+                                    WeatherResult.WeatherForLocationResult(response)
+                                }
+                                .onErrorReturn {
+                                    WeatherResult.ErrorLoadingWeatherForLocationResult
+                                }
+                                .observeOn(rxProvider.uiScheduler())
+                                .startWith(WeatherResult.LoadingWeatherResult)
+                    }
+                    else -> {
+                        Observable.just(WeatherResult.ErrorLoadingWeatherForLocationResult)
+                    }
+                }
             }
         }
     }
