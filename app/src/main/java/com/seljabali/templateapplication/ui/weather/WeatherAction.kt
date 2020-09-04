@@ -7,9 +7,6 @@ abstract class WeatherAction : BaseAction {
 }
 
 sealed class WeatherRepoAction: WeatherAction() {
-    data class FetchForLocationAction(val locationId: Int): WeatherAction()
-}
-
-sealed class WeatherSideEffectsAction: WeatherAction() {
-    data class ShowToast(val message: String) : WeatherAction()
+    data class FetchForLocationAction(val whereOnEarthId: Int): WeatherAction()
+    data class FetchForSearchLocationAction(val cityName: String): WeatherAction()
 }

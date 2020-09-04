@@ -23,7 +23,7 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     }
 
     private val loadSfWeatherEventPublisher =
-        BehaviorSubject.create<WeatherViewEvent.LoadSfWeatherEvent>()
+        BehaviorSubject.create<WeatherViewEvent.LoadWeatherPageEvent>()
     private val viewStateBinder = WeatherViewStateBinder()
 
     override val viewModel: WeatherViewModel by viewModel()
@@ -47,7 +47,7 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewStateBinder.setViewApi(this)
-        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadSfWeatherEvent)
+        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
         pressure_label_text_view.setUnderlined()
         wind_speed_label_text_view.setUnderlined()
         humidity_label_text_view.setUnderlined()

@@ -34,7 +34,7 @@ class WeatherViewModel(
     /**
      *  View Event -> Action
      */
-    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): WeatherAction {
+    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): List<WeatherAction> {
         val action: WeatherAction = when (viewEvent) {
             is WeatherViewEvent.LoadSfWeatherEvent -> WeatherRepoAction.FetchForLocationAction(2487956)
             else -> WeatherAction.NoOperationAction
@@ -50,9 +50,9 @@ class WeatherViewModel(
             actions.publish {
                 Observable.merge(
                     actions.ofType(WeatherRepoAction.FetchForLocationAction::class.java)
-                        .compose(repo.fetForLocationProcessor),
-                    actions.ofType(WeatherSideEffectsAction.ShowToast::class.java)
-                        .compose(repo.handleShowToastProcessor)
+                        .compose(repo.fetchForLocationProcessor),
+                    actions.ofType(WeatherRepoAction.FetchForSearchLocationAction::class.java)
+                        .compose(repo.fetchForSearchLocationProcessor)
                 )
             }
         }
