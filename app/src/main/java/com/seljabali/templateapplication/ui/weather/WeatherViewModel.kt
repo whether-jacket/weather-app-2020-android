@@ -34,9 +34,9 @@ class WeatherViewModel(
     /**
      *  View Event -> Action
      */
-    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): List<WeatherAction> {
+    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): WeatherAction { // TODO: Make as List of Actions
         val action: WeatherAction = when (viewEvent) {
-            is WeatherViewEvent.LoadSfWeatherEvent -> WeatherRepoAction.FetchForLocationAction(2487956)
+            is WeatherViewEvent.LoadWeatherPageEvent -> WeatherRepoAction.FetchForLocationAction(2487956) // TODO: Make city specific search
             else -> WeatherAction.NoOperationAction
         }
         return action
