@@ -17,11 +17,17 @@
     <string name="theming">Theming</string>
     <string name="pages">Pages</string>
     <string name="sample_pages">Sample Pages</string>
+
+    <!-- Cities -->
     <string name="add_city">Add City</string>
     <string name="enter_city_name">Enter City Name</string>
     <string name="city_name_cannot_be_blank">City name cannot be blank</string>
+
+    <!-- Weather Page -->
     <string name="pressure">Pressure</string>
     <string name="humidity">Humidity</string>
     <string name="wind_speed">Wind Speed</string>
 
+    <!-- Add City Page -->
+    <string name="search_for_city">Search for City…</string>
 </resources>

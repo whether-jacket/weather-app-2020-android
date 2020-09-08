@@ -13,6 +13,7 @@ import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
 import com.seljabali.database.DB_LOCATION_BOX
 import com.seljabali.database.models.LocationDb
 import com.seljabali.templateapplication.R
+import com.seljabali.templateapplication.ui.addcity.AddCityFragment
 import io.objectbox.Box
 import kotlinx.android.synthetic.main.fragment_cities.*
 import org.koin.android.ext.android.inject
@@ -36,7 +37,7 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        add_city_button.setOnClickListener { showAddCityDialog() }
+        add_city_button.setOnClickListener { showAddCityPage() }
         setupLocationDb()
         cityAdapter = CityAdapter(getAllLocationsFromDb())
         with(cities_drag_drop_swipe_recycler_view) {
@@ -58,6 +59,15 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     }
 
     private fun getAllLocationsFromDb(): List<LocationDb> = locationBox.all.sortedBy { it.position }
+
+    private fun showAddCityPage() {
+        val homeActivity = activity ?: return
+        homeActivity.supportFragmentManager
+                .beginTransaction()
+                .add(R.id.home_activity_frame_layout, AddCityFragment.newInstance(), AddCityFragment.TAG)
+                .addToBackStack(AddCityFragment.TAG)
+                .commit()
+    }
 
     private fun showAddCityDialog() {
         val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
