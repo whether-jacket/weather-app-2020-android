@@ -48,12 +48,8 @@ class WeatherViewModel(
     private fun getResultFromAction(): ObservableTransformer<WeatherAction, WeatherResult> =
         ObservableTransformer { actions ->
             actions.publish {
-                Observable.merge(
                     actions.ofType(WeatherRepoAction.FetchForLocationAction::class.java)
-                        .compose(repo.fetchForLocationProcessor),
-                    actions.ofType(WeatherRepoAction.FetchForSearchLocationAction::class.java)
-                        .compose(repo.fetchForSearchLocationProcessor)
-                )
+                        .compose(repo.fetchForLocationProcessor)
             }
         }
 

@@ -4,18 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.orhanobut.logger.Logger
 import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
+import com.seljabali.core.modules.RxProvider
 import com.seljabali.core.utilities.Keyboard
+import com.seljabali.core.utilities.Res
 import com.seljabali.database.DB_LOCATION_BOX
 import com.seljabali.database.models.LocationDb
+import com.seljabali.network.MetaWeatherService
 import com.seljabali.templateapplication.R
 import io.objectbox.Box
 import kotlinx.android.synthetic.main.fragment_add_city.*
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
+import setTheme
 
 class AddCityFragment : BaseFragment() {
 
@@ -25,7 +33,10 @@ class AddCityFragment : BaseFragment() {
     }
 
     private val locationBox: Box<LocationDb> by inject(named(DB_LOCATION_BOX))
+    private val weatherApi: MetaWeatherService by inject()
+    private val rxProvider: RxProvider by inject()
     private lateinit var cityAdapter: CitySearchAdapter
+    private val locationsOnDb: List<LocationDb> = locationBox.all
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -35,62 +46,97 @@ class AddCityFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cityAdapter = CitySearchAdapter()
+        setupToolbar()
+        cityAdapter = CitySearchAdapter(onCityClickedListener)
         with(cities_results_recycler_view) {
             layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(DividerItemDecoration(requireContext(), LinearLayout.VERTICAL))
             adapter = cityAdapter
         }
-        city_query_search_view.setOnQueryTextListener(getSearchCloseListener())
-        city_query_search_view.requestFocus()
         Keyboard.show(requireContext(), city_query_search_view)
+    }
+
+    private fun setupToolbar() {
+        val backButtonDrawableId = Res.getResIdFromAttribute(requireContext(), android.R.attr.homeAsUpIndicator)
+        with(city_search_toolbar) {
+            navigationIcon = Res.getDrawable(requireContext(), backButtonDrawableId)
+            setNavigationOnClickListener { activity?.onBackPressed() }
+        }
+        with(city_query_search_view) {
+            setOnQueryTextListener(getSearchQueryTextListener())
+            requestFocus()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Keyboard.hide(this)
+        Keyboard.hide(requireContext(), city_query_search_view)
     }
 
-    private fun onCitySearchClicked() {
-        val queryText = city_query_search_view.query
+    private fun onCitySearchQueried() {
+        val queryText = city_query_search_view.query.toString()
         if (queryText.isBlank()) return
-        city_query_search_view.visibility = View.GONE
-        city_query_search_text_view.visibility = View.VISIBLE
-        city_query_search_text_view.text = "Searching for $queryText"
         showProgressBar(true)
         Keyboard.hide(this)
-    }
-
-    private fun getAllLocationsFromDb(): List<LocationDb> = locationBox.all.sortedBy { it.position }
-
-    private fun onCityAdded(cityName: String) {
-        val locationCount = getAllLocationsFromDb().count()
-        locationBox.put(
-                LocationDb(
-                        cityName = cityName,
-                        regionName = "",
-                        woeId = 0,
-                        position = locationCount - 1
-                )
-        )
-        updateAdapterFromDb()
-    }
-
-    private fun updateAdapterFromDb() {
-//        cityAdapter.dataSet = getAllLocationsFromDb()
+        subscribe(weatherApi.getLocationsForCitySearch(cityName = queryText)
+                .subscribeOn(rxProvider.ioScheduler())
+                .observeOn(rxProvider.uiScheduler())
+                .map { locations ->
+                    locations.map { location ->
+                        CityResult(
+                                cityName = location.cityTitle,
+                                regionName = location.location_type,
+                                whereOnEarthId = location.whereOnEarthId
+                        )
+                    }
+                }
+                .doFinally {
+                    showProgressBar(false)
+                }
+                .subscribe({ result ->
+                    cityAdapter.setCityResults(results = result)
+                }, { error ->
+                    Logger.e(error.message ?: error.toString())
+                }))
     }
 
     private fun showProgressBar(show: Boolean) {
         city_search_progress_bar.isVisible = show
     }
 
-    private fun getSearchCloseListener() = object : SearchView.OnQueryTextListener {
-
-        override fun onQueryTextChange(s: String): Boolean {
-            return true
+    private val onCityClickedListener: (CityResult) -> Unit = { cityTapped ->
+        if (locationsOnDb.firstOrNull { it.woeId == cityTapped.whereOnEarthId } != null) {
+            Toast.makeText(
+                    requireContext(),
+                    getString(R.string.city_already_exists, cityTapped.cityName),
+                    Toast.LENGTH_LONG
+            ).setTheme().show()
+        } else {
+            val locationCount = locationsOnDb.count()
+            locationBox.put(
+                    LocationDb(
+                            cityName = cityTapped.cityName,
+                            regionName = "",
+                            woeId = cityTapped.whereOnEarthId,
+                            position = locationCount - 1
+                    )
+            )
+            Toast.makeText(
+                    requireContext(),
+                    getString(R.string.city_added_to_favorites, cityTapped.cityName),
+                    Toast.LENGTH_LONG
+            ).setTheme().show()
+            activity?.onBackPressed()
         }
+        Unit
+    }
+
+    private fun getSearchQueryTextListener() = object : SearchView.OnQueryTextListener {
+
+        override fun onQueryTextChange(s: String): Boolean = true
 
         override fun onQueryTextSubmit(s: String): Boolean {
-            onCitySearchClicked()
+            onCitySearchQueried()
             return true
         }
     }

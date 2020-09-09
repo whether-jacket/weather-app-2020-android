@@ -30,4 +30,6 @@
 
     <!-- Add City Page -->
     <string name="search_for_city">Search for City…</string>
+    <string name="city_already_exists" formatted="true">City already amongst favorites: %s</string>
+    <string name="city_added_to_favorites" formatted="true">City added to favorites: %s</string>
 </resources>
