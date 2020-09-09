@@ -53,7 +53,7 @@ class AddCityFragment : BaseFragment() {
             addItemDecoration(DividerItemDecoration(requireContext(), LinearLayout.VERTICAL))
             adapter = cityAdapter
         }
-        Keyboard.show(requireContext(), city_query_search_view)
+        showKeyboard(true)
     }
 
     private fun setupToolbar() {
@@ -70,14 +70,14 @@ class AddCityFragment : BaseFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Keyboard.hide(requireContext(), city_query_search_view)
+        showKeyboard(false)
     }
 
     private fun onCitySearchQueried() {
         val queryText = city_query_search_view.query.toString()
         if (queryText.isBlank()) return
         showProgressBar(true)
-        Keyboard.hide(this)
+        showKeyboard(false)
         subscribe(weatherApi.getLocationsForCitySearch(cityName = queryText)
                 .subscribeOn(rxProvider.ioScheduler())
                 .observeOn(rxProvider.uiScheduler())
@@ -102,6 +102,14 @@ class AddCityFragment : BaseFragment() {
 
     private fun showProgressBar(show: Boolean) {
         city_search_progress_bar.isVisible = show
+    }
+
+    private fun showKeyboard(show: Boolean) {
+        if (show) {
+            Keyboard.show(requireContext(), city_query_search_view)
+            return
+        }
+        Keyboard.hide(requireContext(), city_query_search_view)
     }
 
     private val onCityClickedListener: (CityResult) -> Unit = { cityTapped ->
