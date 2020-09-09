@@ -56,6 +56,11 @@ class AddCityFragment : BaseFragment() {
         showKeyboard(true)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        showKeyboard(false)
+    }
+
     private fun setupToolbar() {
         val backButtonDrawableId = Res.getResIdFromAttribute(requireContext(), android.R.attr.homeAsUpIndicator)
         with(city_search_toolbar) {
@@ -66,11 +71,6 @@ class AddCityFragment : BaseFragment() {
             setOnQueryTextListener(getSearchQueryTextListener())
             requestFocus()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        showKeyboard(false)
     }
 
     private fun onCitySearchQueried() {
