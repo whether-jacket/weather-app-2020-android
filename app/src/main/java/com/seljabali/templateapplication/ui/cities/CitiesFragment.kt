@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_cities.*
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
-class CitiesFragment : BaseFragment(), AddCityDialogListener {
+class CitiesFragment : BaseFragment() {
 
     companion object {
         val TAG: String = CitiesFragment::class.java.simpleName
@@ -67,30 +66,6 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
                 .add(R.id.home_activity_frame_layout, AddCityFragment.newInstance(), AddCityFragment.TAG)
                 .addToBackStack(AddCityFragment.TAG)
                 .commit()
-    }
-
-    private fun showAddCityDialog() {
-        val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
-        val prevDialog = parentFragmentManager.findFragmentByTag(AddCityDialog.TAG)
-        prevDialog?.let { fragmentTransaction.remove(it) }
-        fragmentTransaction.addToBackStack(null)
-
-        val addCityDialog = AddCityDialog.newInstance()
-        addCityDialog.addCityDialogListener = this
-        addCityDialog.show(fragmentTransaction, AddCityDialog.TAG)
-    }
-
-    override fun onCityAdded(cityName: String) {
-        val locationCount = getAllLocationsFromDb().count()
-        locationBox.put(
-            LocationDb(
-                cityName = cityName,
-                regionName = "",
-                woeId = 0,
-                position = locationCount - 1
-            )
-        )
-        updateAdapterFromDb()
     }
 
     private fun updateAdapterFromDb() {
