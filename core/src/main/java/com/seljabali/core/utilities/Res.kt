@@ -24,6 +24,16 @@ object Res {
     fun getIdentifier(context: Context, @AnyRes id: Int): String? = context.resources.getResourceEntryName(id)
 
     @JvmStatic
+    @AnyRes
+    fun getResIdFromAttribute(context: Context, @AttrRes attr: Int): Int {
+        if (attr == 0) return 0
+        val typedValueAttr = TypedValue()
+        context.theme.resolveAttribute(attr, typedValueAttr, true)
+        return typedValueAttr.resourceId
+    }
+
+
+    @JvmStatic
     fun getPath(context: Context, resFolder: String, @AnyRes resourceId: Int): String =
         "android.resource://${context.packageName}/$resFolder/${getIdentifier(context, resourceId)}"
 
