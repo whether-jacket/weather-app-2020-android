@@ -32,7 +32,6 @@ object Res {
         return typedValueAttr.resourceId
     }
 
-
     @JvmStatic
     fun getPath(context: Context, resFolder: String, @AnyRes resourceId: Int): String =
         "android.resource://${context.packageName}/$resFolder/${getIdentifier(context, resourceId)}"

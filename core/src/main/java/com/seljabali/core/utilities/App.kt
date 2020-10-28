@@ -7,6 +7,13 @@ import com.seljabali.core.BuildConfig
 object App {
 
     @JvmStatic
+    fun getName(context: Context): String {
+        val applicationInfo = context.applicationInfo
+        val stringId = applicationInfo.labelRes
+        return if (stringId == 0) applicationInfo.nonLocalizedLabel.toString() else context.getString(stringId)
+    }
+
+    @JvmStatic
     fun getPackageName(context: Context): String =
         try {
             context.packageManager.getPackageInfo(context.packageName, 0).packageName
