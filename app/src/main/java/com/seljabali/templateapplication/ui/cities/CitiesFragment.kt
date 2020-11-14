@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
@@ -13,12 +12,13 @@ import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
 import com.seljabali.database.DB_LOCATION_BOX
 import com.seljabali.database.models.LocationDb
 import com.seljabali.templateapplication.R
+import com.seljabali.templateapplication.ui.addcity.AddCityFragment
 import io.objectbox.Box
 import kotlinx.android.synthetic.main.fragment_cities.*
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
-class CitiesFragment : BaseFragment(), AddCityDialogListener {
+class CitiesFragment : BaseFragment() {
 
     companion object {
         val TAG: String = CitiesFragment::class.java.simpleName
@@ -36,7 +36,7 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        add_city_button.setOnClickListener { showAddCityDialog() }
+        add_city_button.setOnClickListener { showAddCityPage() }
         setupLocationDb()
         cityAdapter = CityAdapter(getAllLocationsFromDb())
         with(cities_drag_drop_swipe_recycler_view) {
@@ -52,35 +52,20 @@ class CitiesFragment : BaseFragment(), AddCityDialogListener {
     private fun setupLocationDb() {
         val locationsSaved = locationBox.all
         if (locationsSaved.isNotEmpty()) return
-        locationBox.put(LocationDb(cityName = "San Francisco", regionName = "CA", position = 0))
-        locationBox.put(LocationDb(cityName = "Tempe", regionName = "AZ", position = 1))
-        locationBox.put(LocationDb(cityName = "New York", regionName = "NY", position = 2))
+        locationBox.put(LocationDb(cityName = "San Francisco", regionName = "CA", woeId = 2487956, position = 0))
+        locationBox.put(LocationDb(cityName = "Phoenix", regionName = "AZ", woeId = 2471390, position = 1))
+        locationBox.put(LocationDb(cityName = "New York", regionName = "NY", woeId = 2459115, position = 2))
     }
 
     private fun getAllLocationsFromDb(): List<LocationDb> = locationBox.all.sortedBy { it.position }
 
-    private fun showAddCityDialog() {
-        val fragmentTransaction: FragmentTransaction = parentFragmentManager.beginTransaction()
-        val prevDialog = parentFragmentManager.findFragmentByTag(AddCityDialog.TAG)
-        prevDialog?.let { fragmentTransaction.remove(it) }
-        fragmentTransaction.addToBackStack(null)
-
-        val addCityDialog = AddCityDialog.newInstance()
-        addCityDialog.addCityDialogListener = this
-        addCityDialog.show(fragmentTransaction, AddCityDialog.TAG)
-    }
-
-    override fun onCityAdded(cityName: String) {
-        val locationCount = getAllLocationsFromDb().count()
-        locationBox.put(
-            LocationDb(
-                cityName = cityName,
-                regionName = "",
-                woeId = 0,
-                position = locationCount - 1
-            )
-        )
-        updateAdapterFromDb()
+    private fun showAddCityPage() {
+        val homeActivity = activity ?: return
+        homeActivity.supportFragmentManager
+                .beginTransaction()
+                .add(R.id.home_activity_frame_layout, AddCityFragment.newInstance(), AddCityFragment.TAG)
+                .addToBackStack(AddCityFragment.TAG)
+                .commit()
     }
 
     private fun updateAdapterFromDb() {

@@ -25,7 +25,7 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     }
 
     private val loadSfWeatherEventPublisher =
-        BehaviorSubject.create<WeatherViewEvent.LoadSfWeatherEvent>()
+        BehaviorSubject.create<WeatherViewEvent.LoadWeatherPageEvent>()
     private val viewStateBinder = WeatherViewStateBinder()
     private lateinit var citiesAdapter: CitiesAdapter
     override val viewModel: WeatherViewModel by viewModel()

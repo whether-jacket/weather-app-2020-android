@@ -11,8 +11,8 @@ object Apps {
     @Retention(AnnotationRetention.SOURCE)
     annotation class AppsOnPlayStore
 
-    const val GOOGLE_MAPS = "com.google.android.apps.maps"
-    const val PLAY_STORE = "com.android.vending"
+    private const val GOOGLE_MAPS = "com.google.android.apps.maps"
+    private const val PLAY_STORE = "com.android.vending"
 
     @JvmStatic
     fun isInstalled(context: Context, packageName: String): Boolean =
