@@ -8,45 +8,20 @@
     android:focusable="true"
     android:paddingTop="@dimen/m_vertical_spacing">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/cities_view_pager"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
+    <com.seljabali.core.views.NestedScrollableHost
+        android:id="@+id/cities_view_pager_outer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/city_region_card_height"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- City -->
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/city_name_text_view"
-        style="@style/TextAppearance.MaterialComponents.Headline3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingStart="@dimen/m_horizontal_spacing"
-        android:paddingEnd="@dimen/m_horizontal_spacing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cities_view_pager"
-        android:visibility="gone"
-        android:text="San Francisco"/>
-<!--        tools:text="San Francisco"/>-->
-<!--    app:layout_constraintTop_toTopOf="parent"-->
-
-    <!-- Parent -->
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/parent_region_text_view"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/m_horizontal_spacing"
-        android:paddingEnd="@dimen/m_horizontal_spacing"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/city_name_text_view"
-        tools:text="CA"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/cities_view_pager"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.seljabali.core.views.NestedScrollableHost>
 
     <!-- Temperature -->
     <com.google.android.material.textview.MaterialTextView
@@ -69,7 +44,7 @@
         android:visibility="invisible"
         android:src="@mipmap/clouds"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/parent_region_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/cities_view_pager_outer_layout" />
 
     <!-- Pressure Label -->
     <com.google.android.material.textview.MaterialTextView

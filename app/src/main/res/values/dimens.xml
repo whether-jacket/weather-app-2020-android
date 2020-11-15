@@ -3,4 +3,5 @@
     <!-- Weather Home Page -->
     <dimen name="weather_image_view_width">150dp</dimen>
     <dimen name="weather_image_view_height">150dp</dimen>
+    <dimen name="city_region_card_height">110dp</dimen>
 </resources>
