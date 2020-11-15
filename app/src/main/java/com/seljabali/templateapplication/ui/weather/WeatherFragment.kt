@@ -50,7 +50,7 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewStateBinder = WeatherViewStateBinder(this)
-//        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
+        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
         citiesViewPagerSetup()
         pressure_label_text_view.setUnderlined()
         wind_speed_label_text_view.setUnderlined()
@@ -59,9 +59,6 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
 
     private fun citiesViewPagerSetup() {
         cityRegionAdapter = CityRegionAdapter()
-        cityRegionAdapter.setCityRegions(listOf(
-            CityRegion("San Francisco", "California"),
-            CityRegion("New York", "New York")))
         cities_view_pager.apply {
             isUserInputEnabled = true
             adapter = cityRegionAdapter

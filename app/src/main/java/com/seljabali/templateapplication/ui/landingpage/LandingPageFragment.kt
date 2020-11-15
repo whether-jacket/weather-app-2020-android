@@ -33,14 +33,6 @@ class LandingPageFragment : BaseFragment() {
     private fun setupView() {
         viewPagerAdapter = LandingViewPagerAdapter(this)
         landing_page_view_pager.adapter = viewPagerAdapter
-        landing_page_view_pager.setOnTouchListener { v, event ->
-//            if (event.action === MotionEvent.ACTION_DOWN && v is ViewPager2) {
-            if (event.action === MotionEvent.ACTION_DOWN && v is MaterialTextView) {
-//                v.requestDisallowInterceptTouchEvent(true)
-                return@setOnTouchListener true
-            }
-            return@setOnTouchListener false
-        }
         landing_bottom_navigation_view.setOnNavigationItemSelectedListener { item: MenuItem ->
             val landingPageTabs: LandingPageTabs = LandingPageTabs.getMenuIdOf(item.itemId)
                 ?: throw IllegalStateException("hit unknown menu item")
