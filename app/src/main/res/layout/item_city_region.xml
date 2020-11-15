@@ -9,7 +9,7 @@
     android:gravity="center"
     android:padding="@dimen/m_padding"
     app:strokeColor="?attr/dividerColor"
-    app:strokeWidth="1dp"
+    app:strokeWidth="@dimen/horizontal_divider_height"
     app:cardCornerRadius="@dimen/s_corner_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout

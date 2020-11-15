@@ -88,6 +88,7 @@ class WeatherViewModel(
             cityName = response.cityTitle,
             regionName = response.parentRegion.title,
             woeId = response.whereOnEarthId,
+            // TODO: Take into account user preferences and conversions if need be
             currentTemperature = weather.maxTemp.round(2).toString() + " F",
             humidity = weather.humidity.round(2).toString(),
             windSpeed = weather.windSpeed.round(2).toString(),
