@@ -1,14 +1,10 @@
 package com.seljabali.templateapplication.ui.weather
 
 import com.seljabali.core.mvi.BaseViewState
+import com.seljabali.templateapplication.ui.weather.models.CityRegionWeather
 
 data class WeatherViewState(
-    var city: String = "",
-    var greaterRegion: String = "",
-    var pressure: String = "",
-    var humidity: String = "",
-    var windSpeed: String = "",
-    var dateTime: String = "",
-    var currentTemperature: String = "",
+    var cityRegionWeatherList: ArrayList<CityRegionWeather> = ArrayList(),
+    var selectedCityRegionPosition: Int = 0,
     var isLoadingTemperature: Boolean = false
 ) : BaseViewState

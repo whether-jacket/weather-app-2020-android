@@ -1,9 +1,10 @@
 package com.seljabali.templateapplication.ui.weather
 
+import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegion
 
 interface WeatherViewApi {
-    fun setCity(text: String)
-    fun setParentRegion(text: String)
+    fun setCityRegionsVisibility(toShow: Boolean)
+    fun setCityRegions(cityRegions: List<CityRegion>)
     fun setTemperature(text: String)
     fun setWeatherImageVisibility(toShow: Boolean)
     fun setPressureTitleVisibility(toShow: Boolean)

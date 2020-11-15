@@ -1,14 +1,11 @@
 package com.seljabali.templateapplication.ui.weather
 
 import com.seljabali.core.mvi.BaseViewStateBinder
+import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegion
+import com.seljabali.templateapplication.ui.weather.models.CityRegionWeather
 
-class WeatherViewStateBinder : BaseViewStateBinder<WeatherViewState> {
-
-    private var weatherViewApi: WeatherViewApi? = null
-
-    fun setViewApi(viewApi: WeatherViewApi) {
-        this.weatherViewApi = viewApi
-    }
+class WeatherViewStateBinder(private val weatherViewApi: WeatherViewApi) :
+    BaseViewStateBinder<WeatherViewState> {
 
     override fun setViewState(viewState: WeatherViewState) {
         setTemperature(viewState)
@@ -18,40 +15,48 @@ class WeatherViewStateBinder : BaseViewStateBinder<WeatherViewState> {
     private fun setTemperature(viewState: WeatherViewState) {
         with(viewState) {
             if (isLoadingTemperature) {
-                weatherViewApi?.setCity("")
-                weatherViewApi?.setParentRegion("")
-                weatherViewApi?.setTemperature("")
-                weatherViewApi?.setDateTime("")
-                weatherViewApi?.setHumidity("")
-                weatherViewApi?.setPressure("")
-                weatherViewApi?.setWindSpeed("")
-                weatherViewApi?.setWeatherImageVisibility(false)
-                weatherViewApi?.setHumidityTitleVisibility(false)
-                weatherViewApi?.setPressureTitleVisibility(false)
-                weatherViewApi?.setWindSpeedTitleVisibility(false)
+                weatherViewApi.apply {
+                    setCityRegionsVisibility(false)
+                    setTemperature("")
+                    setDateTime("")
+                    setHumidity("")
+                    setPressure("")
+                    setWindSpeed("")
+                    setWeatherImageVisibility(false)
+                    setHumidityTitleVisibility(false)
+                    setPressureTitleVisibility(false)
+                    setWindSpeedTitleVisibility(false)
+                }
                 return
             }
-            weatherViewApi?.setCity(city)
-            weatherViewApi?.setParentRegion(greaterRegion)
-            weatherViewApi?.setTemperature(currentTemperature)
-            weatherViewApi?.setDateTime(dateTime)
-            weatherViewApi?.setHumidity(humidity)
-            weatherViewApi?.setPressure(pressure)
-            weatherViewApi?.setWindSpeed(windSpeed)
-            weatherViewApi?.setWeatherImageVisibility(true)
-            weatherViewApi?.setHumidityTitleVisibility(true)
-            weatherViewApi?.setPressureTitleVisibility(true)
-            weatherViewApi?.setWindSpeedTitleVisibility(true)
+            val currentCityRegion = viewState.cityRegionWeatherList[selectedCityRegionPosition]
+            weatherViewApi.apply {
+                setCityRegionsVisibility(true)
+                setCityRegions(getCityRegionsFromWeather(viewState.cityRegionWeatherList))
+                setTemperature(currentCityRegion.currentTemperature)
+                setDateTime(currentCityRegion.dateTime)
+                setHumidity(currentCityRegion.humidity)
+                setPressure(currentCityRegion.pressure)
+                setWindSpeed(currentCityRegion.windSpeed)
+                setWeatherImageVisibility(true)
+                setHumidityTitleVisibility(true)
+                setPressureTitleVisibility(true)
+                setWindSpeedTitleVisibility(true)
+            }
         }
     }
 
     private fun setProgressBar(viewState: WeatherViewState) {
         with(viewState) {
-            weatherViewApi?.setProgressBarVisibility(isLoadingTemperature)
+            weatherViewApi.setProgressBarVisibility(isLoadingTemperature)
         }
     }
 
-    override fun unbindView() {
-        weatherViewApi = null
+    private fun getCityRegionsFromWeather(cityRegionWeatherList: List<CityRegionWeather>): ArrayList<CityRegion> {
+        val cityRegionsList: ArrayList<CityRegion> = ArrayList()
+        for (weather in cityRegionWeatherList) {
+            cityRegionsList.add(CityRegion(cityName = weather.cityName, regionName = weather.regionName))
+        }
+        return cityRegionsList
     }
 }

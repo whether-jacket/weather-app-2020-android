@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.viewpager2.widget.ViewPager2
 import com.seljabali.core.mvi.BaseMviFragment
 import com.seljabali.core.utilities.setUnderlined
 import com.seljabali.templateapplication.R
+import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegion
+import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegionAdapter
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import kotlinx.android.synthetic.main.fragment_weather_landing_page.*
@@ -24,8 +27,8 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
 
     private val loadSfWeatherEventPublisher =
         BehaviorSubject.create<WeatherViewEvent.LoadWeatherPageEvent>()
-    private val viewStateBinder = WeatherViewStateBinder()
-
+    private lateinit var viewStateBinder: WeatherViewStateBinder
+    private lateinit var cityRegionAdapter: CityRegionAdapter
     override val viewModel: WeatherViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,16 +49,26 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewStateBinder.setViewApi(this)
+        viewStateBinder = WeatherViewStateBinder(this)
         loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
+        citiesViewPagerSetup()
         pressure_label_text_view.setUnderlined()
         wind_speed_label_text_view.setUnderlined()
         humidity_label_text_view.setUnderlined()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewStateBinder.unbindView()
+    private fun citiesViewPagerSetup() {
+        cityRegionAdapter = CityRegionAdapter()
+        cities_view_pager.apply {
+            isUserInputEnabled = true
+            adapter = cityRegionAdapter
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    // TODO: Inform VM
+                }
+            })
+        }
     }
 
     /**
@@ -78,12 +91,12 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     /**
      *  WeatherView Api
      */
-    override fun setCity(text: String) {
-        city_name_text_view.text = text
+    override fun setCityRegionsVisibility(toShow: Boolean) {
+        cities_view_pager.visibility = if (toShow) View.VISIBLE else View.INVISIBLE
     }
 
-    override fun setParentRegion(text: String) {
-        parent_region_text_view.text = text
+    override fun setCityRegions(cityRegions: List<CityRegion>) {
+        cityRegionAdapter.setCityRegions(cityRegions)
     }
 
     override fun setTemperature(text: String) {

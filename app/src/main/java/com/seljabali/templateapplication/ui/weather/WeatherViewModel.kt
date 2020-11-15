@@ -6,16 +6,17 @@ import com.seljabali.core.utilities.round
 import com.seljabali.core.utilities.time.Formats
 import com.seljabali.core.utilities.time.parseZonedDate
 import com.seljabali.core.utilities.time.print
-import io.reactivex.Observable
+import com.seljabali.network.responses.WeatherForLocation
+import com.seljabali.templateapplication.ui.weather.models.CityRegionWeather
 import io.reactivex.ObservableTransformer
 
 class WeatherViewModel(
     private val rxProvider: RxProvider,
-    private val repo: WeatherRepo
+    private val weatherRepo: WeatherRepo
 ) : BaseViewModel<WeatherViewEvent, WeatherViewState, WeatherSideEffect>(rxProvider) {
 
     private var actionProcessor: ObservableTransformer<WeatherAction, WeatherResult>
-    private val initialViewState = WeatherViewState(currentTemperature = "TBD")
+    private val initialViewState = WeatherViewState(isLoadingTemperature = true)
 
     init {
         actionProcessor = getResultFromAction()
@@ -49,7 +50,7 @@ class WeatherViewModel(
         ObservableTransformer { actions ->
             actions.publish {
                     actions.ofType(WeatherRepoAction.FetchForLocationAction::class.java)
-                        .compose(repo.fetchForLocationProcessor)
+                        .compose(weatherRepo.fetchForLocationProcessor)
             }
         }
 
@@ -61,26 +62,38 @@ class WeatherViewModel(
         val newState = currentState.copy()
         when (result) {
             is WeatherResult.LoadingWeatherResult -> newState.apply {
-                currentTemperature = "Loading"
                 isLoadingTemperature = true
             }
             is WeatherResult.WeatherForLocationResult -> newState.apply {
-                val weather = result.response.consolidatedWeather[0]
-                city = result.response.cityTitle
-                greaterRegion = result.response.parentRegion.title
-                currentTemperature = weather.maxTemp.round(2).toString() + " F"
-                humidity = weather.humidity.round(2).toString()
-                windSpeed = weather.windSpeed.round(2).toString()
-                pressure = weather.airPressure.round(2).toString()
-                dateTime = result.response.dateTime.parseZonedDate()?.print(Formats.MonthDayYear.MMM_D_YYYY_SPACE) ?: ""
+                val cityRegionWeather = getCityRegionWeather(result.response)
+                if (cityRegionWeatherList.contains(cityRegionWeather)) {
+                    val position = cityRegionWeatherList.indexOf(cityRegionWeather)
+                    cityRegionWeatherList[position] = cityRegionWeather
+                } else {
+                    cityRegionWeatherList.add(cityRegionWeather)
+                }
                 isLoadingTemperature = false
             }
             is WeatherResult.ErrorLoadingWeatherForLocationResult -> newState.apply {
                 isLoadingTemperature = false
-                currentTemperature = "Unknown"
                 sendSideEffect(WeatherSideEffect.ShowToast("Error Loading Weather"))
             }
         }
         return newState
+    }
+
+    private fun getCityRegionWeather(response: WeatherForLocation): CityRegionWeather {
+        val weather = response.consolidatedWeather[0]
+        return CityRegionWeather(
+            cityName = response.cityTitle,
+            regionName = response.parentRegion.title,
+            woeId = response.whereOnEarthId,
+            // TODO: Take into account user preferences and conversions if need be
+            currentTemperature = weather.maxTemp.round(2).toString() + " F",
+            humidity = weather.humidity.round(2).toString(),
+            windSpeed = weather.windSpeed.round(2).toString(),
+            pressure = weather.airPressure.round(2).toString(),
+            dateTime = response.dateTime.parseZonedDate()?.print(Formats.MonthDayYear.MMM_D_YYYY_SPACE) ?: ""
+        )
     }
 }
