@@ -1,5 +1,6 @@
-# Weather App 2020 Android
+# Weather App 2020 Android 
 App aspiring to show casing Android's best practices as of 2020 along with developer goodies.
+####  👷‍♂️Under construction 🚧
 
 ## User features
 - Search cities you'd like to view temperatures of.
@@ -8,7 +9,7 @@ App aspiring to show casing Android's best practices as of 2020 along with devel
 - Offline viewing of last saved weather forecast.
 - Night Mode.
 
-## Developer features
+## Developer goodies
 - In-App design token catalog: Catalog of design values used across app.
 - In-App widget catalog: Catalog of Android views, meant to be used as a reference.
 - In-App theme previewer: Catalog of themes along with quick previewing of them.
