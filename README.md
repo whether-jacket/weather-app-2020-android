@@ -1,5 +1,5 @@
 # Weather App 2020 Android
-An app show casing Android's best practices as of 2020-sh.
+App aspiring to show casing Android's best practices as of 2020 along with developer goodies.
 
 ## User features
 - Search cities you'd like to view temperatures of.
@@ -22,13 +22,11 @@ An app show casing Android's best practices as of 2020-sh.
 
 ## Libraries
 - [Drag Drop Swipe Recyclerview](https://github.com/ernestoyaquello/DragDropSwipeRecyclerview)
-- [GSON](https://github.com/google/gson) - [Moshi](https://github.com/square/moshi) - [TODO](https://github.com/whether-jacket/weather-app-2020-android/issues/22)
-- [Jetpack Navigation](https://developer.android.com/jetpack) - [TODO](https://github.com/whether-jacket/weather-app-2020-android/issues/56)
+- [GSON](https://github.com/google/gson)
 - [Koin](https://github.com/InsertKoinIO/koin)
 - [Leak Canary](https://github.com/square/leakcanary)
-- [Logger](https://github.com/orhanobut/logger) - [Timber](https://github.com/JakeWharton/timber) - [TODO](https://github.com/whether-jacket/weather-app-2020-android/issues/20)
+- [Logger](https://github.com/orhanobut/logger)
 - [Material](https://github.com/material-components/material-components-android)
-- [Mockk](https://github.com/mockk/mockk) - [TODO](https://github.com/whether-jacket/weather-app-2020-android/issues/18)
 - [Object Box](https://github.com/objectbox/objectbox-java)
 - [OkHttp](https://github.com/square/okhttp)
 - [Retrofit](https://github.com/square/retrofit)
