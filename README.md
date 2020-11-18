@@ -8,22 +8,23 @@
 - Offline viewing of last saved weather forecast.
 - Night Mode.
 <p align="center">
-<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_1_home.gif?raw=true" alt="" data-canonical-src="" width="300" height="600" />
-<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_2_cities.gif?raw=true" alt="" data-canonical-src="" width="300" height="600" />
-<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_3_settings.png?raw=true" alt="" data-canonical-src="" width="300" height="600" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_1_home.gif?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_2_cities.gif?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_3_settings.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
 </p></br>
 
 ## Developer goodies
-- In-App design token catalog: Catalog of design values used across app.
-- In-App widget catalog: Catalog of Android views, meant to be used as a reference.
-- In-App theme previewer: Catalog of themes along with quick previewing of them.
-- In-App sample pages: Catalogs various sample pages meant to be used as reference.
-- Assortment of Android utility classes & extensions.
-- Extensive support for Dates, Times, & Intents.
+- Design token catalog: Catalog of design values used across app.
+- Widget catalog: Catalog of Android views, meant to be used as a reference.
+- Theme previewer: Catalog of themes along with quick previewing of them.
+- Sample pages: Catalogs various sample pages meant to be used as reference.
+- Android utility classes & extensions.
+- Dates, Times, & Intents extensive support.
 <p align="center">
-<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_4_theming.png?raw=true" alt="" data-canonical-src="" width="300" height="600" />
-<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_5_widgets.png?raw=true" alt="" data-canonical-src="" width="300" height="600" />
-<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_7_design_tokens.png?raw=true" alt="" data-canonical-src="" width="300" height="600" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_4_theming.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_5_widgets.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_6_sample_pages.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
+<img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/Demo_7_design_tokens.png?raw=true" alt="" data-canonical-src="" width="187.5" height="375" />
 </p></br>
 
 ## Architecture
