@@ -1,5 +1,5 @@
 <h1 align="center">Weather App 2020 Android </h1></br>
-<p align="center">App aspiring to show casing Android's best practices as of 2020 along with developer goodies.</br> 👷‍♂️Under construction</p></br>
+<p align="center">App aspiring to show case Android's best practices as of 2020 along with developer goodies.</br> 👷‍♂️Under construction</p></br>
 
 ## Features
 - View city's weather.
