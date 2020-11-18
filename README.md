@@ -44,8 +44,9 @@
 - [RxKotlin](https://github.com/ReactiveX/RxKotlin)
 
 ## Want to contribute?
-Be my guest & [please pick up a ticket.](https://github.com/whether-jacket/weather-app-2020-android/issues) <br>
-This project is meant to be a for developers by developers.
+This project is meant to be a for developers by developers.<br>
+Be a champ & [pick up a ticket.](https://github.com/whether-jacket/weather-app-2020-android/issues) <br>
+
 
 ## Find this repository useful?
 Let me know by throwing [it a star. :star:](https://github.com/whether-jacket/weather-app-2020-android/stargazers)
