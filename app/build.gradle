@@ -65,10 +65,10 @@ dependencies {
     implementation project(":core")
     implementation project(":network")
     implementation project(":database")
-    debugImplementation project(":widgets")
-    debugImplementation project(":pages")
-    debugImplementation project(':theming')
-    debugImplementation project(':designtokens')
+    implementation project(":widgets")
+    implementation project(":pages")
+    implementation project(':theming')
+    implementation project(':designtokens')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:$ktx_version"
 
