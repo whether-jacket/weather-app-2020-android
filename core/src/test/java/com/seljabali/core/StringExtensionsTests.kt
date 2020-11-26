@@ -80,6 +80,6 @@ class StringExtensionsTests {
         // given
         val string1 = ""
         val string2 = ""
-        assertEquals(true, String.areAnyNotEmpty(string1, string2))
+        assertEquals(false, String.areAnyNotEmpty(string1, string2))
     }
 }
