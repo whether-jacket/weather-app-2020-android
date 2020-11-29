@@ -10,9 +10,9 @@
     <string name="settings">Settings</string>
 
     <!-- Settings -->
-    <string name="temperature_in_metric">Temperature in Metric</string>
-    <string name="dark_mode">Dark Mode</string>
-    <string name="speed_in_metric">Speed in Metric</string>
+    <string name="temperature_in_metric">Temperature in metric</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="speed_in_metric">Speed in metric</string>
     <string name="widgets">Widgets</string>
     <string name="theming">Theming</string>
     <string name="pages">Pages</string>

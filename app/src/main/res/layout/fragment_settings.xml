@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/unit_for_speed_label_text_view"/>
 
-    <!-- Dark Theme -->
+    <!-- Dark Mode -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dark_theme_label_text_view"
         style="@style/TextAppearance.MaterialComponents.Headline6"
