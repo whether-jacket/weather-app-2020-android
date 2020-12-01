@@ -62,6 +62,7 @@
     <dimen name="xs_corner_radius">2dp</dimen>
     <dimen name="s_corner_radius">4dp</dimen>
     <dimen name="m_corner_radius">6dp</dimen>
+    <dimen name="l_corner_radius">12dp</dimen>
 
     <!-- Elevation -->
     <dimen name="xs_elevation">2dp</dimen>
