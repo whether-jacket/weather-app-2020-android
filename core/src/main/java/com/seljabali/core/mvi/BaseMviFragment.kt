@@ -5,6 +5,7 @@ import androidx.annotation.CallSuper
 import com.orhanobut.logger.Logger
 import com.seljabali.core.activityfragment.nontoolbar.BaseFragment
 import com.seljabali.core.modules.RxProvider
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
@@ -17,6 +18,7 @@ abstract class BaseMviFragment<ViewEvent: BaseViewEvent, ViewState : BaseViewSta
 
     protected val rxProvider: RxProvider by inject()
     protected abstract val viewModel: BaseViewModel<ViewEvent, ViewState, SideEffect>
+    private val mviCompositeDisposable = CompositeDisposable()
 
     init {
         try {
@@ -35,6 +37,7 @@ abstract class BaseMviFragment<ViewEvent: BaseViewEvent, ViewState : BaseViewSta
     @CallSuper
     override fun onDestroy() {
         module?.let { unloadKoinModules(it) }
+        mviCompositeDisposable.clear()
         super.onDestroy()
     }
 
@@ -43,12 +46,12 @@ abstract class BaseMviFragment<ViewEvent: BaseViewEvent, ViewState : BaseViewSta
         val viewStateDisposable = viewModel.viewStateEvents
             .observeOn(rxProvider.uiScheduler())
             .subscribe({ onViewStateEvent(it) }, { Logger.e(it, it.message ?: "") })
-        subscribe(viewStateDisposable)
+        mviCompositeDisposable.add(viewStateDisposable)
 
         val sideEffectDisposable = viewModel.sideEffects
             .observeOn(rxProvider.uiScheduler())
             .subscribe({ onSideEffectEvent(it) }, { Logger.e(it, it.message ?: "") })
-        subscribe(sideEffectDisposable)
+        mviCompositeDisposable.add(sideEffectDisposable)
     }
 
     protected abstract fun onViewStateEvent(viewState: ViewState)
