@@ -52,9 +52,6 @@ class CitiesFragment : BaseFragment() {
     private fun setupLocationDb() {
         val locationsSaved = locationBox.all
         if (locationsSaved.isNotEmpty()) return
-        locationBox.put(LocationDb(cityName = "San Francisco", regionName = "CA", woeId = 2487956, position = 0))
-        locationBox.put(LocationDb(cityName = "Phoenix", regionName = "AZ", woeId = 2471390, position = 1))
-        locationBox.put(LocationDb(cityName = "New York", regionName = "NY", woeId = 2459115, position = 2))
     }
 
     private fun getAllLocationsFromDb(): List<LocationDb> = locationBox.all.sortedBy { it.position }

@@ -1,5 +1,6 @@
 package com.seljabali.templateapplication.ui.weather
 
+import com.orhanobut.logger.Logger
 import com.seljabali.core.mvi.BaseViewStateBinder
 import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegion
 import com.seljabali.templateapplication.ui.weather.models.CityRegionWeather
@@ -27,6 +28,10 @@ class WeatherViewStateBinder(private val weatherViewApi: WeatherViewApi) :
                     setPressureTitleVisibility(false)
                     setWindSpeedTitleVisibility(false)
                 }
+                return
+            }
+            if (viewState.cityRegionWeatherList.isEmpty()) {
+                Logger.e("We hit a bad state")
                 return
             }
             val currentCityRegion = viewState.cityRegionWeatherList[selectedCityRegionPosition]

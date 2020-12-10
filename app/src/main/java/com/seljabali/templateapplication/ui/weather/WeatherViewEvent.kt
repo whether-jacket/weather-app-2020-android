@@ -6,4 +6,5 @@ sealed class WeatherViewEvent : BaseViewEvent {
     object LoadWeatherPageEvent : WeatherViewEvent()
     object LoadNextCityEvent : WeatherViewEvent()
     object LoadPreviousCityEvent : WeatherViewEvent()
+    data class LoadCityPositionEvent(val position: Int) : WeatherViewEvent()
 }

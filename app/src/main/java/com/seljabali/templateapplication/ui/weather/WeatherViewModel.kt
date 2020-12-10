@@ -7,11 +7,15 @@ import com.seljabali.core.utilities.time.Formats
 import com.seljabali.core.utilities.time.parseZonedDate
 import com.seljabali.core.utilities.time.print
 import com.seljabali.network.responses.WeatherForLocation
+import com.seljabali.templateapplication.ui.weather.WeatherRepoAction.ChangeLocationAction
+import com.seljabali.templateapplication.ui.weather.WeatherRepoAction.FetchForLocationAction
 import com.seljabali.templateapplication.ui.weather.models.CityRegionWeather
+import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 
 class WeatherViewModel(
     private val rxProvider: RxProvider,
+    private val weatherUsecase: WeatherUsecase,
     private val weatherRepo: WeatherRepo
 ) : BaseViewModel<WeatherViewEvent, WeatherViewState, WeatherSideEffect>(rxProvider) {
 
@@ -35,9 +39,10 @@ class WeatherViewModel(
     /**
      *  View Event -> Action
      */
-    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): WeatherAction { // TODO: Make as List of Actions
+    private fun getActionFromViewEvent(viewEvent: WeatherViewEvent): WeatherAction {
         val action: WeatherAction = when (viewEvent) {
-            is WeatherViewEvent.LoadWeatherPageEvent -> WeatherRepoAction.FetchForLocationAction(2487956) // TODO: Make city specific search
+            is WeatherViewEvent.LoadWeatherPageEvent -> WeatherRepoAction.FetchAllAction
+            is WeatherViewEvent.LoadCityPositionEvent -> ChangeLocationAction(viewEvent.position)
             else -> WeatherAction.NoOperationAction
         }
         return action
@@ -49,10 +54,23 @@ class WeatherViewModel(
     private fun getResultFromAction(): ObservableTransformer<WeatherAction, WeatherResult> =
         ObservableTransformer { actions ->
             actions.publish {
-                    actions.ofType(WeatherRepoAction.FetchForLocationAction::class.java)
-                        .compose(weatherRepo.fetchForLocationProcessor)
+                Observable.merge(
+                    actions.ofType(WeatherRepoAction.FetchAllAction::class.java)
+                        .compose(weatherUsecase.fetchAllProcessor),
+                    actions.ofType(FetchForLocationAction::class.java)
+                        .compose(weatherRepo.fetchForLocationProcessor),
+                    actions.ofType(ChangeLocationAction::class.java)
+                        .compose(getFetchForLocationActionTransformer())
+                )
             }
         }
+
+    private fun getFetchForLocationActionTransformer(): ObservableTransformer<in ChangeLocationAction, out WeatherResult> =
+            ObservableTransformer {
+                it.switchMap { action: ChangeLocationAction ->
+                    Observable.just(WeatherResult.NewLocationResult(locationPosition = action.newPosition))
+                }
+            }
 
     /**
      *  Result -> View State
@@ -73,6 +91,14 @@ class WeatherViewModel(
                     cityRegionWeatherList.add(cityRegionWeather)
                 }
                 isLoadingTemperature = false
+            }
+            is WeatherResult.WeatherForAllLocationsResult -> newState.apply {
+                isLoadingTemperature = false
+                cityRegionWeatherList = result.weatherForCities
+                selectedCityRegionPosition = 0
+            }
+            is WeatherResult.NewLocationResult -> newState.apply {
+                selectedCityRegionPosition = result.locationPosition
             }
             is WeatherResult.ErrorLoadingWeatherForLocationResult -> newState.apply {
                 isLoadingTemperature = false

@@ -7,14 +7,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.seljabali.core.mvi.BaseMviFragment
-import com.seljabali.core.utilities.setUnderlined
+import com.seljabali.database.DB_LOCATION_BOX
+import com.seljabali.database.DB_USER_PREFERENCES_BOX
+import com.seljabali.database.DB_WEATHER_FOR_LOCATION_BOX
+import com.seljabali.database.models.LocationDb
+import com.seljabali.database.models.UserPreferencesDb
+import com.seljabali.database.models.WeatherForLocationDb
 import com.seljabali.templateapplication.R
 import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegion
 import com.seljabali.templateapplication.ui.weather.cityregionadapter.CityRegionAdapter
+import io.objectbox.Box
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import kotlinx.android.synthetic.main.fragment_weather_landing_page.*
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 
 class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, WeatherSideEffect>(
     module = weatherModule
@@ -25,17 +33,22 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
         fun newInstance() = WeatherFragment()
     }
 
-    private val loadSfWeatherEventPublisher =
-        BehaviorSubject.create<WeatherViewEvent.LoadWeatherPageEvent>()
+    private val locationBox: Box<LocationDb> by inject(named(DB_LOCATION_BOX))
+    private val weatherForLocationBox: Box<WeatherForLocationDb> by inject(named(DB_WEATHER_FOR_LOCATION_BOX))
+    private val userPreferencesBox: Box<UserPreferencesDb> by inject(named(DB_USER_PREFERENCES_BOX))
+
+    private val loadSfWeatherEventPublisher = BehaviorSubject.create<WeatherViewEvent.LoadWeatherPageEvent>()
+    private val loadCityPositionEventPublisher = BehaviorSubject.create<WeatherViewEvent.LoadCityPositionEvent>()
     private lateinit var viewStateBinder: WeatherViewStateBinder
     private lateinit var cityRegionAdapter: CityRegionAdapter
     override val viewModel: WeatherViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupDatabase()
         viewModel.processViewEvents(
             Observable.merge(
-                Observable.just(loadSfWeatherEventPublisher)
+                Observable.just(loadSfWeatherEventPublisher, loadCityPositionEventPublisher)
             )
         )
     }
@@ -52,9 +65,6 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
         viewStateBinder = WeatherViewStateBinder(this)
         loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
         citiesViewPagerSetup()
-        pressure_label_text_view.setUnderlined()
-        wind_speed_label_text_view.setUnderlined()
-        humidity_label_text_view.setUnderlined()
     }
 
     private fun citiesViewPagerSetup() {
@@ -65,10 +75,51 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    // TODO: Inform VM
+                    loadCityPositionEventPublisher.onNext(WeatherViewEvent.LoadCityPositionEvent(position))
                 }
             })
         }
+    }
+
+    private fun setupDatabase() {
+        clearDatabase()
+        val sf = LocationDb(cityName = "San Francisco", regionName = "CA", woeId = 2487956, position = 0)
+        val sfWeather = WeatherForLocationDb(
+                id = 0,
+                theTemp = 35f,
+                pressure = 1023f,
+                humidity = 52f,
+                windSpeed = 3.13f,
+                dateTimeOfFetch = "2020-11-29"
+        ).apply { location.target = sf }
+        weatherForLocationBox.put(sfWeather)
+
+        val phx = LocationDb(cityName = "Phoenix", regionName = "AZ", woeId = 2471390, position = 1)
+        val phxWeather = WeatherForLocationDb(
+                id = 0,
+                theTemp = 65f,
+                pressure = 634f,
+                humidity = 30f,
+                windSpeed = 14f,
+                dateTimeOfFetch = "2020-11-29",
+        ).apply { location.target = phx }
+        weatherForLocationBox.put(phxWeather)
+
+        val ny = LocationDb(cityName = "New York", regionName = "NY", woeId = 2459115, position = 2)
+        val nyWeather = WeatherForLocationDb(
+                id = 0,
+                theTemp = 15f,
+                pressure = 23f,
+                humidity = 113f,
+                windSpeed = 26f,
+                dateTimeOfFetch = "2020-11-29",
+        ).apply { location.target = ny  }
+        weatherForLocationBox.put(nyWeather)
+    }
+
+    private fun clearDatabase() {
+        locationBox.removeAll()
+        weatherForLocationBox.removeAll()
     }
 
     /**

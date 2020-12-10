@@ -19,7 +19,7 @@ class WeatherRepo(
                     is WeatherRepoAction.FetchForLocationAction -> {
                         api.getWeatherForWhereOnEarthId(weatherAction.whereOnEarthId)
                                 .subscribeOn(rxProvider.ioScheduler())
-                                .doOnError { error ->
+                                .doOnError { error: Throwable ->
                                     Logger.e(error, error.message ?: "Failed to do api call")
                                 }
                                 .map<WeatherResult> { response ->
