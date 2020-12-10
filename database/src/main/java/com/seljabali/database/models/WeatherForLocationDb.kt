@@ -9,11 +9,13 @@ import kotlinx.android.parcel.Parcelize
 @Entity
 @Parcelize
 data class WeatherForLocationDb(
-    @Id(assignable = true) var id: Long,
-    val theTemp: Float,
-    val pressure: Float,
-    val humidity: Float,
-    val windSpeed: Float,
-    val dateTimeOfFetch: String,
-    val location: ToOne<LocationDb>
-) : Parcelable
+    @Id var id: Long = 0L,
+    var theTemp: Float = 0f,
+    var pressure: Float = 0f,
+    var humidity: Float = 0f,
+    var windSpeed: Float = 0f,
+    var dateTimeOfFetch: String = "",
+
+) : Parcelable {
+    lateinit var location: ToOne<LocationDb>
+}

@@ -9,8 +9,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class LocationDb(
     @Id var id: Long = 0,
-    val cityName: String,
-    val regionName: String = "",
-    val woeId: Int = 0,
+    var cityName: String = "",
+    var regionName: String = "",
+    var woeId: Int = 0,
     var position: Int = 0
 ) : Parcelable

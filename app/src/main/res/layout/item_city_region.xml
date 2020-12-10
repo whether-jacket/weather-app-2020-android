@@ -10,7 +10,7 @@
     android:padding="@dimen/m_padding"
     app:strokeColor="?attr/dividerColor"
     app:strokeWidth="@dimen/horizontal_divider_height"
-    app:cardCornerRadius="@dimen/s_corner_radius">
+    app:cardCornerRadius="@dimen/l_corner_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

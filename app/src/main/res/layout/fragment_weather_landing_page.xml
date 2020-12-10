@@ -12,9 +12,11 @@
         android:id="@+id/cities_view_pager_outer_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/city_region_card_height"
+        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        android:layout_marginEnd="@dimen/m_horizontal_spacing"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/cities_view_pager"
@@ -26,11 +28,11 @@
     <!-- Temperature -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/temperature_text_view"
-        style="@style/TextAppearance.MaterialComponents.Headline4"
+        style="@style/TextAppearance.MaterialComponents.Headline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/m_vertical_spacing"
-        android:layout_marginStart="@dimen/m_horizontal_spacing"
+        android:layout_marginStart="@dimen/xl_horizontal_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/weather_image_view"
         app:layout_constraintBottom_toBottomOf="@id/weather_image_view"/>
