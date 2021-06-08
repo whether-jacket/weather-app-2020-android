@@ -1,6 +1,6 @@
 package com.seljabali.core.utilities.time
 
-object Formats {
+object DateTimeFormats {
 
     val yearMonthDayFormats: List<String> = ArrayList<String>().apply {
         for (yearMonthDay in YearMonthDay.values()) {

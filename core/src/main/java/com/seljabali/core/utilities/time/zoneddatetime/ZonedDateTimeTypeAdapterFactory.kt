@@ -1,4 +1,4 @@
-package com.seljabali.core.utilities.time
+package com.seljabali.core.utilities.time.zoneddatetime
 
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
 import com.google.gson.TypeAdapterFactory
 import com.google.gson.stream.JsonToken
+import com.seljabali.core.utilities.time.*
 import java.time.ZonedDateTime
 
 class ZonedDateTimeTypeAdapterFactory : TypeAdapter<ZonedDateTime>() {
@@ -24,7 +25,7 @@ class ZonedDateTimeTypeAdapterFactory : TypeAdapter<ZonedDateTime>() {
             out.nullValue()
             return
         }
-        out.value(value.print(Formats.YearMonthDayTime.YYYY_MM_DD_TIME_Z))
+        out.value(value.print(DateTimeFormats.YearMonthDayTime.YYYY_MM_DD_TIME_Z))
     }
 
     override fun read(`in`: JsonReader?): ZonedDateTime? {
