@@ -1,6 +1,6 @@
 <h3 align="center"><img src="https://github.com/whether-jacket/weather-app-2020-android/blob/master/screenshots/logo.png?raw=true" alt="" data-canonical-src="" width="70" height="70"/> </h3>
 <h1 align="center">Weather App 2020 Android </h1></br>
-<p align="center">App aspiring to show case Android's best practices as of 2020 along with developer goodies.</br> 👷‍♂️Under construction</p></br>
+<p align="center">App aspiring to show case Android's best practices as of 2020 along with developer goodies.</br> 👷‍♂️Under construction</p>
 
 ## Features
 - View city's weather.
