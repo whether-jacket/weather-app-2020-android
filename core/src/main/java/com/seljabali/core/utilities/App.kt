@@ -35,7 +35,9 @@ object App {
             if (OsVersion.isAtLeast(P)) {
                 context.packageManager.getPackageInfo(context.packageName, 0).longVersionCode
             } else {
-                BuildConfig.VERSION_CODE.toLong()
+                0L
+                // TODO: Restore values to build
+//                BuildConfig.VERSION_CODE.toLong()
             }
         } catch (e: Exception) {
             0L
@@ -47,6 +49,7 @@ object App {
     @JvmStatic
     fun getBuildType(): String = BuildConfig.BUILD_TYPE
 
-    @JvmStatic
-    fun getBuildFlavor(): String = BuildConfig.FLAVOR
+    // TODO: Restore values to build
+//    @JvmStatic
+//    fun getBuildFlavor(): String = BuildConfig.FLAVOR
 }
