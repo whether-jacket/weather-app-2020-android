@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
-import com.seljabali.core.utilities.time.Formats
-import com.seljabali.core.utilities.time.NOW_TIME
-import com.seljabali.core.utilities.time.print
+import com.seljabali.core.utilities.time.DateTimeFormats
+import com.seljabali.core.utilities.time.localtime.print
 import kotlinx.android.synthetic.main.fragment_time_picker.*
 import java.time.LocalTime
 
@@ -21,8 +20,8 @@ class TimePickerFragment : BaseToolbarFragment() {
 
         @JvmStatic
         val TAG: String = TimePickerFragment::class.java.simpleName
-        private val TIME_24_FORMAT: String = Formats.Time.HH_MM_24.toString()
-        private val TIME_AM_PM_FORMAT: String = Formats.Time.HH_MM_AM.toString()
+        private val TIME_24_FORMAT: String = DateTimeFormats.Time.HH_MM_24.toString()
+        private val TIME_AM_PM_FORMAT: String = DateTimeFormats.Time.HH_MM_AM.toString()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -37,7 +36,7 @@ class TimePickerFragment : BaseToolbarFragment() {
     override fun getToolbarTitle(): String = getString(R.string.time_picker)
 
     private fun onShowTimeInAmPmButtonClicked() {
-        val currentTime = NOW_TIME()
+        val currentTime = LocalTime.now()
         TimePickerDialog(
             context,
             TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
@@ -54,10 +53,10 @@ class TimePickerFragment : BaseToolbarFragment() {
     }
 
     private fun onShowTimeIn24HButtonClicked() {
-        val currentTime = NOW_TIME()
+        val currentTime = LocalTime.now()
         TimePickerDialog(
             context,
-            TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+            { _, hourOfDay, minute ->
                 val timePicked = LocalTime.of(hourOfDay, minute).print(TIME_24_FORMAT)
                 Toast.makeText(context, timePicked, Toast.LENGTH_SHORT).show()
             },

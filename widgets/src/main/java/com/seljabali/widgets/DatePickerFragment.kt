@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
-import com.seljabali.core.utilities.time.Formats
-import com.seljabali.core.utilities.time.NOW
-import com.seljabali.core.utilities.time.ZonedDateTimeUtil
-import com.seljabali.core.utilities.time.print
-import com.seljabali.core.utilities.time.getMonthBaseZero
+import com.seljabali.core.utilities.time.DateTimeFormats
+import com.seljabali.core.utilities.time.zoneddatetime.ZonedDateTimeUtil
+import com.seljabali.core.utilities.time.zoneddatetime.ZonedDateTimes
+import com.seljabali.core.utilities.time.zoneddatetime.getMonthBaseZero
+import com.seljabali.core.utilities.time.zoneddatetime.print
 import kotlinx.android.synthetic.main.fragment_date_picker.*
 
 class DatePickerFragment : BaseToolbarFragment() {
@@ -22,7 +22,7 @@ class DatePickerFragment : BaseToolbarFragment() {
 
         @JvmStatic
         val TAG: String = DatePickerFragment::class.java.simpleName
-        private val DATE_FORMAT: String = Formats.MonthDayYear.MM_DD_YYYY_SLASH.toString()
+        private val DATE_FORMAT: String = DateTimeFormats.MonthDayYear.MM_DD_YYYY_SLASH.toString()
     }
 
     override fun onCreateView(
@@ -39,10 +39,11 @@ class DatePickerFragment : BaseToolbarFragment() {
     override fun getToolbarTitle(): String = getString(R.string.date_picker)
 
     private fun onShowDatePickerButtonClicked() {
-        val now = NOW()
+        val context = context ?: return
+        val now = ZonedDateTimes.now()
         DatePickerDialog(
             context,
-            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            { view, year, month, dayOfMonth ->
                 val datePicked = ZonedDateTimeUtil.new(
                     year = year,
                     month = month,
