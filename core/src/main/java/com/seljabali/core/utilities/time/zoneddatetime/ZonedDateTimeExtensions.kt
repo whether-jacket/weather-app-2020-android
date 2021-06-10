@@ -1,6 +1,5 @@
 package com.seljabali.core.utilities.time.zoneddatetime
 
-import com.seljabali.core.utilities.time.DateTimeFormats
 import com.seljabali.core.utilities.time.localdate.parseLocalDate
 import java.time.DayOfWeek
 import java.time.Duration
@@ -13,29 +12,23 @@ import java.util.Locale
 import kotlin.math.roundToInt
 
 // region Parsing
-fun String.parseZonedDate(format: String? = null): ZonedDateTime? {
-    var result = parseZonedDateHelper(this, format)
-    if (format != null && format.isEmpty()) {
+fun String.parseZonedDateTime(format: String? = null): ZonedDateTime? {
+    val result = parseZonedDateTimeHelper(this, format)
+    if (format != null && format.isNotEmpty() && doesDateTimeHaveTimeZone(this)) {
         return result
-    }
-    for (presetFormat in DateTimeFormats.yearMonthDayFormats) {
-        result = parseZonedDateHelper(this, presetFormat)
-        if (result != null) {
-            return result
-        }
     }
     val localDate = this.parseLocalDate(format) ?: return null
     return ZonedDateTime.of(localDate, LocalTime.now(), ZonedDateTimeUtil.getDefaultZoneId())
 }
 
-private fun parseZonedDateHelper(dateText: String, format: String?): ZonedDateTime? =
-    if (format == null || format.isEmpty())
+private fun parseZonedDateTimeHelper(dateText: String, format: String?): ZonedDateTime? =
+    if (format == null || format.isEmpty()) {
         try {
             ZonedDateTime.parse(dateText)
         } catch (e: DateTimeParseException) {
             null
         }
-    else {
+    } else {
         try {
             ZonedDateTime.parse(dateText, DateTimeFormatter.ofPattern(format))
         } catch (e: DateTimeParseException) {
@@ -49,15 +42,18 @@ fun String.parseMsftDate(): ZonedDateTime {
     val longString = this.substring(this.indexOf("(") + 1, this.indexOf(")"))
     return ZonedDateTimeUtil.new(longString.toLong())
 }
+
+private fun doesDateTimeHaveTimeZone(dateTime: String): Boolean =
+    dateTime.contains('T', ignoreCase = true)
 // endregion
 
 // region Attributes
 
 fun ZonedDateTime.isInLeapYear(): Boolean = ZonedDateTimeUtil.isLeapYear(this.year)
 
-fun ZonedDateTime.isAtStartOfDay(): Boolean = this.isEqualsTime(this.atStartOfDay())
+fun ZonedDateTime.isAtStartOfDay(): Boolean = this.isEqualTime(this.atStartOfDay())
 
-fun ZonedDateTime.isAtEndOfDay(): Boolean = this.isEqualsTime(this.atEndOfDay())
+fun ZonedDateTime.isAtEndOfDay(): Boolean = this.isEqualTime(this.atEndOfDay())
 
 // endregion
 
@@ -75,28 +71,28 @@ fun ZonedDateTime.isEqualDay(b: ZonedDateTime): Boolean = compareDay(b) == 0
 
 fun ZonedDateTime.isBeforeThanDay(b: ZonedDateTime): Boolean = compareDay(b) < 0
 
-fun ZonedDateTime.isBeforeThanEqualsDay(b: ZonedDateTime): Boolean = compareDay(b) <= 0
+fun ZonedDateTime.isBeforeThanEqualDay(b: ZonedDateTime): Boolean = compareDay(b) <= 0
 
 fun ZonedDateTime.isAfterThanDay(b: ZonedDateTime): Boolean = compareDay(b) > 0
 
-fun ZonedDateTime.isAfterThanEqualsDay(b: ZonedDateTime): Boolean = compareDay(b) >= 0
+fun ZonedDateTime.isAfterThanEqualDay(b: ZonedDateTime): Boolean = compareDay(b) >= 0
 
 fun ZonedDateTime.compareTime(toDate: ZonedDateTime): Int =
     when {
-        isEqualsTime(toDate) -> 0
+        isEqualTime(toDate) -> 0
         isBeforeThanTime(toDate) -> -1
         else -> 1
     }
 
-fun ZonedDateTime.isEqualsTime(b: ZonedDateTime): Boolean = isEqual(b)
+fun ZonedDateTime.isEqualTime(b: ZonedDateTime): Boolean = isEqual(b)
 
 fun ZonedDateTime.isBeforeThanTime(b: ZonedDateTime): Boolean = this.isBefore(b)
 
-fun ZonedDateTime.isBeforeThanEqualsTime(b: ZonedDateTime): Boolean = compareTime(b) <= 0
+fun ZonedDateTime.isBeforeThanEqualTime(b: ZonedDateTime): Boolean = compareTime(b) <= 0
 
 fun ZonedDateTime.isAfterThanTime(b: ZonedDateTime): Boolean = compareTime(b) > 0
 
-fun ZonedDateTime.isAfterThanEqualsTime(b: ZonedDateTime): Boolean = compareTime(b) >= 0
+fun ZonedDateTime.isAfterThanEqualTime(b: ZonedDateTime): Boolean = compareTime(b) >= 0
 
 fun ZonedDateTime.getMonthDifference(zonedDateTimeB: ZonedDateTime): Int {
     val yearDif = (zonedDateTimeB.year - this.year) * 12
@@ -130,7 +126,8 @@ fun ZonedDateTime.atEndOfDay(): ZonedDateTime = this.toLocalDate().atTime(LocalT
 fun ZonedDateTime.withLocalTime(localTime: LocalTime): ZonedDateTime {
     val withHour = this.withHour(localTime.hour)
     val withMinute = withHour.withMinute(localTime.minute)
-    return withMinute.withSecond(localTime.second)
+    val withSecond = withMinute.withSecond(localTime.second)
+    return withSecond.withNano(localTime.nano)
 }
 
 fun ZonedDateTime.getLastIncludingToday(dayOfWeek: DayOfWeek): ZonedDateTime =

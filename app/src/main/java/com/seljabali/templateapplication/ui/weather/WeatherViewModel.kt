@@ -4,7 +4,7 @@ import com.seljabali.core.modules.RxProvider
 import com.seljabali.core.mvi.BaseViewModel
 import com.seljabali.core.utilities.round
 import com.seljabali.core.utilities.time.DateTimeFormats
-import com.seljabali.core.utilities.time.zoneddatetime.parseZonedDate
+import com.seljabali.core.utilities.time.zoneddatetime.parseZonedDateTime
 import com.seljabali.core.utilities.time.zoneddatetime.print
 import com.seljabali.network.responses.WeatherForLocation
 import com.seljabali.templateapplication.ui.weather.models.CityRegionWeather
@@ -93,7 +93,7 @@ class WeatherViewModel(
             humidity = weather.humidity.round(2).toString(),
             windSpeed = weather.windSpeed.round(2).toString(),
             pressure = weather.airPressure.round(2).toString(),
-            dateTime = response.dateTime.parseZonedDate()?.print(DateTimeFormats.MonthDayYear.MMM_D_YYYY_SPACE) ?: ""
+            dateTime = response.dateTime.parseZonedDateTime()?.print(DateTimeFormats.MonthDayYear.MMM_D_YYYY_SPACE) ?: ""
         )
     }
 }
