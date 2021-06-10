@@ -20,7 +20,7 @@ object ZonedDateTimeUtil {
 
     fun new(year: Int, month: Int, day: Int): ZonedDateTime {
         val calendar = Calendar.getInstance()
-        calendar.set(year, month, day)
+        calendar.set(year, month - 1, day)
         return new(calendar.timeInMillis)
     }
 
@@ -33,7 +33,8 @@ object ZonedDateTimeUtil {
         second: Int = 0
     ): ZonedDateTime {
         val calendar = Calendar.getInstance()
-        calendar.set(year, month, day, hour, minute, second)
+        calendar.set(year, month - 1, day, hour, minute, second)
+        calendar.set(Calendar.MILLISECOND, 0)
         return new(calendar.timeInMillis)
     }
 

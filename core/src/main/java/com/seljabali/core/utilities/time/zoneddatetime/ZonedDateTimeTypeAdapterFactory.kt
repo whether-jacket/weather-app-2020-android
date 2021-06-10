@@ -36,6 +36,6 @@ class ZonedDateTimeTypeAdapterFactory : TypeAdapter<ZonedDateTime>() {
         }
         val jsonString = reader.nextString()
         if (jsonString.isMsftDate()) return jsonString.parseMsftDate()
-        return jsonString.parseZonedDate()
+        return jsonString.parseZonedDateTime()
     }
 }

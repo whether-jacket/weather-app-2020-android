@@ -2,15 +2,6 @@ package com.seljabali.core.utilities.time
 
 object DateTimeFormats {
 
-    val yearMonthDayFormats: List<String> = ArrayList<String>().apply {
-        for (yearMonthDay in YearMonthDay.values()) {
-            add(yearMonthDay.toString())
-        }
-        for (yearMonthDayTime in YearMonthDayTime.values()) {
-            add(yearMonthDayTime.toString())
-        }
-    }
-
     enum class DayOfWeek(private val text: String) {
         Sixth("d"),
         Mon("EEE"),
