@@ -2,10 +2,11 @@ package com.seljabali.core.utilities.time.zoneddatetime
 
 import java.time.DateTimeException
 import java.time.Instant
+import java.time.LocalDateTime
+import java.time.Month
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.zone.ZoneRulesException
-import java.util.Calendar
 
 object ZonedDateTimeUtil {
 
@@ -18,11 +19,15 @@ object ZonedDateTimeUtil {
             null
         } ?: ZoneId.of("America/Montreal")
 
-    fun new(year: Int, month: Int, day: Int): ZonedDateTime {
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month - 1, day)
-        return new(calendar.timeInMillis)
-    }
+    fun new(year: Int, month: Int, day: Int): ZonedDateTime =
+        new(
+            year = year,
+            month = month,
+            day = day,
+            hour = 0,
+            minute = 0,
+            second = 0
+        )
 
     fun new(
         year: Int = 0,
@@ -32,10 +37,15 @@ object ZonedDateTimeUtil {
         minute: Int = 0,
         second: Int = 0
     ): ZonedDateTime {
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month - 1, day, hour, minute, second)
-        calendar.set(Calendar.MILLISECOND, 0)
-        return new(calendar.timeInMillis)
+        val localDateTime = LocalDateTime.of(
+            year,
+            Month.of(month),
+            day,
+            hour,
+            minute,
+            second
+        )
+        return ZonedDateTime.of(localDateTime, getDefaultZoneId())
     }
 
     fun new(millis: Long): ZonedDateTime = Instant.ofEpochMilli(millis).atZone(getDefaultZoneId())
