@@ -20,7 +20,7 @@ fun String.parseZonedDateTime(format: String? = null): ZonedDateTime? {
     }
     val localDateTime = this.parseLocalDateTime(format)
     if (localDateTime != null) {
-        ZonedDateTime.of(localDateTime, ZonedDateTimeUtil.getDefaultZoneId())
+        return ZonedDateTime.of(localDateTime, ZonedDateTimeUtil.getDefaultZoneId())
     }
     val localDate = this.parseLocalDate(format) ?: return null
     return ZonedDateTime.of(localDate, LocalTime.MIN, ZonedDateTimeUtil.getDefaultZoneId())
