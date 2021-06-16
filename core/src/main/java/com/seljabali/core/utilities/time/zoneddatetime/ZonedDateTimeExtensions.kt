@@ -1,6 +1,7 @@
 package com.seljabali.core.utilities.time.zoneddatetime
 
 import com.seljabali.core.utilities.time.localdate.parseLocalDate
+import com.seljabali.core.utilities.time.localdatetime.parseLocalDateTime
 import java.time.DayOfWeek
 import java.time.Duration
 import java.time.LocalTime
@@ -17,8 +18,12 @@ fun String.parseZonedDateTime(format: String? = null): ZonedDateTime? {
     if (format != null && format.isNotEmpty() && doesDateTimeHaveTimeZone(this)) {
         return result
     }
+    val localDateTime = this.parseLocalDateTime(format)
+    if (localDateTime != null) {
+        ZonedDateTime.of(localDateTime, ZonedDateTimeUtil.getDefaultZoneId())
+    }
     val localDate = this.parseLocalDate(format) ?: return null
-    return ZonedDateTime.of(localDate, LocalTime.now(), ZonedDateTimeUtil.getDefaultZoneId())
+    return ZonedDateTime.of(localDate, LocalTime.MIN, ZonedDateTimeUtil.getDefaultZoneId())
 }
 
 private fun parseZonedDateTimeHelper(dateText: String, format: String?): ZonedDateTime? =
