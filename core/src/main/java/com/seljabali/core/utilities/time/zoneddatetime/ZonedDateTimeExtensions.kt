@@ -14,16 +14,15 @@ import kotlin.math.roundToInt
 
 // region Parsing
 fun String.parseZonedDateTime(format: String? = null): ZonedDateTime? {
-    val result = parseZonedDateTimeHelper(this, format)
-    if (format != null && format.isNotEmpty() && doesDateTimeHaveTimeZone(this)) {
-        return result
+    val zonedDateTime = parseZonedDateTimeHelper(this, format)
+    if (zonedDateTime != null) {
+        return zonedDateTime
     }
     val localDateTime = this.parseLocalDateTime(format)
     if (localDateTime != null) {
         return ZonedDateTime.of(localDateTime, ZonedDateTimeUtil.getDefaultZoneId())
     }
-    val localDate = this.parseLocalDate(format) ?: return null
-    return ZonedDateTime.of(localDate, LocalTime.MIN, ZonedDateTimeUtil.getDefaultZoneId())
+    return null
 }
 
 private fun parseZonedDateTimeHelper(dateText: String, format: String?): ZonedDateTime? =
@@ -124,9 +123,9 @@ fun ZonedDateTime.getMonthBaseZero(): Int = this.monthValue - 1
 
 fun ZonedDateTime.getDaysInMonth(): Int = this.month.length(isInLeapYear())
 
-fun ZonedDateTime.atStartOfDay(): ZonedDateTime = this.toLocalDate().atStartOfDay(this.zone)
+fun ZonedDateTime.atStartOfDay(): ZonedDateTime = this.withLocalTime(LocalTime.MIN)
 
-fun ZonedDateTime.atEndOfDay(): ZonedDateTime = this.toLocalDate().atTime(LocalTime.MAX).atZone(this.zone)
+fun ZonedDateTime.atEndOfDay(): ZonedDateTime = this.withLocalTime(LocalTime.MAX)
 
 fun ZonedDateTime.withLocalTime(localTime: LocalTime): ZonedDateTime {
     val withHour = this.withHour(localTime.hour)

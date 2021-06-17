@@ -2,7 +2,9 @@ package com.seljabali.core.utilities.time.localdate
 
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeFormatterBuilder
 import java.time.format.DateTimeParseException
+import java.util.*
 
 fun String.parseLocalDate(format: String? = null): LocalDate? =
     if (format == null || format.isEmpty()) {
@@ -18,3 +20,6 @@ fun String.parseLocalDate(format: String? = null): LocalDate? =
             null
         }
     }
+
+fun LocalDate.print(format: String): String =
+    this.format(DateTimeFormatterBuilder().appendPattern(format).toFormatter(Locale.US))
