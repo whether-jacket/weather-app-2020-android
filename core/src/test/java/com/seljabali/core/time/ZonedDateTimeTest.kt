@@ -225,7 +225,7 @@ class ZonedDateTimeTest {
         val dateA = ZonedDateTimeUtil.new(2021, 6, 7)
 
         // when
-        val resultLastMondayInclusive = dateA.getLastIncludingToday(DayOfWeek.MONDAY)
+        val resultLastMondayInclusive = dateA.getLast(DayOfWeek.MONDAY, countInCurrentDay = true)
 
         // then
         assertTrue(dateA.isEqualDay(resultLastMondayInclusive))
@@ -250,7 +250,7 @@ class ZonedDateTimeTest {
         val dateA = ZonedDateTimeUtil.new(2021, 6, 7)
 
         // when
-        val resultNextMondayInclusive = dateA.getNextIncludingToday(DayOfWeek.MONDAY)
+        val resultNextMondayInclusive = dateA.getNext(DayOfWeek.MONDAY, countInCurrentDay = true)
 
         // then
         assertTrue(dateA.isEqualDay(resultNextMondayInclusive))

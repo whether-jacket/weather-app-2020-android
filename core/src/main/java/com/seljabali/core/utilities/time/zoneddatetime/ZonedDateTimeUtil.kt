@@ -19,20 +19,10 @@ object ZonedDateTimeUtil {
             null
         } ?: ZoneId.of("America/Montreal")
 
-    fun new(year: Int, month: Int, day: Int): ZonedDateTime =
-        new(
-            year = year,
-            month = month,
-            day = day,
-            hour = 0,
-            minute = 0,
-            second = 0
-        )
-
     fun new(
-        year: Int = 0,
-        month: Int = 0,
-        day: Int = 0,
+        year: Int,
+        month: Int,
+        day: Int,
         hour: Int = 0,
         minute: Int = 0,
         second: Int = 0
