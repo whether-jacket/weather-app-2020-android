@@ -25,7 +25,8 @@ object ZonedDateTimeUtil {
         day: Int,
         hour: Int = 0,
         minute: Int = 0,
-        second: Int = 0
+        second: Int = 0,
+        nano: Int = 0
     ): ZonedDateTime {
         val localDateTime = LocalDateTime.of(
             year,
@@ -33,7 +34,8 @@ object ZonedDateTimeUtil {
             day,
             hour,
             minute,
-            second
+            second,
+            nano
         )
         return ZonedDateTime.of(localDateTime, getDefaultZoneId())
     }

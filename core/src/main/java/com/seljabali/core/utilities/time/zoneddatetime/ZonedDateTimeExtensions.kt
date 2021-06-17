@@ -46,9 +46,6 @@ fun String.parseMsftDate(): ZonedDateTime {
     val longString = this.substring(this.indexOf("(") + 1, this.indexOf(")"))
     return ZonedDateTimeUtil.new(longString.toLong())
 }
-
-private fun doesDateTimeHaveTimeZone(dateTime: String): Boolean =
-    dateTime.contains('T', ignoreCase = true)
 // endregion
 
 // region Attributes
@@ -109,13 +106,13 @@ fun ZonedDateTime.areInSameMonth(zonedDateTimeB: ZonedDateTime): Boolean =
     year == zonedDateTimeB.year && month == zonedDateTimeB.month
 
 fun ZonedDateTime.getDayDifference(zonedDateTimeB: ZonedDateTime): Int =
-    (Duration.between(this, zonedDateTimeB).seconds.toFloat() / 60f / 60f / 24f).roundToInt()
+    Duration.between(this.atStartOfDay(), zonedDateTimeB.atStartOfDay()).toDays().toInt()
 
 fun ZonedDateTime.getMinuteDifference(zonedDateTimeB: ZonedDateTime): Int =
-    (Duration.between(this, zonedDateTimeB).seconds / 60f).roundToInt()
+    Duration.between(this, zonedDateTimeB).toMinutes().toInt()
 
 fun ZonedDateTime.getHourDifference(zonedDateTimeB: ZonedDateTime): Int =
-    (Duration.between(this, zonedDateTimeB).seconds / (60f * 60f)).roundToInt()
+    (this.getMinuteDifference(zonedDateTimeB) / 60f).roundToInt()
 // endregion
 
 // region Getters
