@@ -1,27 +1,33 @@
 package com.seljabali.core.utilities.time.zoneddatetime
 
-import java.time.DayOfWeek
+import java.time.DayOfWeek.FRIDAY
+import java.time.DayOfWeek.MONDAY
+import java.time.DayOfWeek.SATURDAY
+import java.time.DayOfWeek.SUNDAY
+import java.time.DayOfWeek.THURSDAY
+import java.time.DayOfWeek.TUESDAY
+import java.time.DayOfWeek.WEDNESDAY
 import java.time.ZonedDateTime
 
 object ZonedDateTimes {
+    val now: ZonedDateTime get() = ZonedDateTime.now(ZonedDateTimeUtil.getDefaultZoneId())
+    val today: ZonedDateTime get() = now.atStartOfDay()
+    val yesterday: ZonedDateTime get() = today.minusDays(1)
+    val tomorrow: ZonedDateTime get() = today.plusDays(1)
 
-    fun now(): ZonedDateTime = ZonedDateTime.now(ZonedDateTimeUtil.getDefaultZoneId())
-    fun yesterday(): ZonedDateTime = now().minusDays(1)
-    fun tomorrow(): ZonedDateTime = now().plusDays(1)
+    val lastMonday: ZonedDateTime get() = today.getLast(MONDAY)
+    val lastTuesday: ZonedDateTime get() = today.getLast(TUESDAY)
+    val lastWednesday: ZonedDateTime get() = today.getLast(WEDNESDAY)
+    val lastThursday: ZonedDateTime get() = today.getLast(THURSDAY)
+    val lastFriday: ZonedDateTime get() = today.getLast(FRIDAY)
+    val lastSaturday: ZonedDateTime get() = today.getLast(SATURDAY)
+    val lastSunday: ZonedDateTime get() = today.getLast(SUNDAY)
 
-    fun lastMonday(): ZonedDateTime = now().getLast(DayOfWeek.MONDAY)
-    fun lastTuesday(): ZonedDateTime = now().getLast(DayOfWeek.TUESDAY)
-    fun lastWednesday(): ZonedDateTime = now().getLast(DayOfWeek.WEDNESDAY)
-    fun lastThursday(): ZonedDateTime = now().getLast(DayOfWeek.THURSDAY)
-    fun lastFriday(): ZonedDateTime = now().getLast(DayOfWeek.FRIDAY)
-    fun lastSaturday(): ZonedDateTime = now().getLast(DayOfWeek.SATURDAY)
-    fun lastSunday(): ZonedDateTime = now().getLast(DayOfWeek.SUNDAY)
-
-    fun nextMonday(): ZonedDateTime = now().getNext(DayOfWeek.MONDAY)
-    fun nextTuesday(): ZonedDateTime = now().getNext(DayOfWeek.TUESDAY)
-    fun nextWednesday(): ZonedDateTime = now().getNext(DayOfWeek.WEDNESDAY)
-    fun nextThursday(): ZonedDateTime = now().getNext(DayOfWeek.THURSDAY)
-    fun nextFriday(): ZonedDateTime = now().getNext(DayOfWeek.FRIDAY)
-    fun nextSaturday(): ZonedDateTime = now().getNext(DayOfWeek.SATURDAY)
-    fun nextSunday(): ZonedDateTime = now().getNext(DayOfWeek.SUNDAY)
+    val nextMonday: ZonedDateTime get() = today.getNext(MONDAY)
+    val nextTuesday: ZonedDateTime get() = today.getNext(TUESDAY)
+    val nextWednesday: ZonedDateTime get() = today.getNext(WEDNESDAY)
+    val nextThursday: ZonedDateTime get() = today.getNext(THURSDAY)
+    val nextFriday: ZonedDateTime get() = today.getNext(FRIDAY)
+    val nextSaturday: ZonedDateTime get() = today.getNext(SATURDAY)
+    val nextSunday: ZonedDateTime get() = today.getNext(SUNDAY)
 }

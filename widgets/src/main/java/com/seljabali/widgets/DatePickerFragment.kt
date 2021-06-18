@@ -40,7 +40,7 @@ class DatePickerFragment : BaseToolbarFragment() {
 
     private fun onShowDatePickerButtonClicked() {
         val context = context ?: return
-        val now = ZonedDateTimes.now()
+        val now = ZonedDateTimes.now
         DatePickerDialog(
             context,
             { view, year, month, dayOfMonth ->
