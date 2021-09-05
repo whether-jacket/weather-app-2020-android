@@ -52,6 +52,7 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -107,6 +108,9 @@ dependencies {
 
     implementation "com.facebook.stetho:stetho:$stetho_version"
     implementation "com.facebook.stetho:stetho-okhttp3:$stetho_version"
+
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_version"
+    implementation "com.github.seljabali:java-time-fun:$java_time_fun_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"

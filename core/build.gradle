@@ -51,7 +51,6 @@ android {
     }
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -64,8 +63,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:$ktx_version"
-
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
 
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.preference:preference-ktx:$preference_version"

@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.time.DateTimeFormats
-import com.seljabali.core.utilities.time.zoneddatetime.ZonedDateTimeUtil
-import com.seljabali.core.utilities.time.zoneddatetime.ZonedDateTimes
-import com.seljabali.core.utilities.time.zoneddatetime.getMonthBaseZero
-import com.seljabali.core.utilities.time.zoneddatetime.print
 import kotlinx.android.synthetic.main.fragment_date_picker.*
+import zoneddatetime.ZonedDateTimeUtil
+import zoneddatetime.ZonedDateTimes
+import zoneddatetime.extensions.getMonthBaseZero
+import zoneddatetime.extensions.print
 
 class DatePickerFragment : BaseToolbarFragment() {
 
@@ -48,7 +48,7 @@ class DatePickerFragment : BaseToolbarFragment() {
                     year = year,
                     month = month,
                     day = dayOfMonth,
-                    hour = 0,
+                    hourIn24 = 0,
                     minute = 0,
                     second = 0
                 )

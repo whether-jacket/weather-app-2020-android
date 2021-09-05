@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.seljabali.core.activityfragment.toolbar.BaseToolbarFragment
 import com.seljabali.core.utilities.time.DateTimeFormats
-import com.seljabali.core.utilities.time.localtime.print
 import kotlinx.android.synthetic.main.fragment_time_picker.*
+import localtime.extensions.print
 import java.time.LocalTime
 
 class TimePickerFragment : BaseToolbarFragment() {
