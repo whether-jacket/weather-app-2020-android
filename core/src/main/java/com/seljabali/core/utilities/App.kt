@@ -32,7 +32,7 @@ object App {
     @JvmStatic
     fun getVersionCode(context: Context): Long =
         try {
-            if (OsVersion.isAtLeast(P)) {
+            if (OsVersionUtil.isAtLeast(P)) {
                 context.packageManager.getPackageInfo(context.packageName, 0).longVersionCode
             } else {
                 0L

@@ -50,7 +50,7 @@ class WeatherFragment : BaseMviFragment<WeatherViewEvent, WeatherViewState, Weat
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewStateBinder = WeatherViewStateBinder(this)
-        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
+//        loadSfWeatherEventPublisher.onNext(WeatherViewEvent.LoadWeatherPageEvent)
         citiesViewPagerSetup()
         pressure_label_text_view.setUnderlined()
         wind_speed_label_text_view.setUnderlined()

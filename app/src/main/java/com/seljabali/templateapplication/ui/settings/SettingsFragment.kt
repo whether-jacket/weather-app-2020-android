@@ -11,6 +11,7 @@ import com.seljabali.database.DB_USER_PREFERENCES_BOX
 import com.seljabali.database.models.UserPreferencesDb
 import com.seljabali.designtokens.DesignTokensActivity
 import com.seljabali.pages.PagesActivity
+import com.seljabali.templateapplication.ForegroundService
 import com.seljabali.theming.ThemingActivity
 import com.seljabali.templateapplication.R
 import com.seljabali.widgets.WidgetsActivity
@@ -70,8 +71,8 @@ class SettingsFragment : BaseFragment() {
             userPreferencesBox.put(userPreference.apply { isSpeedInMetric = isChecked })
         }
         theming_button.setOnClickListener {
-            val startIntent = Intent(requireContext(), ThemingActivity::class.java)
-            startActivity(startIntent)
+            val intentStop = Intent(requireContext(), ForegroundService::class.java)
+            requireContext().startService(intentStop)
         }
         widgets_button.setOnClickListener {
             val startIntent = Intent(requireContext(), WidgetsActivity::class.java)

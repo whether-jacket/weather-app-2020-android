@@ -15,7 +15,7 @@ object Permission {
      *  Has Permission
      */
     @JvmStatic
-    fun isNeeded(): Boolean = OsVersion.isAtLeast(M)
+    fun isNeeded(): Boolean = OsVersionUtil.isAtLeast(M)
 
     @JvmStatic
     fun isNotNeeded(): Boolean = !isNeeded()

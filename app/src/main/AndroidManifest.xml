@@ -12,6 +12,7 @@
             android:xlargeScreens="true"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.OREGROUND_SERVICE"/>
 
     <application
             android:name="com.seljabali.templateapplication.TemplateApplication"
@@ -31,6 +32,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
 
         <activity android:name="com.seljabali.theming.ThemingActivity"/>
@@ -40,6 +42,8 @@
         <activity android:name="com.seljabali.pages.PagesActivity"/>
 
         <activity android:name="com.seljabali.designtokens.DesignTokensActivity"/>
+
+        <service android:name=".ForegroundService"/>
 
     </application>
 
