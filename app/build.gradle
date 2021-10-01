@@ -104,6 +104,9 @@ dependencies {
 
     implementation "com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:$drag_drop_swipe_recycler_view"
 
+    implementation "com.intuit.sdp:sdp-android:$sdp_version"
+    implementation "com.intuit.ssp:ssp-android:$ssp_version"
+
     implementation "com.orhanobut:logger:$logger_version"
 
     implementation "com.facebook.stetho:stetho:$stetho_version"

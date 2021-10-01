@@ -89,6 +89,9 @@ dependencies {
     implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxbinding_version"
     implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxbinding_version"
 
+    implementation "com.intuit.sdp:sdp-android:$sdp_version"
+    implementation "com.intuit.ssp:ssp-android:$ssp_version"
+
     implementation "com.orhanobut:logger:$logger_version"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"

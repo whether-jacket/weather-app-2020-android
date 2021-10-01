@@ -21,6 +21,9 @@ buildscript {
         rxandroid_version = "2.1.1"
         rxkotlin_version = "2.4.0"
         rxbinding_version = "3.0.0"
+        sdp_version = "1.0.6"
+        ssp_version = "1.0.6"
+        ssp_version = "1.0.6"
         objectbox_version = '2.7.1'
         logger_version = "2.2.0"
         leakcanary_version = "2.2"

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Spacings -->
-    <dimen name="quarter_spacing">2dp</dimen>
-    <dimen name="half_spacing">4dp</dimen>
-    <dimen name="spacing">8dp</dimen>
-    <dimen name="double_spacing">16dp</dimen>
-    <dimen name="triple_spacing">24dp</dimen>
-    <dimen name="quadruple_spacing">32dp</dimen>
-    <dimen name="quintuple_spacing">40dp</dimen>
-    <dimen name="sextuple_spacing">48dp</dimen>
-    <dimen name="septuple_spacing">56dp</dimen>
-    <dimen name="octuple_spacing">64dp</dimen>
-    <dimen name="nonuple_spacing">72dp</dimen>
+    <dimen name="quarter_spacing">@dimen/_2sdp</dimen>
+    <dimen name="half_spacing">@dimen/_4sdp</dimen>
+    <dimen name="spacing">@dimen/_8sdp</dimen>
+    <dimen name="double_spacing">@dimen/_16sdp</dimen>
+    <dimen name="triple_spacing">@dimen/_24sdp</dimen>
+    <dimen name="quadruple_spacing">@dimen/_32sdp</dimen>
+    <dimen name="quintuple_spacing">@dimen/_40sdp</dimen>
+    <dimen name="sextuple_spacing">@dimen/_48sdp</dimen>
+    <dimen name="septuple_spacing">@dimen/_56sdp</dimen>
+    <dimen name="octuple_spacing">@dimen/_64sdp</dimen>
+    <dimen name="nonuple_spacing">@dimen/_72sdp</dimen>
 
     <!-- Horizontal Spacings -->
     <dimen name="xxs_horizontal_spacing">@dimen/quarter_spacing</dimen>
